@@ -1,0 +1,754 @@
+{
+ "round": "R24",
+ "created": "2026-10-21 23:40 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only; all manifest-listed certificate files copied to referee data). Built from referee verdict.json files only; a claim is accepted iff its referee verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md §4y).",
+ "briefing": "data/r24/BRIEFING.md sha256 20a60dfb5f1fd7a7fe200f36d317e5e57c8a689898f174eba55787f883fa3649",
+ "headline_verified": [
+  "Uniform AR: K>=3, strongly C4-free, eps>0, singleton-critical => F(G)=max_v S(G-N[v])-(K-1)|G-N[v]| > 0 (critical-slack identity); all 8 rows, residual strip (10) resolved; F>=eps+1 when n>=(K-1)(Delta+1)+eps+2",
+  "Mass prefix: K>=4, S>Kn, n<=K^2+2K-2+eps => F>0 (no criticality)",
+  "Conditional: CP_I_cap(K) for all K>=6 => GEN_K for all K by induction from GEN_5; with unrestricted root CP_I_cap(K) is equivalent to GEN_K",
+  "Spare-arm (q+4)-lift; HS core 2 refutes PRUNE(6) and EX_3(6); two-Petersen amalgam (K=3) refutes ROOT/POSROOT/MIN-ALL/CORE-ANY/GIVEN-CLASS and anchor forcing"
+ ],
+ "open": [
+  "CP(K) clean-port with positive/structured root (genuine missing lemma)",
+  "FP42 (42,3)",
+  "(42,4)",
+  "rows 4 and 8 for K>=6",
+  "MIN-SOME/MAXF under full criticality",
+  "IR_K/GEN_K (K>=6)",
+  "RAD(r>=11)",
+  "REAL-133"
+ ],
+ "sessions": [
+  {
+   "session": "r24_CP",
+   "prover_dir": "astra_r24/r24_CP",
+   "referee_dir": "astra_r24v/v_r24_CP",
+   "verdict_file": "astra_r24v/v_r24_CP/scratch/verdict.json",
+   "verdict_sha256": "dbfe8f3db49261ec529dd371150c950bcdd5d6e82ed2a34a501d55016caacde9",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    {
+     "id": "F1",
+     "source": "claim/PROOF_REPORT.md:232 and data/r24_exchange_search.json",
+     "required_fix": "Supply the actual 5000 (root,path) samples per graph and their checkable distances, or a fully specified deterministic sampler. Until then label the histogram distributions as unreproduced historical exploratory data, or remove their evidentiary claim. The exact seven examples remain proved by their separate complete certificates.",
+     "impact": "Reproducibility only; none of the proved theorems depends on the sample distributions."
+    },
+    {
+     "id": "F2",
+     "source": "claim/CLAIM_SUMMARY.md final paragraph and data/r24_manifest.json path conventions",
+     "required_fix": "Replace the obsolete absolute REPORT link by PROOF_REPORT.md and the manifest link by ../data/r24_manifest.json. Document that manifest scratch/REPORT.md is packaged as claim/PROOF_REPORT.md and the other scratch entries are packaged under data/.",
+     "impact": "Packaging only; all bytes and hashes match."
+    }
+   ],
+   "claims": [
+    {
+     "id": "SCOPE",
+     "statement": "Summary and report opening/closing: no CP, FP42, uniform GEN, new path cell, or radius theorem is proved.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "INPUTS",
+     "statement": "Section 1 conventions and explicitly accepted background dependencies.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "LOCAL",
+     "statement": "Section 2.1: disjoint classes, matching restrictions, triangle qualification.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "PORT",
+     "statement": "Section 2.1: endpoint lift, converse, and unrestricted-root equivalence.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A2",
+     "statement": "Exact mass identity A2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A",
+     "statement": "Theorem A: K>=4, S>Kn, n<=K^2+2K-2+epsilon implies F>0.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B",
+     "statement": "Theorem B: F<=0 forces the two order lower bounds A3.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C",
+     "statement": "Corollary C: mass throughout N and its first general outer order.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D",
+     "statement": "Corollary D and numerical K=6 necessary bounds.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E",
+     "statement": "Theorem E: arbitrary-deletion identities and criticality inequalities E1-E4.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F",
+     "statement": "Theorem F: class-subset loss F1 and monotonicity F2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F3",
+     "statement": "Exact keep-one formula F3 and its stated limitations.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G",
+     "statement": "Theorem G: four-vertex spare-arm lift.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G-COND",
+     "statement": "Conditional use of GEN_(K-2) and component descent without F>0.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "ANCHOR-CRIT",
+     "statement": "Two Petersen copies amalgamated at 0 are positive induced-critical at K=3.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "ANCHOR-PATH",
+     "statement": "Anchor rooted maximum five and the Petersen-tail local positive-mass obstruction.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "ASSEMBLY",
+     "statement": "Section 2.6: uniform conditional induction and the irreducible variant.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "H",
+     "statement": "Theorem H: all-subset pruning exclusion for six named controls.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "HEAWOOD",
+     "statement": "Contracted-Heawood pruning comparison and total certificate counts.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "HS2-PRUNE",
+     "statement": "HS core 2 refutes uncapped PRUNE(6) on an order-minimal outer irreducible.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "I",
+     "statement": "Theorem I: HS core 2 root 40 has exact clean-path exchange distance four.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "I-OTHERS",
+     "statement": "Six other exact exchange-distance certificates.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "I-SCOPE",
+     "statement": "Exchange minimality, initial extension facts, and limits of the counterexamples.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SAMPLES",
+     "statement": "Section 3.2: seven historical histograms from 5000 generated states each, seed 240133.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "CONTROL-DOMAIN",
+     "statement": "Section 3.3: all 334 control records and the specified subfamilies.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CONTROL-ARITH",
+     "statement": "Section 3.3 arithmetic, deletion and component verification counts.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CONTROL-PATHS",
+     "statement": "Section 3.3 positive-root witness coverage and spare-arm coverage.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "PRUNE-STATS",
+     "statement": "Section 3.3 raw whole-pruned-graph and deleting-Z statistics.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SMALL",
+     "statement": "Section 3.3: all 31 small K=2 critical instances satisfy PRUNE.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "TRIANGLE",
+     "statement": "Section 3.3: class-independence counterexample and two zero-root controls.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "OLD-TREES",
+     "statement": "Four imported obstruction trees and all 18 directed-prefix failure trees.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "OLD-FAMILIES",
+     "statement": "Retained HS-family irreducibility/paths, trial342 quotient, and G151 all-size budget obstruction.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "DECODING",
+     "statement": "Section 3.4: data decoding, finite completeness rules, and no missing solver proof.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "PACKAGE",
+     "statement": "Summary links and manifest/package integrity.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "ROWS",
+     "statement": "Section 4: mass effects across eight rows and the conditional order-42 scope.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SUFFICIENT",
+     "statement": "Section 5 ranked sufficient lemmas, residual mass strip, and kill-tests.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "OPEN",
+     "statement": "CP_out, CP_all, AR_all, FP42, their remaining capped variants, and uniform GEN_K.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  },
+  {
+   "session": "r24_AR",
+   "prover_dir": "astra_r24/r24_AR",
+   "referee_dir": "astra_r24v/v_r24_AR",
+   "verdict_file": "astra_r24v/v_r24_AR/scratch/verdict.json",
+   "verdict_sha256": "6a8039ffeffea4c4350435089f58181f9a7b3ae0e3d0f0794f066055e65a59b2",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "Document or rename the positivity-gated singleton_critical and in_strip fields (or store raw tests separately). This corrects four flag semantics; the reported positive-domain counts require no change.",
+    "Replace the two absolute links in CLAIM_SUMMARY.md with PROOF_REPORT.md and ../data/r24_manifest.json.",
+    "Treat search-history counters as unverified provenance unless a full trace/transition specification and the 60-vertex best state are supplied. No theorem, existence certificate, or exclusion depends on those counters."
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "Definitions, criticality hierarchy, and use of accepted background.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "Root accounting, equations (1)–(2), and closed-neighbourhood loss.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "General sum identity (3).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "Elementary Delta, order, epsilon, and triangle bounds (4).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "Stronger mass inequality (5).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Compatible degree ranges, including the rho refinement.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "Exact critical-slack identity (6) and R≥0.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "Uniform AR for every integer K≥3, including branch bound (7).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "Entire residual strip and all eight rows receive F>0; no path row is newly closed.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "Pair loss (8) and full critical deletion hierarchy.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Component inequality (9) and connected lower-parameter core.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "Clean endpoint lift and path-cap obstruction.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "Conditional induction from GEN_5 using CP_I_cap or CP_U.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "Original outer CP closes rows 4/8 conditionally and still needs NB/ST for the remaining rows.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "Outer CP, CP_U, CP_I_cap, FP42, and endpoint transport proposals.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C16",
+     "statement": "Imported audit domain and its positive/singleton counts.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C17",
+     "statement": "The two distinct triangle-trial-1 controls and their parameters.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "Three 80-vertex strip controls, their modifications, and all parameter table entries.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "Data-only full induced-criticality certificates for the three new graphs.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C20",
+     "statement": "Exact rho and positive-root P13 certificates for the three new graphs.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C21",
+     "statement": "P3 and HS amalgam constructions; 93 legal triangle additions.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C22",
+     "statement": "Final audit totals and absence of identity/theorem failures in the listed positive domain.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C23",
+     "statement": "Raw meaning of the stored singleton_critical and in_strip flags.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C24",
+     "statement": "P3 is a minimum-order K=1 mass-transfer obstruction.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C25",
+     "statement": "HS_core_34 refutes all roots positive; scoped minimality among supplied outer controls.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C26",
+     "statement": "Two-Petersen-tail obstruction and its family minimality.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C27",
+     "statement": "Contracted Heawood root obstruction.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C28",
+     "statement": "Three-page pentagon book obstruction and page minimality.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C29",
+     "statement": "Robertson-base obstruction.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C30",
+     "statement": "Finite-checking specifications and certificate completeness.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C31",
+     "statement": "Search-history counters and unsuccessful 60-vertex search.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C32",
+     "statement": "K=6 accepted closures, six (42,4) pairs, and unresolved (42,3)/(42,4) endpoints.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C33",
+     "statement": "G42/G151 scope controls and the criticality/irreducibility distinction.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C34",
+     "statement": "Imported HS all-model, directed-prefix, and exchange kill-tests.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C35",
+     "statement": "No new GEN_6, all-GEN, or RAD proof; remaining targets retain conjectural status.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C36",
+     "statement": "Manifest integrity and delivered-document links.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    }
+   ]
+  },
+  {
+   "session": "r24_compare",
+   "prover_dir": "astra_r24/r24_compare",
+   "referee_dir": "astra_r24v/v_r24_compare",
+   "verdict_file": "astra_r24v/v_r24_compare/scratch/verdict.json",
+   "verdict_sha256": "3993e1746abd48c5fc9cc6ace12e4a588a4909922043e37f0ec34293552f0bc6",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "In claim/CLAIM_SUMMARY.md, replace the old report link with PROOF_REPORT.md and the old manifest link with ../data/r24_manifest.json. No mathematical or certificate correction is required."
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "Definitions, hypothesis hierarchy, and eight-row conventions (§1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "Root accounting and sum identities (1)–(2).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "Elementary degree, order, and surplus bounds.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "Critical-slack identity (3) and nonnegativity of R.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "Uniform AR for K>=3 and the branch-specific average bound (4).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Noncritical mass prefix for K>=4.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "Clean endpoint equivalence (5).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "Model path monotonicity, descent, and conditional GEN induction.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "Full deletion losses and B-deletion identity (6)–(7).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "Class deletion inequality (8).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Component positivity (9), critical cores, and recursive descent (10).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "Core-contraction safety, surplus budget, and ambient-root obstruction (11)–(12).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "Contact identity (13).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "Private-neighbour capacity (14) and its limitations.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "Spare-arm lift and conditional shorter-path route.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C16",
+     "statement": "Theta: criticality, irreducibility, exact endpoint failure, and global minimum order.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C17",
+     "statement": "Two-Petersen J: positive full criticality and six bad positive minimum-degree roots.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "Petersen leaf obstruction, family formulas, and scoped minimality.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "Complete supplied-control coverage, arithmetic, and candidate classifications.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C20",
+     "statement": "Order-ten catalogue classification at K=2,3,4.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C21",
+     "statement": "Additional exhaustive K=3 catalogues at orders 11–14.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C22",
+     "statement": "All-subset pruning allocations, positive witnesses, and tuple completeness.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C23",
+     "statement": "HS core 2 is a minimum-order uncapped outer pruning obstruction.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C24",
+     "statement": "Seven exact fixed-root exchange distances and completeness of the finite balls.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C25",
+     "statement": "All concrete spare-arm witnesses.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C26",
+     "statement": "Whole-pruning computations on every control/root.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C27",
+     "statement": "Four nested critical-core chains and omitted-vertex certificates.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C28",
+     "statement": "Eight-vertex inclusion-minimal HS descent can fail to lift.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C29",
+     "statement": "Unique minimum-order replacement repairs that HS failure.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C30",
+     "statement": "All nine minimum-order lower cores at J root 7 fail to lift.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C31",
+     "statement": "Scoped counterexample/minimality table and logical distinctions.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C32",
+     "statement": "Retained HS, triangular, strip, Heawood, and Robertson controls.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C33",
+     "statement": "G151 budget obstruction, F91/F121 frozen components, and trial 342 nonirreducibility.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C34",
+     "statement": "Data encodings, tree completeness, certificate boundaries, and absence of a new SAT exclusion.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C35",
+     "statement": "Eight-row mass coverage and imported K=6 closures/residual cells.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C36",
+     "statement": "Conditional implications of the proposed CP, spare-arm, order-42, and transport routes.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C37",
+     "statement": "Universal CP_I_cap, FP42, spare-arm selection, and endpoint transport.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C38",
+     "statement": "Critical MIN-SOME, critical MAXF, and critical THROUGH strengthenings.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C39",
+     "statement": "No new GEN_K or RAD solution; overall scope assessment.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C40",
+     "statement": "Manifest integrity and summary links.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    }
+   ]
+  }
+ ]
+}

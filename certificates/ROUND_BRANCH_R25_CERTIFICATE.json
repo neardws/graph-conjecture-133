@@ -1,0 +1,806 @@
+{
+ "round": "R25",
+ "created": "2026-10-22 19:39 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only; all manifest-listed certificate files copied to referee data). Built from referee verdict.json files only; a claim is accepted iff its referee verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md §4z).",
+ "briefing": "data/r25/BRIEFING.md sha256 e85d8b28b2a6baa2e1c8375e93456ee24b7d7fd624d5de34b4f46e3e950a1ebf",
+ "headline_verified": [
+  "K=6 (42,4): 15 of 57 profiles closed (9 degree-8 profiles empty by written proofs D8-TF/D8-TRI; 6 triangle-free Delta=7 profiles (eps in {2,4}, a<=3) contain P13 by 318 independently checked CNF/RUP certificates); 42 profiles remain, all delta=5, Delta=7, rho=4",
+  "FP42 (42,3): only the ten triangle-free profile branches (and the qualified D8-TRI portion) closed; full Theorem-7 family open",
+  "K=3 obstructions: H21 (n=21, critical, p=11) refutes uncapped MIN-SOME_crit and minimum-core recursion at every F-maximiser; M15 (n=15, irreducible) refutes MAXF-all",
+  "K=2: every F-maximiser and some minimum-degree vertex start P5 (singleton-critical, connected); catalogues to n=16 (K=2,3) + triangle-free n=17,18: existential selectors never fail",
+  "Regular-block kill-test: uncapped MAXF-exists_crit (K>=5) implies every vertex of a connected K-regular girth>=5 graph starts P_2K"
+ ],
+ "open": [
+  "NB(6): 42 profiles of (42,4)",
+  "FP42 (42,3) remainder",
+  "GEN_6 beyond n<=41",
+  "MAXF-exists / MIN-SOME_irr (K>=3), capped selectors (K>=6)",
+  "CP(K)/IR_K/GEN_K (K>=6)",
+  "rows 4 and 8",
+  "RAD(r>=11)",
+  "REAL-133"
+ ],
+ "sessions": [
+  {
+   "session": "r25_K6finite",
+   "prover_dir": "astra_r25/r25_K6finite",
+   "referee_dir": "astra_r25v/v_r25_K6finite",
+   "verdict_file": "astra_r25v/v_r25_K6finite/scratch/verdict.json",
+   "verdict_sha256": "81f57c7d6581f210a8033bdd1a87abe0c1582bad6f4eb02b9b93f9066d6c0334",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    {
+     "id": "FIX1",
+     "location": "claim/PROOF_REPORT.md:133",
+     "required_change": "Replace the sentence saying the inequalities exclude e=s=1 by: \"The listed inequalities retain three impossible e=s=1 branches; these are harmless relaxations immediately refuted by the triangle clauses.\" Do not change the template counts or certificates."
+    },
+    {
+     "id": "FIX2",
+     "location": "claim/CLAIM_SUMMARY.md:10",
+     "required_change": "Replace the absolute report and manifest links with PROOF_REPORT.md and ../data/r25_manifest.json."
+    }
+   ],
+   "claims": [
+    {
+     "id": "B1",
+     "statement": "Conventions and inherited mass/prefix/normal-form inputs",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L1",
+     "statement": "Radius-two defect identity",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L2",
+     "statement": "Zero-defect degree bound and triangle conclusion",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L3",
+     "statement": "Integer common-neighbor moment, including selected portions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L4",
+     "statement": "Order-42 singleton inequalities are equivalent to full induced criticality",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D1",
+     "statement": "D8-TF: all four specified degree-eight triangle-free profiles are empty",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D2",
+     "statement": "D8-TRI: all five specified one-triangle degree-eight profiles are empty",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D3",
+     "statement": "rho>=4 supplies triangle degrees >=6; all degree-eight branches close",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N1",
+     "statement": "High independence, good highs and complete middle-support normal form",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N2",
+     "statement": "Two-low enumeration: ten and eight templates",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "N3",
+     "statement": "Three-low enumeration: 89 and 209 templates",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4",
+     "statement": "One-low normal forms for epsilon=2 and epsilon=4",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N5",
+     "statement": "Completeness of all symmetry restrictions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E1",
+     "statement": "Necessary structural CNF constraints and sound auxiliary encodings",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E2",
+     "statement": "Exact base/final DIMACS regeneration and necessary P13 clauses",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E3",
+     "statement": "RUP replay rule and 318 selected refutations",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P21",
+     "statement": "Triangle-free histogram (1,38,3): P13",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P22",
+     "statement": "Triangle-free histogram (2,36,4): P13",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P23",
+     "statement": "Triangle-free histogram (3,34,5): P13",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P41",
+     "statement": "Triangle-free histogram (1,36,5): empty",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P42",
+     "statement": "Triangle-free histogram (2,34,6): empty",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P43",
+     "statement": "Triangle-free histogram (3,32,7): P13",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G1",
+     "statement": "56 distinct labelled new graphs and clean P11 at every root",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G2",
+     "statement": "55 controls and every eligible root/endpoint witness",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G3",
+     "statement": "New graphs are fully induced-critical, irreducible and minimal in the stated slice",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G4",
+     "statement": "Limits, counterexample controls and failure of path-free elimination of the whole epsilon=4 slice",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C1",
+     "statement": "All 57 strengthened degree-only relaxations have integer feasible points",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C2",
+     "statement": "411 triangle-degree/configuration branches",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C3",
+     "statement": "Saved iterative candidates, cuts and positive SAT cases",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F1",
+     "statement": "15 of 57 profiles close; the 42 survivors have maximum degree seven",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F2",
+     "statement": "Remaining near-barrier domain has B-order 34 and seven nonzero parent classes",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F3",
+     "statement": "Ten triangle-free FP42 branches close; triangular transfer is qualified",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F4",
+     "statement": "Eight-row status and absence of any new whole-cell/general-K/prefix result",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "Q1",
+     "statement": "Sufficiency of the three ranked targets and proposed endpoint/spare-arm lifts",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "Q2",
+     "statement": "Reduced NB42, structured-root existence, FP42, GEN_6 and REAL-133",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "H1",
+     "statement": "Historical floating-point infeasibility statuses, runtimes/budgets, checker provenance and process/thread history",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "A1",
+     "statement": "Manifest completeness, hashes and selected proof statistics",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A2",
+     "statement": "Claim-summary artifact links",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    }
+   ]
+  },
+  {
+   "session": "r25_minroot",
+   "prover_dir": "astra_r25/r25_minroot",
+   "referee_dir": "astra_r25v/v_r25_minroot",
+   "verdict_file": "astra_r25v/v_r25_minroot/scratch/verdict.json",
+   "verdict_sha256": "1143d8b854c8bcb62a9baecec3ca18e3d32f531c7d5750af5414b21726e40870",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "Qualify §3.2: all 360 controls have checked root statistics, but supplied path/negative-tree certificates cover the 353 positive K>=2 controls. Name the seven omitted records or include the 225 additional root certificates now written in scratch/additional_control_certificates.json.",
+    "Repair CLAIM_SUMMARY.md links: use PROOF_REPORT.md for the report and ../data/r25_manifest.json for the manifest in this package."
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "§1: conventions, parent classes, root notation and target quantifiers",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "§1: clean-port/rooted-path equivalence and capped targets imply GEN_K",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "§2.1: self-contained GEN_2 proof",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "§2.2: regular-block critical assembly theorem, including all K>=3",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "§2.2: Petersen representation, girth, diameter and rooted maximum five",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "§2.2: H21 is strongly C4-free and fully induced-critical",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "§2.2: H21 rooted maximum six at 20 and exact p=11",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "§2.2: H21 refutes uncapped MIN-SOME, minimum-L selection and universal MAXF",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "§2.2: H21 reducibility and scoped order minimality",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "§2.2: spare-arm repair for H21 and the assembly family",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "§2.2: positive 2-surplus requires at least seven vertices",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "§2.2: all 18 minimum lower cores at H21 root 20 fail",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "§2.3: M15 construction and local graph properties",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "§2.3: M15 failed root, exact masses, other maximisers and p=9",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "§2.3 and §5: prescribed spare-arm failure, universal tie-rule failure and biconnectivity",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C16",
+     "statement": "§2.3: every positive 3-surplus graph has at least twelve vertices",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C17",
+     "statement": "§2.3 and §3.4: complete M15 proper-model domain",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "§2.3: M15 irreducibility and irreducible MAXF-all counterexample",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "§2.4: identities (C),(D), sign tests and zero minimum-root examples",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C20",
+     "statement": "§2.4: slack identity (E) and its limitation",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C21",
+     "statement": "§2.4: full-loss identities and inequalities (F),(G),(H)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C22",
+     "statement": "§2.4: component descent (I), lower cores and their endpoint limitation",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C23",
+     "statement": "§2.4: order-42 minimum-root sign specialisations",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C24",
+     "statement": "§2.4 and §3.5: contact/exchange warnings and retained old obstructions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C25",
+     "statement": "§3.1: exhaustive-generation filters and full-criticality procedure",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C26",
+     "statement": "§3.1: all generated, positive, singleton and critical counts",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C27",
+     "statement": "§3.1: aggregate classifications, triangle histogram and computed minimality bounds",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C28",
+     "statement": "§3.2: 360 control records, named selector sets and selection results",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C29",
+     "statement": "§3.2: the control file contains a witness or negative tree for every root",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C30",
+     "statement": "§3.2: finite witness-validation totals",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C31",
+     "statement": "§3.3: fixed-graph CNF encoding, clause families and exact hashes",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C32",
+     "statement": "§3.3: both DRAT/RUP UNSAT certificates",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C33",
+     "statement": "§3.4: model, path, graph6 and core certificate specifications",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C34",
+     "statement": "Summary links and §3.4 manifest integrity",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C35",
+     "statement": "§3.5: scoped minimality table and counterexample limitations",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C36",
+     "statement": "§4: eight-row status and retained K=6 cells/profiles",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C37",
+     "statement": "§4–5: conditional closures and sufficient ranked proposals",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C38",
+     "statement": "§1, §5–6: capped MIN-SOME, existential MAXF and the remaining proposed lemmas",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C39",
+     "statement": "§3.4: original computation scheduling and checker-authorship history",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C40",
+     "statement": "Summary and §6: no new K=6 row/cell, GEN_6 or REAL-133 closure",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    }
+   ]
+  },
+  {
+   "session": "r25_compare",
+   "prover_dir": "astra_r25/r25_compare",
+   "referee_dir": "astra_r25v/v_r25_compare",
+   "verdict_file": "astra_r25v/v_r25_compare/scratch/verdict.json",
+   "verdict_sha256": "6e49810c88c155851198d03e546650a157347ec95deec608e698ec2b05a10801",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "In claim/CLAIM_SUMMARY.md replace the report link with PROOF_REPORT.md and the manifest link with ../data/r25_manifest.json."
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "§1: conventions, criticality, connectedness, admissible models",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "§1: clean endpoint ⇔ rooted path",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "§1, §4: capped selectors and positive-model descent imply GEN_K",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "§2.1: local identities (1), (2)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "§2.1: positive 2-surplus requires order ≥7",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "§2.1: AR(2) under singleton inequalities",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "§2.2: bad-root normal form under connectedness and L≥3",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "§2.2: every F-maximiser works at K=2",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "§2.2: MIN-SOME(2) and unique individual obstruction",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "§2.2: theta criticality, minimality and GEN_2",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "§2.3: Petersen facts and exact rooted maximum five",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "§2.3: H21 criticality, reducibility, F-roots and exact paths",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "§2.3: every minimum lower core fails at every H21 F-maximiser",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "§2.3: exact H21/M15 minimum-core domains and clean paths",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "§2.3: M15 core-wide private lower F-maximiser rule fails",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C16",
+     "statement": "Imported M15 irreducibility and universal MAXF counterexample",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C17",
+     "statement": "§2.4: neighbour-slack potential (5)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "§2.4: full-loss hierarchy (6)–(8), including triangles",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "§2.4: contact identity and nonextendible-path capacity (9), (10)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C20",
+     "statement": "§2.5: regular-block critical assembly and exact maximisers",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C21",
+     "statement": "§2.5: uncapped critical MAXF would imply the rooted zero-surplus theorem",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C22",
+     "statement": "§2.6: disconnected positive-graph counterexample",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C23",
+     "statement": "§3.1: canonical-generation filter completeness and TF domain reductions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C24",
+     "statement": "§3.1: all five generation/positive/singleton/critical counts",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C25",
+     "statement": "§3.1: full criticality, subset totals and triangle histograms",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C26",
+     "statement": "§3.1: endpoint classifications and computed order floor 17",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C27",
+     "statement": "§3.2: structured family constructions and positivity counts",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C28",
+     "statement": "§3.2: complete Robertson augmentation slice",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C29",
+     "statement": "§3.2–3.3: feasible flow certificates prove full criticality",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C30",
+     "statement": "§3.2: all 360 controls and selector conclusions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C31",
+     "statement": "§3.2: eight retained local-search outputs",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C32",
+     "statement": "§3.3: graph, rooted-path and prefix-tree certificate specifications",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C33",
+     "statement": "§3.3: minimum-core domain, privacy and forest encodings",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C34",
+     "statement": "§3.3: bounded CP models, symmetry and path cuts",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C35",
+     "statement": "§3.3: no new SAT/ILP UNSAT theorem",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C36",
+     "statement": "§3.4: scoped obstruction minimality and retained kill-tests",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C37",
+     "statement": "§3.4: direct K=2 lemma audit through order ten",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C38",
+     "statement": "§3.4: manifest integrity and delivered certificate coverage",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C39",
+     "statement": "§4: accepted K=6 prefix, eight-row status and 57 retained profiles",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C40",
+     "statement": "§4–5: conditional selectors, spare-arm and ambient-core proposals",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C41",
+     "statement": "§1, §5–6: surviving uncapped/capped conjectures",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C42",
+     "statement": "§3: original pruning events, mutation trajectory, solver timing and authorship/resource history",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C43",
+     "statement": "CLAIM_SUMMARY.md artifact links",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C44",
+     "statement": "Summary and §6: established contributions and no global closure",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    }
+   ]
+  }
+ ]
+}

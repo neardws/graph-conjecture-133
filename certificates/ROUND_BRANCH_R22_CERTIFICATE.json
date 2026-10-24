@@ -1,0 +1,409 @@
+{
+ "round": "R22",
+ "created": "2026-10-21 10:56 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only; manifest-listed CNF/RUP certificate files added to referee data, sha256-checked). Built from referee verdict.json files only; a claim is accepted iff its referee verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md §4w).",
+ "briefing": "data/r22/BRIEFING.md sha256 ab5f8b3b9cb47908706d1efee326b641fc22dcf7a14606c1a9fd86892df0fcd9",
+ "headline_verified": [
+  "T41 (computer-assisted): every strongly C4-free graph of order 41 with S>246 has profile (1,0,36,4) and an induced P13; K=6 cell (41,4) empty, (41,3) has P13; GEN_6 holds for all orders <=41 (counterexample needs n>=42, p in {11,12}); 33-vertex endpoint domain E33 empty for a=5,6,7 (RUP refutations)",
+  "K=6 cell (43,5) closed (computer-assisted): only (eps,T)=(6,0) occurs and every graph contains P13; explicit irreducible G43; Latin-square triangle normal form and derangement normal form at the top boundary n=K^2+K+1 (uniform K)",
+  "Uniform: path-contact identity, private-neighbour capacity inequality, large-surplus localization (NB with rho<=K-2 and eps>=K-1 empty; T=0 & eps=K-1 empty); NB-EX2 requires full L1 moves (P7-only distance 3 in G42); K=6 near-barrier residual reduced to cell (42,4) only (57 profiles)"
+ ],
+ "open": [
+  "K=6 cell (42,4) (NB(6))",
+  "NB-EX2(K)/NB(K) for K>=7",
+  "ST-EX(2)(K) rows 3,7",
+  "outer rho>=3 model lemma rows 4,8",
+  "IR_K/GEN_K for K>=6 incl. GEN_6 at n>=42",
+  "RAD(r>=11)",
+  "REAL-133"
+ ],
+ "sessions": [
+  {
+   "session": "r22_endpoint",
+   "prover_dir": "astra_r22/r22_endpoint",
+   "referee_dir": "astra_r22v/v_r22_endpoint",
+   "verdict_file": "astra_r22v/v_r22_endpoint/scratch/verdict.json",
+   "verdict_sha256": "c8fd5707e10123de602c3d6f6b5ab43ff014044c46cf5fe4d1743721ff47fcbf",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    {
+     "file": "claim/PROOF_REPORT.md",
+     "line": 52,
+     "fix": "For the arbitrary-order root lemma define z_v=n-1-sum_{u in N(v)}d_u, specializing to 40 at n=41; alternatively assume every vertex is within distance two of r.",
+     "counterexample": "scratch/written_audit.json, literal_fixed_40_arbitrary_order_counterexample"
+    },
+    {
+     "file": "claim/CLAIM_SUMMARY.md and claim/PROOF_REPORT.md",
+     "fix": "Replace original-directory hyperlinks and adjust certificate paths to the delivered claim/data layout."
+    }
+   ],
+   "claims": [
+    {
+     "id": "INPUT",
+     "statement": "Accepted R21 starting domain: nine profiles, epsilon=2, T=0, e=124 at order 41.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "ID1",
+     "statement": "High-vertex identity (1) and its two tests for a good high.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "ROOT",
+     "statement": "Simultaneous-root restriction at arbitrary order and degree.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C1",
+     "statement": "Low-pair bound (2) and existence of the required good root.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "NF33",
+     "statement": "Exact 33-vertex normal form, including the converse.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A5-W",
+     "statement": "Written exclusion of (0,5,29,7), independent of SAT.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "EX137",
+     "statement": "Profile (1,3,30,7) is empty.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "EX148",
+     "statement": "Profile (1,4,28,8) is empty.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "EX217",
+     "statement": "Profile (2,1,31,7) is empty.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "EX308",
+     "statement": "Profile (3,0,30,8) is empty.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "NF2L",
+     "statement": "The (2,0,33,6) profile has the stated two-low incidence normal form.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "ENC33",
+     "statement": "The three E33 CNFs encode only necessary graph constraints and complete symmetry choices.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "ENC2L",
+     "statement": "The two-low CNF encodes the full fixed graph and necessary middle constraints, without path clauses.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "AUX",
+     "statement": "AND, signed/repeated-literal sequential counters, and guarded lex encodings are exact.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "RUP-A5",
+     "statement": "The r22_a5_transparent refutation excludes profile (0, 5, 29, 7).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "RUP-A6",
+     "statement": "The r22_a6_transparent refutation excludes profile (0, 6, 27, 8).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "RUP-A7",
+     "statement": "The r22_a7_transparent refutation excludes profile (0, 7, 25, 9).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "RUP-2L",
+     "statement": "The r22_two_low_base refutation excludes profile (2, 0, 33, 6).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "RUP-RULE",
+     "statement": "RUP implication and the soundness of keeping derived permanent units during clause deactivation.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "NF12",
+     "statement": "The surviving profile has the twelve-vertex cycle/matching normal form.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "MATCH1",
+     "statement": "Complete first-stage matching lists and 2,552 induced P13 witnesses.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "MATCH2",
+     "statement": "Complete first-representative reduction and remaining two-high cases.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SURVIVOR",
+     "statement": "Every realization of (1,0,36,4) contains an induced P13.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E33",
+     "statement": "The stated 33-vertex distance-three-part domains are empty for a=5,6,7.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "T41",
+     "statement": "Every strongly C4-free order-41 graph with S>246 has profile (1,0,36,4) and p>=13.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CELL414",
+     "statement": "The positive (41,4) cell is empty.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CELL413",
+     "statement": "Every graph in the positive (41,3) cell has P13.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CUTOFF",
+     "statement": "GEN_6 holds through order 41; a counterexample has n>=42 and p in {11,12}.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CONTROL",
+     "statement": "The 198 supplied control records, 13,687 root pairs and G41 normal form/path audit.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "RES42",
+     "statement": "The remaining (42,4) slices have 16,4,16,5,7,9 necessary profiles, total 57.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "RES43",
+     "statement": "The remaining (43,5) domain has the fourteen listed parameter pairs, one necessary profile each.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "ASSEMBLY",
+     "statement": "The eight-row effects and the conditional exchange/model assembly imply IR_K and GEN_K if the stated uniform inputs hold.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "OPEN",
+     "statement": "GEN_6 above order 41, unrestricted IR_K/GEN_K, the remaining path cells, and RAD(r) for r>=11.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "MANIFEST",
+     "statement": "The required data bundle, hashes, and claimed total RUP additions.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "PATHS",
+     "statement": "Report and summary reference convention matches the delivered layout.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "HISTORY",
+     "statement": "Original CaDiCaL/Glucose/C runs, preliminary encodings, deleted-clause counts and timing metadata.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  },
+  {
+   "session": "r22_nbex2",
+   "prover_dir": "astra_r22/r22_nbex2",
+   "referee_dir": "astra_r22v/v_r22_nbex2",
+   "verdict_file": "astra_r22v/v_r22_nbex2/scratch/verdict.json",
+   "verdict_sha256": "c3a264f3db4dd17cc5e9d8fa2e1494b55a844aa38cc3a40427a8b6744a97b468",
+   "referee_overall": "CORRECT",
+   "required_fixes": [],
+   "claims": [
+    {
+     "id": "R22_TOP6",
+     "statement": "The entire K=6 cell (43,5) has (epsilon,T)=(6,0) and contains P13.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_TRIANGLE_FORM",
+     "statement": "Triangle normal form, relaxed converse, and identities (4)-(5).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_TRIANGLE_K6",
+     "statement": "K=6 specialization retains all overlapping-triangle possibilities.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_DERANGEMENT_FORM",
+     "statement": "Triangle-free two-high-root normal form and exhaustive four-type split.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_CONTACT",
+     "statement": "Path-contact identity (2), including triangles and q=2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_CAPACITY",
+     "statement": "Private-neighbor capacity inequality (3) and both corollaries.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_LARGE_SURPLUS",
+     "statement": "epsilon>=K-1 localizes to the top boundary; epsilon=K-1 gives disjoint triangles and odd T.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_LATIN",
+     "statement": "Complete Latin enumeration and reduction to representatives 0 and 14.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_ENCODING",
+     "statement": "All seven CNFs soundly represent necessary conditions; path clauses are valid.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_RUP",
+     "statement": "Seven addition-only RUP refutations derive the empty clause.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_G43",
+     "statement": "G43 is a nonempty irreducible example in (43,5,6,0), with induced P13.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_K4_CONTROL",
+     "statement": "The K=4 triangular top-boundary control is positive induced-critical and irreducible, with P9.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_P7_LIMIT",
+     "statement": "The displayed G42 P12 has P7 escape distance exactly 3 and E1 distance exactly 1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_PRIVATE_LIMIT",
+     "statement": "The second G42 P12 has no original-private escape within two E1 moves.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_MINIMALITY",
+     "statement": "G42 P7 obstruction is minimal in its stated finite domains; G41 is an absolute order-minimal positive K=6 obstruction to one-move escape.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_OUTER_CONTROL",
+     "statement": "Outer HS core 7 has a P12 at exact E1 distance 3, outside NB.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_CONTROLS",
+     "statement": "Complete path, exchange and lemma audit on 47 K=6 controls and one K=4 control.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_NORMAL_CONTROLS",
+     "statement": "All 30 G43 ordered high-root pairs give type 2+2+2; the K=4 triangle control realizes its normal form.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_SWITCH_SEARCH",
+     "statement": "All 38 stated order-42 controls admit only restoration after one edge deletion.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_RESIDUAL_SCOPE",
+     "statement": "Thirteen top slices are excluded; the remaining top slice has P13; no whole open row is closed.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_CONDITIONAL",
+     "statement": "NB-EX2 implies NB; the stated conditional global assembly and 33-vertex lift remain valid.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R22_BACKGROUND",
+     "statement": "Definitions, top-boundary defect calculation, accepted inputs, and retained older obstructions are used within scope.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "NB_EX2_GENERAL",
+     "statement": "General NB-EX2, NB, IR_K/GEN_K, remaining cells, and the proposed general-K path targets.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  }
+ ]
+}

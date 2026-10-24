@@ -1,0 +1,478 @@
+{
+ "round": "R27",
+ "created": "2026-10-23 00:09 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only; all manifest-listed files copied to referee data). Built from referee verdict.json files only; a claim is accepted iff its referee verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md §4ab). R26 search C27 execution totals withdrawn (r27_killtest claim C28, CORRECT).",
+ "briefing": "data/r27/BRIEFING.md sha256 4dac985b3140eccbfd67b25923067319462cd4d62763d4ec217bfbf74b9d7310",
+ "headline_verified": [
+  "Lemma A: connected strongly C4-free H, |H|>=2, lambda>=m>=2 off o => o starts induced P_(m+2); Theorem B: cut vertex => p>=m_i+m_j+3; K>=3 positive singleton-critical with cut vertex => p>=2*ceil((K+eps)/2)+3; capped cut-vertex case excluded for eps>=K-3 (all of K=3,4); two Moore blocks at a vertex have p>=2K+3",
+  "Exact irreducibility criterion at an articulation point (C1); star-repair capacity separates over components of B_v (D); Lemma E: positive repaired star needs positive (K-2)-mass in Z (=> P_(2K-3) in Z under GEN_(K-2)); remote-mass obstruction E1 explains M15",
+  "K=4 n=20: Robertson+1 is the unique positive graph (catalogue COMPUTED); Petersen block trees at K=3 classified, H21 unique critical R*-endpoint obstruction with positive star model; uniform safe-star theorem for regular-block stars (all K>=3)",
+  "K=3 irreducible catalogues: n=18 T=1 (202), n=19 T=0 (45), n=18 T=2 partial (5) with complete model-rejection certificates; no irreducible R*/CF endpoint failure in all tested data (failures = reducible H21 copies or noncritical)",
+  "R26 C27 local-search totals withdrawn"
+ ],
+ "open": [
+  "STAR-LEX_cap(K)/CF-endpoint for 2-connected irreducibles and cut-vertex case 1<=eps<=K-4 (K>=5)",
+  "GEN_K (K>=6)",
+  "NB(6)",
+  "FP42",
+  "RAD(r>=11)",
+  "REAL-133"
+ ],
+ "sessions": [
+  {
+   "session": "r27_starlex",
+   "prover_dir": "astra_r27/r27_starlex",
+   "referee_dir": "astra_r27v/v_r27_starlex",
+   "verdict_file": "astra_r27v/v_r27_starlex/scratch/verdict.json",
+   "verdict_sha256": "aa6057eee58214227efbd136d469c30892978fd499f8e1f0e76e5a37657d655e",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    {
+     "id": "FIX-A",
+     "location": "claim/PROOF_REPORT.md:50",
+     "required": "Add |V(H)|>=2 to Lemma A.",
+     "reason": "H={o}, m=2 satisfies the stated hypothesis and has rooted longest path order 1. The terminal proof starts by assuming q>=2. Theorem B uses only nontrivial branches, so its conclusions are unaffected."
+    },
+    {
+     "id": "FIX-DEF",
+     "location": "claim/PROOF_REPORT.md:16",
+     "required": "Define full induced criticality for positive graphs explicitly, matching ctx.",
+     "reason": "The bare proper-induced-subgraph condition does not imply connectedness; 2K1 is a counterexample. All actual applications already assume positivity."
+    },
+    {
+     "id": "FIX-SUMMARY",
+     "location": "claim/CLAIM_SUMMARY.md",
+     "required": "State K>=3 in the abbreviated cut-vertex claim; replace old absolute workspace links with portable links to the supplied report and manifest.",
+     "reason": "This makes the summary self-contained and its links usable. Without the parameter restriction the literal summary includes K=1, where P3 is a positive singleton-critical cut-vertex counterexample to the displayed lower bound."
+    }
+   ],
+   "claims": [
+    {
+     "id": "STATUS",
+     "statement": "General STAR-LEX_cap, CF-endpoint, the proposed structural lemmas, and REAL-133 remain unresolved.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "SUMMARY",
+     "statement": "Abbreviated cut-vertex claim in CLAIM_SUMMARY.md.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "DEF",
+     "statement": "Criticality definitions and implications; admissible models.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "ROOT",
+     "statement": "Parent classes, pentagon interpretation, clean-path extension, safety and equation (3).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A",
+     "statement": "A root starts an induced path of order at least m+2 if all other vertices have lambda at least m>=2.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "B",
+     "statement": "Theorem B: p(G)>=m_i+m_j+3 at a cut vertex.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B1",
+     "statement": "Positive singleton-critical cut-vertex bound p>=2 ceil((K+epsilon)/2)+3, K>=3.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B2",
+     "statement": "Exclusion under p<=2K and epsilon>=K-3; full cut domain at K=3,4 and residual epsilon range.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C",
+     "statement": "Branch identities and inequalities (6).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C1",
+     "statement": "Exact rooted-model criterion for irreducibility at a cut vertex.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "MOORE",
+     "statement": "Two Moore blocks are irreducible and have p>=2K+3 without anchored-path assumptions.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "BLOCKS",
+     "statement": "Regular-block path bound, bridge exclusion, and exact Moore/edge block-tree classification.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D",
+     "statement": "Theorem D: exact feasibility (8) and weighted quotient surplus (9).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D-COMP",
+     "statement": "Component capacities (10), strict positivity threshold, parent-class feasibility, and omitting nonpositive weights.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E",
+     "statement": "Lemma E: nonpositive induced (K-2)-surplus on Z forces every repaired star surplus <=-K.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E-IND",
+     "statement": "Lower-GEN consequence and elementary GEN_1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E1",
+     "statement": "Remote mass obstruction S(Z)>=(K-2)(m_K-1)+K+1 under full criticality.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "MASS",
+     "statement": "Universal mass bound, elementary order cutoff, and table (12)-(13).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "LIFT",
+     "statement": "Private attachment to P_(2K-3) in Z yields an induced P_(2K+1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "FINITE",
+     "statement": "16 controls, 687 root records, 93 selected endpoint witnesses, complete selectors.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CRITICAL",
+     "statement": "156 edge-charge certificates establish full induced criticality of the nine small triangle-free controls.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "FIRST",
+     "statement": "Contracted Heawood and Robertson+1 are irreducible at the first positive orders.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "REPAIRS",
+     "statement": "Complete nine-table repair enumeration and component maxima.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "TRIANGLES",
+     "statement": "Seven triangular controls and 1,928 all-Z/single-parent models.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "FORESTS",
+     "statement": "Seven complete negative forests and four cut-vertex certificates.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "H21",
+     "statement": "H21 refutes the uncapped bad-root rule and takes the positive-model alternative.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "M15",
+     "statement": "M15 bad-root obstruction, selector distinction, and arbitrary-bag irreducibility.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "J19",
+     "statement": "J19 irreducibility, exact p=9, selected endpoints, and star maximum -1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SPARE17",
+     "statement": "A17/B17/S17/D17 selected endpoints, failed position-three roots, criticality and irreducibility.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "MINIMALITY",
+     "statement": "Admissible-model minimality and order-17 minimality relative to accepted catalogues.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "LARGE",
+     "statement": "Mandatory large-control selected roots, remote statistics, endpoints and qualified structural statuses.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "REGULAR",
+     "statement": "Regular-block family has epsilon=2m-K, is fully critical, has the stated centre selector, and a positive safe whole-star model.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "INDUCTION",
+     "statement": "STAR-LEX_cap or CF endpoint on irreducibles implies GEN_K; induction from GEN_5.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "RESIDUAL",
+     "statement": "Residual 2-connected/cut-vertex domains and exact capacity sufficient condition.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "RANK1",
+     "statement": "Low/high remote-mass proposals jointly suffice, with the stated kill-tests.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "RANK2",
+     "statement": "Residual branch proposal and GEN_K implication to the stronger rooted branch statement.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "PACKAGE",
+     "statement": "Manifest, certificate provenance, and reproducibility of the mathematical checks.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "HISTORY",
+     "statement": "Historical single-process execution and simultaneous CPU use below eight threads.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  },
+  {
+   "session": "r27_killtest",
+   "prover_dir": "astra_r27/r27_killtest",
+   "referee_dir": "astra_r27v/v_r27_killtest",
+   "verdict_file": "astra_r27v/v_r27_killtest/scratch/verdict.json",
+   "verdict_sha256": "335cbd58f6ea7c717d60457ebc772fc6c0a32f83e2f899e426b33844217c33e6",
+   "referee_overall": "CORRECT",
+   "required_fixes": [],
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "Conventions, selector definitions, and irreducibility implying connected induced criticality.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "Clean lower-path formulation is equivalent to an endpoint P_(2K+1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "Exact star surplus identity, safety condition, and strict integer repair budget.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "Imported GEN_2..GEN_5, mass thresholds, AR, and model monotonicity are used within their hypotheses.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "At K=4,n=20, every positive graph is critical and irreducible with degrees 3..5 and profiles (epsilon,T,e)=(2,0,41) or (1,1,42).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Petersen graph facts, anchored P5, absence of P6, pi=6, and edge-boundary bound.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "Critical Petersen block-tree classification, root table, and unique R_star endpoint obstruction H21.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "J19 is the only irreducible Petersen block tree; J20/H21 are critical but reducible; minimality is only positivity/class-relative.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "Uniform regular-block stars are critical and have a positive safe centre-star model, all K>=3.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "Regular-star f formulas, unique R_star centre for K>=5, endpoint equivalence, and K=3,4 boundary qualifications.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Subset recurrence, triangle-free flows, positive reductions and complete negative rooted trees are sound certificates.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "The K=3 bounded-loss model universe and three-byte rejection encoding are exhaustive and sound.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "Complete n=18,T=1 degree-3..4 critical catalogue and full model classification.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "Complete n=18,T=2 degree-3..4 critical catalogue; model classification only on its first 2,048 records.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "Complete n=19 triangle-free degree-3..4 critical catalogue and full model classification.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C16",
+     "statement": "The n=19,T=1 interrupted stream has 3,435 retained critical graphs, all reducible, and supports no global exclusion.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C17",
+     "statement": "Robertson+1 is the complete positive K=4,n=20 catalogue; its graph is irreducible.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "All new catalogue graphs are critical and both selectors succeed; all advertised model totals are valid.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "Inherited endpoint coverage, source union, binary path format and combined stream totals.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C20",
+     "statement": "The three explicit new irreducible examples, selectors and endpoint witnesses.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C21",
+     "statement": "Structured-data coverage and selected-root certificates.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C22",
+     "statement": "Four additional block families and their endpoint, criticality and model witnesses.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C23",
+     "statement": "Every existential failure is classified: 30 records/29 labelled graphs, 28 critical H21 copies, two noncritical failures, no irreducible failure.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C24",
+     "statement": "H21 exact surplus, longest path, selected root, rooted maximum, criticality and positive star quotient.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C25",
+     "statement": "M15 and S17/A17/B17/D17 retain their inherited obstruction status and are not existential endpoint counterexamples.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C26",
+     "statement": "Deterministic planted local search and its finite certificate counts.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C27",
+     "statement": "Manifest integrity, certificate availability and data-only reproducibility.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C28",
+     "statement": "The R26 C27 execution totals are withdrawn; saved graphs and the new replay do not depend on them.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C29",
+     "statement": "Capped irreducible endpoint/model statements imply GEN_K, and the ranked sufficient alternatives have the advertised implication.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C30",
+     "statement": "Hypothesis audit, historical kill-test distinctions and limits of the session.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C31",
+     "statement": "General STAR-LEX_cap(K) and capped irreducible CF endpoint conjectures.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  }
+ ]
+}

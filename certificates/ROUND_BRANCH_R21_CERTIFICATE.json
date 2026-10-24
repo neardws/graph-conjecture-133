@@ -1,0 +1,701 @@
+{
+ "round": "R21",
+ "created": "2026-10-21 08:46 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only). Built from referee verdict.json files only; a claim is accepted iff its referee verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md §4v).",
+ "briefing": "data/r21/BRIEFING.md sha256 5c75dceef44a941aa86e476449aae3affba22c164c0b9cebfb2bee82ba3aa5d2",
+ "headline_verified": [
+  "K=6, n=41: every positive-6-surplus strongly C4-free graph on 41 vertices is triangle-free, eps=2, e=124, one of 9 degree profiles (3 at rho=4); T>0 parts of cells (41,3),(41,4) empty; new irreducible G41 (rho=3, p=20)",
+  "K=6 residual slices excluded: (42,4) (eps,T)=(3,3),(4,2); (43,5) (eps,T)=(3,5); (41,4) reduced to exact 33-vertex normal form + endpoint-part problem via GEN_5; (41,4) profiles not induced in Hoffman-Singleton",
+  "Uniform exchange lemmas (one-vertex exchange locality, P7 transport, terminal-component boundary bounds); F121/F91 satisfy full ST_TF hypotheses with E1-frozen P12 (one-vertex exchange is a dead end); complete E2 escape on F121/F91/G151 and NB-EX2 on G42, 37 NB HS cores, G41; implications NB-EX2=>NB, ST-EX(2)=>ST_TF/ST_Delta, +outer model lemma => IR_K => GEN_K"
+ ],
+ "open": [
+  "NB-EX2(K) / NB(K)",
+  "ST-EX(2)(K) / ST_TF(K), ST_Delta(K)",
+  "outer rho>=3 positive-model lemma under p<=2K",
+  "K=6 residual cells (41,3),(41,4),(42,4),(43,5) (partially reduced)",
+  "IR_K / GEN_K for K>=6 incl. GEN_6",
+  "RAD(r>=11)",
+  "REAL-133"
+ ],
+ "sessions": [
+  {
+   "session": "r21_n41",
+   "prover_dir": "astra_r21/r21_n41",
+   "referee_dir": "astra_r21v/v_r21_n41",
+   "verdict_file": "astra_r21v/v_r21_n41/scratch/verdict.json",
+   "verdict_sha256": "8d60a6aba62f1c0afabe18c481322fff81c85aeabf302d022538f0c8fc0f5040",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "Make singleton criticality explicit in §2.2 wherever the P4 relaxation is called necessary for every actual graph. All theorem applications already have this hypothesis; the mathematical exclusions need no change.",
+    "Add triangle-free (T=0) to the reduced Target A in §5 and to the class referenced by its proposed exchange lemma. With e=124,n=41, epsilon=2−3T; the present wording does not justify automatic positivity/criticality from the degree histogram alone.",
+    "Specify the two small-catalogue weight functions and the exact threshold/multiplicity convention in §3.3. The independent replacement domain in audit_catalogue.py uses w=1,w=d and thresholds j=0,...,n with repetitions and gives 202,266 valid tests.",
+    "Repair the two summary links to claim/PROOF_REPORT.md and data/r21_manifest.json. Treat claims of historical reading, seed use, independence and novelty as author-reported provenance, not verified mathematical conclusions."
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "Definitions and cited accepted background (§1)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "Every positive order-41 graph is connected, induced-critical and irreducible",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "Partition capacities P1–P2 and local degree-sum bound P3",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "Local patterns P4 and global relaxation are necessary",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "Sole-triangle degree cases, exact Farkas semantics and complete integer trees",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Complete coverage of accepted order-41/42/43 input profiles",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "All positive triangular order-41 graphs are excluded (§2.3)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "Exactly nine necessary positive order-41 degree profiles; Q,Z and rho=4 restriction",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "Sharp mass bound S≤248; triangles imply S≤246; first positive order is 41",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "Characterization of triangle-free profile (4,6^36,7^4)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Order-42 table and exclusions (epsilon,T)=(3,3),(4,2)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "Weighted integer moment P6",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "Order-43 (epsilon,T)=(3,5) exclusion and uniform specialization",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "Exchange P7, exact endpoint extensions and reachability interpretation",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "G41 construction, statistics, all edge links and irreducibility",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C16",
+     "statement": "Four complete ordered induced-path histograms and exact p values",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C17",
+     "statement": "G42 maximal P7 and displayed exchange chain to P13",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "395 control chains and 7,900 successful stress chains",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "All 200 HS cores have p=20; repaired trial 342 has a positive quotient",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C20",
+     "statement": "Seven-vertex tree refutes density-free universal plateau escape",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C21",
+     "statement": "Exact arithmetic audit totals and control inequality tests",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C22",
+     "statement": "Fresh small-graph catalogue, local/pair counts and exhaustive exchanges",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C23",
+     "statement": "202,266 small-graph weighted test instances",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C24",
+     "statement": "Nine singleton-low relaxations and 176 colored low-graph cases",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C25",
+     "statement": "Order-43 exploratory high templates and weighted evaluations",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C26",
+     "statement": "Main certificate interpretation and manifest integrity",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C27",
+     "statement": "Eight-row split, remaining cells and absence of a GEN counterexample",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C28",
+     "statement": "Reduced Target A and its automatic-criticality explanation (§5)",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C29",
+     "statement": "Short-plateau escape would imply Target A / NB(K)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "Q01",
+     "statement": "Target A, including its corrected nine-profile reduction",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q02",
+     "statement": "Target B in the remaining (42,4) and (43,5) slices",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q03",
+     "statement": "Every short path in the reduced order-41 class has an extendible transport plateau",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q04",
+     "statement": "Every 6-regular order-40 girth-five base with a separated four-set yields P13 after augmentation",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q05",
+     "statement": "Uniform NB(K) all-start escape and the proposed future adjacency-completion target",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q06",
+     "statement": "GEN_6, IR_6, NB(6), general GEN_K/IR_K and the separate radius branch",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "D01",
+     "statement": "Delivery links in CLAIM_SUMMARY.md",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "D02",
+     "statement": "Historical reading/execution, independent authorship, seed provenance and novelty",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  },
+  {
+   "session": "r21_general",
+   "prover_dir": "astra_r21/r21_general",
+   "referee_dir": "astra_r21v/v_r21_general",
+   "verdict_file": "astra_r21v/v_r21_general/scratch/verdict.json",
+   "verdict_sha256": "141dd1ab219eb02164ff96ccc0770716a8a3378be3b51815a4a772ea04e03021",
+   "referee_overall": "CORRECT",
+   "required_fixes": [],
+   "claims": [
+    {
+     "id": "D1",
+     "statement": "Definitions, exchange state spaces, and terminality at q=p(G) (§1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L1",
+     "statement": "Exact one-vertex exchange classification and four-port locality (§2.1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L2",
+     "statement": "Outside-support endpoint neighbors have at least two interior contacts (§2.2).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L3",
+     "statement": "Boundary bounds (21.2)-(21.5), singleton consequence and top-NB restriction (§2.3).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L4",
+     "statement": "Regular-base criticality theorem with deleted edges (§2.4).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C1a",
+     "statement": "F121 satisfies all triangle-free ST hypotheses and has a frozen P12 plus a two-vertex escape to P13 (§2.5).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C1b",
+     "statement": "F91 satisfies all triangle-free ST hypotheses and has a frozen P12 plus a two-vertex escape to P13 (§2.5).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C1c",
+     "statement": "Unlimited one-vertex exchange under full ST hypotheses is false; the boundary bound is sharp (§§2.5,4,5.2).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C2a",
+     "statement": "G42 has a P12 at exact exchange distance two (§2.6).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C2b",
+     "statement": "HS core 7 has a P12 at exact exchange distance three (§2.6).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B1",
+     "statement": "Imported irreducibility, control provenance, exact path orders and NB/outer placement (§§2.6,3,5).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E0",
+     "statement": "Complete connected strongly C4-free catalogue through order ten; all path levels, components and traps (§3.1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E2",
+     "statement": "Exhaustive local-lemma audit on the small catalogue (§3.1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E3",
+     "statement": "All eligible small regular-base instances (§3.1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E4",
+     "statement": "325 supplied controls and sampled local replacement audits (§3.1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E1",
+     "statement": "Complete escape enumeration through q=12 in G42 and all 37 NB HS-core records (§3.1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E5",
+     "statement": "Other complete control enumerations: Heawood, Robertson+1, HS cores 0-9 (§3.1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E6",
+     "statement": "G42 distance table, two complete escaping forests and briefing P7 (§§3.1-3.2).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E7",
+     "statement": "All 5,200 saved exchange-and-extension chains (§3.1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C3",
+     "statement": "151-vertex and Robertson+1 regular-base certificates (§3.1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C4",
+     "statement": "Trial 342 positive proper quotient (§3.1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "E8",
+     "statement": "Restricted one-/two-deletion multi-bag experiments (§3.1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "M1",
+     "statement": "Completeness arguments for path enumeration, exchange search, forests and pentagon certificates (§3.2).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "M2",
+     "statement": "Manifest, summary consistency and standalone supplied-data scope (§3.2).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "I1",
+     "statement": "NB-EX2 implies NB and closes the N rows conditionally (§5.1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "I2",
+     "statement": "ST-EX(2) implies ST and conditionally closes rows 3,7 (§5.2).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "I3",
+     "statement": "Outer model lemma and conditional assembly imply IR_K/GEN_K (§§5.3,6).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "S1",
+     "statement": "No new row or K=6 residual cell is closed; stated counterexample and REAL-133 scope (§§4-6, summary).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "O1",
+     "statement": "NB(K), including triangles, for K>=6.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "O2",
+     "statement": "ST_TF(K) and ST_Delta(K), for K>=6.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "P1",
+     "statement": "NB-EX2(K).",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "P2",
+     "statement": "ST-EX(2)(K).",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "P3",
+     "statement": "Outer large-transversal positive-model lemma under p<=2K.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "O3",
+     "statement": "IR_K/GEN_K for K>=6 and remaining REAL-133 radius branch.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  },
+  {
+   "session": "r21_compare",
+   "prover_dir": "astra_r21/r21_compare",
+   "referee_dir": "astra_r21v/v_r21_compare",
+   "verdict_file": "astra_r21v/v_r21_compare/scratch/verdict.json",
+   "verdict_sha256": "d8ead5d43e4fcf7263cd3f639d16363e687f40a2f7a258be714fad17d3f276cd",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "In section 2B, add “R has girth at least five” to the regular-base criticality lemma. Its statement is false without this hypothesis; the supplied F121/F91 applications satisfy the repaired hypothesis.",
+    "In section 2B L1, state that x has exactly one neighbor in the entire retained path, and that neighbor is an endpoint. The current endpoint-only wording does not suffice.",
+    "In section 2C, replace “For x>=0” by “For every nonnegative integer x” in binom(2+x,2)>=1+2x. The substituted graph quantities already are integers.",
+    "In claim/CLAIM_SUMMARY.md, replace scratch/REPORT.md by PROOF_REPORT.md and scratch/r21c_manifest.json by ../data/r21c_manifest.json."
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "Conventions, accepted inputs, and automatic criticality/irreducibility at order 41.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "Partition pair capacities and necessary local/global pattern constraints.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "Exact Farkas semantics, integer trees, and finite exclusion coverage.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "Order-41 triangle exclusion and nine necessary profiles.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "The (41,4) cell has only the first three, minimum-degree-five profiles.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Order-42 exclusions and its 57 remaining relaxation profiles.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "Weighted integer moment inequality and the (43,5,3,5) contradiction.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "L1 exchange classification/four-port locality and P7 transport.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "L2-L3 terminal-support contacts, boundary bounds and singleton consequences.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "Regular-base criticality lemma as restated in section 2B.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "F121 satisfies full ST hypotheses and its displayed P12 is frozen under E1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "F91 satisfies full ST hypotheses and its displayed P12 is frozen under E1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "G151 is an ST input and defeats universal one-edge affordability.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "High-vertex defect inequality C1 and its numerical root bounds.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "Exact 33-vertex normal form, converse and rho=4 selection.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C16",
+     "statement": "GEN5 and a unique endpoint part give the stated P13 reduction.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C17",
+     "statement": "Hoffman-Singleton nonembedding of all three (41,4) profiles.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "Prefix enumeration and sparse escape forests prove all-state/component coverage.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "All 48 path counts and nonextendible domains through order 12.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C20",
+     "statement": "Complete G41 NB-EX2/P7 conclusions and exact distance tables.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C21",
+     "statement": "The stated G41 path has exact escape distance two; one NB exchange is insufficient.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C22",
+     "statement": "Complete ST E2 escape and exact E1 obstruction classification in the three large graphs.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C23",
+     "statement": "All short exchange/extension witnesses and the 197,319 forest rows.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C24",
+     "statement": "Graph invariants, provenance and G41 exact p=20.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C25",
+     "statement": "Adjacency-search formulations, variable/row counts and absence of a closure certificate.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C26",
+     "statement": "All six historical solver runs reached 60-second limits without incumbents.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C27",
+     "statement": "Eight-row partition, residual tables, outer guards and no whole new closure.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C28",
+     "statement": "NB-EX2 implies NB; ST-EX(2) implies both ST assertions.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C29",
+     "statement": "Outer model lemma plus the two path inputs imply IR_K and GEN_K.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C30",
+     "statement": "Imported G42/HS7 obstructions and the 200 HS controls used in kill-tests.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C31",
+     "statement": "Certificate manifest, code-free reproducibility and summary artifact links.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C32",
+     "statement": "No defect in the specifically audited accepted claims after adopted fixes.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "O01",
+     "statement": "Universal endpoint-part statement, NB-EX2, ST-EX(2), and the outer model lemma.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "O02",
+     "statement": "Realizability/universal P13 in (41,4), other residual cells and whole rows.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "O03",
+     "statement": "IR_K/GEN_K for K>=6 and REAL-133/RAD(r>=11).",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  }
+ ]
+}

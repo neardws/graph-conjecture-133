@@ -1,0 +1,452 @@
+{
+ "round": "R14",
+ "created": "2026-10-20 14:42 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only). Built from referee verdict.json files only; a claim is accepted iff its referee verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md §4o).",
+ "headline_verified": [
+  "CE(6,11): P11 endpoint with lambda>=7 forces cheap U, |U|<=3 (computer-assisted, 18,213 nodes); Odeg_6 at q=11 in (C)",
+  "CE(6,12) for lambda=10 (endpoint lambda<=9 in (C)); exact 13,364-configuration residual for lambda in {7,8,9}",
+  "RC structure: minimal deficient families touch only strictly heavy A-components; proper maximal cut has O-M>=2; full-cut saturation characterization; odd RC+cap => MASS, even RC+cap => GEN"
+ ],
+ "open": [
+  "RC(6,11) residual cuts (proper O-M>=2; full saturated) => MASS_11",
+  "CE(6,12) for lambda in {7,8,9}",
+  "even RC(6,12)",
+  "GEN_6",
+  "CE/RC for general K"
+ ],
+ "sessions": [
+  {
+   "session": "r14_CE",
+   "prover_dir": "astra_r14/r14_CE",
+   "referee_dir": "astra_r14v/v_r14_CE",
+   "verdict_file": "astra_r14v/v_r14_CE/scratch/verdict.json",
+   "verdict_sha256": "05caba182ead1a87a5e50f1155d25a3abd08040ec5d07d02ca2a4d52d7452f1f",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "In r14_structural_verification.json, change the forest audit domain to require nonempty Z′. The reported 68,383 is correct on that domain. Including empty Z′ adds 26,163 trivial proper singleton instances, for 94,546 total. No change to equations (6)–(7) or either endpoint theorem is needed."
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "CE(6,11), including a cheap set of order at most three without connectedness or positive surplus.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "For p=12 and endpoint lambda=10, a cheap set of order at most two exists; class (C) has endpoint lambda<=9.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "Unit structure, deletion-loss definitions, and scope of class (C).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "Complete endpoint-neighbourhood reduction, lambda<=q−2 and exposed order<=2q−2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "Exact initial domains and longer-path classification at q=11,12.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Exact trace safety, positive-residual packing cap, and equality triangle marks.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "Critical-star rule L(v)>=K+1+k.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "Exact trace identity (2), including −3tau_U, and pair capacities.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "Nonnegative rational exclusions (3)–(4).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "Exhaustive extension branches, finite-certificate soundness and properness at arbitrary ambient order.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Completed odd certificate counts, coverage, hashes and selected refined roots.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "Exact 21-vertex dual example with gap 1/5.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "Even initial exclusions and the exact 13,364-configuration residual.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "Exploratory q12 trial: 15 of 58 roots returned, seven closed and eight open.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "Quantified induced-pentagon bound and disjoint-away-from-x subcollection.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C16",
+     "statement": "Pentagon verification over all 46,051 initial configurations.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C17",
+     "statement": "Even-K minimum-unit t=1 clique structure and triangle-free low-unit forest Z.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "Forest loss identity (6), cheap-set criterion (7), and the K=6 endpoint specialization.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "The forest audit checks 68,383 eligible proper selections through order nine.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C20",
+     "statement": "Six-contact high-endpoint graphs and the t12 control fail the full hypotheses.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C21",
+     "statement": "Four feasible all-old-set primal relaxations and exact minimum margins.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C22",
+     "statement": "Multilinear coefficient formula, singleton-trace dual obstruction, and limitation of the initial relaxation.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C23",
+     "statement": "Complete small catalogue, rooted path domains, deletion identities and two-outside audit counts.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C24",
+     "statement": "Manifest integrity, source availability and proof/input separation.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C25",
+     "statement": "CE(6,12) for endpoint lambda in {7,8,9}.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C26",
+     "statement": "General CE(K,q), K>=7.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C27",
+     "statement": "No GEN_6, MASS_11, new radius theorem, or full-hypothesis counterexample is asserted.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    }
+   ]
+  },
+  {
+   "session": "r14_RC",
+   "prover_dir": "astra_r14/r14_RC",
+   "referee_dir": "astra_r14v/v_r14_RC",
+   "verdict_file": "astra_r14v/v_r14_RC/scratch/verdict.json",
+   "verdict_sha256": "bde04a84fd6d6eef2a9543b02fd605d358e996270cca5a44f97cba3525b46d77",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    {
+     "id": "FIX1",
+     "location": "claim/PROOF_REPORT.md:91",
+     "required": true,
+     "text": "Call the expression in lines 93-95 the cut objective, not the completed family deficiency. Write d(E(R))=f(R)+kappa(R\\N(E(R)))>=f(R). If R=N(F), completion has the same recipient set and d(E(R))>=d(F). These two observations prove (3)."
+    },
+    {
+     "id": "FIX2",
+     "location": "claim/PROOF_REPORT.md:306",
+     "required": true,
+     "text": "Replace “satisfying all of (4)-(9)” with “satisfying (4)-(8), and (9) when its completed graph H is proper; when H=G, epsilon=1+h.” The condition concerns the minimal-family completion H, not merely the maximal maximizing cut H*."
+    },
+    {
+     "id": "NOTE1",
+     "location": "data/r14_graph_audit.json",
+     "required": false,
+     "text": "For reproducibility, document the selected-minimal-family convention behind 104 proper / 49 full. Largest source-mask minimal families reproduce it; smallest-mask choices give 107 / 46. The invariant maximal-maximizer count remains 0 proper / 153 full."
+    }
+   ],
+   "claims": [
+    {
+     "id": "D1",
+     "statement": "Unit structure, mass/deletion conventions, and complete global endpoint partition (§1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D2",
+     "statement": "Odd/even component reserves and optional corrected ROOT(5) input (§1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A1",
+     "statement": "Boundary-source identities (1)-(2), including arbitrary sign of epsilon.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A2",
+     "statement": "Exact reduction of RC to B-subset inequalities (3).",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "M1",
+     "statement": "Minimal deficient family: deficit one, every subset-removal bound, recipient incidence bounds, strict heaviness, and positive-capacity connectivity (§3).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "M2",
+     "statement": "K=6 endpoint table and distinct-unit incidences (§3).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "M3",
+     "statement": "Completion identity d(Fbar)=1+h (6).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "M4",
+     "statement": "Both shortcut counterexamples (§3), including their alternate audit witnesses.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "H1",
+     "statement": "Hall-cut identity (7), minimal-completion identity (8), and conditional proper/full conclusions (9).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "H2",
+     "statement": "Unique maximal maximum-deficiency cut; all-minimal-family containment in every maximizer; zero capacities; strict omitted-set bound (10).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "H3",
+     "statement": "Proper maximal-cut bounds (11), deletion identity (11a), and cheap-deletion criterion.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "H4",
+     "statement": "Full maximal-cut characterization by integral saturation and its component/endpoint refinements.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "H5",
+     "statement": "Omitted-component/endpoint restrictions (12)-(13).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "H6",
+     "statement": "Minimum-counterexample refinements (14)-(15), 1<=epsilon<=K, and h<=5 at K=6 for full minimal completion.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P1",
+     "statement": "Two-arm inequality (16), single-arm bound, and K=6 short-side conclusion.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P2",
+     "statement": "ROOT(5) short-arm reserve strengthening (17), including d>=2t+1 when a source is incident.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R1",
+     "statement": "Odd-step proper/full obstruction reduction (§6).",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "R2",
+     "statement": "Even-step scope with nonnegative, possibly zero, component reserves.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R3",
+     "statement": "Odd RC plus endpoint cap implies MASS; even RC plus endpoint cap implies GEN, with the stated previous mass theorem.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C1",
+     "statement": "Triangle-free full-criticality certificate (18)-(19).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C2",
+     "statement": "90-vertex control and all its mass, Hall, cycle, and cut values.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C3",
+     "statement": "94-vertex control; individual components pass but their union fails Hall.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C4",
+     "statement": "Large controls fail the path cap and declared endpoint-complement condition, and are not target counterexamples.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F1",
+     "statement": "Exhaustive abstract audit and shortcut classifications.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F2",
+     "statement": "Abstract maximum-cut audit.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F3",
+     "statement": "Complete connected strong C4-free graph catalogue through order 9.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F4",
+     "statement": "Small-graph partition, full-criticality, minimal-cut, and maximum-cut counts.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F5",
+     "statement": "Complete stated Hall-cut identity domain and mixed-triangle count.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F6",
+     "statement": "984 supplied/reconstructed records; 775 trivial reserve allocations; all full-C rejections.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F7",
+     "statement": "Arm audit on all 2001 records.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F8",
+     "statement": "Numerical/certificate outputs reported in r14_verification.json.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F9",
+     "statement": "Manifest hashes and byte sizes.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "META",
+     "statement": "Historical testing order and independence/import structure of the archived verifier.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q1",
+     "statement": "RC(6,11), general odd RC, and exclusion of the two residual configurations.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q2",
+     "statement": "Even RC(K,2K).",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q3",
+     "statement": "MASS_11, GEN_6 and general GEN_K beyond accepted inputs.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q4",
+     "statement": "Endpoint cap Odeg/CE in the general target class.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "S1",
+     "statement": "Claim-summary status separation and absence of a supplied full-hypothesis counterexample.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    }
+   ]
+  }
+ ]
+}

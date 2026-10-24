@@ -1,0 +1,715 @@
+{
+ "round": "R15",
+ "created": "2026-10-20 16:04 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only). Built from referee verdict.json files only; a claim is accepted iff its referee verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md).",
+ "headline_verified": [
+  "L10: p<=11 => some vertex has L(v)<=10 (15,707 nodes); min MASS_11 cex has 1<=eps<=4",
+  "RC(6,11): minimal deficient families have >=6 B recipients; exactly 6 => single A-component of order 30-35 (C=0) / 31-33 (C=1)",
+  "CE(6,12) at lambda=9 (6,304 nodes); endpoint lambda<=8 in (C); 13,291-record residual for lambda=7,8",
+  "General K: exact odd/even cheap-set formulas, unit-gap/pentagon identity, worst-cut structure, conditional assembly CE+RC (both parities) => all GEN_K, uniform path-free RC controls for all K>=3"
+ ],
+ "open": [
+  "RC(6,11) / MASS_11",
+  "CE(6,12) lambda in {7,8}",
+  "RC(6,12)",
+  "GEN_6",
+  "general CE/RC"
+ ],
+ "sessions": [
+  {
+   "session": "r15_RC611",
+   "prover_dir": "astra_r15/r15_RC611",
+   "referee_dir": "astra_r15v/v_r15_RC611",
+   "verdict_file": "astra_r15v/v_r15_RC611/scratch/verdict.json",
+   "verdict_sha256": "57d3affc080b0b5dfc7495ffc5b6d0b84f4161df2d97bec58e5a25bea7e866d0",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    {
+     "location": "claim/PROOF_REPORT.md:215",
+     "old": "maximum number of edges in a path starting at (b) inside (J+b)",
+     "new": "maximum number of edges in an induced path starting at b in G[J union {b}]",
+     "reason": "Only induced arms concatenate to an induced path whose endpoints are forbidden to start P11. Ordinary arms may have internal chords. The corrected proof needs no new theorem or computation."
+    }
+   ],
+   "claims": [
+    {
+     "id": "INPUTS",
+     "statement": "Unit structure and use of GEN_5, CE(6,11), corrected ROOT(5), ROOT(7), and n>=39.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CRITICAL",
+     "statement": "A minimum MASS_11 counterexample has p=11 and D(U)>=6|U|+epsilon for every nonempty proper U.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "PARTITION",
+     "statement": "The complete endpoint set B has lambda in {4,5,6}; A-components have delta_J>=|J|.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "UNIT_ID",
+     "statement": "Both identities (5), including their arbitrary-partition version.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SINGLETON_CE",
+     "statement": "The exact deletion identity and (6) let singleton losses >=11 invoke CE alone.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "INITIAL_DOMAIN",
+     "statement": "The three full-endpoint-neighborhood cases enumerate exactly 7,499 roots.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "TRACE_DOMAIN",
+     "statement": "C4-safe trace enumeration and path rejection rules are exhaustive and sound.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "PACKING",
+     "statement": "Packing cap (7) and equality-derived triangle marks.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "TRACE_LOSS",
+     "statement": "The exact trace identity (8) and positive-trace implication.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "DUAL",
+     "statement": "Exact nonnegative rational exclusions (9).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "EXTENSIONS",
+     "statement": "Exhaustive extension branches, embeddings, reachability, termination, and arbitrary-order soundness.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CERT_MAIN",
+     "statement": "The authoritative 15,707-node certificate and all its reported counts.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L10",
+     "statement": "Every connected strong C4-free graph with p<=11 has a vertex with L(v)<=10.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "EPS4",
+     "statement": "A minimum MASS_11 counterexample has 1<=epsilon<=4.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "MASS_BOUND",
+     "statement": "S(H)<=floor(m sqrt(m-1)) for every nonempty strong C4-free H, equation (10).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "MINIMAL_F",
+     "statement": "Minimal deficiency is one, every touched component is strictly heavy, and positive-capacity incidence connectivity holds.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CUT_SLACK",
+     "statement": "The nonnegative completed-cut identity (11), including paired sources and mixed triangles.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "NUMERICAL",
+     "statement": "All four inequalities (12) and 1<=y<=6x-2C-1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SUPPORT6",
+     "statement": "Every minimal deficient family has at least six B recipients; the nine numerical rows are exhaustive.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SIX_COMPONENT",
+     "statement": "Six recipients force one A-component, with C=0 and order 30..35 or C=1 and order 31..33.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "BOUNDARY",
+     "statement": "For x=6,C=0,y=30: delta=30, h=P=M_triangle=Z=0, S(J)=150, |F|=31, S(H)=212.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SOURCE_NBHD",
+     "statement": "Closed Y-neighborhoods of source centers sharing a B recipient are disjoint, equation (14).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "MAXCUT",
+     "statement": "Supermodularity, the unique inclusion-maximal maximizer, containment of every minimal family, and omitted-recipient restrictions.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CUT_RESIDUAL",
+     "statement": "The proper/full maximal-cut dichotomy, saturation equivalence, 1..4 unpaid sources, and h<=3.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "ASSEMBLY",
+     "statement": "Excluding all remaining configurations would imply MASS_11.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CONTROL",
+     "statement": "The 94-vertex control has all-proper-set margin six and an induced P12.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "AUDITS",
+     "statement": "The catalogue and every finite audit count in the report.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CERT_EPS6",
+     "statement": "The redundant surplus-six certificate is complete and verified.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "EXP_ROOTS",
+     "statement": "A heavy component supplies a root of induced maximum 8,9,10; the 114/429/1785 initial domains all remain open.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "EXP_TRIAL",
+     "statement": "The 1,000-node rooted-eight trial is incomplete.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "EXP_ENDPOINTS",
+     "statement": "Initial endpoint scans remain incomplete where stated; both refined search files agree with the authoritative certificates.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "ARTIFACTS",
+     "statement": "Manifest binding and the stated authoritative/search-data separation.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "RC611",
+     "statement": "RC(6,11) under the full target hypotheses.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "MASS11",
+     "statement": "p<=11 implies S<=6n; extension to GEN_6 / REAL-133.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  },
+  {
+   "session": "r15_CE612",
+   "prover_dir": "astra_r15/r15_CE612",
+   "referee_dir": "astra_r15v/v_r15_CE612",
+   "verdict_file": "astra_r15v/v_r15_CE612/scratch/verdict.json",
+   "verdict_sha256": "c21002eb53d9ee7397bdc99fc49ab1d14227e2e3aa96ff23f928f745c34051a6",
+   "referee_overall": "CORRECT",
+   "required_fixes": [],
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "CE(6,12) at λ=9, with a cheap set of order at most three.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "Endpoint λ≥9 forces a cheap set of order at most three; class (C) has endpoint λ≤8.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "Unit structure, deletion conventions, and the stated criticality/properness assumptions.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "Complete contact-partition reduction, λ≤10 and exposed order≤22.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "Complete λ=9,10 domains and rooted proof coverage.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "13,364 input configurations and their 10,217 representative graphs.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "Exact trace domain, deletion identity (1), and old-pair capacities.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "Original packing bound (2), decomposition (3), and equality marks.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "New compatibility-clique packing bound (4) and its equality marks.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "Parity marking and rounding (5).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Star and forest loss rules (6),(7).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "Exact rational exclusion (8).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "Exhaustive extension, triangle-case branching, maps and finite-certificate soundness.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "Closed certificate counts, trace counts and maximum sizes.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "Finite rule audit on 1,017 small graphs and 1,000 clique graphs.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C16",
+     "statement": "Rejected triangle-case certificates are faulty; the replacement root-9958 proof is valid.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C17",
+     "statement": "Initial propagation closes none; λ=8 extension search covers exactly 64 of 833 representatives.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "Fifteen λ=8 exclusions, root 9958, and the exact 13,291-record residual.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "The 18-vertex root H0, its six pentagons, and the bound g≥2λ−11.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C20",
+     "statement": "Root 0 reduces to the single 28-vertex exposed graph at node 1941.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C21",
+     "statement": "H0 defeats the ordinary all-old-set loss/pair-capacity LP.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C22",
+     "statement": "H* defeats the same LP for all 268,435,455 nonempty old sets.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C23",
+     "statement": "Explicit full-critical completions on 50, 2,018 and 3,278 vertices all fail the path cap.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C24",
+     "statement": "All 144 saved path-capped trajectories fail full criticality.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C25",
+     "statement": "JSON checking conventions, artifact integrity and selected proof/input separation.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C26",
+     "statement": "Original checker authorship/independence, cache implementation, seeds and execution chronology.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C27",
+     "statement": "CE(6,12) for λ=7,8 under the full hypotheses.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C28",
+     "statement": "No full-hypothesis counterexample, GEN_6, MASS_11 or complete REAL-133 proof is supplied.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    }
+   ]
+  },
+  {
+   "session": "r15_general",
+   "prover_dir": "astra_r15/r15_general",
+   "referee_dir": "astra_r15v/v_r15_general",
+   "verdict_file": "astra_r15v/v_r15_general/scratch/verdict.json",
+   "verdict_sha256": "90c58cf38ee32dd3d71a1d9f36cb96f598252ba554d4739bdd3cdc23fb659d2b",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    {
+     "id": "F1",
+     "location": "PROOF_REPORT.md:280; r15_small_graph_audit.json; r15_algebra_verification.json; r15_claims.json",
+     "fix": "State that the 35 critical graph/K pairs count only orders 2-9, or replace 35 by 42 for the stated orders 1-9 domain.",
+     "why": "All seven (K1,K) pairs for K=2,...,8 satisfy the proper-set condition vacuously."
+    },
+    {
+     "id": "F2",
+     "location": "PROOF_REPORT.md:280 and the small/algebra audit domain descriptions",
+     "fix": "Define the counted Z as the entire nonempty triangle-free degree-floor(K/2)+1 class; retain it only when independent/forest.",
+     "why": "Those choices give exactly 962184 and 338330. Exhausting every nonempty structural subset Z instead gives 7409888 and 2149430."
+    },
+    {
+     "id": "F3",
+     "location": "PROOF_REPORT.md:261,296 and r15_k7_trace_probes.json domain text",
+     "fix": "Say all NONEMPTY C4-safe traces omitting x, carrying over the accepted R14 convention.",
+     "why": "Including the empty trace at every root changes safe/admitted totals to 364127/278528; empty traces do not affect any certificate rule."
+    },
+    {
+     "id": "F4",
+     "location": "PROOF_REPORT.md:9-11",
+     "fix": "State that F is connected in the precise ROOT(h) formulation.",
+     "why": "The disconnected literal statement fails for Petersen plus an isolated root (S=30>20 at h=3). All actual uses here are connected J+b."
+    },
+    {
+     "id": "F5",
+     "location": "CLAIM_SUMMARY.md artifact links",
+     "fix": "Point to PROOF_REPORT.md and ../data/r15_claims.json, ../data/r15_manifest.json at their delivered locations. Document REPORT.md as the manifest alias for PROOF_REPORT.md.",
+     "why": "The original scratch links are not the delivered artifact locations. All hashes match after the report alias is resolved."
+    }
+   ],
+   "claims": [
+    {
+     "id": "N1",
+     "statement": "Strong C4-free unit structure, S=sum lambda, and L=2lambda-t.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N2",
+     "statement": "Accepted GEN5, small-order bound, and the displayed ROOT(h) restatement.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "H1",
+     "statement": "All eight historical endpoint/charge rows: conclusions, hypotheses, node counts, maximum loss/exposed sizes, and accepted K6 even residual.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "Q1",
+     "statement": "CE(K,2K-1) and CE(K,2K) outside the accepted solved subcases.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q2",
+     "statement": "Odd and even RC with their stated reserves, actual complete endpoint set, path cap, order and criticality hypotheses.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q3",
+     "statement": "Optional nonnegative-reserve odd RC, lowest-unit endpoint B-neighbor assertion, bounded-size odd CE, and suggested O-M/path-exchange strategies.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "L1",
+     "statement": "Exact weighted unit deletion identity (1).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L2",
+     "statement": "K5 source charging and the equivalence of the pointwise bound to the all-start conclusion under (C).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L3",
+     "statement": "Uniform deletion polynomial (2).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L4",
+     "statement": "Lowest-unit parity structure under (C) and the stated order bound.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P1",
+     "statement": "Exact odd optimized deletion formula (3), its minimizer, and the star consequence.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P2",
+     "statement": "Exact even forest optimization and minimal connecting subtree, (4)-(5).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L5",
+     "statement": "Even contact-class cheap-set consequence with margin 2c-K.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P3",
+     "statement": "Connected-support cheap sets at both parities, (6), and the exposed-neighborhood application.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P4",
+     "statement": "Contact budget, exact unit-gap identity, and disjoint induced pentagons, (7)-(8).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P5",
+     "statement": "Positive-trace resource-cover and weighted packing bounds (9).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L6",
+     "statement": "General trace-loss identity, dual certificate, and positive-trace extension necessity (10).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L7",
+     "statement": "Reserve/source accounting (11), heavy components and trivial component-only payment.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P6",
+     "statement": "Integral Hall equivalence, exact boundary projection, unique maximal worst cut and equality components, (12)-(14).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L8",
+     "statement": "Minimal deficiency one, removal inequality, strict component heaviness and positive-capacity connectivity, (15)-(16).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P7",
+     "statement": "Endpoint incidence table and short-arm reserve formulas (17),(21),(22).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L9",
+     "statement": "Every minimal deficient family lies in every maximizing cut, and completion can increase deficiency.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "X1",
+     "statement": "Two abstract shortcut counterexamples: minimal families need not be completed; single deletions do not test inclusion-minimality.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L10",
+     "statement": "Hall-cut identity retaining the mixed-triangle correction -M, (18).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L11",
+     "statement": "Proper/full maximal-cut dichotomy, omitted-recipient inequalities, and full-capacity saturation, (19)-(20).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L12",
+     "statement": "Sharper outside-cut and minimum-counterexample bounds.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L13",
+     "statement": "Conditional assembly of all GEN_K from the four conjectures and GEN5.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P8",
+     "statement": "Uniform proper/full path-free RC controls for every K>=3, including all-set criticality and path-cap failure.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C1",
+     "statement": "The two explicit K7 full-critical controls and their source families/cuts/P15 witnesses.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C2",
+     "statement": "Complete one-contact graph domains, rooted maxima, endpoints, sources, reserves and classification counts.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "X2",
+     "statement": "The I={1,2,3} weak lowest-unit-neighbor and weighted-charge counterexamples.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C3",
+     "statement": "Complete higher-unit contact domains and their cap/rejection/pentagon classifications.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C4",
+     "statement": "179 exhaustive trace probes, exact packing, marks, stars and open/closed classification.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "P9",
+     "statement": "Specified K7 q13 lambda10 configuration forces D_G({0})<=7, (24).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C5",
+     "statement": "All one-contact arms, distinct-component pairs and short-arm reserve rows.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C6",
+     "statement": "Complete connected unlabelled strong-C4-free catalogue through order nine and rooted path audit.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C7",
+     "statement": "35 critical graph/K pairs for K=2,...,8 in the orders 1-9 audit.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C8",
+     "statement": "962184 deletion-family rows and 338330 optimized rows on structurally eligible Z.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C9",
+     "statement": "Complete abstract worst-cut audit and independent flow/saturation audit.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A1",
+     "statement": "Artifact SHA-256 bindings and delivered report/claim links.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "A2",
+     "statement": "Claims about execution/provenance of the bundled prover-side independent verifier programs.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "S1",
+     "statement": "Summary and final scope: no proof of general CE/RC, GEN6, GEN7 or REAL-133; no full-target counterexample.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,685 @@
+{
+ "round": "R7",
+ "created": "2026-10-18 18:02 CST",
+ "protocol": "Astra prover session -> separate fresh Astra referee session (claim+report+data only, no prover code/session); accepted iff referee CORRECT or CORRECT_WITH_FIXES with fixes adopted in PROOF_NOTES.md \u00a74h",
+ "headline_verified": [
+  "ROOT(6): S<=5(n-1)-3D-m (equality iff universal root, N(root) matching)",
+  "RAD(8): S<=7n-80, equality exactly C16",
+  "ROOT(7) for n<=97; degree-corrected ROOT(q) with <=q-2 parents per component",
+  "RAD(9): n<=559 => S<=8n; n<=382 => S<=8n-108 (eq C18)",
+  "Conditional (U): ROOT(3..r-2) => S<=(r-1)n-min{2r(r-3),30r-114}",
+  "EP+(6) => EP(7)",
+  "Cells: 98 fixed cores closed; P6-free classification; A2 componentwise bound disproved"
+ ],
+ "open": [
+  "unrestricted ROOT(7), RAD(9)",
+  "EP(8)/EP+(7), boundary selection (8), GEN_5, GEN_6",
+  "cells A1/A2/B1 in general"
+ ],
+ "repairs": {
+  "P6_EQUALITY_REPAIR.md": "951ba98d56d6096cb2b23ddfcb2e01a7d38bece8d2aa4f1d0c4298e6752e0dcd",
+  "ROOT5_EQUALITY_PROOF_radpush.md": "d4fd8fa20ec8349dd71464c164e6f732bda3930798565b8fc333211dc820251a"
+ },
+ "sessions": [
+  {
+   "session": "root6",
+   "prover_dir": "astra_r7/root6",
+   "referee_dir": "astra_r7v/v_root6",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "claims": [
+    {
+     "id": "ROOT6",
+     "statement": "S(F)<=5(n-1)-3D-m",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ROOT6_EQUALITY",
+     "statement": "Equality iff the root is universal; N(s) is a matching",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "COEFFICIENTS",
+     "statement": "Degree coefficient 3 and neighborhood-edge coefficient 1 are optimal when the leading coefficient is 5",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C6_NONSTRICT",
+     "statement": "Every admissible unique-parent component satisfies M_B(J)<=5h",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C6_STRICT",
+     "statement": "M_B(J)<=5h-1 for arbitrary h; root bound gains an extra -q",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "LOCAL_REDUCTION",
+     "statement": "Every five-parent configuration around induced P6/P7 is covered regardless of ambient order",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "P6_TEMPLATES",
+     "statement": "P6 has 17 direct and 9 bridge types, 406 C4-free templates, exactly the displayed survivor",
+     "prover_status": "PROVED, computer-assisted",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "P7_TEMPLATES",
+     "statement": "P7 has 24 direct and 11 bridge types and no five-parent survivor",
+     "prover_status": "PROVED, computer-assisted",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CENTRAL_EXTENSION",
+     "statement": "The surviving P6 bridge has degree exactly two in all of J",
+     "prover_status": "PROVED, computer-assisted",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "PETERSEN_TRACES",
+     "statement": "Petersen admits no C4-safe nonempty parent trace with parent-rooted maximum <=5",
+     "prover_status": "PROVED, computer-assisted",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "P6_EQUALITY_INPUT",
+     "statement": "Connected strong C4-free P6-free graphs have S<=3n, with equality only Petersen",
+     "prover_status": "Claimed accepted theorem in ctx/main.tex",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "ROOT5_COMPONENT_EQUALITY",
+     "statement": "M_A(Q)<=4|Q| has no deficit one; equality is exactly periodically three-parent-colored C_(3l), l>=2",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "DISJOINT_TRACE_GAP",
+     "statement": "Two disjoint admissible traces force delta_U>=2 for each; bounds (7)-(9) follow",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ORDER63",
+     "statement": "Ordinary ROOT(6) holds through order 63 by the intermediate integer bound",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ENUM14",
+     "statement": "Every component through order 14 has M<=4h; the stated complete counts and maxima are exact",
+     "prover_status": "COMPUTED, exhaustive",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ENUM16",
+     "statement": "All component graph classes through order 16 satisfy M<=5h; dense-domain counts at orders 15 and 16 are exact",
+     "prover_status": "COMPUTED, exhaustive with analytic low-density pruning",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ORDER23",
+     "statement": "The corrected ROOT(6) bound holds through n=23 from bounded-order component checks",
+     "prover_status": "PROVED subsidiary consequence",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "PROOF_CHECK_COUNTS",
+     "statement": "22908 graphs, 138178 traces, 1077926 ordered disjoint pairs and five equality traces through h=11",
+     "prover_status": "COMPUTED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ROOT5_ENUM_EQUALITY",
+     "statement": "At order 14: 120355816 roots, 2221934 eligible, 17 equality roots, no deficit one; component equality only C6,C9,C12 through order 14",
+     "prover_status": "COMPUTED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "NAMED_FAMILIES",
+     "statement": "15 bases, 1020 roots, 90 amalgams, 20 periodic constructions, 12 grafts and 11 exhaustive parent-trace domains",
+     "prover_status": "COMPUTED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "SUBDIVISION_COUNTEREXAMPLE",
+     "statement": "Subdivided K_(5,8) has h=53,S=160>3h and two admissible disjoint parents; the general bipartite subdivision formulas hold",
+     "prover_status": "PROVED and explicitly checked",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "LEADING_COEFFICIENT",
+     "statement": "The best leading coefficient lies between 4 and 5; coefficient 4 is necessary even with root degree 2",
+     "prover_status": "PROVED lower bound; optimal value open",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "OTHER_COUNTEREXAMPLES",
+     "statement": "Arbitrarily many nonsingleton parents on double stars; the seven-vertex three-parent example has S=16>14",
+     "prover_status": "PROVED examples",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "RAD8",
+     "statement": "r=8,p=15 implies S<=7n-80 with equality exactly C16",
+     "prover_status": "PROVED from accepted structural results",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "HISTORICAL_SEARCH_TOTALS",
+     "statement": "57 million mutation proposals and the exact feasible/accepted totals; 2200 saturated graphs and 77000 tested roots",
+     "prover_status": "COMPUTED heuristic history",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "HISTORICAL_DIAGNOSTICS",
+     "statement": "The prover path kernel passed 11000 comparisons on 500 seeded random graphs",
+     "prover_status": "COMPUTED implementation history",
+     "referee_verdict": "UNVERIFIED"
+    }
+   ],
+   "accepted_claims": [
+    "ROOT6",
+    "ROOT6_EQUALITY",
+    "COEFFICIENTS",
+    "C6_NONSTRICT",
+    "C6_STRICT",
+    "LOCAL_REDUCTION",
+    "P6_TEMPLATES",
+    "P7_TEMPLATES",
+    "CENTRAL_EXTENSION",
+    "PETERSEN_TRACES",
+    "P6_EQUALITY_INPUT",
+    "ROOT5_COMPONENT_EQUALITY",
+    "DISJOINT_TRACE_GAP",
+    "ORDER63",
+    "ENUM14",
+    "ENUM16",
+    "ORDER23",
+    "PROOF_CHECK_COUNTS",
+    "ROOT5_ENUM_EQUALITY",
+    "NAMED_FAMILIES",
+    "SUBDIVISION_COUNTEREXAMPLE",
+    "LEADING_COEFFICIENT",
+    "OTHER_COUNTEREXAMPLES",
+    "RAD8"
+   ],
+   "sha256": {
+    "astra_r7/root6/report.md": "a5f2fa52a66a1828e86bfa440d1eb1f19a567bdd30d12e9330c4524eac2479c3",
+    "astra_r7/root6/scratch/REPORT.md": "4229a6f3a31bc8de44508f003e0219ff1993451eaf430acbc69c62926763cbee",
+    "astra_r7v/v_root6/scratch/VERDICT.md": "ea1ca029bf007a90f4ffb6b8b5256518749787aa4766f9a33fb1a56c4ed7ebe9",
+    "astra_r7v/v_root6/scratch/verdict.json": "f34cce1f3d67b69931ce1321778087500c19a0f48f901741d97f5fb3575b7afa"
+   }
+  },
+  {
+   "session": "cellsA1A2B1",
+   "prover_dir": "astra_r7/cellsA1A2B1",
+   "referee_dir": "astra_r7v/v_cellsA1A2B1",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "claims": [
+    {
+     "id": "S01",
+     "statement": "P4-free universal-vertex structure and P5-free clique/pendant-or-C5 classification",
+     "prover_status": "PROVED_BY_HAND",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "S02",
+     "statement": "Every 2-connected P6-free strong C4-free block has order at most 13",
+     "prover_status": "PROVED_BY_HAND",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "S03",
+     "statement": "Exactly 11 P6-free blocks; complete connected classification with support conditions (1)",
+     "prover_status": "PROVED_COMPUTER_ASSISTED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "S04",
+     "statement": "S(J)<=2|J|+2 for |J|>=11, sharp; conditional layer lifting (4)",
+     "prover_status": "PROVED_COMPUTER_ASSISTED_AND_CONDITIONAL",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "F01",
+     "statement": "20 path-and-triangle core closures in Cell A: S(G)<=5n-5",
+     "prover_status": "PROVED_COMPUTER_ASSISTED",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "F02",
+     "statement": "72 path-and-triangle core closures in Cell B: S(G)<=5n-21",
+     "prover_status": "PROVED_COMPUTER_ASSISTED",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "F03",
+     "statement": "Six C5-flower closures: three types at each arm depth",
+     "prover_status": "PROVED_COMPUTER_ASSISTED",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "F04",
+     "statement": "Charging identities, full finite attachment domains, singleton excess budgets, and radius certificates",
+     "prover_status": "PROVED_COMPUTER_ASSISTED",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "S05",
+     "statement": "C7-dominated P7-free radius-three inner cores have exactly four types",
+     "prover_status": "PROVED_COMPUTER_ASSISTED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "S06",
+     "statement": "General P7-free block reduction, exact path conditions (11), radius formula (12), and P5-free dominator reduction",
+     "prover_status": "PROVED_BY_HAND",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "W01",
+     "statement": "Mass-six A2 witness and infinite three-parent family; no dominating single-pendant flower for b>=2",
+     "prover_status": "DISPROOF_AND_PROVED_FAMILY",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "W02",
+     "statement": "Mass-eight A2 singleton witness with (r,p,S)=(4,9,36)",
+     "prover_status": "DISPROOF_BY_EXPLICIT_WITNESS",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "W03",
+     "statement": "B1 unbounded theta inner cores and their double coronas",
+     "prover_status": "PROVED_FAMILY",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "D01",
+     "statement": "Exact finite connected census, support diagnostics, A2 arm diagnostic and final certificate audit totals",
+     "prover_status": "COMPUTED_EXACT_FINITE_DOMAINS",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "D02",
+     "statement": "Reproduction references and original random-audit provenance",
+     "prover_status": "CLAIMED_REPRODUCIBLE_COMPUTATION",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "O01",
+     "statement": "Unrestricted A1, A2, B1, GEN_5 and the full band remain open; ell<=4 is conjectural",
+     "prover_status": "OPEN_OR_CONJECTURED",
+     "referee_verdict": "CORRECT"
+    }
+   ],
+   "accepted_claims": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "S05",
+    "S06",
+    "W01",
+    "W02",
+    "W03",
+    "D01",
+    "D02",
+    "O01"
+   ],
+   "sha256": {
+    "astra_r7/cellsA1A2B1/report.md": "5ba44096ab86e5755153f502cfac940b71b3dfd1d8c21bbd7ed800a9d753f1eb",
+    "astra_r7/cellsA1A2B1/scratch/REPORT.md": "66c0090f297cd0d9d62ce7aeb74d812584ca88acf8bc1f0569b445009f16c514",
+    "astra_r7v/v_cellsA1A2B1/scratch/VERDICT.md": "b43575fadaf32a1f344e34bd1d9e62efc5ad661954fb4010f0a8c20e9e3f9e81",
+    "astra_r7v/v_cellsA1A2B1/scratch/verdict.json": "22e5a1a8694bcac24fe6ef96a81ac5a1165c94a81bf18526d88714210862f1cc"
+   }
+  },
+  {
+   "session": "radpush",
+   "prover_dir": "astra_r7/radpush",
+   "referee_dir": "astra_r7v/v_radpush",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "ROOT(5) averaging (2), including M<=5h for at most four parents.",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C02",
+     "statement": "ROOT(5) equality rigidity and the strict four-parent bound M<=5h-1.",
+     "prover_status": "PROVED via cited sibling equality audit",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "C03",
+     "statement": "The complete five-parent P6/P7 local exclusions, unique survivor, its extension exclusion, and Petersen exclusion.",
+     "prover_status": "PROVED, computer-assisted",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C04",
+     "statement": "Strict ROOT(6): M<=5h-1 and S(F)<=5(n-1)-3D-m-c.",
+     "prover_status": "PROVED, computer-assisted",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C05",
+     "statement": "Terminal lemma, including simultaneous parent systems and deletion cost at most two.",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C06",
+     "statement": "Fixed-parent lemma; every component with a two-parent vertex uses at most x fresh parents.",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C07",
+     "statement": "Sharp RAD(8): S<=7n-80, equality exactly C16; every noncycle has S<=7n-132.",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C08",
+     "statement": "Uniform averaging (4) and degree-corrected ROOT(q) when each external component has at most q-2 parents.",
+     "prover_status": "PROVED conditional on ROOT(q-1)",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C09",
+     "statement": "Uniform integer range (5)-(7): n<=4alpha^2-alpha+epsilon+1.",
+     "prover_status": "PROVED conditional on the preceding root bound",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C10",
+     "statement": "Ordinary ROOT(7) through n=97; the criterion first permits a violation at n=98.",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C11",
+     "statement": "Weaker unconditional root bound (8) for q>=7.",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C12",
+     "statement": "RAD(9) component, selected-tip, and parametric estimates (9)-(13).",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C13",
+     "statement": "RAD(9) through n=559 and S<=8n-108 through n=382, equality exactly C18.",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C14",
+     "statement": "Conditional uniform bound U, equations (14)-(15), and cycle equality exactly for radii 5 through 13.",
+     "prover_status": "PROVED conditional on ROOT(3..r-2)",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C15",
+     "statement": "Necessary component-counterexample conditions, including at least six nonsingleton traces and an induced P9 for ROOT(7).",
+     "prover_status": "PROVED reductions; general ROOT(7)/RAD(9) left open",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C16",
+     "statement": "Arbitrary-size shortcut counterexample: h=10+2a, M=22+5a, each parent-rooted maximum six, and an induced P9.",
+     "prover_status": "PROVED family, computed at a=6,10",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C17",
+     "statement": "General deletion rule and its stated ROOT(7) low-degree consequences.",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C18",
+     "statement": "Pivot decomposition identity and charge target (16).",
+     "prover_status": "PROVED identity/reformulation",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C19",
+     "statement": "All eleven flower single/adjacent-pair classifications, base parameters, and aggregate totals.",
+     "prover_status": "COMPUTED, supporting accepted Struct",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C20",
+     "statement": "Terminal-lemma check on all connected C4-free graphs through order ten.",
+     "prover_status": "COMPUTED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C21",
+     "statement": "900 random path comparisons on 450 graphs of orders 1 through 9.",
+     "prover_status": "COMPUTED validation",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    }
+   ],
+   "accepted_claims": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20",
+    "C21"
+   ],
+   "sha256": {
+    "astra_r7/radpush/report.md": "9c9f34c343cf633a045b486d7407f91741c6e63fa970e9567c83ab7d65c88c2e",
+    "astra_r7/radpush/scratch/REPORT.md": "b411a931c0ea04fd106467c72b27eb8632353f2ca78adac358c11f1f98800c93",
+    "astra_r7v/v_radpush/scratch/VERDICT.md": "5449bce218afecf2a5c7791cf80d9d41674adb4b349716233a0b3d9eb8f8ab2e",
+    "astra_r7v/v_radpush/scratch/verdict.json": "f8ba4d6e76f4dde667c32cb5590ca43a7788e64c14966b9069fa7569e89ea775"
+   }
+  },
+  {
+   "session": "ep78b",
+   "prover_dir": "astra_r7/ep78b",
+   "referee_dir": "astra_r7v/v_ep78b",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "Exact endpoint accounting, t2<=r, and lambda(x)<=4 at rooted maximum six.",
+     "prover_status": "PROVED / ACCEPTED BACKGROUND",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C02",
+     "statement": "A, B, I, D are precisely the types with c(x)>5; I and D have the stated degrees and triangles.",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C03",
+     "statement": "Saturated nine-vertex skeleton, degree(3)=2, predecessor traces, mate traces, and resulting degree/unit restrictions.",
+     "prover_status": "PROVED WITH LOCAL CERTIFICATE",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C04",
+     "statement": "Type-I templates and equation (4), including exact N(2), lambda(2)=lambda(3)=2, and the singleton 2-unit at 3.",
+     "prover_status": "PROVED WITH LOCAL CERTIFICATE",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C05",
+     "statement": "The six type-D templates, their unique E-neighbour, and equations (4) and (5).",
+     "prover_status": "PROVED WITH LOCAL CERTIFICATE",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C06",
+     "statement": "The finite certificate is exhaustive: 101 classification records plus 164 traces, total 265, order at most 11.",
+     "prover_status": "COMPUTER-ASSISTED PROOF CERTIFICATE",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C07",
+     "statement": "The five discharging rules fit recipient capacities, including arbitrary witness choices and disjoint recipient classes.",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "C08",
+     "statement": "EP+(6): D(E)<=5|E| for every strong C4-free rooted graph of rooted maximum six.",
+     "prover_status": "PROVED WITH FINITE CERTIFICATE",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C09",
+     "statement": "EP(7): D(E)<=7|E| for every prescribed-edge domain of maximum seven.",
+     "prover_status": "PROVED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C10",
+     "statement": "Boundary-selection inequality (7) is equivalent to ambient D_G(E)<=K|E| and is incompatible with critical loss in an actual minimum counterexample.",
+     "prover_status": "PROVED IDENTITY / STATUS EXPLANATION",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C11",
+     "statement": "Every vertex of a minimum GEN_5 counterexample starts P7; at lambda>=6 a six-edge arm leaves a surviving avoiding edge and rooted maximum at most four.",
+     "prover_status": "PROVED NECESSARY CONDITION",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C12",
+     "statement": "Boundary selection would complete GEN_5 and GEN_6 by the accepted two-arm argument; minimum orders remain 28 and 39.",
+     "prover_status": "CONDITIONAL / ACCEPTED BACKGROUND",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C13",
+     "statement": "Complete connected strong C4-free order-12 catalogue and deterministic charging counts.",
+     "prover_status": "COMPUTED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C14",
+     "statement": "Complete connected strong C4-free order-14 catalogue, positive-type counts, and the 1,524 nonlow type-B recipients.",
+     "prover_status": "COMPUTED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C15",
+     "statement": "Order-12 audit covers all 875,821 longest paths in 306,738 target domains and every recipient maximum possible load.",
+     "prover_status": "COMPUTED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C16",
+     "statement": "Independent small-catalogue Python/C agreement on all 1,016 graphs of orders 2-9 plus nine controls, 8,863 roots, with failure controls detected.",
+     "prover_status": "COMPUTED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C17",
+     "statement": "Seed pool contains exactly 5,180 qualifying minimum-degree-two rooted records, of which 745 have maximum seven.",
+     "prover_status": "COMPUTED",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C18",
+     "statement": "Saved best-search graphs attain rooted-six ratio 9/2 and rooted-seven ratio 6; adding triangles at the root preserves the rooted maximum.",
+     "prover_status": "COMPUTED EXAMPLES / ELEMENTARY FAMILY CLAIM",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C19",
+     "statement": "Known rooted-order-eight and prescribed-edge-order-nine failures used as positive controls.",
+     "prover_status": "COUNTEREXAMPLES FROM ACCEPTED CONTEXT",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C20",
+     "statement": "Historical mutation runs: 120,000,000 proposals, exact stated legal/target/accepted counts, orders 15-62, and 9,962,958 rooted-seven evaluations with no failure.",
+     "prover_status": "COMPUTED SEARCH LOG SUMMARY",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "C21",
+     "statement": "Historical amalgamation experiment: 2,000,000 attempts, 4,722 C4-free amalgams, zero rooted-seven targets.",
+     "prover_status": "COMPUTED SEARCH LOG SUMMARY",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "C22",
+     "statement": "Universal rooted-six coefficient 9/2, EP(8), boundary selection for K=5,6, and GEN_5/GEN_6.",
+     "prover_status": "CONJECTURED / UNRESOLVED, NOT CLAIMED PROVED",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "C23",
+     "statement": "Original named generator/verifier independence, original reproduction commands, and historical no-ctx-modification assertion.",
+     "prover_status": "IMPLEMENTATION / PROVENANCE ASSERTIONS",
+     "referee_verdict": "UNVERIFIED"
+    }
+   ],
+   "accepted_claims": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15",
+    "C16",
+    "C17",
+    "C18",
+    "C19"
+   ],
+   "sha256": {
+    "astra_r7/ep78b/report.md": "9b7e2d69e9eb0314b6e75aa6a63313014dc0798c59bef5ca189a2a3837507212",
+    "astra_r7/ep78b/scratch/REPORT.md": "1e51b7722fbb71179a1c73b53f52cd168edde004cff1e9bfce90c235b33df6be",
+    "astra_r7v/v_ep78b/scratch/VERDICT.md": "925d6a3aa6e370c2b9733efb96d43f4d7b629501ff285edef6dccce7de3c5a76",
+    "astra_r7v/v_ep78b/scratch/verdict.json": "520c744757108e8b7f2155a3b99acc2f903ebc122ebd66cf66e3835067bb6a5e"
+   }
+  }
+ ]
+}

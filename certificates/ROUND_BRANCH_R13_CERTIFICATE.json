@@ -1,0 +1,1130 @@
+{
+ "round": "R13 (strategy round)",
+ "created": "2026-10-19 08:41 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only). Built from referee verdict.json files only. A claim is accepted iff its referee per-claim verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md §4n). r13_compare overall GAP is confined to unverifiable sampling-history claims, which are not accepted. Strategy proposals and conjectures (UNVERIFIED) are not theorems.",
+ "headline_verified": [
+  "A: GEN_{K-1}+Odeg_K+OH_K => MASS_{2K-1}; MASS_{2K-1}+E_K (or EH_K) => GEN_K (conditional induction); parity compression; B1+B2 => TD => ROOT => RAD",
+  "A: unrestricted E/EU fail at K=6; endpoint cap lambda=7 possible without criticality; START not derivable from pair loss (Robertson)",
+  "B: ICD assembly: REAL(ell<=a) + ICD(ell>a) => REAL for all ell (incl. all RAD); radius transfer; ICD for unit-regular radius-2, coronas, projective grafts, irregular pentagon planes; balanced core-cover LP false (PG(2,11) corona)",
+  "Compare N4.1: under full critical loss, pointwise endpoint inequality E <=> all-start + cap; N4.2 trivial-reserve diagnostic; N4.3 nonadjacent rigid pairs have distance>=3; N4.4 min-cut criticality test"
+ ],
+ "proposals_not_verified": [
+  "CE(K,q) endpoint-cap obstruction",
+  "RC(K,q) component-reserve Hall",
+  "B1/B2 block inequalities at all orders",
+  "ICD_K for K>=6 / restricted exchange theorem for irregular (C4,C5)-free graphs"
+ ],
+ "open": [
+  "REAL-133 general",
+  "GEN_K for K>=6",
+  "RAD(r) for r>=11",
+  "TD general",
+  "ICD_K",
+  "CE/RC"
+ ],
+ "sessions": [
+  {
+   "session": "r13_general_A",
+   "prover_dir": "astra_r13/r13_general_A",
+   "referee_dir": "astra_r13v/v_r13_general_A",
+   "verdict_file": "astra_r13v/v_r13_general_A/scratch/verdict.json",
+   "verdict_sha256": "ab6590550a99310d9b8f64f87dd4e8ac1726720dedd54be8086dd38ba16fa60d",
+   "referee_overall": "CORRECT",
+   "overall_reason": null,
+   "required_fixes": [],
+   "claims": [
+    {
+     "id": "scope_and_inputs",
+     "statement": "Accepted GEN_3/4/5 and radius reductions; no new GEN_6 or RAD theorem is claimed.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "band_scope",
+     "statement": "The direct GEN_K band does not cover RAD(K+1), and radius minimality does not supply arbitrary deletion criticality.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "unit_charge",
+     "statement": "Equations (1) and (2): exact deletion, endpoint weighted charge, unit survival and reserve accounting.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "criticality",
+     "statement": "Equation (3): a minimum counterexample has D(U)>=K|U|+epsilon.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "two_stage_induction",
+     "statement": "GEN_(K-1)+Odeg_K+OH_K implies MASS_(2K-1); MASS+E_K or EH_K implies GEN_K.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "local_strength_relations",
+     "statement": "OP implies OH; Odeg+START suffices for MASS; EU implies E; E implies EH; OH implies OH-res.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "integral_hall",
+     "statement": "OH/EH are equivalent to integral assignments for nonnegative integer capacities.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "accounting_limit",
+     "statement": "Equation (5): a positive-surplus obstruction violates the all-source exact-reserve row.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "hall_cut",
+     "statement": "Equation (6), including the -M triangle correction, and the cut reduction for EH.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "critical_star",
+     "statement": "Equation (7): k nontriangular loss-(K+1) neighbors force L(v)>=K+1+k for a proper star.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "parity_compression",
+     "statement": "Odd equations (8),(9) and even equations (10),(11), including attachment and clique/forest structure.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "endpoint_neighborhood",
+     "statement": "Complete endpoint contact reduction, lambda(x)<=q-2 and initial order <=2q-2<=4K-2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "trace_packing",
+     "statement": "Equation (12), exact C4-safety test and equality triangle exclusion.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "trace_dual",
+     "statement": "Equation (13), positive-trace necessity and sufficient dual certificate (15).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "block_TD_ROOT",
+     "statement": "B1+B2 imply TD; TD implies corrected ROOT; the accepted structural reduction then gives RAD.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "cycle_spacing",
+     "statement": "C5 exclusion yields gap 2; induced C5/C6/C7 exclusion yields gap 4 and q>=4lambda(x)-1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "no_termination_claim",
+     "statement": "Local extension rules and open leaves do not establish a uniform structural theorem or termination.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "one_contact_skeletons",
+     "statement": "Complete specified one-contact domains at t=9,10,11,12 and all saved invariants.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "local_probes",
+     "statement": "All 636 local probe domains, trace filters, exact packing caps, rounds and closures.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "reserve_flows",
+     "statement": "Component and vertex reserve flows, and odd equal-split OP failure counts.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "regular_catalogue",
+     "statement": "Complete connected 4-regular girth>=5 catalogue on 17..21 vertices and classifications.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "triangle_decorations",
+     "statement": "All 32 four-center-edge triangle decorations and the stated path/charge classifications.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "validation_counts",
+     "statement": "14,742 skeleton root checks, 67 extra graph records, 1,541 assignments, one Hall witness and 6,700 partition tests.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "TD_block_tests",
+     "statement": "All 227 roots and every rigid pair of the 11 regular blocks satisfy B1/B2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "unrestricted_weighted_K6",
+     "statement": "The t12 contacts-{1,2,3} graph refutes unrestricted E/EU.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "unrestricted_endpoint_cap",
+     "statement": "The t11 and t12 six-contact graphs have global endpoints of unit degree 7.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "START_from_pairs",
+     "statement": "Robertson disproves deriving START solely from singleton/pair losses.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "EPplus8",
+     "statement": "The base graph has root-8 maximum 8, terminal set {10,11} and deletion loss 16>14.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "EP9",
+     "statement": "The prescribed-edge extension refutes EP(9), with q=9 and D(E)=20>18.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "STAR5",
+     "statement": "Two Petersen graphs identified at one vertex refute unrestricted STAR_5.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "bare_flow",
+     "statement": "The supplied order-15 graph has W=14>C_B=12 and D(B)=32>30.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "Heawood_controls",
+     "statement": "Heawood tails refute bare flow even without C5; a one-tail control refutes the even one-per-A flow.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "artifact_hashes",
+     "statement": "Hashes and byte sizes of supplied report/data artifacts match the manifest.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "Odeg_K",
+     "statement": "Uniform odd endpoint unit-degree bound in the admissible class.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "OH_K",
+     "statement": "Uniform odd Hall inequality or its component-reserve alternative.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "OP_K",
+     "statement": "Uniform equal-split local odd bound.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "START",
+     "statement": "Uniform assertion that every vertex starts the odd maximum path.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "E_K_EU_EH_K",
+     "statement": "Uniform even endpoint weighted/unit/Hall assertions and endpoint cap.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "B1_B2",
+     "statement": "Block inequalities at all orders and rooted indices.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "uniform_GEN_RAD",
+     "statement": "GEN_K for K>=6 and new RAD cases from this strategy.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  },
+  {
+   "session": "r13_general_B",
+   "prover_dir": "astra_r13/r13_general_B",
+   "referee_dir": "astra_r13v/v_r13_general_B",
+   "verdict_file": "astra_r13v/v_r13_general_B/scratch/verdict.json",
+   "verdict_sha256": "96e05f5350e30863e01427a523ab0d2b4a34a4b77920882577ef08d0fa5f3c9b",
+   "referee_overall": "CORRECT",
+   "overall_reason": null,
+   "required_fixes": [],
+   "claims": [
+    {
+     "id": "ICD_ABOVE_SIX",
+     "statement": "Every connected strong C4-free G with S/n>6 has a proper connected dominating induced H with p(H)<=p(G)-2 and J(H)<=J(G)-1, J=p-ceil(S/n).",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "ICD_ABOVE_TWO",
+     "statement": "The same core assertion whenever S/n>2.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "REAL_BUDGET_RD",
+     "statement": "Above density six, some eligible core has ell(G)-ell(H)<=p(G)-p(H)-1.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "ICD_ASSEMBLY",
+     "statement": "For any density cutoff a, REAL below a together with ICD above a implies REAL at every density.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "ROUNDING_AND_CAP_OPTIMIZATION",
+     "statement": "ICD is equivalent to S(H)>(ceil(S/n)-p(G)+p(H))*|H|, and to positivity of some M_j.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "PATH_CORE_CERTIFICATE",
+     "statement": "An actual path lower bound and a core path upper bound satisfying inequality (C) certify ICD without exact p(G).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "UNIT_REGULAR_RADIUS_TWO",
+     "statement": "ICD holds for strong C4-free radius-two graphs of constant unit degree d>=3.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "PENDANT_CORONAS",
+     "statement": "Uniform pendant-path coronas with ell>2 admit a density-increasing eligible core.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "UNIQUE_CORONA_CORE",
+     "statement": "If every base vertex starts a longest base path, the one-leaf corona has exactly one eligible core, its base.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "BALANCED_CORE_LP_FALSE",
+     "statement": "A vertex-balanced nonnegative weighting of eligible cores need not exist even at ell=7.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "PROJECTIVE_GRAFTS",
+     "statement": "The unbounded-radius projective graft family has the exact n,S,r,p formulas (2) and a density-increasing eligible core.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "IRREGULAR_PENTAGON_PLANES",
+     "statement": "Deleting one external plane vertex, adding a root triangle and any number of root-edge pentagons gives an ICD graph for every prime q>=5.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CLEAN_INCIDENCE",
+     "statement": "Unit incidence girth is at least ten, but projected induced paths require the stated clean-unit condition.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "DENSE_FLAG_SCALE",
+     "statement": "Strong C4-free graphs have e=O(n^(3/2)); ordinary fixed-size dense flags tend to edgeless flags.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "UNROUNDED_COUNTEREXAMPLES",
+     "statement": "Petersen refutes RD without a density cutoff; Petersen and Heawood refute fixed one-unit density retention.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "FINITE_CORE_TESTS",
+     "statement": "995 ell>2 graph records pass ICD; graph records include a repeated Petersen isomorphism class.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "DENSE_POSITIVE_CERTIFICATES",
+     "statement": "Five planes, one corona and three irregular pentagonal modifications have saved positive core certificates.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "NEXT_PROGRAM",
+     "statement": "Stress-test rounded core descent, then attack irregular C5-free core exchanges, then overlapping pentagonal pieces.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "ICD_K",
+     "statement": "The explicit ICD_K assertions for all integers K>=6.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "RADIUS_TRANSFER",
+     "statement": "A connected dominating induced H satisfies r(G)<=r(H)+1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "RD_IMPLICATION_AND_BOUNDARY",
+     "statement": "RD implies ICD, and RD is equivalent to D(U)<=ell(G)|U|+(d-1)|H|.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "PROJECTIVE_CORONA_PARAMETERS",
+     "statement": "The PG(2,11) corona has n=532,S=3724,ell=7 and exact potential drop 7 to its unique eligible base.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "GRAFT_DENSITY_AND_REAL",
+     "statement": "The graft family has unbounded density, asymptotic limiting density sqrt(r/2), and satisfies REAL directly.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "GIRTH_SIX_PATH_BOUND",
+     "statement": "A triangle-free graph with no C4 or C5 and minimum degree delta>=2 has p>=2delta+1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "INCIDENCE_HAMILTON_WITNESS",
+     "statement": "The saved Petersen Hamilton path becomes an induced incidence path of order 19, while graph p is 5.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "UNRESTRICTED_ICD_STAR",
+     "statement": "Every K_1,m, m>=2, refutes ICD without a density cutoff.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "RADIUS_TWO_CENTER_EQUIVALENCE",
+     "statement": "A radius-two center neighborhood has J=1; at ell>2 its ICD success is equivalent to REAL at radius two.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "TWO_PETERSENS_ROOT_CONTROL",
+     "statement": "Two Petersens sharing a vertex have shared unit degree six and rooted path maximum five.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SMALL_CATALOGUE_DOMAIN",
+     "statement": "All connected strong C4-free classes through 12 have the claimed counts; the selected core domain contains 4,413 graphs.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "DENSE_SEARCH_DOMAIN",
+     "statement": "The complete n=13,14 domains and first-5,000 n=15,16 samples produce 58 retained graphs.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "EXACT_CONTROLS",
+     "statement": "The Petersen, Heawood and two-Petersen control table gives exact p,r,mass and core optima.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "FAILURE_CLASSIFICATION",
+     "statement": "The small catalogue has 27 ICD failures with eligible cores, all p=3 and ell<2, and nine other graphs with no eligible core.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "AUXILIARY_ROOT_STATES",
+     "statement": "The auxiliary table has all 244 rooted connected dominating Petersen states containing root 0.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "GRAFT_FINITE_EVALUATIONS",
+     "statement": "The five saved graft evaluations equal the proved formulas.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SUPPLIED_PASS_RECORDS",
+     "statement": "The supplied verification JSON files report PASS and the listed numerical outputs.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "ORIGINAL_VERIFIER_IMPLEMENTATION",
+     "statement": "The original r13_verify.py imported no producer code and used the algorithm described in section 3.6.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "ARTIFACT_HASHES",
+     "statement": "The manifest matches the supplied report, certificate files and accepted context.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "MULTISTEP_CONDITIONAL_ASSEMBLY",
+     "statement": "A connected dominating chain with total J drop at least its length gives the same conditional assembly.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CLAIM_SUMMARY_STATUS",
+     "statement": "The summary accurately labels the route proposed, sufficiency/families proved, finite checks computed, and general ICD/REAL open.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    }
+   ]
+  },
+  {
+   "session": "r13_compare",
+   "prover_dir": "astra_r13/r13_compare",
+   "referee_dir": "astra_r13v/v_r13_compare",
+   "verdict_file": "astra_r13v/v_r13_compare/scratch/verdict.json",
+   "verdict_sha256": "bda0749b3c052bf982b3b3633933eb77cb5141668545f33c66586d3d7ec46fde",
+   "referee_overall": "GAP",
+   "overall_reason": "GAP is restricted to explicit finite sampling-history assertions that cannot be independently verified from the allowed package. No false proved mathematical lemma or mismatch in any supplied graph/core certificate was found. General conjectures remain correctly open.",
+   "required_fixes": [
+    "For section 4.5, supply the 602 omitted non-target graph records with path certificates and a complete text specification of the sampler (including random-call/order conventions), or label the 7929 total, safe-attempt counts and non-target path histogram as unverified historical outputs. Producer source code is not required.",
+    "Distinguish verification of the supplied 7327 mixed target records from reproduction of the claimed 20000-attempt seed run. The same provenance qualification applies to seeds used to choose the dense examples; their certificates themselves are verified.",
+    "Qualify artifact/provenance claims to the files actually supplied. Include independently reproducible mathematical sampling rules and usable artifact-relative links. Do not imply that absent producer/verifier source was inspected.",
+    "For partition-test histories, provide the exact partition selector if exact run reproduction is intended; otherwise report the independent replacement checks separately. The deletion and Hall-cut identities themselves are proved and pass all replacement checks."
+   ],
+   "claims": [
+    {
+     "id": "A.scope_and_inputs",
+     "statement": "Accepted GEN_3/4/5 and radius reductions; no new GEN_6 or RAD theorem is claimed.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.band_scope",
+     "statement": "The direct GEN_K band does not cover RAD(K+1), and radius minimality does not supply arbitrary deletion criticality.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.unit_charge",
+     "statement": "Equations (1) and (2): exact deletion, endpoint weighted charge, unit survival and reserve accounting.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.criticality",
+     "statement": "Equation (3): a minimum counterexample has D(U)>=K|U|+epsilon.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.two_stage_induction",
+     "statement": "GEN_(K-1)+Odeg_K+OH_K implies MASS_(2K-1); MASS+E_K or EH_K implies GEN_K.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.local_strength_relations",
+     "statement": "OP implies OH; Odeg+START suffices for MASS; EU implies E; E implies EH; OH implies OH-res.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.integral_hall",
+     "statement": "OH/EH are equivalent to integral assignments for nonnegative integer capacities.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.accounting_limit",
+     "statement": "Equation (5): a positive-surplus obstruction violates the all-source exact-reserve row.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.hall_cut",
+     "statement": "Equation (6), including the -M triangle correction, and the cut reduction for EH.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.critical_star",
+     "statement": "Equation (7): k nontriangular loss-(K+1) neighbors force L(v)>=K+1+k for a proper star.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.parity_compression",
+     "statement": "Odd equations (8),(9) and even equations (10),(11), including attachment and clique/forest structure.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.endpoint_neighborhood",
+     "statement": "Complete endpoint contact reduction, lambda(x)<=q-2 and initial order <=2q-2<=4K-2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.trace_packing",
+     "statement": "Equation (12), exact C4-safety test and equality triangle exclusion.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.trace_dual",
+     "statement": "Equation (13), positive-trace necessity and sufficient dual certificate (15).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.block_TD_ROOT",
+     "statement": "B1+B2 imply TD; TD implies corrected ROOT; the accepted structural reduction then gives RAD.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.cycle_spacing",
+     "statement": "C5 exclusion yields gap 2; induced C5/C6/C7 exclusion yields gap 4 and q>=4lambda(x)-1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.no_termination_claim",
+     "statement": "Local extension rules and open leaves do not establish a uniform structural theorem or termination.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.one_contact_skeletons",
+     "statement": "Complete specified one-contact domains at t=9,10,11,12 and all saved invariants.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.local_probes",
+     "statement": "All 636 local probe domains, trace filters, exact packing caps, rounds and closures.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.reserve_flows",
+     "statement": "Component and vertex reserve flows, and odd equal-split OP failure counts.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.regular_catalogue",
+     "statement": "Complete connected 4-regular girth>=5 catalogue on 17..21 vertices and classifications.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.triangle_decorations",
+     "statement": "All 32 four-center-edge triangle decorations and the stated path/charge classifications.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.validation_counts",
+     "statement": "14,742 skeleton root checks, 67 extra graph records, 1,541 assignments, one Hall witness and 6,700 partition tests.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "A.TD_block_tests",
+     "statement": "All 227 roots and every rigid pair of the 11 regular blocks satisfy B1/B2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.unrestricted_weighted_K6",
+     "statement": "The t12 contacts-{1,2,3} graph refutes unrestricted E/EU.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.unrestricted_endpoint_cap",
+     "statement": "The t11 and t12 six-contact graphs have global endpoints of unit degree 7.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.START_from_pairs",
+     "statement": "Robertson disproves deriving START solely from singleton/pair losses.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.EPplus8",
+     "statement": "The base graph has root-8 maximum 8, terminal set {10,11} and deletion loss 16>14.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.EP9",
+     "statement": "The prescribed-edge extension refutes EP(9), with q=9 and D(E)=20>18.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.STAR5",
+     "statement": "Two Petersen graphs identified at one vertex refute unrestricted STAR_5.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.bare_flow",
+     "statement": "The supplied order-15 graph has W=14>C_B=12 and D(B)=32>30.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.Heawood_controls",
+     "statement": "Heawood tails refute bare flow even without C5; a one-tail control refutes the even one-per-A flow.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A.artifact_hashes",
+     "statement": "Hashes and byte sizes of supplied report/data artifacts match the manifest.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "A.Odeg_K",
+     "statement": "Uniform odd endpoint unit-degree bound in the admissible class.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "A.OH_K",
+     "statement": "Uniform odd Hall inequality or its component-reserve alternative.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "A.OP_K",
+     "statement": "Uniform equal-split local odd bound.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "A.START",
+     "statement": "Uniform assertion that every vertex starts the odd maximum path.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "A.E_K_EU_EH_K",
+     "statement": "Uniform even endpoint weighted/unit/Hall assertions and endpoint cap.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "A.B1_B2",
+     "statement": "Block inequalities at all orders and rooted indices.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "A.uniform_GEN_RAD",
+     "statement": "GEN_K for K>=6 and new RAD cases from this strategy.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "B.ICD_ABOVE_SIX",
+     "statement": "Every connected strong C4-free G with S/n>6 has a proper connected dominating induced H with p(H)<=p(G)-2 and J(H)<=J(G)-1, J=p-ceil(S/n).",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "B.ICD_ABOVE_TWO",
+     "statement": "The same core assertion whenever S/n>2.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "B.REAL_BUDGET_RD",
+     "statement": "Above density six, some eligible core has ell(G)-ell(H)<=p(G)-p(H)-1.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "B.ICD_ASSEMBLY",
+     "statement": "For any density cutoff a, REAL below a together with ICD above a implies REAL at every density.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.ROUNDING_AND_CAP_OPTIMIZATION",
+     "statement": "ICD is equivalent to S(H)>(ceil(S/n)-p(G)+p(H))*|H|, and to positivity of some M_j.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.PATH_CORE_CERTIFICATE",
+     "statement": "An actual path lower bound and a core path upper bound satisfying inequality (C) certify ICD without exact p(G).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.UNIT_REGULAR_RADIUS_TWO",
+     "statement": "ICD holds for strong C4-free radius-two graphs of constant unit degree d>=3.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.PENDANT_CORONAS",
+     "statement": "Uniform pendant-path coronas with ell>2 admit a density-increasing eligible core.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.UNIQUE_CORONA_CORE",
+     "statement": "If every base vertex starts a longest base path, the one-leaf corona has exactly one eligible core, its base.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.BALANCED_CORE_LP_FALSE",
+     "statement": "A vertex-balanced nonnegative weighting of eligible cores need not exist even at ell=7.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.PROJECTIVE_GRAFTS",
+     "statement": "The unbounded-radius projective graft family has the exact n,S,r,p formulas (2) and a density-increasing eligible core.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.IRREGULAR_PENTAGON_PLANES",
+     "statement": "Deleting one external plane vertex, adding a root triangle and any number of root-edge pentagons gives an ICD graph for every prime q>=5.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.CLEAN_INCIDENCE",
+     "statement": "Unit incidence girth is at least ten, but projected induced paths require the stated clean-unit condition.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.DENSE_FLAG_SCALE",
+     "statement": "Strong C4-free graphs have e=O(n^(3/2)); ordinary fixed-size dense flags tend to edgeless flags.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.UNROUNDED_COUNTEREXAMPLES",
+     "statement": "Petersen refutes RD without a density cutoff; Petersen and Heawood refute fixed one-unit density retention.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.FINITE_CORE_TESTS",
+     "statement": "995 ell>2 graph records pass ICD; graph records include a repeated Petersen isomorphism class.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.DENSE_POSITIVE_CERTIFICATES",
+     "statement": "Five planes, one corona and three irregular pentagonal modifications have saved positive core certificates.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.NEXT_PROGRAM",
+     "statement": "Stress-test rounded core descent, then attack irregular C5-free core exchanges, then overlapping pentagonal pieces.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.ICD_K",
+     "statement": "The explicit ICD_K assertions for all integers K>=6.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "B.RADIUS_TRANSFER",
+     "statement": "A connected dominating induced H satisfies r(G)<=r(H)+1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.RD_IMPLICATION_AND_BOUNDARY",
+     "statement": "RD implies ICD, and RD is equivalent to D(U)<=ell(G)|U|+(d-1)|H|.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.PROJECTIVE_CORONA_PARAMETERS",
+     "statement": "The PG(2,11) corona has n=532,S=3724,ell=7 and exact potential drop 7 to its unique eligible base.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.GRAFT_DENSITY_AND_REAL",
+     "statement": "The graft family has unbounded density, asymptotic limiting density sqrt(r/2), and satisfies REAL directly.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.GIRTH_SIX_PATH_BOUND",
+     "statement": "A triangle-free graph with no C4 or C5 and minimum degree delta>=2 has p>=2delta+1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.INCIDENCE_HAMILTON_WITNESS",
+     "statement": "The saved Petersen Hamilton path becomes an induced incidence path of order 19, while graph p is 5.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.UNRESTRICTED_ICD_STAR",
+     "statement": "Every K_1,m, m>=2, refutes ICD without a density cutoff.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.RADIUS_TWO_CENTER_EQUIVALENCE",
+     "statement": "A radius-two center neighborhood has J=1; at ell>2 its ICD success is equivalent to REAL at radius two.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.TWO_PETERSENS_ROOT_CONTROL",
+     "statement": "Two Petersens sharing a vertex have shared unit degree six and rooted path maximum five.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.SMALL_CATALOGUE_DOMAIN",
+     "statement": "All connected strong C4-free classes through 12 have the claimed counts; the selected core domain contains 4,413 graphs.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.DENSE_SEARCH_DOMAIN",
+     "statement": "The complete n=13,14 domains and first-5,000 n=15,16 samples produce 58 retained graphs.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.EXACT_CONTROLS",
+     "statement": "The Petersen, Heawood and two-Petersen control table gives exact p,r,mass and core optima.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.FAILURE_CLASSIFICATION",
+     "statement": "The small catalogue has 27 ICD failures with eligible cores, all p=3 and ell<2, and nine other graphs with no eligible core.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.AUXILIARY_ROOT_STATES",
+     "statement": "The auxiliary table has all 244 rooted connected dominating Petersen states containing root 0.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.GRAFT_FINITE_EVALUATIONS",
+     "statement": "The five saved graft evaluations equal the proved formulas.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.SUPPLIED_PASS_RECORDS",
+     "statement": "The supplied verification JSON files report PASS and the listed numerical outputs.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.ORIGINAL_VERIFIER_IMPLEMENTATION",
+     "statement": "The original r13_verify.py imported no producer code and used the algorithm described in section 3.6.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "B.ARTIFACT_HASHES",
+     "statement": "The manifest matches the supplied report, certificate files and accepted context.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "B.MULTISTEP_CONDITIONAL_ASSEMBLY",
+     "statement": "A connected dominating chain with total J drop at least its length gives the same conditional assembly.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "B.CLAIM_SUMMARY_STATUS",
+     "statement": "The summary accurately labels the route proposed, sufficiency/families proved, finite checks computed, and general ICD/REAL open.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.1",
+     "statement": "Under full critical loss, E on nonempty B is equivalent to B=V and lambda<=K.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.2",
+     "statement": "Ambient A-component unit mass at most K times its order suffices for component-reserve Hall.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.3",
+     "statement": "A distance-two pair in a 2-connected strong C4-free graph is not rigid.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.4",
+     "statement": "n min-cuts decide full criticality for triangle-free positive-surplus candidates.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.5.one_contact",
+     "statement": "Complete q=11,12,13,14 one-contact domains and every classification.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.5.mixed_saved",
+     "statement": "All 7327 saved mixed-contact target records and their endpoint/flow classifications.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.5.mixed_history",
+     "statement": "20000 seeded attempts produced 7929 distinct safe graphs, including 602 unsaved non-target graphs.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "N4.5.counterexamples",
+     "statement": "Six weakened-endpoint counterexamples, including K=7 and E versus EU separation.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.6.exhaustive",
+     "statement": "All 97964 high-enough-density core records at orders 13,14,15 have the recorded exact optimum.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.6.plane",
+     "statement": "96 PG(2,7) perturbations have the stated ICD certificates, mass bands and criticality counts.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.6.pentagonal",
+     "statement": "32 Hoffman-Singleton perturbations satisfy full K=6 criticality and have ICD certificates.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.6.aggregate",
+     "statement": "128 high-density ICD certificates; 73 full-criticality passes, 42 at K=6 and 31 at K=7.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.7.small",
+     "statement": "4406 connected C4-free graphs through order ten and the stated B1/B2/TD totals.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.7.partitions",
+     "statement": "13218 deterministic deletion/Hall identity checks.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "N4.7.supplied",
+     "statement": "The report's 1024 A graph records and 4474 B core records match.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4.7.manifest",
+     "statement": "Manifest and reproducibility statements.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "N.strategy",
+     "statement": "Recommendations CE/RC, TD block program, and irregular C5-free ICD exchange program.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "N.scope",
+     "statement": "General REAL-133, GEN_K for K>=6 and new RAD cases remain open.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N.summary",
+     "statement": "CLAIM_SUMMARY.md accurately summarizes the verified results.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    }
+   ]
+  }
+ ]
+}
