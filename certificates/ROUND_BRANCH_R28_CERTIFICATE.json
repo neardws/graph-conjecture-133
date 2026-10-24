@@ -1,0 +1,549 @@
+{
+  "round": "R28",
+  "created": "2026-10-23 08:48 CST",
+  "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only; all manifest-listed files copied to referee data). Built from referee verdict.json files only; a claim is accepted iff its referee verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md §4ac). After a box fork/reboot mid-prover, both provers were resumed with original session ids (no relaunch). Gated chains died before referees; referees launched via :REF only.",
+  "briefing": "data/r28/BRIEFING.md sha256 04bf0a568fe52439caec4673f24a7c95304f6c90e9ba189a7da7a9aee911e46f",
+  "headline_verified": [
+    "Finite-loss certificate proves GEN_3 independently (q=4,5,6 local certificates; 263 records / 2339 traces; no open leaves): every strongly C4-free G with p<=6 has S<=3|G|. Consequently the capped K=3 2-connected irreducible domain for STAR-LEX_cap/CF is empty. Sharpness: T11 (p=6,eps=-4, cheap triple) and Petersen (p=5, forces |U|<=10). Triangle-free p=6 admits |U|<=2.",
+    "Cut-vertex: every branch of a positive fully induced-critical strongly C4-free graph has order >=K^2; with accepted ROOT(3)..ROOT(8), no such graph with p<=2K has a cut vertex for 3<=K<=8 (closes residual 1<=eps<=K-4 at K=5,6,7,8). At K=9 any capped cut-vertex example has order >=271 (finite ROOT(9)).",
+    "Side refinements T28.1–T28.8 (K-free rooted lemma, residual reductions, short-root gluing, even-K tree augmentation); ASSEMBLY: RB_K + capped 2-connected irreducible endpoint/model theorem => GEN_K (conditional).",
+    "Kill-tests COMPLETE: K=3 n=18 T=2: 154302 classes, 65 irreducible, 0 R*/CF failures; K=3 n=19 T=1: 947028 canonical, 40 irreducible, 0 R*/CF failures; K=4 Robertson/tree family n=21: 48 irr (0 fail), n=22: 564 irr / 588 records (0 fail). No irreducible R*/CF endpoint failure. H21 remains the unique (reducible) critical R* obstruction in the Petersen-block-tree class."
+  ],
+  "open": [
+    "STAR-LEX_cap(K)/CF-endpoint for general 2-connected irreducibles (K>=4, especially K=6); the proposed A+D+E/E1 => safe repair implication is necessary but not yet sufficient",
+    "General residual cut-vertex exclusion for K>=9 (and the conjectural RB_K / small K=6 residual geometries)",
+    "GEN_K (K>=6) beyond accepted prior results",
+    "NB(6), FP42, RAD(r>=11), REAL-133"
+  ],
+  "sessions": [
+    {
+      "session": "r28_twoconnected",
+      "prover_dir": "astra_r28/r28_twoconnected",
+      "referee_dir": "astra_r28v/v_r28_twoconnected",
+      "prover_session_id": "01a165e9-08ae-7363-84bd-a9d8104c50f7",
+      "verdict_file": "astra_r28v/v_r28_twoconnected/scratch/verdict.json",
+      "verdict_sha256": "6e76d0399443cea4fe63cbb4b93b3c3db0d4795f2cfef8d796fddf8d79faf418",
+      "referee_overall": "CORRECT",
+      "required_fixes": [],
+      "claim_breakdown": {
+        "CORRECT": 35,
+        "UNVERIFIED": 4
+      },
+      "claims": [
+        {
+          "id": "C01",
+          "statement": "Definitions, critical-loss inequality, disjoint parent classes, pentagon interpretation and clean-endpoint equivalence (§1.1).",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Verified directly. Full induced criticality also implies connectedness by additivity over components. Two parents would give two common neighbours. The clean-path converse is used for paths of order at least three, as required by every application."
+        },
+        {
+          "id": "C02",
+          "statement": "Exact star safety, surplus formula and integral strict budget (2)–(4).",
+          "prover_status": "PROVED; accepted input",
+          "verdict": "CORRECT",
+          "reason": "Re-derived the edge, triangle and order changes. A new C4 through the star is exactly a surviving length-two path with both ends in C. Triangle correction -3*pi and +t are necessary and correct. Exhaustive triangular small-graph checks and nine complete star certificates agree."
+        },
+        {
+          "id": "C03",
+          "statement": "Expansion lemma for all integer K>=1 and exact trace rule (7), §2.1.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "If no outside vertex meets U, no lost edge or triangle can extend outside H; the losses are equal. A new four-cycle is precisely z,x,w,y,z. No assumption about monotonicity of deletion loss, triangle-freeness or connectedness is hidden."
+        },
+        {
+          "id": "C04",
+          "statement": "Finite acyclic expansion certificate implies a global cheap set, §2.1.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The contrary hypothesis supplies an outside neighbour at every embedded record. Every trace is covered, and each nonrejected extension is a later exact labelled graph. Strictly increasing indices in a finite list give the contradiction. No depth cutoff, automorphism pruning, assumed ambient order bound or solver assertion is used."
+        },
+        {
+          "id": "C05",
+          "statement": "Complete q=4 finite loss certificate, §2.2.",
+          "prover_status": "PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "Decoded every graph and recomputed all edge/triangle losses. Enumerated every trace independently and constructed its full extension; checked an exact disjoint partition into valid path witnesses and later exact children. Every record is reachable; no open leaves."
+        },
+        {
+          "id": "C06",
+          "statement": "Complete q=5 finite loss certificate, §2.2.",
+          "prover_status": "PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "Decoded every graph and recomputed all edge/triangle losses. Enumerated every trace independently and constructed its full extension; checked an exact disjoint partition into valid path witnesses and later exact children. Every record is reachable; no open leaves."
+        },
+        {
+          "id": "C07",
+          "statement": "Complete q=6 finite loss certificate, §2.2.",
+          "prover_status": "PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "Decoded every graph and recomputed all edge/triangle losses. Enumerated every trace independently and constructed its full extension; checked an exact disjoint partition into valid path witnesses and later exact children. Every record is reachable; no open leaves."
+        },
+        {
+          "id": "C08",
+          "statement": "Rooted terminal bound q_H(o)>=m+2 and the p<=3 singleton case, §2.2.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Checked the q=2 exception and the outside-neighbour count for q>=3. The triangle indicator eta<=t(x) gives d(x)+2-eta>=lambda(x)+2. The hypotheses |H|>=2 and m>=2 are present. Applied to a nontrivial component, this justifies the p<=3 case."
+        },
+        {
+          "id": "C09",
+          "statement": "Ten-vertex local loss theorem, sharp triple bound at p=6, GEN_3 and empty capped K=3 domain.",
+          "prover_status": "PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "C04–C08 prove the local theorem for every nonempty graph, including disconnected and triangular graphs. Induction on order after deleting U proves S<=3n without invoking accepted GEN_3. T11 and Petersen certify the stated sharpness."
+        },
+        {
+          "id": "C10",
+          "statement": "Triangle-free p=6 permits two vertices; degree-one-or-adjacent-degree-two consequence, §2.2.",
+          "prover_status": "PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "The 41 triangle-free record indices match exactly and have selected sets of size at most two. A triangle-free ambient embedding cannot visit a triangular record. For a pair, D=2d(x)+2d(y)-2*1_xy, giving exactly the asserted structural consequence."
+        },
+        {
+          "id": "C11",
+          "statement": "Branch accounting sum(alpha_i)=K+epsilon and epsilon<=alpha_i<=K, §2.3.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Edges and triangles split between branches. H_i and G-D_i are proper induced subgraphs, giving both inequalities. Full criticality guarantees connectedness. The eight supplied concrete branches and their complete rooted forests agree."
+        },
+        {
+          "id": "C12",
+          "statement": "Universal mass inequality and branch order at least K^2; total order at least 1+r(K^2-1), §2.3.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Checked the disjoint-child count, sum d^2 bound, t(2d-t)>=3t and Cauchy–Schwarz using S=sum lambda. The displayed polynomial identity is exact and strictly positive for 1<=m<=K^2-2. Integrality supplies S>=Km+1; no criticality is needed for the branch lemma itself."
+        },
+        {
+          "id": "C13",
+          "statement": "Rooted branch bound (6)/(9) and complete capped cut-vertex exclusion for 3<=K<=8.",
+          "prover_status": "PROVED relative to accepted ROOT(3)..ROOT(8)",
+          "verdict": "CORRECT",
+          "reason": "The exact coarse rooted bounds appear in ctx/r20_STATE_through_R19.md, Verified theorems. The q<=2 universal-root case is handled directly. Each branch starts at least min(K+2,9) vertices; combining with the terminal bound and concatenating two branches is valid. No GEN_K is used."
+        },
+        {
+          "id": "C14",
+          "statement": "K=9 capped cut-vertex graphs have order at least 271.",
+          "prover_status": "PROVED relative to accepted finite ROOT(9)",
+          "verdict": "CORRECT",
+          "reason": "Every branch has rooted maximum at least nine. Two branches with rooted maximum at least ten would give P19, so a branch has rooted maximum nine. Accepted ROOT(9) through order 190 forces that branch to have at least 191 vertices; another has at least 81. The total is at least 191+81-1."
+        },
+        {
+          "id": "C15",
+          "statement": "A smallest positive subgraph of a positive star repair retains at least two parent classes, §2.4.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "It must contain the star vertex by full criticality. With at most one parent class, replacing the star by that original parent yields an isomorphic proper induced subgraph of G. The zero-class case uses any parent; nonisolation ensures one exists."
+        },
+        {
+          "id": "C16",
+          "statement": "Capacity identity and E/E1 provide necessary conditions, not an existence proof, §§2.4,4–5.",
+          "prover_status": "PROVED; accepted D/E/E1 input",
+          "verdict": "CORRECT",
+          "reason": "Checked the component separation and the direction of every implication used. The report does not reverse either necessary condition. M15 and Q8 give actual obstructions to the suggested insufficient hypotheses."
+        },
+        {
+          "id": "C17",
+          "statement": "Completeness of path forests, charge certificates, and arbitrary-bag verification specifications, §3.1.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Fresh terminal-path enumeration equals every supplied forest exactly, including start-root domains. Charge vectors assign two units per edge with vertex loads at most K and are used only for triangle-free graphs. Connected-bag order loss gives a complete finite universe; canonical sorting removes duplicates without deleting model classes."
+        },
+        {
+          "id": "C18",
+          "statement": "T11 is 2-connected, strongly C4-free, p=6, epsilon_3=-4, with no cheap singleton/pair and a cheap triple.",
+          "prover_status": "PROVED; explicit finite certificates",
+          "verdict": "CORRECT",
+          "reason": "Verified the edge list/graph6, subdivision description, connectivity, exact complete path forest and all 231 subsets of sizes one through three. The analytic path upper bound and loss argument are sound."
+        },
+        {
+          "id": "C19",
+          "statement": "T11 has minimum order in the specified connected p=6 singleton/pair obstruction domain.",
+          "prover_status": "COMPUTED generator-based completeness",
+          "verdict": "CORRECT",
+          "reason": "Independently ran the supplied nauty-geng with -cqf -d2 for each order 3..10 and matched the complete graph6 sets, not just counts. Independently verified every exclusion. Orders one and two have cheap singletons; absence of a cheap singleton implies minimum degree at least two."
+        },
+        {
+          "id": "C20",
+          "statement": "Petersen has p=5 and forces deletion-set bound ten.",
+          "prover_status": "PROVED; explicit finite certificates",
+          "verdict": "CORRECT",
+          "reason": "Verified cubicity, connectivity, absence of C3/C4, exact p=5 and every one of 1,022 proper nonempty subsets. The identity D(U)=3|U|+|boundary(U)| is exact. The Moore-property proof excluding P6 is also sound."
+        },
+        {
+          "id": "C21",
+          "statement": "Q8 is a minimum-order obstruction to privacy for a specified distal P3 under 2-connectivity and lambda(v)>=2.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Verified all root classes, Z, the two nonprivate contact sets, exact p=7, strong C4-freeness and epsilon_3=-10. The lower bound 1+2+3+2=8 follows from disjoint layers and the cut vertex that a sole C vertex would create. It is not asserted positive-critical."
+        },
+        {
+          "id": "C22",
+          "statement": "All 16 controls, selectors, cap-violating witnesses, 687 root records and 156 charges are valid.",
+          "prover_status": "PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "Independently decoded graph6, compared every edge, computed masses, articulation points, root data and selectors, and checked every selected/global witness and charge. All reported aggregate counts match. Additional fresh max-flow computations establish full induced criticality of all 16 positive controls."
+        },
+        {
+          "id": "C23",
+          "statement": "M15 is positive, 2-connected, fully critical and irreducible, with a bad universal F/CF root 7 but no capped counterexample.",
+          "prover_status": "PROVED computer-assisted; accepted order/minimality input",
+          "verdict": "CORRECT",
+          "reason": "Full model-key equality was checked against a new enumeration through losses 1,2,3. The accepted positive-order threshold 13 excludes every omitted larger-loss model. Root 7 has q=6, f=6, sigma=-7, connected B of order 12 and independent Z; its exact repair maximum is -3. Rstar={1,...,6}, global p=9. The order-15 minimum is relative to the explicitly accepted critical catalogue completeness, not newly regenerated here."
+        },
+        {
+          "id": "C24",
+          "statement": "H21 is fully critical but reducible; root 20 has q=6 and a positive safe star with surplus 3.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Verified its two-Petersen/new-centre construction, all criticality charges, negative rooted forest and complete global search (p=11). Reconstructed the explicit quotient and checked every retained mask at root 20, obtaining capacities 3+3. The minimum of 21 is only for the specified assembly."
+        },
+        {
+          "id": "C25",
+          "statement": "S17 is a positive 2-connected irreducible selected-root spare-arm obstruction, with endpoint P7.",
+          "prover_status": "PROVED computer-assisted; accepted minimality input",
+          "verdict": "CORRECT",
+          "reason": "Fresh charges and full binary arbitrary-bag replay verify criticality/irreducibility. Enumerated all four possible position-three prefixes and all their terminal continuations (maximum five), and verified the endpoint P7. Rstar=CF={6}; fresh exact global p=10. The order-17 minimum remains relative to accepted catalogues through order 16."
+        },
+        {
+          "id": "C26",
+          "statement": "J19 is an irreducible cut-vertex example with p=9, minimal within the two-cubic-Moore-block amalgam class.",
+          "prover_status": "PROVED using accepted Moore-block theorem",
+          "verdict": "CORRECT",
+          "reason": "Verified the two cubic girth-five blocks, sole articulation, criticality, branch maxima five and global maximum nine. Rechecked the Moore-block model proof: contraction forces sufficient order loss by disjoint pentagons, and rooted restrictions of a model give the two-block surplus bound. The stated minimality is class-restricted."
+        },
+        {
+          "id": "C27",
+          "statement": "Contracted Heawood is positive irreducible at order 13, with prescribed-root q=6 and global p=7.",
+          "prover_status": "PROVED; accepted positive-order threshold",
+          "verdict": "CORRECT",
+          "reason": "Verified the graph, criticality, both complete forests and exact p. Every proper model has fewer than 13 vertices, so the accepted all-graph positive-order threshold proves irreducibility. All 304 supplied terminal paths check."
+        },
+        {
+          "id": "C28",
+          "statement": "HS/G41–43, F121/F91 and G151 are valid controls with the stated obstruction scope.",
+          "prover_status": "PROVED / inherited controls",
+          "verdict": "CORRECT",
+          "reason": "Recomputed rho and full criticality for all controls. Fresh C enumeration gives p=20 for HS core 2 and G41–43. Exhaustive replacements verify frozen P12s of F121/F91; checked base paths prove their criticality and all small-budget failures. Checked G151 base flows/pentagons and the cut argument prove all-size one-edge unaffordability, with surplus-zero attaining model. These facts refute the indicated stronger routes; they do not refute every bounded exchange rule or imply arbitrary-bag irreduci"
+        },
+        {
+          "id": "C29",
+          "statement": "Admissible-model descent preserves the induced-path cap and terminates, §4.1.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "In the union of bags of a quotient path, a shortest path from first bag to last is induced and cannot skip any bag. Thus p(quotient)<=p(original). Strict order decrease gives termination, while positivity is retained by the chosen models."
+        },
+        {
+          "id": "C30",
+          "statement": "For K=6,7,8, GEN_(K-1) plus the 2-connected STAR-LEX_cap or CF target implies GEN_K.",
+          "prover_status": "PROVED conditional implication",
+          "verdict": "CORRECT",
+          "reason": "Descent produces a connected fully critical irreducible; C13 removes articulations and positivity excludes orders below three. Applying the assumed target contradicts either the cap or irreducibility. The induction from accepted GEN_5 is valid but does not supply any of the three missing targets."
+        },
+        {
+          "id": "C31",
+          "statement": "For K>=9 the analogous sufficient implication adds residual cut-vertex exclusion 1<=epsilon<=K-4.",
+          "prover_status": "PROVED conditional implication",
+          "verdict": "CORRECT",
+          "reason": "The terminal bound rules out epsilon>=K-3. Descent then leaves exactly the stated residual condition C_K. The order restrictions do not alone exclude this domain."
+        },
+        {
+          "id": "C32",
+          "statement": "Repairs at any root or arbitrary admissible bags suffice; the local-loss alternative under lower induction also suffices, §4.2.",
+          "prover_status": "PROVED conditional implications",
+          "verdict": "CORRECT",
+          "reason": "Any positive proper model contradicts irreducibility regardless of root selection. A minimum positive induced subgraph has p>=2K-1 under lower induction, and the proposed cheap set contradicts the exact critical-loss inequality. No existence of such a set for general K is asserted."
+        },
+        {
+          "id": "C33",
+          "statement": "AR and lower induction supply unlabelled component paths but no clean endpoint or repair capacity, §4.2.",
+          "prover_status": "PROVED using accepted AR",
+          "verdict": "CORRECT",
+          "reason": "Verified hypotheses and the component deletion identity. Full criticality gives positive (K-2)-surplus in each B-component; AR gives a positive (K-1)-surplus component at a maximizing root. GEN_(K-2) is correctly identified as an additional input for its path conclusion."
+        },
+        {
+          "id": "C34",
+          "statement": "The rank-1 case split and rank-3 rooted branch proposal are sufficient if proved, §5.",
+          "prover_status": "PROVED sufficiency; proposed existence lemmas",
+          "verdict": "CORRECT",
+          "reason": "Low distal mass and its complement partition selected-root data. The branch off-root loss equals the original loss; gluing a rooted proper branch model proves exactly the displayed necessary model inequality. Rooted paths of order K+1 in two branches give P_(2K+1). The report correctly leaves both existence assertions unproved."
+        },
+        {
+          "id": "C35",
+          "statement": "Manifest, current certificate integrity and aggregate finite audit counts.",
+          "prover_status": "COMPUTED / PROVED finite checks",
+          "verdict": "CORRECT",
+          "reason": "All 38 byte sizes and SHA-256 hashes match after the supplied packaging map scratch/REPORT.md -> claim/PROOF_REPORT.md and scratch/data-name -> data/data-name. All three current certificate hashes also match the restart file and local-check file. All aggregate counts agree."
+        },
+        {
+          "id": "U01",
+          "statement": "General 2-connected STAR-LEX_cap / CF-endpoint existence and general repair-capacity implication.",
+          "prover_status": "CONJECTURED",
+          "verdict": "UNVERIFIED",
+          "reason": "Not proved or disproved by this report or this audit. The completed K=3 result is an empty-domain result; the accepted cut-vertex reduction does not prove the 2-connected assertion."
+        },
+        {
+          "id": "U02",
+          "statement": "Ranked proposed general-K endpoint transport, finite-loss closure and residual rooted branch lemmas.",
+          "prover_status": "PROPOSAL / CONJECTURED",
+          "verdict": "UNVERIFIED",
+          "reason": "Only their stated sufficiency is verified in C32/C34. The proposed structural existence and closure statements remain unproved."
+        },
+        {
+          "id": "U03",
+          "statement": "New general GEN_6, general GEN_K, and REAL-133.",
+          "prover_status": "Explicitly unresolved",
+          "verdict": "UNVERIFIED",
+          "reason": "No proof is claimed and none follows from the completed parts. In particular the separate radius branch is still required for REAL-133."
+        },
+        {
+          "id": "U04",
+          "statement": "Historical reboot, scheduling, producer run times and prior checker independence.",
+          "prover_status": "Historical metadata; expressly not mathematical premises",
+          "verdict": "UNVERIFIED",
+          "reason": "Current hashes are verified, but historical execution events cannot be inferred from data files alone. This audit uses only new independent code and does not rely on those events."
+        }
+      ]
+    },
+    {
+      "session": "r28_side",
+      "prover_dir": "astra_r28/r28_side",
+      "referee_dir": "astra_r28v/v_r28_side",
+      "prover_session_id": "01a165e9-35d1-72b0-a710-63cf979bedcf",
+      "verdict_file": "astra_r28v/v_r28_side/scratch/verdict.json",
+      "verdict_sha256": "5ddacc8e60afe5f3987d1e6a4c9af55cc3fbce0ea1a3afb45dee2a040bd6fa3b",
+      "referee_overall": "CORRECT",
+      "required_fixes": [],
+      "claim_breakdown": {
+        "CORRECT": 28,
+        "UNVERIFIED": 4
+      },
+      "claims": [
+        {
+          "id": "DEF",
+          "statement": "Definitions, selectors, clean-path endpoint equivalence and imported scope.",
+          "prover_status": "PROVED / accepted background",
+          "verdict": "CORRECT",
+          "reason": "The common-neighbour formulation excludes all C4 subgraphs. Deletion loses 2d-3t. Irreducibility implies induced criticality and connectedness. Complete lexicographic ties are retained. Clean-path equivalence uses the actual first two path vertices. The order thresholds 13/20 and GEN_2 through GEN_5 are explicitly accepted context premises."
+        },
+        {
+          "id": "T28.1",
+          "statement": "Terminal-degree rooted path bound.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "For a maximal rooted path, q=2 forces b(x)=1. For q>=3, d(x)-1 outside neighbours can be charged to at most q-3 earlier vertices and the possible triangular predecessor, giving q>=d(x)+2-eta>=b(x)+2. The nontrivial-order hypothesis is present."
+        },
+        {
+          "id": "T28.2",
+          "statement": "Branch path bounds (28.1)-(28.2).",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Singleton criticality gives L_x>=K+epsilon and 2lambda_x=L_x+t_x. Each branch preserves all nonroot degrees and triangles; two rooted paths concatenate without chords. Both ceilings and the +3 vertex count are correct."
+        },
+        {
+          "id": "T28.2-R",
+          "statement": "Residual terminal types, including K=5,6.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Two branch minima sum to at most 2K-3. Combining b<=K-2 with 2d-3t>=K+epsilon gives exactly the stated necessary types and the three small-parameter lists. These are necessary conditions, not realized capped examples."
+        },
+        {
+          "id": "T28.3",
+          "statement": "Universal mass estimate and positive rooted-charge order bound.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The local degree-square bound and sum t=3T give sum lambda^2<=h(h-1)-3T. The h=K^2-1 and h=K^2 integer calculations are correct. They imply h>=K^2 and alpha< K/2 at equality without connectedness or criticality."
+        },
+        {
+          "id": "T28.4",
+          "statement": "Critical branch charges, |G|>=2K^2, and positive lower-parameter component mass.",
+          "prover_status": "PROVED / conditional consequence",
+          "verdict": "CORRECT",
+          "reason": "The two proper induced subgraphs give epsilon<=alpha_i<=K. At least one of two charges exceeds K/2. The root-neighbour lambda sum is at most |D_i|, yielding |D_i|>=s d_i and (28.6). Only the asserted unrooted path consequence uses GEN_(K-1)."
+        },
+        {
+          "id": "T28.5",
+          "statement": "Every irreducible block has positive charge, large order, and the stated pair/count bounds.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "An outside component meets a block at only one vertex, so contracting the entire block preserves C4-freeness and changes surplus by -alpha_B. Block additivity yields all bounds. Keeping two blocks and contracting an induced connecting route gives their vertex amalgam; the model is proper when b>=3."
+        },
+        {
+          "id": "C1",
+          "statement": "Exact rooted-model condition (28.8), including sufficiency at an articulation.",
+          "prover_status": "PROVED / imported",
+          "verdict": "CORRECT",
+          "reason": "Restrictions of the root bag remain connected within each branch. Other bags lie in single branches. The resulting quotient is a vertex amalgam. Every proper restriction loses at least epsilon in rooted charge; deleting the articulation is covered separately. The argument covers arbitrary connected bags."
+        },
+        {
+          "id": "T28.6",
+          "statement": "Endblock distance lower bound.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "A shortest path between attachments stays outside endblock interiors; single attachment excludes all cross chords. Counting the two arms and connecting path gives b_H+b_Hprime+dist+3, including coincident roots."
+        },
+        {
+          "id": "T28.6-R",
+          "statement": "K=5,epsilon=1 and K=6,epsilon=1,2 residual block geometry and rooted maxima.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Here s+2=K. Attachment distance is at most one; distinct attachments lie in one block and form a clique of size at most three. The block-cut tree excludes further internal blocks. The cap gives the stated K/K+1 rooted maxima."
+        },
+        {
+          "id": "T28.7",
+          "statement": "Short-root gluing along a nontriangular edge or triangle.",
+          "prover_status": "PROVED / conditional consequence",
+          "verdict": "CORRECT",
+          "reason": "Clique separators force a crossing induced path to use at most two consecutive shared vertices. The short-root hypotheses bound its tails. Common-neighbour uniqueness verifies C4 safety; the surplus formulas are 3alpha+K-4 and 2alpha+K-3. The report correctly does not infer preservation of irreducibility or 2-connectivity under descent."
+        },
+        {
+          "id": "T28.8",
+          "statement": "Even-K tree augmentation is fully induced-critical; the stated 2-connectivity implication.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Re-deriving the subset surplus gives 2 comp(T[V])-2 boundary_T(V). Proper tree subsets are nonpositive; when V=T, a nontrivial cut in connected even-regular R has size at least two. Every remaining tree component contains an original leaf after a deletion. All degenerate cases, including |T|=1, are covered."
+        },
+        {
+          "id": "ENUM18",
+          "statement": "Complete n=18,e=31,T=2,degree-3..4 critical slice and inherited provenance.",
+          "prover_status": "COMPUTED / PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "Independently regenerated via removal of one of the two necessarily disjoint degree-four triangles. Stock geng enumerates all order-15 C4-free bases of size 22 with degrees 2..4. Keep exactly one triangle with its vertices of degree at least three; require all degree-two vertices and all degree-three triangle vertices in the six-set; match independent six-sets into pairs without common neighbours. Canonicalizing every completion gives exactly the supplied 154302 classes. Every listed graph also "
+        },
+        {
+          "id": "RECON19",
+          "statement": "Triangle-removal reconstruction and sound pruning for n=19.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Singleton loss forces all three triangle vertices to degree four. Common-neighbour uniqueness gives six distinct external neighbours. Independence of their six-set and the no-common-neighbour pair condition are both necessary and sufficient. Every perfect matching is enumerated; ordering triangle pairs is only a representation choice. Degree-four and positive-prefix filters are necessary restrictions."
+        },
+        {
+          "id": "ENUM19",
+          "statement": "Four residue enumerations and completion counts.",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Regenerated with the supplied stock geng binary and my independent prefix filters and attachment code. All four residue totals agree. The set of 958518 labelled completions equals the supplied raw stream exactly."
+        },
+        {
+          "id": "ISO",
+          "statement": "Canonical bijections, deduplication and all isomorphism counts.",
+          "prover_status": "COMPUTED / PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "All 959154 supplied vertex bijections preserve every adjacency and are actual permutations. The sorted canonical set equals the n=19 catalogue. My separate exhaustive individualization/equitable-refinement canonicalizer, without nauty canonicalization, confirms nonisomorphism and all class partitions; 120 random relabellings give identical canonical forms."
+        },
+        {
+          "id": "CRIT",
+          "statement": "Subset recurrence, n=19 flow criterion and complete criticality bundle.",
+          "prover_status": "PROVED / PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "The recurrence includes exactly the triangles newly completed at v. Flow cuts have capacity 5-phi(U); values five and two handle omitted triangle vertices and retained triangles respectively. Every signed edge flow, source capacity, conservation equation, high bit and file boundary checks. All 947028 graphs have their 19 valid flows. All 154302 n=18 graphs separately passed exhaustive subset criticality."
+        },
+        {
+          "id": "MODEL",
+          "statement": "Complete finite model universe and rejection encoding.",
+          "prover_status": "PROVED / PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "Loss equals deletions plus sum(|bag|-1). Connected nonsingleton masks, disjoint collections and increasing deleted sets give exactly one representation per relevant model. Larger losses are below accepted positive-order thresholds; deletion-only models are excluded by independently checked full criticality. Every stored C4 is an actual four-cycle, every mass witness is exact and nonpositive, and every file exhausts exactly."
+        },
+        {
+          "id": "CLASSIFY",
+          "statement": "Four completed reducibility classifications, including one-edge versus other supplied models.",
+          "prover_status": "PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "Rebuilt and checked all positive proper quotients, including bag connectivity/disjointness, deletion sets, exact surplus and C4-freeness. Complete rejection streams establish all irreducibles. Source indices and redundant irreducible streams agree."
+        },
+        {
+          "id": "ENDPOINT",
+          "statement": "No Rstar or CF endpoint failure in the four completed domains.",
+          "prover_status": "PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "For every graph I independently recomputed all root f,c,sigma values and pentagons, retained all lexicographic ties, and checked both induced paths. No assertion of universal-root success or spare-arm success is substituted."
+        },
+        {
+          "id": "K4DOMAIN",
+          "statement": "Exact Robertson/tree family, base cut, and its 4/29 irreducible classes.",
+          "prover_status": "COMPUTED / PROVED finite properties",
+          "verdict": "CORRECT",
+          "reason": "Regenerated all 19 distance-at-least-three pairs and all unordered endpoint-pair choices, then every middle attachment at order 22. The exact ordered graph streams agree. Swapping endpoint pairs is tree reversal; equal pairs would violate C4-freeness. All 636 graphs are 2-connected. Full criticality follows from T28.8 and was additionally checked on the irreducible records by subset recurrence."
+        },
+        {
+          "id": "EXAMPLES",
+          "statement": "Two K=3 and all 33 K=4 explicit minimal positive examples.",
+          "prover_status": "PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "Graph6, source indices, added edges, certificate names and both printed paths all match independent reconstruction. Irreducibility means minimal under all proper admissible models, not globally smallest endpoint obstruction. I additionally computed exact longest induced paths, radius and rho for every one of the 35 representatives."
+        },
+        {
+          "id": "H21",
+          "statement": "H21 is the fully critical Rstar endpoint obstruction, but is reducible.",
+          "prover_status": "PROVED / PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "Recomputed strong C4-freeness, epsilon=1, Rstar={20}, rooted maximum six, exact p=11, radius three and rho zero. The complete 24-leaf negative forest agrees with exhaustive induced extension. All 21 criticality charges are valid. The connected bag {0,10,20} gives a C4-free order-19 quotient of surplus three. Uniqueness is expressly restricted to the accepted Petersen-block-tree class."
+        },
+        {
+          "id": "CONTROLS",
+          "statement": "All 16 controls, structural statuses and required kill-tests.",
+          "prover_status": "PROVED / COMPUTED / accepted background",
+          "verdict": "CORRECT",
+          "reason": "Recomputed all source edges, C4-freeness, d,t, epsilon, selectors, radius, rho, cut vertices, blocks and charges. Independent min-cuts prove full criticality of all controls. Checked all 31 paths and eight branch paths. Replayed M15 and all four spare17 model certificates; additionally directly enumerated all relevant J19 models. Verified the F121/F91 frozen P12s, M15 root-7 failure, the four selected spare-arm failures, and G151 regular-base, edge-connectivity and pentagon hypotheses of the acc"
+        },
+        {
+          "id": "SMALL",
+          "statement": "Additional exhaustive small-graph lemma tests.",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Fresh stock-geng generation of connected strong C4-free graphs through order ten followed by independent rooted induced-path enumeration and charge calculations reproduces all three counts."
+        },
+        {
+          "id": "ASSEMBLY",
+          "statement": "RB_K plus a capped 2-connected irreducible endpoint/model theorem implies GEN_K.",
+          "prover_status": "PROVED conditional",
+          "verdict": "CORRECT",
+          "reason": "Positive proper-model descent terminates and preserves the induced-path cap by lifting quotient paths through connected ordered bags. T28.2 reduces any cut-vertex residual to epsilon<=K-4, so RB_K applies. Two rooted P_(K+1)s contradict the cap. The 2-connected case uses precisely the stated separate premise. GEN_5 starts the induction; the radius branch is separate."
+        },
+        {
+          "id": "LIMITS",
+          "statement": "The report proves neither the general cut-vertex exclusion nor GEN_6/all GEN_K/REAL-133.",
+          "prover_status": "PROVED status / scope",
+          "verdict": "CORRECT",
+          "reason": "The theorem statements and summaries consistently leave both general structural inputs open. Finite K=3/4 successes are not used to assert K>=6 conclusions. An unrooted path in a branch is never treated as a clean rooted path."
+        },
+        {
+          "id": "OPEN-CUT",
+          "statement": "General residual cut-vertex exclusion.",
+          "prover_status": "CONJECTURED",
+          "verdict": "UNVERIFIED",
+          "reason": "Not proved in the submission; the claimed status is accurate. K=5 is already covered by accepted GEN_5, but the general problem remains open."
+        },
+        {
+          "id": "OPEN-RB",
+          "statement": "Rank-1 rooted endblock charge lemma RB_K.",
+          "prover_status": "CONJECTURED",
+          "verdict": "UNVERIFIED",
+          "reason": "No proof or finite reduction is supplied for the universal lemma. Its hypotheses and its sufficient implication were checked, not the conjecture itself."
+        },
+        {
+          "id": "OPEN-GEOM",
+          "statement": "Rank-2 exclusion of the small K=6 residual geometries.",
+          "prover_status": "CONJECTURED",
+          "verdict": "UNVERIFIED",
+          "reason": "Only necessary decomposition, charge and rooted-path restrictions are proved. They do not exclude all such hypothetical graphs; the report correctly says so."
+        },
+        {
+          "id": "OPEN-2CONN",
+          "statement": "Rank-3 selected-root endpoint or repaired-model alternative in the 2-connected capped domain.",
+          "prover_status": "CONJECTURED",
+          "verdict": "UNVERIFIED",
+          "reason": "The universal structural input remains unproved. The finite successful endpoint catalogues do not establish it."
+        },
+        {
+          "id": "PACKAGE",
+          "statement": "Manifest, file alignment, provenance and accurate status labels.",
+          "prover_status": "COMPUTED / PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "All 782 entries and all 745 gzip payload hashes/sizes match. REPORT.md is verified at the supplied relocation claim/PROOF_REPORT.md. All redundant streams, representative references and summary totals agree. There are no CNF/RUP/DRAT files in this submission manifest. No producer code was read or executed."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,956 @@
+{
+ "round": "R19",
+ "created": "2026-10-20 22:48 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only). Built from referee verdict.json files only; a claim is accepted iff its referee verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md).",
+ "headline_verified": [
+  "(18) <=> GEN_K <=> IR_K (every irreducible positive-surplus C4-free graph has p>=2K+1) for each K>=6; representative lemma: contraction cost >= 1+tau_5(uv); mass bounds",
+  "Restricted (18) for triangle-free graphs with edge-disjoint pentagons (K>=4); exact matching/LP/averaging theory; path-free analogue of (18) fails exactly at K=3 (contracted Heawood) and K=4 (Robertson+1)",
+  "G42 (K=6, n=42, eps=2): induced-critical, 5-connected, irreducible (every smaller C4-free induced minor nonpositive), exact p=20; HS p=20; 37 irreducible HS cores all p=20; bounds (F),(H)"
+ ],
+ "open": [
+  "(18) / IR_K for K>=6 (equivalent to GEN_K)",
+  "near-order-barrier path lemma (proposal)",
+  "small-transversal dichotomy (proposal)",
+  "general GEN_K",
+  "RAD(r>=11)",
+  "REAL-133"
+ ],
+ "sessions": [
+  {
+   "session": "r19_ineq18_A",
+   "prover_dir": "astra_r19/r19_ineq18_A",
+   "referee_dir": "astra_r19v/v_r19_ineq18_A",
+   "verdict_file": "astra_r19v/v_r19_ineq18_A/scratch/verdict.json",
+   "verdict_sha256": "c4ac727314840afdab1f89d109746e32800779cc4a9015f0ebddd9c9cec3a118",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    {
+     "id": "F1",
+     "location": "claim/CLAIM_SUMMARY.md:3",
+     "text": "Qualify the order-loss bound: contracting the edge into a branch set of a strongly C4-free final quotient requires the stated loss. C5 -> C4 refutes the unqualified wording."
+    },
+    {
+     "id": "F2",
+     "location": "claim/PROOF_REPORT.md:199",
+     "text": "Require M to be nonempty when (28) is advertised as a sufficient test for a smaller reduction, and retain the standing strong-C4-free host hypothesis. The scalar inequality by itself does not enforce smaller order."
+    },
+    {
+     "id": "F3",
+     "location": "claim/PROOF_REPORT.md:313",
+     "text": "Replace every allowed reduction by every allowed reduction to a smaller strongly C4-free quotient. The identity reduction has C_6=0."
+    },
+    {
+     "id": "F4",
+     "location": "claim/PROOF_REPORT.md:363",
+     "text": "For independent certification of the exact 500 count, provide the sampled vertex sets (including repetitions), or a complete language-independent sampler specification. Until then retain UNVERIFIED for this historical finite count. Do not replace 500 with our 490: these refer to different samples."
+    },
+    {
+     "id": "F5",
+     "location": "claim/CLAIM_SUMMARY.md:7 and claim/PROOF_REPORT.md:371",
+     "text": "Repair the summary link and data-relative paths for the delivered claim/ and data/ layout."
+    },
+    {
+     "id": "F6",
+     "location": "claim/CLAIM_SUMMARY.md:7 and report section 3.4",
+     "text": "Distinguish independently checked mathematical/certificate outputs from the unverified historical replay and implementation-provenance assertions. The success logs alone do not certify these historical claims."
+    }
+   ],
+   "claims": [
+    {
+     "id": "S01",
+     "statement": "Summary: contracting an edge in t disjoint pentagons costs at least t+1 vertices.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "S02",
+     "statement": "The submission leaves (18), unrestricted GEN_K, and (20) unresolved.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "Q18",
+     "statement": "Universal path-sensitive reduction assertion (18), K>=6.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "QGEN",
+     "statement": "GEN_K for every K>=6.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q20",
+     "statement": "Every irreducible positive-surplus graph at K has p>=2K+1.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "L01",
+     "statement": "Exact accounting C_K=epsilon_K(G)-epsilon_K(H), equation (19).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L02",
+     "statement": "Induced-path order is nonincreasing under allowed reductions.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L03",
+     "statement": "For each fixed K>=6, (18) is equivalent to GEN_K.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L04",
+     "statement": "The irreducible formulation (20) is equivalent to GEN_K.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L05",
+     "statement": "Mass bound S^2<=m^2(m-1)-3mT and positive-surplus order >=K^2+2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L06",
+     "statement": "Representative lemma r>=1+tau_5(uv), including simultaneous contractions and deletions.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L07",
+     "statement": "Positive-quotient restriction tau_5(uv)<=|G|-K^2-3, equation (23).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L08",
+     "statement": "General obstruction theorem under |G|<=K^2+rho+2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L09",
+     "statement": "Cardinal pentagon transversal = link matching = disjoint pentagon packing.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L10",
+     "statement": "Necessary link-component condition for admissible matching contractions, equation (26).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L11",
+     "statement": "Triangle-free matching edge/triangle/surplus formula (27), even for unsafe quotients.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L12",
+     "statement": "Exact cycle criterion for strong C4-freeness after a matching contraction.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L13",
+     "statement": "Equation (28) as a sufficient test for a reduction satisfying (18).",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "L14",
+     "statement": "Triangle-free diameter-two one-set characterization and equation (29).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L15",
+     "statement": "Feasible excluded-vertex flows certify all proper induced subgraphs.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L16",
+     "statement": "Full critical loss D(X)-K|X|>=epsilon.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G01",
+     "statement": "Explicit 50-vertex parent is 7-regular, triangle-free, strongly C4-free, diameter 2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G02",
+     "statement": "G42 construction, relabeling, eight removed internal edges, n=42,e=127,S=254,epsilon_6=2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G03",
+     "statement": "G42 induced criticality: 42 flows of value 10; maximum proper surplus 0.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G04",
+     "statement": "All 127 G42 pentagon certificates and the exact transversal and pentagon histograms.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G05",
+     "statement": "G42 connectivity 5 and diameter 3.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G06",
+     "statement": "G42 explicit induced P13 in both labelings; no exact p asserted.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G07",
+     "statement": "Every smaller strongly C4-free induced minor of G42 has nonpositive 6-surplus.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G08",
+     "statement": "Unqualified sentence: every allowed reduction of G42 has C_6>=2.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "G09",
+     "statement": "G42 edge-transversal margin >=6 and every proper-set critical margin >=2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G10",
+     "statement": "No G42 connected set of orders 2 through 5 has an admissible one-set contraction.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G11",
+     "statement": "No nonempty admissible matching contraction of G42.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "G12",
+     "statement": "G42 refutes precisely the version of (18) omitting the path cap; limitations in sections 4-5.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A01",
+     "statement": "Complete connected strongly C4-free catalogue through order 10.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A02",
+     "statement": "Catalogue mass/unit and edge-link audits.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A03",
+     "statement": "All deletions and connected-bag partitions, n<=8, including simultaneous bags.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A04",
+     "statement": "Exhaustive triangle-free matching and diameter-two catalogue audits.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A05",
+     "statement": "Exact-path catalogue domain through order 9 and finite vacuity for K=3,...,8.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N01",
+     "statement": "Named graph domain: 26 full edge lists, 13 exact path computations and 13 lower bounds.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N02",
+     "statement": "Petersen, Heawood, contracted Heawood path and exhaustive matching results.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N03",
+     "statement": "Robertson p=11 with all 38 transversals 3; glued Petersens p=9 with all 30 transversals 2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N04",
+     "statement": "Four theta samples have p=6; two smaller samples have no admissible nonempty matching.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N05",
+     "statement": "Four pentagon books have p=7, common-edge transversal m and other transversals 1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N06",
+     "statement": "Twelve uniform controls: P_(2K+1) witnesses and every pentagon transversal zero.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N07",
+     "statement": "Parent control: P13, all 175 transversals 6, diameter-two theorem applicable.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N08",
+     "statement": "Original seeded named audit: 1,621 tests, of which 500 admissible, with no failures.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "N09",
+     "statement": "Sixteen near-critical labeled graphs have surplus 2, maximum proper surplus 0, and P13.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N10",
+     "statement": "All near-critical connected sets of sizes 2,3,4 are unsafe; every edge fails the matching link-component condition.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D01",
+     "statement": "Report/summary delivery paths identify the supplied report and JSON files.",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "D02",
+     "statement": "Delivered manifests, verification summaries and source hashes.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D03",
+     "statement": "All original audits and isolated JSON-only replay passed; verifier implementation and historical independence.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  },
+  {
+   "session": "r19_ineq18_B",
+   "prover_dir": "astra_r19/r19_ineq18_B",
+   "referee_dir": "astra_r19v/v_r19_ineq18_B",
+   "verdict_file": "astra_r19v/v_r19_ineq18_B/scratch/verdict.json",
+   "verdict_sha256": "f298287a88acb5fa560e28f9e8e4fe1b6a06110cfc4c3e10facc55c377d5754f",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    {
+     "id": "D01",
+     "reason": "The model domain is well defined. Empty models have zero surplus. Harmlessness of deletion-only models requires the target induced-subgraph criticality assumption. Without it, contracted Heawood plus an isolated vertex at K=3 has a deletion-only quotient of surplus 1, but every quotient involving contraction has surplus at most 0. State that K is an integer, as inherited from ctx."
+    },
+    {
+     "id": "P02",
+     "reason": "Correct for positive integral surplus. Qualify the overview sentence: a safe edge, or a pentagon matching that satisfies Theorem 3 safety, has negative cost. It must not assert existence of an admissible choice in every triangle-free graph; the Robertson augmentation has none of these one- or two-edge choices."
+    },
+    {
+     "id": "P05",
+     "reason": "The finite-simplex argument is exact when the model set is nonempty. Explicitly assume G is nonempty; then the empty quotient supplies a proper model. For G empty there are no proper models and the displayed minima are undefined. Target applications already have G nonempty."
+    },
+    {
+     "id": "P20",
+     "reason": "The neighborhood-matching argument and common-neighbor uniqueness justify the vertexwise count. The nonnegative t(2d-t-2) term and Cauchy\u2013Schwarz prove the bound. State the radical inequality for h>=1, and handle h=0 with S=0; sqrt(h-1) is not real at h=0. The squared inequality itself also covers h=0."
+    },
+    {
+     "id": "P26",
+     "reason": "Pentagon coverage follows from exclusion of safe SINGLE-edge contractions in a minimum counterexample, not from absence of pentagon two-edge reductions alone. Theta_2 plus a pendant edge has two pentagons and zero safe pentagon two-edge choices, but its pendant edge lies on no pentagon and is safe. Restore the minimum-counterexample premise or explicitly exclude both kinds of reductions."
+    },
+    {
+     "id": "D02",
+     "reason": "The summary points to the prover-session scratch/REPORT.md rather than the delivered claim/PROOF_REPORT.md. Replace it with the delivered relative link. This does not affect any mathematical claim."
+    }
+   ],
+   "claims": [
+    {
+     "id": "D01",
+     "statement": "Model conventions; deletion-only/empty models do not affect positive-quotient existence",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "P01",
+     "statement": "Accounting identity (19)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P02",
+     "statement": "A proper admissible model of cost at most zero suffices",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "P03",
+     "statement": "(18) implies GEN_K by minimum order",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P04",
+     "statement": "Induced paths do not grow under connected-bag contraction or deletion",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P05",
+     "statement": "Exact distribution LP and dual (20)",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "P06",
+     "statement": "Dual certificate from nonpositive surplus of every proper quotient",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P07",
+     "statement": "Theorem 2 matching safety criterion",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P08",
+     "statement": "Theorem 2 triangle, edge, and surplus identities (21)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P09",
+     "statement": "Averaging consequence for admissible nonempty matchings",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P10",
+     "statement": "Theorem 3 private-edge and unrepeated-corner safety criterion",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P11",
+     "statement": "Theorem 3 unconditional S-loss 7 and gain 2K-7",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P12",
+     "statement": "Theorem 4 probability lower bound and local sufficient condition",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P13",
+     "statement": "Local covering dual and weighted pentagon averaging",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P14",
+     "statement": "Restricted (18) for edge-disjoint pentagons and sharper local cases",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P15",
+     "statement": "Restricted reduction does not itself prove GEN_K on that subclass",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P16",
+     "statement": "Necessary pentagon coverage and overlap in a triangle-free minimum counterexample",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P17",
+     "statement": "Theorem 5: Theta_m has no nonempty safe matching, m>=2",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P18",
+     "statement": "Theta_m order, S, exact p=6 for m>=3, and negative surplus",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P19",
+     "statement": "Theorem 6 regular augmentation gives positive surplus and induced criticality",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P20",
+     "statement": "Theorem 7 mass bound (24)",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "P21",
+     "statement": "Complete boundary classification for n=K\u00b2+4",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C01",
+     "statement": "Contracted Heawood positive, induced-critical control and Petersen attaining model",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "Robertson augmentation positive, induced-critical control",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "All boundary candidate counts, admissible sets, and maxima",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P22",
+     "statement": "Exact all-model optima and failure of path-free analogue at K=3,4",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P23",
+     "statement": "Counterexample scope and path-cap relaxations",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "Four full-model counts and all order/type maxima",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "Stronger contracted-Heawood comparisons",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P24",
+     "statement": "Completeness and sound C4 pruning of model enumeration",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Small unrestricted-partition comparison and all stored optimum witnesses",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "Exact 20-vertex optimum does not require a full partition count",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "Complete catalogue, matching, edge-disjoint, and corner domains",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "Named matching counts, cycles, paths, gains, and witnesses",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P25",
+     "statement": "Pentagon book interpretation",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "Twelve uniform controls and six regular augmentations",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Mass-bound audit on 4,439 inputs",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "Delivered certificate map, numerical sentinels, and integrity",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "H01",
+     "statement": "Historical self-contained verifier pass and stopped-run/provenance claims",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "P26",
+     "statement": "Where the restricted argument stops",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "P27",
+     "statement": "No stronger connectivity, all-start, or K-specific critical assumptions used",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P28",
+     "statement": "Positive and negative outcome summaries",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "U01",
+     "statement": "General (18), GEN_K for K>=6, and REAL-133",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "U02",
+     "statement": "Deletion/large-bag or path extension, and extension to graphs with triangles",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "U03",
+     "statement": "Suggested future strategy and novelty of the new control",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "D02",
+     "statement": "Claim-summary report link",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    }
+   ]
+  },
+  {
+   "session": "r19_compare",
+   "prover_dir": "astra_r19/r19_compare",
+   "referee_dir": "astra_r19v/v_r19_compare",
+   "verdict_file": "astra_r19v/v_r19_compare/scratch/verdict.json",
+   "verdict_sha256": "0801e1e423c4f527d2983785b0a3a17ff42120f3b19c7bc93a9d8396387e6514",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "At report line 118, explicitly restrict the overlap deductions to a TRIANGLE-FREE minimum counterexample chosen in the full C4-free class. Keep triangle-freeness explicit for (E), the exact pair criterion, S-loss 7, and the standalone structured matching-formula entry. An unrestricted triangle-containing overlap theorem is not verified.",
+    "At line 57, replace \u201clength-three path between these neighbor sets\u201d with \u201ca two-edge path x-b-y (three vertices), with endpoints in the two exclusive neighbor sets.\u201d",
+    "At line 158, split off the deletion-only case: its final surplus is at most zero. The strict upper bound -1 applies when at least one original nonedge is added.",
+    "Use portable delivered links in CLAIM_SUMMARY.md. Keep the original random-trade/repair totals and execution/provenance claims labeled as historical, not independently certified enumerations. To certify them, deliver the actual trial inputs and rejected outcomes.",
+    "Clarify that new_edges_legal_after_two_deletions=0 in r19_edit_search.json counts TRIANGLE-FREE C4-safe additions. There are nine C4-safe additions if triangle formation is allowed; the written report correctly restricts its zero count to triangle-free additions.",
+    "Continue to label the two proposed uniform lemmas, the stronger universal HS P20 assertion, general GEN/(18)/IR, and the remaining RAD branch as unproved."
+   ],
+   "claims": [
+    {
+     "id": "P01",
+     "statement": "Permitted models, surplus accounting, and induced-path monotonicity",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P02",
+     "statement": "GEN_K, (18), and IR_K are equivalent for each K>=6",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P03",
+     "statement": "Use of accepted GEN_3,4,5, n>=39 at K=6, and the separate RAD branch",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P04",
+     "statement": "Universal mass bound (A) and positive-surplus order cutoff",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P05",
+     "statement": "Pentagon transversal order loss (B) and matching/cover interpretation",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "P06",
+     "statement": "All-model irreducibility cutoff (C) and necessary condition (D)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C01",
+     "statement": "G42 construction, statistics, full induced criticality, and flow certificates",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "G42 pentagon data and vertex connectivity",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P07",
+     "statement": "G42 is irreducible at K=6 and all proper admissible models have cost >=2",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "Exact G42 and HS induced-path orders and complete histograms",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P08",
+     "statement": "G42 has no nonempty safe matching",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P09",
+     "statement": "Triangle-free matching edge/triangle formulas and ordinary-cycle safety criterion (E)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P10",
+     "statement": "Private-edge/unrepeated-corner pair test and S-loss 7",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P11",
+     "statement": "Averaging, local overlap sufficient conditions, and edge-disjoint-pentagon reduction",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P12",
+     "statement": "Failure of subclass induction closure and minimum-counterexample overlap conclusions",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "Complete order<=10 catalogue, matchings, and pentagon-corner classification",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "Both boundary controls: graph construction, subsets, paths, boundary models and witnesses",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P13",
+     "statement": "Boundary all-model maxima, costs, and scope as path-free counterexamples",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P14",
+     "statement": "Theta and pentagon-book infinite families and limitations of pentagon abundance",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Exhaustive G42 additions and one-/two-edge deletion domains",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P15",
+     "statement": "Local rigidity under deletion of at most two original edges",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "H01",
+     "statement": "12000 seeded larger G42 trades, with the stated attempt histogram and zero accepts",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C07",
+     "statement": "200 distinct labeled HS cores, exact p=20, all criticality and rho classes, 37 irreducibles",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "114 retained positive repaired cores, criticality, rho and exact path ranges",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "H02",
+     "statement": "500 repair trials partitioned into 213 unchanged, 287 changed, 173 nonpositive and 114 positive",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C09",
+     "statement": "Further minor descent on 114 cores, with exactly one successful source",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "120 triangular constructions and 120 singleton-critical cores",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Orthogonal polarity graphs and all singleton-critical deletion outputs",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "Larger field graphs and twelve fully induced-critical cores",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "HS edge amalgams and four K=7 critical outputs",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P16",
+     "statement": "Uniform justification of projective polarity and tested-prime P/Q field constructions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "5000 sampled HS P20s, explicit hitting set, and surviving negative-surplus P20 graph",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "H03",
+     "statement": "Historical HiGHS timeout/no incumbent, authorship independence, and original isolated replay execution",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "P17",
+     "statement": "Positive HS induced subgraphs have at most nine deletions, and MILP surplus encoding is exact",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P18",
+     "statement": "Singleton-critical bounds (F), (G), summed loss, and 1<=epsilon<=K",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "Algorithm crosschecks: mass inequalities and flow against all subsets",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "U01",
+     "statement": "General (18), GEN_K for K>=6, IR_K, and the remaining RAD branch",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "U02",
+     "statement": "Proposed near-order-barrier uniform path lemma",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "U03",
+     "statement": "Proposed small-transversal path/budget dichotomy",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "P19",
+     "statement": "Conditional deletion budget, singleton threshold, and triangle-aware safe-edge budget (H)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "U04",
+     "statement": "Plausibility assessment, research priorities, and proposed kill-tests",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C16",
+     "statement": "Delivered graph/certificate totals, source integrity, and numerical replay outputs",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D01",
+     "statement": "Claim-summary links and portable delivery references",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    }
+   ]
+  }
+ ]
+}

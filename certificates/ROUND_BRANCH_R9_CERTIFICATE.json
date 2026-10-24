@@ -1,0 +1,785 @@
+{
+ "round": "R9",
+ "created": "2026-10-18 22:03 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only); accepted iff referee CORRECT/CORRECT_WITH_FIXES with fixes adopted in PROOF_NOTES.md \u00a74j",
+ "headline_verified": [
+  "ROOT(8): S<=7(n-1)-5D-m",
+  "RAD(10) all orders: S<=9n-140, eq C20",
+  "Min GEN_5 cex: every vertex starts P9",
+  "Rooted-P5 theorem (radius-3 2-connected P7-free)",
+  "A2: 5 normal parents => triangle cactus diam<=4; incidence-forest compensation; clique-sum closure",
+  "Bipartite ROOT/RAD all q,r; TD_q for cacti; TD => ROOT + sharp RAD; CB => REAL-133 reduction"
+ ],
+ "rejected": [
+  "unify T3 (repaired)"
+ ],
+ "open": [
+  "TD_q general / ROOT(q>=9)",
+  "CB (dominating-core budget)",
+  "(8), GEN_5, GEN_6",
+  "full cells A1/A2/B1"
+ ],
+ "sessions": [
+  {
+   "session": "root8b",
+   "prover_dir": "astra_r9/root8b",
+   "referee_dir": "astra_r9v/v_root8b",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "Component formulation, ROOT equivalence, and corrected decomposition (report 23\u201335, 178\u2013183).",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "C02",
+     "statement": "Minimum-counterexample deletion inequality for every nonempty U (37\u201343).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C03",
+     "statement": "Singleton losses, S(J)>5h, existence of P9, at least seven actual parents and at least two children per parent (45\u201359).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C04",
+     "statement": "Lemma 1: additional-parent packing, deletion bound and weighted conflict refinement (61\u201393).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C05",
+     "statement": "Lemma 2: stronger raising, including parent-triangle losses (95\u2013107).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C06",
+     "statement": "Lemma 3 and use of previously proved hereditary restrictions (109\u2013121).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C07",
+     "statement": "Complete P9 contact domain and rooted-maximum histogram (123\u2013131).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C08",
+     "statement": "Distance at most two from every parent to every P9 in a minimum C8 counterexample (123\u2013137).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C09",
+     "statement": "Direct-parent classification: 6,106 families, 2,218 inclusion-maximal families, maximum six; 4,881 ordered-search leaves (139\u2013145).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C10",
+     "statement": "Exclusion of d=6,5,4 and establishment of R3 (147\u2013159).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C11",
+     "statement": "Descending exclusions d=3,2,1,0 under R3,R2,R1,R0 (161\u2013176).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C12",
+     "statement": "Corrected ROOT(8) at all orders: S<=7(n\u22121)\u22125D\u2212m (3\u20137, 176\u2013186).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C13",
+     "statement": "Optimal correction coefficients and universal-root matching equality family (186).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C14",
+     "statement": "Uniform separator saturation and the stronger q=8 bound (190\u2013198).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C15",
+     "statement": "Sharp RAD(10), equality exactly C20, and noncycle bound S<=9n\u2212186 (9\u201315, 200\u2013223).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C16",
+     "statement": "Corrected ROOT(9) when each outer component has at most seven parents (225\u2013231).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C17",
+     "statement": "Ordinary ROOT(9) through order 190; relaxation first permits positive excess at 191 (233\u2013240).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C18",
+     "statement": "All 350 L9 seeds remain open under the stated depth-zero terminal rules (242).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C19",
+     "statement": "ROOT(9) exploratory approach domains: three of 16 distance-five seeds close; zero of 49 distance-four seeds close (244).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C20",
+     "statement": "No general ROOT(9), original L8 depth, L9(b), uniform termination, or all-order RAD(11) is established (19, 121, 188, 246).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C21",
+     "statement": "Certificate completeness and reported proof-critical finite statistics (133\u2013174, 248\u2013257).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C22",
+     "statement": "Small labelled graph/path validation counts and claimed original checker provenance (259\u2013261).",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "C23",
+     "statement": "Manifest integrity, supplied-source and reproduction/path assertions (21, 257\u2013263; claim summary links).",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    }
+   ],
+   "accepted_claims": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20",
+    "C21",
+    "C23"
+   ],
+   "rejected_claims": [],
+   "unverified_claims": [
+    "C22"
+   ],
+   "sha256": {
+    "astra_r9/root8b/report.md": "7c1d6186c8c6bb8b95b1450ad02b140105a85f1af4840cb6208f177cb31c3125",
+    "astra_r9/root8b/scratch/REPORT.md": "b42d2e5331f8361a5a9d279c7a93fae19c9b1219f277772ca30d4a5a181e668e",
+    "astra_r9v/v_root8b/scratch/VERDICT.md": "478a9e9fe7398c80720719f1fbe886a86210fd83ee838823ee62c23b5339ea56",
+    "astra_r9v/v_root8b/scratch/verdict.json": "796c81e33b74dd022d2e1b61567ede67fcd6f679964652a1a417d41d7431a16f"
+   }
+  },
+  {
+   "session": "sel9",
+   "prover_dir": "astra_r9/sel9",
+   "referee_dir": "astra_r9v/v_sel9",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "claims": [
+    {
+     "id": "C1",
+     "statement": "At rooted maximum 7, n>=28, p<=10, and D(U)>=5|U|+1 for 1<=|U|<=4 imply c(x)<=5 at every longest endpoint.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C2",
+     "statement": "The analogous endpoint bound at rooted maximum 8 follows from the loss assumptions on sets of size at most 11.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C3",
+     "statement": "Every vertex of a minimum GEN_5 counterexample starts an induced P9.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C4",
+     "statement": "Singleton packing, equality filtering, subset upper bounds, joint trace LP inequalities, and exhaustive positive-marginal branching are sound.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "C5",
+     "statement": "Boundary selection (8), GEN_5/6, and universal EP(8) remain unresolved here; no target counterexample is supplied.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C6",
+     "statement": "The complete C1/C2 endpoint-skeleton reductions have 157 and 1839 positive membership patterns.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C7",
+     "statement": "Rooted-nine K5, rooted-eight K6, and six-unit K5 searches are incomplete with the reported saved counts.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C8",
+     "statement": "The endpoint charge identity, t_2(x)<=r_x, endpoint unit bound, and complete-neighborhood skeleton reduction hold in the proof.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "C9",
+     "statement": "The requested boundary inequality is equivalent to D_G(E)<=K|E|, and the P9 result only narrows rooted orders to 9/10.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C10",
+     "statement": "Earlier critical7, ep8_local, and trace_lp_initial data are intermediate computations, not extra universal theorems.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C11",
+     "statement": "Saved proof statistics, hashes, and generation-log counts agree with the supplied artifacts.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C12",
+     "statement": "The original checker was independently implemented; original run times, software requirements, and an unsaved continuation exited with code 137.",
+     "referee_verdict": "UNVERIFIED"
+    }
+   ],
+   "accepted_claims": [
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "C10",
+    "C11"
+   ],
+   "rejected_claims": [],
+   "unverified_claims": [
+    "C12"
+   ],
+   "sha256": {
+    "astra_r9/sel9/report.md": "b289f792b725acc0903bbceece68c70ade7a60c1a5b8b2fb3647172915192717",
+    "astra_r9/sel9/scratch/REPORT.md": "2adaa63f9072125207a9fdf77086f42e300054f6e7120899c832652f2e8cb9fa",
+    "astra_r9v/v_sel9/scratch/VERDICT.md": "53ee0d98a67548202b6c141856aa5b1b47edb7213734cd669c6c6f85ed1f5f4e",
+    "astra_r9v/v_sel9/scratch/verdict.json": "536eeff4d9ebf3631f51fd58c48f513be001095ece8c9038d347451add3085a4"
+   }
+  },
+  {
+   "session": "cellsA1B1b",
+   "prover_dir": "astra_r9/cellsA1B1b",
+   "referee_dir": "astra_r9v/v_cellsA1B1b",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "claims": [
+    {
+     "id": "ambient_ROOT6_statement",
+     "statement": "The ROOT(6) input and general ambient scope are stated with all necessary hypotheses.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "short_root_structure",
+     "statement": "In a 2-connected strong-C4-free graph, a root starting no P5 has only K2/K3 components outside its closed neighborhood, with the specified independent parent sets.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "root_P5",
+     "statement": "A 2-connected strong-C4-free P7-free graph with a root starting no P5 has radius at most two.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "catalogue_diagnostic",
+     "statement": "The exact unlabeled 2-connected strong-C4-free catalogue through order 13 has the stated counts and witness records.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "general_B1_cut_attachment",
+     "statement": "Equation (2.1): single-J-attachment components satisfy S(G)<=5n-2|J|-3 beta-tau.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "overlap_budget",
+     "statement": "Equations (3.2)-(3.5), including singleton excess and two-hub budget, hold for arbitrary overlapping parent sets.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "actual_layer_clean_prefix",
+     "statement": "H* is the actual first-layer core; the clean-prefix strict bound requires actual unique parents and the separately established p(H*)<=8.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "uniqueness_inheritance",
+     "statement": "Unique parents relative to H need not remain unique relative to H*.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "Hstar_P9free",
+     "statement": "In the report's proper B1 structural setting, p(H)=8 does not imply p(H*)<=8.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "proper_B1_payloads",
+     "statement": "All eight proper-B1 records satisfy the full stated nested structural conditions and the block closure.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "earlier_B_payloads",
+     "statement": "The earlier ten nested B examples have a 2-dominating induced C6 and do not certify the residual B1 condition.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "unbounded_independent_overlap_family",
+     "statement": "For all m>=3, the stated family is proper B1 with n=2m+16, S=6m+29, and independent overlapping H*-parents despite unique H-parents.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "theta_and_C5_traces",
+     "statement": "The theta_3 and C5 single-vertex trace classifications and rooted prefixes are complete.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "general_cut_core",
+     "statement": "Equation (6.1): unique core attachment plus a rooted Pk and P_L-freeness with L-k<=6 yields the ROOT(6) mass bound.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "hub_block_reduction",
+     "statement": "The maximal theta-containing block has rooted P5 at every vertex and satisfies (6.2) in the stated strong-C4-free hub B1 setting.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "hub_block_P9free_closure",
+     "statement": "Equations (6.3)-(6.4) close hub B1 when p(B)<=8 or some B-vertex starts no P7.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "A1_C5_block_closure",
+     "statement": "The analogous maximal-C5-block closure holds in A1 under the stated block conditions.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "full_unbounded_hub_B1",
+     "statement": "Any unresolved hub B1 counterexample must have p(B) in {9,10} and every B-vertex starting P7; unrestricted closure remains open here.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "full_A1_B1_GEN5",
+     "statement": "Full A1, full B1, GEN_5 and the entire density band are not proved by this report.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "supplementary_finite_domains",
+     "statement": "The explicit corona and multiparent finite domains have the recorded counts; the two triangle-overlap payloads are valid.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "exploratory_seed_domains_and_positive_examples",
+     "statement": "The supplied exploratory seed lists and saved positive examples are valid finite data.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "exploratory_negative_search_logs",
+     "statement": "Historical recursive-search node/rejection totals and excluded outcomes recorded in the exploratory files.",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "audit_and_manifest",
+     "statement": "The supplied proof-dependent payloads pass independent checks and the supplied manifest entries match.",
+     "referee_verdict": "CORRECT"
+    }
+   ],
+   "accepted_claims": [
+    "ambient_ROOT6_statement",
+    "short_root_structure",
+    "root_P5",
+    "catalogue_diagnostic",
+    "general_B1_cut_attachment",
+    "overlap_budget",
+    "actual_layer_clean_prefix",
+    "uniqueness_inheritance",
+    "Hstar_P9free",
+    "proper_B1_payloads",
+    "earlier_B_payloads",
+    "unbounded_independent_overlap_family",
+    "theta_and_C5_traces",
+    "general_cut_core",
+    "hub_block_reduction",
+    "hub_block_P9free_closure",
+    "A1_C5_block_closure",
+    "full_unbounded_hub_B1",
+    "full_A1_B1_GEN5",
+    "supplementary_finite_domains",
+    "exploratory_seed_domains_and_positive_examples",
+    "audit_and_manifest"
+   ],
+   "rejected_claims": [],
+   "unverified_claims": [
+    "exploratory_negative_search_logs"
+   ],
+   "sha256": {
+    "astra_r9/cellsA1B1b/report.md": "65cfc2f0c2e7803ada3427fd1f5f31163bc26e4ee23b42c3fa1265691f23cd99",
+    "astra_r9/cellsA1B1b/scratch/REPORT.md": "85048580aa43cc8b55de66d18c888a0c2267e0505cf5540e2aea3fcd5eb4459b",
+    "astra_r9v/v_cellsA1B1b/scratch/VERDICT.md": "e34a91ffdfd41687dd7ad3a870a12d06a48f787817018462519ce9492f133b4d",
+    "astra_r9v/v_cellsA1B1b/scratch/verdict.json": "d50f9e7f9ada560d890be8936f62300c4fa04d3ccd1ef174208bc5483836944f"
+   }
+  },
+  {
+   "session": "cellsA2",
+   "prover_dir": "astra_r9/cellsA2",
+   "referee_dir": "astra_r9v/v_cellsA2",
+   "referee_overall": "CORRECT",
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "Layer identities, trace types, and dependent-first-layer deficit, (1)-(3).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C02",
+     "statement": "Parent-union identity, four-parent bound, and singleton exception, (4)-(5).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C03",
+     "statement": "Normal-parent rooted bound and direct contact with any induced P6, (6).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C04",
+     "statement": "Nine P6 exceptions, four-pair cover, C5 exclusion, and C6 trace reduction, (7).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C05",
+     "statement": "Five normal parents force an edge/triangle block tree of diameter<=4; eight total parents suffice.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C06",
+     "statement": "A triangle cactus of diameter<=4 has a vertex of eccentricity<=2.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C07",
+     "statement": "Constant parent surcharge and small-order improvements, Lemma 2 / (8), with sharp constant four.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C08",
+     "statement": "Individual-parent bound sigma_a<=h-t_a<=h without a rooted-path assumption, (9).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C09",
+     "statement": "Component excess with up to three antipodal parents, and singleton savings, (10)-(11).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C10",
+     "statement": "Global incidence charge and sufficient deficit test, (12)-(13).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C11",
+     "statement": "Dependent-first-layer budget and forest closure, (14)-(15).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C12",
+     "statement": "Actual A2 non-singleton counterexample to M(D)<=5|D|.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C13",
+     "statement": "Unbounded dependent-first-layer A2 family and sharp global accounting, (16).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C14",
+     "statement": "Bipartite input S<=5n-8-|a-b| for strong-C4-free P11-free n>=2.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C15",
+     "statement": "Vertex/edge clique-sum bound and strengthened block formula, (17)-(18).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C16",
+     "statement": "Nonbipartite 2-connected examples in both cells.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C17",
+     "statement": "Deletion-time triangle credits and reverse-deletion extensions, (19)-(20).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C18",
+     "statement": "Full finite cactus census, traces, compatible positive families, and saved certificate fields.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C19",
+     "statement": "P7-union counterexample and bounded P9-union search.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C20",
+     "statement": "Other bounded exploratory color, template, support, charge and example records.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C21",
+     "statement": "Full A2, automatic budget, mixed 5-7-parent components, arbitrary nonbipartite blocks and GEN_5 are not proved here.",
+     "referee_verdict": "CORRECT"
+    }
+   ],
+   "accepted_claims": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20",
+    "C21"
+   ],
+   "rejected_claims": [],
+   "unverified_claims": [],
+   "sha256": {
+    "astra_r9/cellsA2/report.md": "bb5e46bfdb8dd7641f08db3393ddbd5e8422ae9b5b2008e970ca99dc0d0990be",
+    "astra_r9/cellsA2/scratch/REPORT.md": "581d4fa52725937289ddde9c6e95adfbc45cbffad5e07014396609a78f265905",
+    "astra_r9v/v_cellsA2/scratch/VERDICT.md": "3f2523bee853e1b843dc8fc01c9224760ce469da785ce09efd136d2159a89956",
+    "astra_r9v/v_cellsA2/scratch/verdict.json": "e3703c247c662db438deed55e5fbd990ec5088c9a686535a138573b144372291"
+   }
+  },
+  {
+   "session": "unify",
+   "prover_dir": "astra_r9/unify",
+   "referee_dir": "astra_r9v/v_unify",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "claims": [
+    {
+     "id": "R1",
+     "statement": "Ordinary ROOT(q) iff corrected R_q iff component C_q; corrected q=3..8 table and optimal correction coefficients.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "R2",
+     "statement": "Inherited ROOT(9) through n=190, at most seven parents per outer component, and 350 open L_9 seeds.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "B1",
+     "statement": "Bipartite ROOT with coefficient 2 floor((q-1)/2), all q>=3.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "B2",
+     "statement": "The same coefficient, with -m, for graphs all of whose blocks are bipartite or triangles.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "S1",
+     "statement": "Structural inputs, selected terminal lemma, and boundary-mass inequality (2).",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "S2",
+     "statement": "Uniform conditional RAD estimate (4), sharp SR_r for r=5..10, strict r=8 improvement, and equality only C_(2r).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "S3",
+     "statement": "Bipartite RAD at all relevant radii and sharp SR_r at r=5..14 and 16.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "T0",
+     "statement": "General terminal correction TD_q.",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "T1",
+     "statement": "TD implies all ROOT and sharp SR_r/NC_r; tail and leaf-cycle sharpness examples.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "T2",
+     "statement": "TD_q and hence corrected ROOT(q) for all strong C4-free cacti.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "T3",
+     "statement": "At q=4 no root-containing C5 can lie on the selected three-edge geodesic.",
+     "referee_verdict": "INCORRECT"
+    },
+    {
+     "id": "T4",
+     "statement": "Theta terminal-family formulas and equality when k=3.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "T5",
+     "statement": "Geodesic amalgamation can introduce a C4.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "D1",
+     "statement": "Moore defect identity (10), radius/average-eccentricity refinement (11), and nonnegative terms.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "D2",
+     "statement": "Moore equality classification, rooted minimum-unit bound, exact ROOT calibration, and the degree-57 warning correction.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "D3",
+     "statement": "All connected regular bipartite strong C4-free graphs satisfy GEN and REAL.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "F1",
+     "statement": "Flower and pentagonal-ear family formulas, including radius and exact induced-path order.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "F2",
+     "statement": "Rooted graft formulas under both p_s(F)<=t+1 and p(F)<=2t+5.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C1",
+     "statement": "W_K band reduction, connected dominating-core budget implication, Camby-Schaudt split, and radius-debt deletion inequality.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C2",
+     "statement": "Existence of a suitable core satisfying CB; cycle-core attachment theorem; proposed saturated-geodesic deletion lemma and all-index LP/termination strategy.",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "C3",
+     "statement": "Component averaging formula, small-parent consequence and minimal-counterexample restrictions.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "C4",
+     "statement": "The arbitrary-many-parent shortcut family has parent-rooted maximum six, contains P9, and has h=10+2a, M=22+5a.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "H1",
+     "statement": "Unit hypergraph representation is linear with incidence girth at least ten; ordinary induced incidence paths are insufficient.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "H2",
+     "statement": "Quoted even-hole-free bisimplicial theorem implies S<=4(n-1) and hence REAL in this subclass.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "X1",
+     "statement": "Complete connected strong C4-free graph catalogue through order 12 and all recorded ROOT, TD, GEN, REAL and RAD checks.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "X2",
+     "statement": "87 saved family graphs, 24 theta examples, two shortcut systems, all numeric invariants and saved path witnesses.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "X3",
+     "statement": "Integer radius tables, totals and Moore-parameter certificate.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "X4",
+     "statement": "All 15,157 eligible proper connected dominating cores through order nine pass CB.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "X5",
+     "statement": "9,131 root/terminal pairs; 6,406 non-C4-free geodesic amalgams; zero remaining rooted-path failures.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "X6",
+     "statement": "450 saved independent subset cases and validation status.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "X7",
+     "statement": "Integrity of the supplied report, certificates and unchanged accepted context.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "O1",
+     "statement": "General ROOT(9+), TD, GEN_K for K>=5 and REAL-133 remain unresolved by this report.",
+     "referee_verdict": "UNVERIFIED"
+    }
+   ],
+   "accepted_claims": [
+    "R1",
+    "R2",
+    "B1",
+    "B2",
+    "S1",
+    "S2",
+    "S3",
+    "T1",
+    "T2",
+    "T4",
+    "T5",
+    "D1",
+    "D2",
+    "D3",
+    "F1",
+    "F2",
+    "C1",
+    "C3",
+    "C4",
+    "H1",
+    "H2",
+    "X1",
+    "X2",
+    "X3",
+    "X4",
+    "X5",
+    "X6",
+    "X7"
+   ],
+   "rejected_claims": [
+    "T3"
+   ],
+   "unverified_claims": [
+    "T0",
+    "C2",
+    "O1"
+   ],
+   "sha256": {
+    "astra_r9/unify/report.md": "9e3f98657420bf730a98ed40c2413144baa845f0a809d5427fd415736bfe5c43",
+    "astra_r9/unify/scratch/REPORT.md": "4ad231454c01c033cffaa5b40a6caf69742b94d1572ce7755359a55e2cffdd92",
+    "astra_r9v/v_unify/scratch/VERDICT.md": "f3ff9728ad6f67b5fc06e3797425624199ab0eea6b7f0eac19fb6127e8d791f8",
+    "astra_r9v/v_unify/scratch/verdict.json": "8da6afe5503d2fe5cac0cbd773b29099be6aca219b302cfede1fcdefc675a9b4"
+   }
+  }
+ ]
+}

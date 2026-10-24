@@ -1,0 +1,266 @@
+{
+ "round": "R10",
+ "created": "2026-10-18 22:43 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee; accepted iff referee CORRECT/CORRECT_WITH_FIXES with fixes adopted in PROOF_NOTES.md \u00a74k",
+ "headline_verified": [
+  "TD_q and corrected ROOT(q), all q, for bipartite-or-cycle block class; sharp RAD(r) all r there",
+  "CB false (Petersen); CB_high + REAL(ell<=5) => REAL-133",
+  "Cycle-rank/TD reformulations; scalar relaxations cannot prove REAL"
+ ],
+ "open": [
+  "TD general",
+  "CB_high",
+  "GEN_K K>=5 / (8)",
+  "REAL-133"
+ ],
+ "sessions": [
+  {
+   "session": "td",
+   "prover_dir": "astra_r10/td",
+   "referee_dir": "astra_r10v/v_td",
+   "referee_overall": "CORRECT",
+   "claims": [
+    {
+     "id": "TERMINAL_LEMMAS",
+     "statement": "TD reformulation, last-endpoint non-cut lemma, farthest-tip shape/loss, and terminal preservation.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "TD_BLOCKS",
+     "statement": "TD and coefficient c_q for every terminal index in the bipartite-or-cycle block class.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "TD_BIP_TRI",
+     "statement": "Parity coefficient 2 floor((q-1)/2), including c_4=2, for bipartite-or-triangle blocks.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ROOT_BLOCKS",
+     "statement": "Corrected ROOT with coefficient c_q at every stated index in the block class.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "RAD_BLOCKS",
+     "statement": "Sharp RAD at every r>=5 in the block class; cycle and noncycle constants and unique equality graphs.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "SINGLETON_OBSTRUCTION",
+     "statement": "Infinite Petersen amalgam family attains TD at q=5 with the tip as unique cheap nonroot non-cut vertex.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "AMPLIFICATION_OBSTRUCTION",
+     "statement": "C4-safe pure-geodesic and common-neighbor-closed amalgamation can increase the rooted maximum.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "FINITE_TD",
+     "statement": "Complete terminal-root TD scan of connected strong C4-free graphs of orders 1..14.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "FINITE_BLOCKS",
+     "statement": "All eligible terminal roots through order ten satisfy the two strengthened block bounds.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "FAMILY_CERTIFICATES",
+     "statement": "34 block examples with deletion sequences, eight mixed examples, five Petersen examples, and matching/theta formulas.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CLOSURE_DOMAIN",
+     "statement": "Specified closure-amalgamation experiment through order ten finds exactly two rooted-path failures.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "VALIDATION",
+     "statement": "Small-catalogue validation, 270 arbitrary graphs, and 50 primary family/obstruction records.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "RADIUS_ALGEBRA",
+     "statement": "Saved integer checks for r=5..100 and every 3<=s<=r-1.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ARTIFACT_INTEGRITY",
+     "statement": "Supplied report/certificate hashes and unchanged accepted-context identifiers.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "GENERAL_TD",
+     "statement": "Unrestricted TD and the unrestricted conclusions explicitly left open.",
+     "referee_verdict": "UNVERIFIED"
+    }
+   ],
+   "accepted_claims": [
+    "TERMINAL_LEMMAS",
+    "TD_BLOCKS",
+    "TD_BIP_TRI",
+    "ROOT_BLOCKS",
+    "RAD_BLOCKS",
+    "SINGLETON_OBSTRUCTION",
+    "AMPLIFICATION_OBSTRUCTION",
+    "FINITE_TD",
+    "FINITE_BLOCKS",
+    "FAMILY_CERTIFICATES",
+    "CLOSURE_DOMAIN",
+    "VALIDATION",
+    "RADIUS_ALGEBRA",
+    "ARTIFACT_INTEGRITY"
+   ],
+   "rejected_claims": [],
+   "unverified_claims": [
+    "GENERAL_TD"
+   ],
+   "sha256": {
+    "astra_r10/td/report.md": "8093d7c47f8c5557f274402a98985a7bdb4b41454b6badb517e5e3660f12ddcc",
+    "astra_r10/td/scratch/REPORT.md": "fb13519ec39105be81244cd5b1b4126a6019bf7e74ccd1a3a39d472d09fcb58f",
+    "astra_r10v/v_td/scratch/VERDICT.md": "fff2b04f4deaf7dd28fb753a2694528ff1d8bd3aceb51b6ab2bb2aefe8a4ecbd",
+    "astra_r10v/v_td/scratch/verdict.json": "b3eb508d863c37aa81d6149bcc4270f1aec29938af48c22958ee8a7fdecd25e8"
+   }
+  },
+  {
+   "session": "cb",
+   "prover_dir": "astra_r10/cb",
+   "referee_dir": "astra_r10v/v_cb",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "claims": [
+    {
+     "id": "CB_PETERSEN",
+     "statement": "Petersen refutes existential CB on the stated all-graph domain; all ten eligible cores fail by two.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CYCLE_REPLACEMENT",
+     "statement": "Every proper dominating C_(p+1), p>=4, in a strong C4-free graph can be converted to an eligible core of order p-1.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CYCLE_CAPACITIES",
+     "statement": "In that cycle branch, n<=L(L-3)/2 and 2|A_x|+sum_{y in N(x)-C}|A_y|<=L for outside x.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CB_HIGH",
+     "statement": "Existence of a CB-satisfying eligible core restricted to connected strong C4-free noncycles with ell>5.",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "CB_HIGH_IMPLIES_REAL",
+     "statement": "CB_high plus the supplied ell<=5 theorem implies REAL by order induction and the cycle replacement; no all-GEN assumption.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CORE_SLACK_BUDGET",
+     "statement": "A certified S(H)<=B(H) permits loss at most k|G-H|+k|H|-B(H).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "UNIT_CYCLE_BUDGET",
+     "statement": "beta=e-T-n+1 and S=2(n-1)+2beta-T; CB is equivalent to the relative cycle budget (8).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "SATURATED_EQUIVALENCE",
+     "statement": "Protected-geodesic deletion is equivalent as a universal statement to TD; TD is exactly 2beta-(T-m)<=(q-3)|V-(P union N[s])|.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "SATURATED_SMALL_DELETION_FAILURE",
+     "statement": "Petersen plus a four-edge root tail forces deletion of the entire residual six-cycle; every smaller nonempty deletion exceeds budget.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "SATURATED_EQUALITY_FAMILY",
+     "statement": "The root-neighborhood amalgam of b Petersen copies plus a four-edge root tail is TD equality at q=5.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "MOORE_LOCAL_AND_ORDER",
+     "statement": "Local defect equation (13), variance identities, and S>kn with r>=2 imply n>=k^2+r.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "UNIT_SPECTRAL_MOMENTS",
+     "statement": "The positive-semidefinite unit incidence matrix and its second and third trace moments are (18).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "SCALAR_RELAXATION_LIMIT",
+     "statement": "Actual Heawood density/distance data with artificial p*=5 satisfy the listed scalar constraints but fail the numerical REAL inequality; actual p=7.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CORE_CENSUS",
+     "statement": "All 143129 connected strong C4-free graphs n<=12, all 28003330 eligible cores; ten failures, all Petersen.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CYCLE_DIAGNOSTIC",
+     "statement": "935 proper dominating cycle cores and 6486 conversion choices through order 12; 15093 C4-safe traces on cycles L=5..18.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "REAL_GENERAL",
+     "statement": "REAL-133, high-density CB, general TD and general GEN_K are not proved or refuted by this work.",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "TRACE_FORMULA",
+     "statement": "Exact Lucas formulas and singleton/consecutive-pair classification for C_L+x, L>=5.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "PARENT_UNION_IDENTITY",
+     "statement": "The local parent-union identity (9) and its sum give the full attachment loss.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "IMPORTED_CELL_AND_GEN_ROUTES",
+     "statement": "Section 8 restates the accepted cell compensation and closure results and the minimum-GEN_5 P9-starting constraint.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "CERTIFICATE_AND_SCOPE_AUDIT",
+     "statement": "Certificate integrity, complete census scope and the smaller independent-algorithm cross-check domain in Section 9.",
+     "referee_verdict": "CORRECT"
+    }
+   ],
+   "accepted_claims": [
+    "CB_PETERSEN",
+    "CYCLE_REPLACEMENT",
+    "CYCLE_CAPACITIES",
+    "CB_HIGH_IMPLIES_REAL",
+    "CORE_SLACK_BUDGET",
+    "UNIT_CYCLE_BUDGET",
+    "SATURATED_EQUIVALENCE",
+    "SATURATED_SMALL_DELETION_FAILURE",
+    "SATURATED_EQUALITY_FAMILY",
+    "MOORE_LOCAL_AND_ORDER",
+    "UNIT_SPECTRAL_MOMENTS",
+    "SCALAR_RELAXATION_LIMIT",
+    "CORE_CENSUS",
+    "CYCLE_DIAGNOSTIC",
+    "TRACE_FORMULA",
+    "PARENT_UNION_IDENTITY",
+    "IMPORTED_CELL_AND_GEN_ROUTES",
+    "CERTIFICATE_AND_SCOPE_AUDIT"
+   ],
+   "rejected_claims": [],
+   "unverified_claims": [
+    "CB_HIGH",
+    "REAL_GENERAL"
+   ],
+   "sha256": {
+    "astra_r10/cb/report.md": "111e59dfd0b6182acc045c4614c2b463c51e8b5ee5dac57482d4b3de88b9b104",
+    "astra_r10/cb/scratch/REPORT.md": "426ff99441743fd7139dec39b694d7e7bcf28787aa0cb3c422750c6d654d3dfc",
+    "astra_r10v/v_cb/scratch/VERDICT.md": "ac0db29151881f9eae19275a0f974a4cc98a1625f172d01e5ea4c229aea7574f",
+    "astra_r10v/v_cb/scratch/verdict.json": "1fe2ac34386611a2b320c50f468ae28a2c964737d8a5e506901f98a32bb5181b"
+   }
+  }
+ ]
+}

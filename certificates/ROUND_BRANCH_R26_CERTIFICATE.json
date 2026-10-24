@@ -1,0 +1,443 @@
+{
+ "round": "R26",
+ "created": "2026-10-22 22:08 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only; all manifest-listed files copied to referee data). Built from referee verdict.json files only; a claim is accepted iff its referee verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md §4aa). r26_search overall GAP is due solely to unreplayable local-search execution counts (claim C27, UNVERIFIED, not accepted).",
+ "briefing": "data/r26/BRIEFING.md sha256 4a291b7988026cf2b8d08e3a5ee85574cd5af294d1369a25102da7422b73ccdc",
+ "headline_verified": [
+  "Moore block theorem (K>=3): every proper admissible model of a K-regular girth>=5 order K^2+1 graph has surplus <= -K; two Moore blocks at a vertex form a positive irreducible graph (eps=K) for all K>=3; conditional rooted theorem: anchored P_(2K-1) in blocks => every F-maximiser starts P_(2K+1)",
+  "Exact root-star contraction gain sigma_v=(K-2)d_v+t_v-3pi_v with safety/budget conditions; STAR-LEX_cap(K)+GEN_(K-1) => ROOT-U on irreducibles => GEN_K (all K>=6 from GEN_5); selector argmax_lex(f,sigma) resolves H21 (model) and M15 (tie)",
+  "K=2 bad-root mechanism (f_v=0) proved and shown to fail at K=3 (H21 f=12, M15 f=6)",
+  "Sharp mass thresholds: n<=12 => S<=3n, n<=19 => S<=4n (contracted Heawood, Robertson+1 attain first positive orders)",
+  "K=3 catalogues: n=17 delta>=3 (30,172 critical, 702 irreducible), n=18 triangle-free (20,903 critical, 68 irreducible); no existential endpoint selector (ROOT-U/F/C/FC/CF) fails on any tested graph",
+  "Four irreducible K=3 n=17 obstructions (A17,B17,S17,D17) to uncapped spare-arm-at-selector rules; S17 defeats spare-arm at every selector; Robertson+1 defeats min-degree spare-arm at K=4"
+ ],
+ "open": [
+  "STAR-LEX_cap(K) / CF-endpoint / mixed min-degree root lemma (K>=6)",
+  "GEN_K (K>=6)",
+  "NB(6): 42 profiles of (42,4)",
+  "FP42 (42,3) remainder",
+  "RAD(r>=11)",
+  "REAL-133"
+ ],
+ "sessions": [
+  {
+   "session": "r26_rootlemma",
+   "prover_dir": "astra_r26/r26_rootlemma",
+   "referee_dir": "astra_r26v/v_r26_rootlemma",
+   "verdict_file": "astra_r26v/v_r26_rootlemma/scratch/verdict.json",
+   "verdict_sha256": "2dfb48b59e0bdebe2fda7da981297a6255d6e39f35b35b4ae4dc2ab879c1c74a",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "Align the six singleton_critical flags with the stated definition: set them to true for ER_7, ER_7_TF_0, ER_7_TF_1, two_Petersen_root_port_obstruction, pentagon_book_3, and Robertson_base. Alternatively rename the current field positive_singleton_critical and add a separate raw-inequality field; revise the sentence calling it raw. These graphs remain nonpositive and outside the proposed positive-domain lemmas.",
+    "If the data/report are changed, regenerate their manifest lengths and hashes. No change to a mathematical proof or finite path/model count is required."
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "Definitions, criticality implications, parent classes, and rooted-path/clean-tail equivalence (§1)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "Pentagons through a root correspond to cross-class edges (§2.1)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "Exact repaired-star surplus and iff safety conditions (2)–(4)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "Irreducibility debt, deletion expansion and affordability (5)–(8)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "Six-cycle safety and triangle-inclusive exclusions (9)–(11)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Local/global mass identities, mass bound and AR (12)–(14)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "Component descent (15), lower-induction paths, and GEN_1 (§2.2)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "Explicit lifts, spare-arm capacity (16), and capped saturation (§2.3)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "Contact identity and full-critical deletion bound (17)–(18)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "Private-neighbour exposure inequality and its limitations (19)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Moore-block bound for every proper admissible model (20)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "Irreducible two-Moore-block amalgam and restricted block-tree classification (§2.4)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "F-root values and conditional rooted theorem for Moore amalgams (21)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "Petersen facts, J19 counterexamples, and restricted minimality (§§2.5,3.2)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "K=2 bad-root normal form (§2.6)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C16",
+     "statement": "H21 criticality, bad selected centre, positive model, and failure of every minimum lower core (§2.6)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C17",
+     "statement": "M15 construction, selector tie-break, bad root, no spare arm, and uncapped counterexample (§2.6)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "Every positive strong-C4-free 3-surplus graph has at least twelve vertices (§3.2)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "Complete M15 arbitrary-model exclusion and irreducibility (§3.2)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C20",
+     "statement": "Complete M15 repaired-star exclusion (§3.2)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C21",
+     "statement": "Complete rooted path trees and exact p for four obstructions (§3.2)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C22",
+     "statement": "Every selected root in the explicit 127,307-record inventory has the supplied long path (§3.1)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C23",
+     "statement": "Catalogue slices, criticality, and computed minimality/coverage scope (§§3.1–3.2)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C24",
+     "statement": "Control inventory, all selected-root alternatives, and named selector sets (§3.1)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C25",
+     "statement": "The control singleton_critical field records the report’s literal singleton inequality (§1 and §3.1)",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C26",
+     "statement": "Control star arithmetic audit (§3.1)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C27",
+     "statement": "Exploratory keep-bit encoding, returned models and optimization values (§§3.1,3.3)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C28",
+     "statement": "Data-only graph6, tree, model and subset-recurrence formats suffice (§3.3)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C29",
+     "statement": "Conditional ROOT-U/clean-port implication, cap-preserving model descent, and GEN induction (§4)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C30",
+     "statement": "Regular-block family criticality and positive centre-star model (§4)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C31",
+     "statement": "Spare-arm/exposure alternatives, kill-tests, and precise residual necessities (§5)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C32",
+     "statement": "Manifest integrity and self-contained certificate packaging (§§3.3,6)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C33",
+     "statement": "General ROOT-U, STAR-LEX_cap, universal spare-arm selection, and general GEN/REAL-133",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C34",
+     "statement": "Historical worker counts, interruption handling and timing (§3.3)",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  },
+  {
+   "session": "r26_search",
+   "prover_dir": "astra_r26/r26_search",
+   "referee_dir": "astra_r26v/v_r26_search",
+   "verdict_file": "astra_r26v/v_r26_search/scratch/verdict.json",
+   "verdict_sha256": "3a47d45b8e4ef4e3a8ee12eb62a16d7643f02f26f5a76fcc133e76d859af8acb",
+   "referee_overall": "GAP",
+   "required_fixes": [
+    "At PROOF_REPORT.md:42, require y in B_v (equivalently yv absent), in addition to distinct vertices and the consecutive edges, in the spare-arm converse. The graph with edges 01,02,12,23,34,45,56 is a literal counterexample to the incomplete wording. The actual forest checker specification already has the right restriction.",
+    "At PROOF_REPORT.md:388 and :396, qualify the M15 kill-tests as uncapped/all-K statements. M15 has K=3 and p=9 and cannot refute the proposed capped K>=6 theorem merely by changing its root quantifier.",
+    "For PROOF_REPORT.md:309–315, supply a complete local-search mutation trace or a fully deterministic algorithm/RNG specification to reproduce 60,624 and 2,624, or withdraw/qualify those totals as unreplayed author-reported execution metadata. The 95 saved states and 27 saved outputs are independently validated."
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "Conventions, criticality implications, selectors, and E versus A",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "Parent-class disjointness and endpoint-lift equivalence",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "Spare-arm converse in report line 42",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "Defect/scalar inequalities and singleton-critical degree bounds",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "S<=3n through n=12; S<=42 at n=13",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Auxiliary degree lemma and S<=4n through n=19",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "Sharp first orders, automatic criticality/irreducibility, and model horizons",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "Nine-vertex configuration blocks a spare path of order >=6",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "C/CF avoid the centre in every regular-block star; comparison with F/FC",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "AR implies max c_v>0 under singleton criticality",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Conditional clean-CF endpoint lemma implies GEN_K",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "Conditional minimum-degree endpoint-or-spare theorem suffices",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "Generator domains, pruning, and full-criticality recurrence",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "Complete catalogue counts and overlaps through the stated domains",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "Complete irreducibility classifications of the supplied full slices",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C16",
+     "statement": "Four new positive, fully critical, irreducible spare-arm obstructions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C17",
+     "statement": "Explicit S17 singleton selectors, four-leaf forest, endpoint P7",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "Order-minimal existential spare obstructions for the stated selectors",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "Robertson augmentation family, root obstruction, and minimum order",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C20",
+     "statement": "Binary path witnesses and catalogue endpoint/spare conclusions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C21",
+     "statement": "JSON forests, failed-root classifications, and final failure index",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C22",
+     "statement": "Model universe/order/encoding, criticality flows, and complete certificate checks",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C23",
+     "statement": "Imported controls, old obstructions, and inherited block families",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C24",
+     "statement": "Polarity constructions/descents and W(2) contractions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C25",
+     "statement": "80 induced W(3) samples with full criticality and positive models",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C26",
+     "statement": "Saved local-search graphs, scores, selector failures and reductions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C27",
+     "statement": "Historical local-search attempt/acceptance totals",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C28",
+     "statement": "M15 kill-tests applied to the ranked capped targets",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C29",
+     "statement": "Interrupted sample, omissions, and honest catalogue scope",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C30",
+     "statement": "Remaining conjectures, ranked proposals, accepted prefix and REAL-133 status",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C31",
+     "statement": "Manifest, checksums, compressed certificates and stream packaging",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    }
+   ]
+  }
+ ]
+}

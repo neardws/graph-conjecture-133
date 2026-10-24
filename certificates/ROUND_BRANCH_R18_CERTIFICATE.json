@@ -1,0 +1,587 @@
+{
+ "round": "R18",
+ "created": "2026-10-20 20:31 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only). Built from referee verdict.json files only; a claim is accepted iff its referee verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md).",
+ "headline_verified": [
+  "Uniform odd-step RC reduction: minimal deficient families need >=K recipients; K or K+1 recipients force one component (odd RC for |B|<=K-1); moment/support/entry/shield theorems; even low-reserve K^2 barrier; exact cut residuals",
+  "Contraction route: minor-monotone incidence cycle rank, simultaneous-contraction identities, P3 bound 3c_U-t_U>=2K-4+eps, path lifting, radius/center criteria; safe-edge selection + GEN_(r-1) => RAD(r); lemma (18) for all K => general GEN"
+ ],
+ "open": [
+  "CE-X(K,q)",
+  "P(K,q) proper-cut bound",
+  "F(K,q) full-cut endpoint exchange",
+  "path-sensitive reduction lemma (18)",
+  "high-radius safe-edge selection",
+  "general GEN_K (K>=6)",
+  "RAD(r>=11)",
+  "REAL-133"
+ ],
+ "sessions": [
+  {
+   "session": "r18_uniformRC",
+   "prover_dir": "astra_r18/r18_uniformRC",
+   "referee_dir": "astra_r18v/v_r18_uniformRC",
+   "verdict_file": "astra_r18v/v_r18_uniformRC/scratch/verdict.json",
+   "verdict_sha256": "b07b4b9a1b1f1217b22a6e125e6a37ecbb8bc4d8fef07cc540d2edae0b10c85c",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    {
+     "id": "S00",
+     "reason": "The summary points outside this delivery and calls the JSON location scratch. Use claim/PROOF_REPORT.md and data/r18_*.json. The delivered proof itself is present and its manifest hash matches."
+    },
+    {
+     "id": "D02",
+     "reason": "All 4,823,705 moment rows and all 6,997 heavy rows match, including the 268 per-graph heavy-row multisets. The stated 22,433,094 eligible rows additionally require w > 0. With only the reported capacity/reserve premises there are 32,833,574 rows; state the nonempty-source filter explicitly."
+    },
+    {
+     "id": "R02",
+     "reason": "The identity and inequality are correct for a deficient residual. Explicitly assume d_*>0 before claiming V minus H_* is a proper deletion: that assumption ensures H_* is nonempty. Maximality then makes the full cut strictly smaller, and (C) gives O_*-M_* >= d_*-epsilon+1 >=2."
+    }
+   ],
+   "claims": [
+    {
+     "id": "S00",
+     "statement": "Claim-summary delivery locations",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C01",
+     "statement": "Definitions, units, reserve notation and mass/source identity (1)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "Conditional assembly of all GEN from accepted base cases, small-order reduction, CE and RC",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "Theorem M: source-sensitive moment inequalities (2)-(3)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "Theorem S: support and component-order bounds (4)-(8)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "Theorem R: minimal deficiency, one-component reduction, capacity and saturation bounds (9)-(12)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Odd RC for |B| <= K-1, obstruction coverage and full-completion bounds (13)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "Theorem E: refined entry inequality and saturation specialization (14)-(16)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "Potential transport (17), telescoping limitation and full-completion defect width",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "Source-incidence identity (18) and conditional reserve hierarchy (19)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "Shortest connector (20) and conditional localization table",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Mass inequality and conditional even low-reserve barrier (21)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "Zero-reserve equality obstruction and Moore degrees",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "High-surplus normal form",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "Shield theorem, clean-region classification and loss direction (22)-(24)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D01",
+     "statement": "Complete connected strong-C4-free catalogue through order 10 and path audits",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D02",
+     "statement": "Moment/support enumeration and complete heavy-row certificate",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "D03",
+     "statement": "Deletion, unit-gap, pentagon, shield, ROOT and connector audit totals",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D04",
+     "statement": "Finite polynomial and low-reserve arithmetic checks",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D05",
+     "statement": "Exact p, actual endpoints and rooted maxima for 15 named graphs of order <= 43",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D06",
+     "statement": "All 22 named graphs, seven large-graph path certificates, and the 94-vertex correction",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D07",
+     "statement": "Historical deterministic named-moment sample totals",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "D08",
+     "statement": "Six declared source-system family enumerations and spanning-cycle certificates",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F01",
+     "statement": "All-K uniform control construction, two cuts and full criticality (25)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F02",
+     "statement": "Bipartite all-root P_(2K+1) rejection lemma",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F03",
+     "statement": "G0/G1 all-proper-set critical margins and supplied connectivity metadata",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F04",
+     "statement": "Sixteen explicit proper/full uniform samples for K=3..10",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "X01",
+     "statement": "Nine-vertex counterexample to preserving saturation under optimization",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "X02",
+     "statement": "121-vertex exposed-neighborhood counterexample and uniform loss bound",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "X03",
+     "statement": "Two lowest-unit endpoints with no B-neighbor without criticality",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "X04",
+     "statement": "Necessity of reserve/singleton alternatives; cheap sets in endpoint-flow and Robertson; contracted Heawood",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R01",
+     "statement": "Completed-cut deficiency, supermodularity and mixed-triangle identity (26)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R02",
+     "statement": "Proper-cut residual (27)-(28)",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "R03",
+     "statement": "Full-cut residual and capacity-saturating assignment",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R04",
+     "statement": "Consequences, reformulations and limitations of P, F, SRS, CE-X and shield targets",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R05",
+     "statement": "Unit-gap identity (29), induced pentagons and disjoint selection",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R06",
+     "statement": "Exact odd/even optimized cheap-set identities (30)-(31)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R07",
+     "statement": "Compatibility of the low-vertex independent/forest structure with criticality",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D09",
+     "statement": "Delivery manifest and bundled-source integrity",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "Q01",
+     "statement": "CE(K,2K-1), CE(K,2K), RC(K,2K-1), RC(K,2K) in the unrestricted domains",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q02",
+     "statement": "Proper-cut P and full-cut endpoint-exchange F",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q03",
+     "statement": "Small-support selection SRS, CE-X and uniform upper shield-loss selection",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "S01",
+     "statement": "Final claimed scope: uniform reductions but no new unrestricted GEN_K",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    }
+   ]
+  },
+  {
+   "session": "r18_contract",
+   "prover_dir": "astra_r18/r18_contract",
+   "referee_dir": "astra_r18v/v_r18_contract",
+   "verdict_file": "astra_r18v/v_r18_contract/scratch/verdict.json",
+   "verdict_sha256": "656a9658888d498284ff8994a5eba65d97417ba25cf415a187059d35e2642173",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "At PROOF_REPORT.md:289-290 and in r18_identity_audit.json domain metadata, specify safe edge contractions only; include all ordered quotient paths, even those avoiding the merged vertex. The reported values 504,589 and 26,586 then agree exactly. The unrestricted edge-contraction values are 755,561 and 28,880.",
+    "In CLAIM_SUMMARY.md:3, replace the original-session absolute REPORT.md link with the delivered claim/PROOF_REPORT.md, and identify data/r18_reproduce.json as the location of the embedded verifier."
+   ],
+   "claims": [
+    {
+     "id": "SCOPE",
+     "statement": "Conventions, accepted small cases, and no claimed completion of GEN/RAD/REAL",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "GEN",
+     "statement": "General GEN_K, outstanding K>=6",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "RAD",
+     "statement": "General RAD(r), outstanding r>=11",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "REAL",
+     "statement": "REAL-133 for connected strongly C4-free graphs of order >=2",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "I1",
+     "statement": "Theorem 1: nonnegative incidence cycle rank and identity (2)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "I2",
+     "statement": "Theorem 1: beta is minor-monotone between strongly C4-free end graphs",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "I3",
+     "statement": "Arbitrary edge deletion need not preserve the induced-path cap",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C1",
+     "statement": "Theorem 2: simultaneous-contraction identities (3)-(5) and path monotonicity",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C2",
+     "statement": "One-set safety criterion (6), losses (7)-(8), and nonnegative summands",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C3",
+     "statement": "Minimum-order counterexample consequence (9), connectivity and induced-subgraph criticality",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C4",
+     "statement": "Safe-edge iff no pentagon; Delta beta=0, Delta T=t_uv, mass loss 2-t_uv",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C5",
+     "statement": "Transversal inequality (10) and pentagon coverage of minimum GEN counterexamples",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P3A",
+     "statement": "Theorem 3: exact P3 losses (11), bound (12), and K>=4 exclusion",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P3B",
+     "statement": "P3 safety iff neither the specified pentagon nor six-cycle exists",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L1",
+     "statement": "Theorem 4: exact local path-lifting maxima (13)-(14), including singleton paths",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L2",
+     "statement": "Exact edge lifting profile and zero gain for capped quotient paths",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R1",
+     "statement": "Theorem 5: distance formula (15), radius interval, exact center criteria (16)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R2",
+     "statement": "Unique-center incident and horizontal edges preserve radius",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R3",
+     "statement": "Safe-contraction REAL telescope (17)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R4",
+     "statement": "Minimum REAL consequence under S/n>2",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R5",
+     "statement": "Safe-edge selection plus GEN_(r-1) implies RAD(r), for r>=3",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R6",
+     "statement": "Distance-pair limitation in the p=2r-1 branch",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F1",
+     "statement": "Complete main catalogue, contraction counts, and loss histogram",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F2",
+     "statement": "504,589 edge-profile paths and 26,586 preserved longest paths",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "F3",
+     "statement": "Connected partitions, vertex subsets, edge deletions, and no-safe-first-step counts",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F4",
+     "statement": "General-set profiles through order eight",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F5",
+     "statement": "Radius mechanism classifications and exceptional safe edges",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F6",
+     "statement": "Fifteen greedy safe-contraction sequences, 159 prefixes, and terminal graphs",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F7",
+     "statement": "All 22 named controls, exact-path subdomain, weak endpoints, and applicability counts",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "U1",
+     "statement": "Infinite uniform controls for every integer K>=3",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "U2",
+     "statement": "Twelve uniform samples, their cycles, declared-A paths and safe contractions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "OPEN1",
+     "statement": "Path-sensitive reduction existence lemma (18)",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "COND",
+     "statement": "Lemma (18) for all K>=6, with accepted small cases, implies general GEN",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "OPEN2",
+     "statement": "High-radius safe-edge selection lemma",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "VAC",
+     "statement": "Finite vacuity, no existence theorem for admissible P3s, and no new unrestricted case",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N1",
+     "statement": "Petersen: surplus-zero control, exact transversals, critical margins and path cap",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N2",
+     "statement": "Contracted Heawood: criticality and survival of every one-set contraction",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N3",
+     "statement": "Capacitated link packing is not distinct disjoint-pentagon multiplicity",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N4",
+     "statement": "Theta family: arbitrarily many pentagons through an admissible P3, yet p=6",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N5",
+     "statement": "Fixed-edge pentagon books have p=7 for every m>=2",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N6",
+     "statement": "Arbitrary vertex weights fail on two Petersens glued at one vertex",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "N7",
+     "statement": "Heawood radius debt and all quotient P7 profiles",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "AUX",
+     "statement": "Auxiliary simultaneous and radius-tight pilot files; every displayed certificate example",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "DELIVERY",
+     "statement": "Delivered report, JSON certificates and program digest",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "RUN",
+     "statement": "Claim that the delivered prover program executed successfully and is a standalone verifier",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  }
+ ]
+}

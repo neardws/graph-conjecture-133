@@ -1,0 +1,410 @@
+{
+ "round": "R12",
+ "created": "2026-10-19 01:59 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only); accepted iff referee CORRECT/CORRECT_WITH_FIXES with fixes adopted in PROOF_NOTES.md §4m; built from referee verdict.json files only",
+ "headline_verified": [
+  "GEN_5: p<=10 => S<=5n (charging inequality (3); computer-assisted)",
+  "REAL-133 for p<=10 and for ell<=6; Cell B closed (GEN_5 + RAD(6))",
+  "GEN_6 for p<=10; p=11 reduction",
+  "Cell B structural reduction (superseded)",
+  "TD at all indices for strong (C4,C5)-free graphs; GEN_K at unit incidence girth>=16; REAL-133 at unit incidence girth>=18",
+  "TD on order-15 blocks with min degree>=3 or C5-free",
+  "Bare endpoint flow false without full critical loss (15-vertex example)"
+ ],
+ "open": [
+  "GEN_6 for p=11,12",
+  "GEN_K for K>=7; REAL-133 for ell>6",
+  "TD general (failing block contains C5, order>=15)",
+  "TCB / TCB+ / CB_high general",
+  "ROOT(q>=9) general",
+  "reserve-flow existence general"
+ ],
+ "sessions": [
+  {
+   "session": "r12_charge",
+   "prover_dir": "astra_r12/r12_charge",
+   "referee_dir": "astra_r12v/v_r12_charge",
+   "verdict_file": "astra_r12v/v_r12_charge/scratch/verdict.json",
+   "verdict_sha256": "d6fe866bd4e8b4a0260f83c5b33b346e52e3824e8315bdf729345d317291f712",
+   "referee_overall": "CORRECT",
+   "required_fixes": [],
+   "claims": [
+    {
+     "id": "ACCEPTED_INPUTS_AND_CRITICAL_REDUCTION",
+     "statement": "The stated accepted inputs give n>=28, p=10, full proper-set critical loss, and the P10 endpoint bound in a minimum GEN_5 counterexample.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CHARGE_IDENTITY",
+     "statement": "The unit deletion identity, charge formula (4), and five-entry unit-charge table are exact.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "TRACE_AND_LOSS_RULES",
+     "statement": "Trace safety, packing cap (6), equality marks, pair/star propagation, exact rational exclusion, and exhaustive extension are sound.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "DEGREE_THREE_ENDPOINT",
+     "statement": "A lambda=3 P10 endpoint has a neighbour in B; hence j_A<=2 and c<=5.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "LOCAL_UNIT_FIVE_BOUND",
+     "statement": "Every neighbour of a lambda=5 P10 endpoint lies in B; hence j_A=0 and c=5.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "LOCAL_UNIT_FOUR_BOUND",
+     "statement": "A lambda=4 P10 endpoint has at most one neighbourhood unit meeting A; hence c<=5.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "GLOBAL_CHARGE_3",
+     "statement": "The full incidence charge proves sum_A u_B <= sum_B(5-lambda).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "GEN_5",
+     "statement": "Every connected strong C4-free graph with p<=10 satisfies S<=5n.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "REAL_ELL_AT_MOST_6",
+     "statement": "REAL-133 holds for ell<=6; Cell B is closed.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "REAL_PATH_AT_MOST_10",
+     "statement": "REAL-133 holds whenever p<=10.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "GEN_6_SCOPE",
+     "statement": "GEN_6 follows for p<=10; p=11 and p=12 are left unresolved.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "GEN_6_P11_REDUCTION",
+     "statement": "For p=11, S-6n=W_11-C_11-|A_11|-sigma_11, with sigma_11>=0; W_11<=C_11+|A_11| is sufficient.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "RESIDUAL_CHARGE_8R",
+     "statement": "Equation (8r), the nonnegative B3 slack, and independence of all lambda-three vertices hold.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "STAR_LOSS",
+     "statement": "The critical star bound (8s) and |B3|<=sum_B4(2-t)+sum_B5(4-t) hold.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "PAID_TRIANGLE_MATCHING",
+     "statement": "Q is a matching, h(Q)=|B4|-|E(Q)|, the stated W decomposition holds, and (10) follows.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "INTERIOR_SLACK_ACCOUNTING",
+     "statement": "Equation (9), the local u_B identity, and the distinction between high-unit surplus and the complete deletion charge are valid.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "WEAK_HYPOTHESIS_OBSTRUCTION",
+     "statement": "The 14-vertex cubic graph satisfies the listed weaker structural properties but D(B)=32>30.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "GENERAL_CATALOGUE",
+     "statement": "The complete connected unlabelled strong C4-free catalogue through order 12 has the claimed counts and four charge controls.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CUBIC_CATALOGUE",
+     "statement": "The complete cubic C4-free catalogue of even orders 10 through 20 has the claimed counts and classifications.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "DENSE_CATALOGUE",
+     "statement": "The complete minimum-degree-at-least-three C4-free catalogue of orders 10 through 16 has exactly one singleton/pair-loss survivor.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ENDPOINT_CONTROL_EXTENSIONS",
+     "statement": "The stated fixed-B iterated extension family has one order-15 class, two order-16 classes, and no order-17 extension.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "HIGH_ROOT_REDUCTION",
+     "statement": "Every hypothetical high vertex produces one of 428 fourteen-vertex skeletons; none has an immediate forbidden path.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CERTIFICATE_INVENTORY_AND_DOMAINS",
+     "statement": "The three completed certificates contain 143232 roots, 387565 nodes and 78417731 trace records, with no open leaves and maximum used-set size 20.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "FINITE_IMPLEMENTATION_CONTROLS",
+     "statement": "The through-nine audit covers 1017 graphs, 8722 rooted domains and 17444 path-existence comparisons; the four order-12 controls and 14 family transitions check.",
+     "referee_verdict": "CORRECT"
+    }
+   ]
+  },
+  {
+   "session": "r12_cellB",
+   "prover_dir": "astra_r12/r12_cellB",
+   "referee_dir": "astra_r12v/v_r12_cellB",
+   "verdict_file": "astra_r12v/v_r12_cellB/scratch/verdict.json",
+   "verdict_sha256": "6087a0c82d6d6e4220f28642a71c9956963e58542337120a85ec117f1da15888",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "CLAIM_SUMMARY.md:7: replace increases S-5n with does not decrease S-5n.",
+    "Update the stale absolute report link and scratch/r12_* paths for this packet; supply missing producer scripts or reference the independent referee reproduction commands.",
+    "Do not treat the unavailable original verifier implementation as independently inspected; its mathematical outputs have been independently reproduced."
+   ],
+   "claims": [
+    {
+     "id": "P1",
+     "statement": "Unique excess block, p(B)=10, every root starts P7, and exterior mass bound (1).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "L2",
+     "statement": "q_F(s)<=4 implies H<=3 and 5h-S(F)>=3H.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "T3",
+     "statement": "Induced geodesic pruning preserves r=5, p=10 and does not decrease S-5n.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "T4",
+     "statement": "The target (B) is equivalent to inequality (12) under (10)-(11).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "MIN",
+     "statement": "Coordinatewise minimality is lossless; (13), b>=28 and nonbipartiteness are necessary for a residual counterexample.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "P5",
+     "statement": "Every positive minimal tail has a distinct private witness; at most three tails have length three.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "P6",
+     "statement": "Equations (17)-(19), critical induced F, rooted orders 9/10, tail exclusions, and F=B radius-four consequence.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "HUB",
+     "statement": "MASS_P9 closes p(B_0)<=9 and identifies a remaining hub block with the excess block in P1.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C_ROOT",
+     "statement": "Complete connected strong-C4-free domain n=1..10, qualifying roots, ROOT(4) and Lemma 2 checks.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C_BLOCK",
+     "statement": "Complete 2-connected strong-C4-free domain n=3..12 and eligible block classification.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C_WEIGHT",
+     "statement": "Complete feasible and radius-five vector counts, 701 minimal vectors, private witnesses and shape classification.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "C_EXAMPLES",
+     "statement": "43 explicit pendant-example records have the claimed full graphs, invariants and rooted witnesses.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "E1",
+     "statement": "A minimal radius-five example has eight length-one tails.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "E2",
+     "statement": "A minimal radius-five example has six length-two tails.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "E3",
+     "statement": "The control has two distinct P10 blocks; deletion gives the stated pendant graph and surplus gain.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "OPEN",
+     "statement": "Inequality (12), equivalently the stronger Cell B mass target (B).",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "SUMMARY",
+     "statement": "The summary says pruning increases S-5n.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "HASH",
+     "statement": "Manifest byte counts and SHA-256 hashes for the supplied mathematical packet and context.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "FILES",
+     "statement": "The summary/report reproduction paths and scripts are available in this referee packet.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "CHECKER",
+     "statement": "The original verifier imports no producer module, uses Python only, and historically passed.",
+     "referee_verdict": "UNVERIFIED"
+    }
+   ]
+  },
+  {
+   "session": "r12_unify",
+   "prover_dir": "astra_r12/r12_unify",
+   "referee_dir": "astra_r12v/v_r12_unify",
+   "verdict_file": "astra_r12v/v_r12_unify/scratch/verdict.json",
+   "verdict_sha256": "170c4a2b7af4b657895c3358da85898498cab8d7b5075fa4ad9e46d6d035b10c",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "At report line 186, state q>=3 explicitly for the flag/vacancy lemma. For q=2 on P2, lambda=1 and chi=0 give v=-1. The indexed theorem and all deletion steps already use q>=3.",
+    "Replace the claim summary’s original-workspace links and Section 9’s scratch data paths and unavailable producer commands with this packet’s claim/ and data/ locations and sh scratch/reproduce_referee.sh.",
+    "Treat the claimed independence, implementation details, timings, and opaque rolling hashes of the unavailable producer checkers as unaudited provenance. The referee recomputation verifies their mathematical results."
+   ],
+   "claims": [
+    {
+     "id": "UNIT_ACCOUNTING",
+     "statement": "Unit structure, hereditary incidence girth, deletion identity (1).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ENDPOINT_GIRTH_LOSS",
+     "statement": "Endpoint packing (2), coefficient (3), loss bound (4).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ROOT_TD_GIRTH",
+     "statement": "ROOT (5), terminal bound (6), C5-free TD (7) at every index.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "BLOCK_STRENGTHENING",
+     "statement": "Stronger C5-free block inequalities and combination with accepted block classes.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "GEN_UNIT_GIRTH16",
+     "statement": "Every GEN_K at unit incidence girth at least 16.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "REAL_UNIT_GIRTH18",
+     "statement": "REAL-133 at unit incidence girth at least 18.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "TERMINAL_FLAG_BALANCE",
+     "statement": "Nonnegative vacancies and exact terminal balance (12)-(13).",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "PETERSEN_TERMINAL_FAMILY",
+     "statement": "All-b compensation family and three saved deletion histories.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "BARE_GLOBAL_FLOW_FALSE",
+     "statement": "15-vertex counterexample and six endpoint controls, including Heawood tails.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "RESERVE_FLOW_IMPLICATION",
+     "statement": "Reserve-flow sufficient condition (16), Hall condition (17), deficit identity (18).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "RESERVE_FLOW_GENERAL",
+     "statement": "General critical reserve-flow existence.",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "TCB_EXTENDED_CREDIT_IMPLICATION",
+     "statement": "Cactus identity, cyclic-core credit, and modified TCB implies REAL.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "TCB_AND_TCB_PLUS",
+     "statement": "Existence of an eligible core satisfying the general credited budget.",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "TD_CONNECTED_THROUGH11",
+     "statement": "Both displayed inequalities on every connected strong C4-free graph through order 11.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "TD_BLOCKS15_MIND3",
+     "statement": "Both block inequalities on all order-15 blocks of minimum degree at least three.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "TD_BLOCKS15_NOC5",
+     "statement": "Both ordinary and stronger inequalities on all C5-free order-15 blocks.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "RESERVE_FLOW_FINITE",
+     "statement": "All 1,998 designated endpoint-flow failures admit reserve flow.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "EXPANDED_C9",
+     "statement": "Expanded C9 block and its complete invariant certificate.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "DENSE_EXAMPLE",
+     "statement": "312-vertex dense calibration, path lower bound, and eligible core.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CALIBRATION_FAMILIES",
+     "statement": "Polygon/triangle-expansion scope, Petersen credit, PG(2,11) corona and Moore caution.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "RESIDUAL_BLOCK_REDUCTION",
+     "statement": "Failing blocks contain C5, have order at least 15, and at order 15 have degree two.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "FINITE_VALIDATION",
+     "statement": "Overlap, union, subset checks, algebra checks, and saved validation results.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "HISTORICAL_CHECKERS",
+     "statement": "Historical independence and algorithms of original checker implementations and rolling hashes.",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "ARTIFACTS_REPRODUCTION",
+     "statement": "Artifact hashes, original links and reproduction commands.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "GENERAL_TARGETS",
+     "statement": "General TD, TCB, GEN_K for K>=5, and REAL-133.",
+     "referee_verdict": "UNVERIFIED"
+    }
+   ]
+  }
+ ]
+}

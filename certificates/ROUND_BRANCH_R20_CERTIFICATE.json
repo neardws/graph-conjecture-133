@@ -1,0 +1,901 @@
+{
+ "round": "R20",
+ "created": "2026-10-21 01:10 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only). Built from referee verdict.json files only; a claim is accepted iff its referee verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md).",
+ "headline_verified": [
+  "Near-order-barrier toolkit (uniform K): positive-surplus irreducibles in the barrier satisfy K^2+3<=n<=K^2+K+1, tau_min<=K-1; defect/moment/high-set inequalities; maximal induced path order >= lambda_min+2 (lambda_min>=2), sharp on G42",
+  "Transversal budget identities/normal forms; Theorem 7: fully induced-critical K=6 graph n=151, eps=2, tau_min=1 defeats (H) at every transversal size (so budgets alone cannot prove GEN_K); exact conditional case split / assembly",
+  "Global order-40 theorem (computer-assisted): every strongly C4-free graph with n<=40 has S<=6n; K=6 irreducibility cutoff n<=rho+41; K=6 near-barrier rho<=2 rows empty; order-41 forces (eps,T) in {(2,0),(1,1)}; 200 HS cores irreducible with p=20; K=6 near-barrier residual (n,rho)=(41,3),(41,4),(42,4),(43,5)"
+ ],
+ "open": [
+  "NB(K) near-barrier path lemma",
+  "ST_TF(K), ST_Delta(K) outer small-transversal path alternatives",
+  "outer rho>=3 regions (triangle-free and triangles)",
+  "IR_K / general GEN_K (K>=6, incl. GEN_6)",
+  "RAD(r>=11)",
+  "REAL-133"
+ ],
+ "sessions": [
+  {
+   "session": "r20_barrier",
+   "prover_dir": "astra_r20/r20_barrier",
+   "referee_dir": "astra_r20v/v_r20_barrier",
+   "verdict_file": "astra_r20v/v_r20_barrier/scratch/verdict.json",
+   "verdict_sha256": "b16f8d599504f29e008f9838524da547e08d163320ccdb05cb2ed9ecb0ef2c8e",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "At report equation (13), replace d_v>=rho+1 by d_v>0 implies d_v>=rho+1, or explicitly assume no isolated vertices. Make the same correction in data/r20_math_notes.txt. The other two bounds in (13) remain universal. The counterexample is K2 disjoint union K1: rho=0 and an isolated degree is 0<1.",
+    "If section 2.5 is intended for possibly disconnected graphs, justify absence of isolates on its top boundary by the saturated distance-two count at a vertex with lambda>=K+1 before applying the repaired lower bound to every vertex. For the stated connected target, no extra hypothesis is needed.",
+    "Replace the unavailable prover-session report link in claim/CLAIM_SUMMARY.md with the delivered relative path PROOF_REPORT.md.",
+    "Keep NB(K), IR_K and GEN_K labeled CONJECTURED. The historical standalone replay is an author-reported event; only its mathematical outputs and certificate counts have been independently verified here."
+   ],
+   "claims": [
+    {
+     "id": "S01",
+     "statement": "NB(K), IR_K, GEN_K remain unproved in this work; summary and report scope (summary 1,10; report 3,24,30,394,406).",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "P01",
+     "statement": "Strong C4-free conventions, neighborhood matching, triangle uniqueness, S=sum lambda (9–14).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P02",
+     "statement": "Admissible-model, induced-critical, irreducible and pentagon definitions (16–22).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P03",
+     "statement": "Local distance defect z and even Z (36–42).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P04",
+     "statement": "Mass inequality (1) (44–55).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P05",
+     "statement": "Integer defect identity, triangle bound and parity (2)–(3) (57–71).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P06",
+     "statement": "Degree concentration and squared-deviation identity (4)–(5) (73–82).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P07",
+     "statement": "High-degree-set inequalities (6)–(9) (86–127).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P08",
+     "statement": "S>Kn implies n>=K^2+3 for integer K>=2 (10) (129–138).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P09",
+     "statement": "Arbitrary-subset moment inequality (11), including certified upper bounds on t_U (142–176).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P10",
+     "statement": "Universal triangle-aware degree statement (13) (180–192; also data/r20_math_notes.txt).",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "P11",
+     "statement": "Singleton-critical bounds (14)–(16), including 1<=epsilon<=K for K>=3 (194–223).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P12",
+     "statement": "Order/transversal range (17)–(18) and summary order bound (227–238; summary 5).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P13",
+     "statement": "Top-transversal structure (19) (240–250).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P14",
+     "statement": "Near-Moore scale bounds and limitation to RMS degree deviation O(sqrt K) (252–258).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P15",
+     "statement": "Every two-ended maximal induced path has order at least lambda_min+2 when lambda_min>=2 (262–264).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P16",
+     "statement": "Contraction order loss >=1+tau_5(uv), including simultaneous contractions (20) (270–275).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P17",
+     "statement": "Improved irreducibility cutoff (21), and equivalence of the two criticality notions in NB (277–284; 28).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P18",
+     "statement": "Complete K=6 scalar domain and complete degree-profile enumeration (290,294–299).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P19",
+     "statement": "Necessity of local, triangle-allocation, high-set and prefix filters (301–307).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C01",
+     "statement": "Scalar/profile counts and every row, rejection count, surviving profile and allowed-t list (292,309–317).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "K=6 orders 39,40 excluded under NB and singleton criticality; residual rows (319,396; summary 6).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P20",
+     "statement": "At K=6,n=42,epsilon=2: T<=5, parity gives {0,2,4}, then screen leaves {0,2} (321).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P21",
+     "statement": "Criticality-flow certificate principle (347–351).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P22",
+     "statement": "Packing/cover principle for exact edge pentagon transversals (353).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "41 primary control records and the control table (5,325–333; summary 7).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "G42 degree/transversal distributions, Q,Z and exact path counts (335).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "Explicit G42 P20, maximal P7, complete endpoint blockers and sharpness (266,337–345).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Control safeguards, contracted Heawood boundary, and noncritical HS parent (355).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "37 required family members and 32 additional cores, with classes 17/8/7 (359).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "Additional cores are irreducible and have exact p=20 by parent embeddings (361).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "Complete connected strong-C4-free catalogue through order 10 (365).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "All inequality test counts and conditional domains (365; r20_bound_tests.json).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "P23",
+     "statement": "Completeness of ordered induced-path enumeration (369).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Small path audit and Python/C comparisons (367).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "Delivered certificate totals, complete record coverage and manifest integrity (371–377,390).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "H01",
+     "statement": "Original fresh runs, isolated standalone replay execution, and embedded replay-program behavior (379–390; summary 8).",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "P24",
+     "statement": "Uniform coverage and precise unresolved domain (398).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "R01",
+     "statement": "Suggested future realization/path-exchange work (400).",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "P25",
+     "statement": "Path monotonicity under admissible models and IR_K iff GEN_K (404).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D01",
+     "statement": "Claim-summary report link and portable delivery reference (summary 3).",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    }
+   ]
+  },
+  {
+   "session": "r20_transversal",
+   "prover_dir": "astra_r20/r20_transversal",
+   "referee_dir": "astra_r20v/v_r20_transversal",
+   "verdict_file": "astra_r20v/v_r20_transversal/scratch/verdict.json",
+   "verdict_sha256": "16e50afec3c38ff15de06b6b345e432494b6ff8ad063ccb72e0bc3ddbac34a5c",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "In the equivalence at (1), retain epsilon_K(G)>0. Equation (1) certifies nonpositivity of proper induced subgraphs but does not imply positivity of G.",
+    "In Lemma 11, explicitly assume epsilon_K(G)>0 before concluding full induced criticality. K2 at K=3 satisfies all exclusion-flow conditions with P=flow=0 but has epsilon=-4. Every supplied control has independently checked positive surplus, so no certified example is lost.",
+    "Correct the theta-family sentence about singleton criticality. Under the deletion-only convention every singleton deletion has negative surplus for K>=3; the missing hypothesis is positive surplus of the original graph. At m=10,K=6 the original surplus is -74 and deleted surpluses are -90 or -72.",
+    "Adjust report/manifest links for the supplied claim/ and data/ layout. For audit provenance, distinguish reproduced mathematical outputs from unverified assertions about historical prover execution and the exact original random sample."
+   ],
+   "claims": [
+    {
+     "id": "S01",
+     "statement": "Summary and principal 151-vertex obstruction, with general targets left open",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D01",
+     "statement": "Strong C4-free conventions, edge triangle multiplicity, and model definitions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D02",
+     "statement": "Full induced criticality is equivalent to (1)",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "Q01",
+     "statement": "ST_TF(K), including the unresolved expensive-singleton/pair path assertion",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q02",
+     "statement": "ST_Delta(K) and its triangular path-extension gap",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q03",
+     "statement": "Barrier path input for n <= K^2+rho+2",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "Q04",
+     "statement": "Large-order, rho>=3 path/model statements, with and without triangles",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "L01",
+     "statement": "Lemma 1: deletion, slack and budget identities (4)-(6)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L02",
+     "statement": "Two-vertex identity (7), including the triangle surcharge",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L03",
+     "statement": "Lemma 2: safe-edge criterion, mass loss and exact positive-surplus budget",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L04",
+     "statement": "A successful budget contradicts irreducibility, not induced criticality alone",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L05",
+     "statement": "Lemma 3: private middles, matching-cover equality and singleton classification",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L06",
+     "statement": "Lemma 4: edge credits in minimal triangle-free transversals",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L07",
+     "statement": "Lemma 5: minimal-transversal reduction and exact epsilon=1 exception",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L08",
+     "statement": "Expensive configurations (11)-(12) exactly exclude small successes",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L09",
+     "statement": "Lemma 6: independent-transversal cardinality obstruction",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L10",
+     "statement": "epsilon=K, rho=2 forces failure of every size<=2 budget",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L11",
+     "statement": "K=6 degree threshold table",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "T01",
+     "statement": "Theorem 7: regular augmentation, surplus and full criticality",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "T02",
+     "statement": "Theorem 7: pentagon coverage and a leaf of J imply rho=1",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "T03",
+     "statement": "Theorem 7: all transversal sizes fail (H)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "T04",
+     "statement": "Theorem 7 does not establish arbitrary-bag irreducibility or all-K existence",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L12",
+     "statement": "Lemma 8: mass inequality (17), strengthened (F), order and surplus bounds",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L13",
+     "statement": "Triangle bound (18) and its limits",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L14",
+     "statement": "Lemma 9: representative bound and order-barrier irreducibility",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L15",
+     "statement": "Lemma 10: path monotonicity and GEN_K iff IR_K",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "A01",
+     "statement": "Six-region case split and conditional assembly",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L16",
+     "statement": "Lemma 11 cut identity (20)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L17",
+     "statement": "Lemma 11 finite full-criticality certificates",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C01",
+     "statement": "Complete connected strong-C4-free catalogue through order ten",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "Catalogue identities, links, minimal transversals and quotient count",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "33 singleton-critical rows, 32 fully critical, and no K>=3 target input",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "831 exact triangle-state optimizer crosschecks",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "Connected-bag path and representative-bound audit",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "G42 and all 37 supplied irreducible HS cores",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "G42 ordered-path histogram",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "Contracted Heawood and Robertson+1 controls",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "All 114 repaired positive triangle-free cores",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "Four representative repair minima and their interpretation",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "151-vertex construction: regular base, pentagons, edge connectivity and distances",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "151-vertex graph statistics, tau distribution and criticality",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "Exact all-size minimum gap 1 and maximum one-edge-model surplus 0",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "Expensive unique singleton and induced P13 in the 151-vertex graph",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "Exhaustive Robertson cut-identity audit and base connectivity",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C16",
+     "statement": "The original 2,000 seeded random base subsets / 4,000 deletion tests",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C17",
+     "statement": "Six triangle-containing fully critical controls and all table entries",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F01",
+     "statement": "Theta_m local obstruction: girth, high-degree singleton, p=6, and negative surplus",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "F02",
+     "statement": "Theta_m also fails singleton criticality when K is large",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "Five finite theta counterchecks",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "Combined 161-control audit and 64 exact positive-control histograms",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D03",
+     "statement": "Manifest file sizes and SHA-256 hashes",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "D04",
+     "statement": "Delivery links and relative file locations",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "D05",
+     "statement": "Historical execution, authorship independence and embedded prover replay claims",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "A02",
+     "statement": "Remaining gaps, restrictions on completions, and final unresolved status",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    }
+   ]
+  },
+  {
+   "session": "r20_compare",
+   "prover_dir": "astra_r20/r20_compare",
+   "referee_dir": "astra_r20v/v_r20_compare",
+   "verdict_file": "astra_r20v/v_r20_compare/scratch/verdict.json",
+   "verdict_sha256": "75ce231ff1a22bfe6d47bd05bbce6c228a587f3e271e6b9924ee5c5e5970f7f6",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    "State the elementary maximal-path lemma with lambda_min >= 2. Without it, K2 has lambda_min=1 and maximal induced-path order 2, contradicting the unqualified lower bound 3. The referenced background has the correct hypothesis, and every application in this report satisfies it.",
+    "Repair delivery links: scratch/REPORT.md -> claim/PROOF_REPORT.md and scratch/r20_manifest.json -> data/r20_manifest.json. Explain that the supplied prover-script commands require first extracting their source bundle; none of those scripts was used in this audit.",
+    "Keep historical authorship/execution and novelty separate from verified mathematical outputs. Keep all listed path proposals, general GEN_K/IR_K, and the radius branch explicitly open."
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "Definitions, strong C4-freeness, criticality equivalence (1)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "Admissible-model path monotonicity and GEN_K iff IR_K",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "Local defects, identity (2), mass inequality (3)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "High-set inequalities (4), (5), (6)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "Universal positive-surplus order bound n>=K^2+3",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Guarded subset-moment inequality (8)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "Corrected degree and singleton bounds (9)-(11)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "Near-barrier range (12) and rho=K-1 structure",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "Near-barrier epsilon=K triangular slice is empty",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "Deletion formula (13), safe contraction, budget (H)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Pentagon links, matching number, stars, minimal pairs",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "Minimal-transversal reduction and epsilon=1 exception",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "Independent-transversal and epsilon=K budget obstructions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "Conditional regular-augmentation theorem (15)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "Representative order loss (16) and general cutoff (17)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C16",
+     "statement": "Retained isolate, positivity, and theta corrections",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C17",
+     "statement": "Original degree-profile screen and residual classification",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "Unrestricted screens at orders 38-41",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "Completeness and necessity of the finite screening procedure",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C20",
+     "statement": "Global order-40 theorem: S<=6n",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C21",
+     "statement": "K=6 cutoff n<=rho+41 and quotient bounds (20)-(21)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C22",
+     "statement": "Empty K=6 overlap and order-41 epsilon/T restriction",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C23",
+     "statement": "194-control graph, flow, link, and budget audit",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C24",
+     "statement": "65 exact control path histograms and inherited HS bounds",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C25",
+     "statement": "G42 statistics and endpoint-extension counterexample",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C26",
+     "statement": "Elementary bound p_maximal>=lambda_min+2",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C27",
+     "statement": "All 200 HS cores and 25 repaired irreducibles",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C28",
+     "statement": "Small-K controls and repaired-control budget examples",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C29",
+     "statement": "151-vertex augmentation and all-size minimum gap 1",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C30",
+     "statement": "Six triangular controls and table entries",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C31",
+     "statement": "Connected catalogue and finite identity/link/quotient counts",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C32",
+     "statement": "Connected-bag path and representative-bound audit",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C33",
+     "statement": "Theta family and five explicit counterchecks",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C34",
+     "statement": "Eight-region partition and closed exclusions",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C35",
+     "statement": "K=6 residual classification and conditional assembly",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C36",
+     "statement": "Necessary bounds for a surviving irreducible counterexample",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C37",
+     "statement": "NB, ST_TF, ST_Delta, general IR_K and GEN_K",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C38",
+     "statement": "Proposal 1: positive critical order-41 graphs contain P13",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C39",
+     "statement": "Proposal 2: expensive small transversals force a long path",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C40",
+     "statement": "Proposal 3 and general-K continuation",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C41",
+     "statement": "Accepted background, older controls, and radius scope",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C42",
+     "statement": "Manifest and copied reference-certificate integrity",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C43",
+     "statement": "Summary links and reproduction paths in delivered layout",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C44",
+     "statement": "Historical execution, independent authorship, and novelty",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    }
+   ]
+  }
+ ]
+}

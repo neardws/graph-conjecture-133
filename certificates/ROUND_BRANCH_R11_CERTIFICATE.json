@@ -1,0 +1,430 @@
+{
+ "round": "R11",
+ "created": "2026-10-19 00:04 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee; accepted iff referee CORRECT/CORRECT_WITH_FIXES with fixes adopted in PROOF_NOTES.md \u00a74l",
+ "headline_verified": [
+  "MASS_P9: p<=9 => S<=5n; Cell A empty; REAL-133 for p<=9",
+  "Min GEN_5 cex has p=10",
+  "TD block criterion; TD+ROOT for all blocks of order<=14 and listed classes",
+  "CB for generalized polygons; TCB(ell>5) => REAL-133"
+ ],
+ "open": [
+  "GEN_5 (p=10) / (8)",
+  "Cell B (r=5,p=10)",
+  "TD general (failing block order>=15)",
+  "TCB / CB_high"
+ ],
+ "sessions": [
+  {
+   "session": "td2",
+   "prover_dir": "astra_r11/td2",
+   "referee_dir": "astra_r11v/v_td2",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "claims": [
+    {
+     "id": "BLOCK_CRITERION",
+     "statement": "TD algebra and the necessary/sufficient block criterion (2),(3).",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "EXPANDED_BIPARTITE",
+     "statement": "All-index TD with the stronger coefficient c_q for bipartite blocks with at most one added triangle vertex per edge.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "MIXED_BLOCKS",
+     "statement": "All H_(b,t) satisfy both block conditions; their only nonadjacent rigid pairs are s,z_i and their reversals.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "MIXED_EQUALITY",
+     "statement": "H_(b,1) is 2-connected, strong C4-free, and attains TD equality at q=4 for every b>=1.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "PETERSEN_BLOCKS",
+     "statement": "Every Petersen closed-root-neighborhood amalgam A_b satisfies both block conditions.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "PETERSEN_EQUALITY",
+     "statement": "The three-edge-tail Petersen family attains TD equality at q=5; its known singleton obstruction is respected.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "FINITE_BLOCKS",
+     "statement": "Every strong C4-free block of order at most 14 satisfies (2),(3), implying TD at every total order and terminal index for their block combinations.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CYCLES",
+     "statement": "All permitted cycle blocks, K2 and K3 satisfy the block criterion.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "SHORT_PATH_BLOCKS",
+     "statement": "Blocks with p(B)<=8 and no nonadjacent rigid pair satisfy the criterion without an order restriction.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "COMBINED_ROOT",
+     "statement": "The proved block types can be combined arbitrarily at cut vertices; TD and corrected ROOT(q) hold for every q>=3.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "RESIDUAL_REDUCTION",
+     "statement": "Unrestricted TD is equivalent to the two block inequalities; a failing block has order >=15, and if p(B)<=8 it must fail (3).",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "FINITE_VALIDATION",
+     "statement": "The induced-subset validation and all specified family certificates have the claimed exact domains and values.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "HISTORICAL_CHECKERS",
+     "statement": "The prover used two separate C implementations and a Python subset implementation.",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "ARTIFACTS",
+     "statement": "Manifest integrity and the stated package reproduction instructions.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "GENERAL_CONJECTURES",
+     "statement": "Unrestricted TD, the unrestricted block inequalities, and broader ROOT/RAD/REAL-133 conclusions.",
+     "referee_verdict": "UNVERIFIED"
+    }
+   ],
+   "accepted_claims": [
+    "BLOCK_CRITERION",
+    "EXPANDED_BIPARTITE",
+    "MIXED_BLOCKS",
+    "MIXED_EQUALITY",
+    "PETERSEN_BLOCKS",
+    "PETERSEN_EQUALITY",
+    "FINITE_BLOCKS",
+    "CYCLES",
+    "SHORT_PATH_BLOCKS",
+    "COMBINED_ROOT",
+    "RESIDUAL_REDUCTION",
+    "FINITE_VALIDATION",
+    "ARTIFACTS"
+   ],
+   "rejected_claims": [],
+   "unverified_claims": [
+    "HISTORICAL_CHECKERS",
+    "GENERAL_CONJECTURES"
+   ],
+   "sha256": {
+    "astra_r11/td2/report.md": "76369f5c76023db8e98cbf1204c945e923d04f141b5a34db1b66ab3ab0aad88c",
+    "astra_r11/td2/scratch/REPORT.md": "3b000dec7d060da418a7203642ebe637664d132c89541f73142bf36d2d3b4ce3",
+    "astra_r11v/v_td2/scratch/VERDICT.md": "7f8311d639891600b152b51498c0926a0447db697dce603bbedab96ff093f880",
+    "astra_r11v/v_td2/scratch/verdict.json": "11f349a9760814cddbf70fdfa792e167a4a5e403c21bfe2bafd679da1b07ffbc"
+   }
+  },
+  {
+   "session": "cbhigh",
+   "prover_dir": "astra_r11/cbhigh",
+   "referee_dir": "astra_r11v/v_cbhigh",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "claims": [
+    {
+     "id": "UNIT_MODEL",
+     "statement": "Neighborhood units, incidence girth and clique-expansion equivalence.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "F",
+     "statement": "Endpoint inequality l >= 2 lambda(x)+1-chi with induced-C5 flags.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "P",
+     "statement": "Larger-incidence-girth endpoint packing inequality.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "UR",
+     "statement": "Constant-unit-degree REAL corollaries, including the chi<=2 residual case.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CB_POLYGON_INCIDENCE",
+     "statement": "CB for all stated thick generalized-polygon incidence graphs.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CB_POLYGON_POINT",
+     "statement": "CB for three-point-line point graphs under the stated girth and diameter hypotheses.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "POLYGON_FORMULAS",
+     "statement": "Three conditional point-graph parameter evaluations, including n=819.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "TCB",
+     "statement": "General credited core budget and its ell>5 restriction.",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "TCB_IMPLICATION",
+     "statement": "TCB at ell>5 implies REAL-133 with the accepted low-density results.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "PETERSEN_TCB",
+     "statement": "Exactly ten eligible Petersen stars, each rescued by credit two.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "REGULAR_RADIUS_TWO",
+     "statement": "TCB for regular triangle-free radius-two graphs in the ambient strong C4-free class.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "TREES_AND_FLOWERS",
+     "statement": "CB for the stated trees and even-cycle pendant-path flowers.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CORONA",
+     "statement": "Corona formulas, original CB, and the ell=7 mandatory-cyclic-core obstruction.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "BOUNDARY",
+     "statement": "Exact unit-loss table, boundary identity, and sufficient maximum-unit-degree condition.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "IMPORTED_IDENTITIES_OBSTRUCTIONS",
+     "statement": "Cycle-rank/Gram identities and the referenced Petersen-tail and scalar-Heawood obstructions.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "INCIDENCE_PATH_LIFT",
+     "statement": "An induced incidence path need not project to an induced graph path.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "FAMILY_CERTIFICATES",
+     "statement": "Sixteen explicit CB certificates, eight with ell>5.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CATALOGUE",
+     "statement": "Complete connected strong C4-free domain through order ten and all saved checks.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "LINE_GRAPH_TESTS",
+     "statement": "Terminal-path counts, exact maxima, and unit girths of the two line graphs.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "FINITE_CELL_EXCLUSION",
+     "statement": "None of the sixteen examples lies in either unresolved cell; claimed path-only explanation.",
+     "referee_verdict": "CORRECT_WITH_FIXES"
+    },
+    {
+     "id": "MANIFEST",
+     "statement": "Integrity of supplied artifacts, context and designated generator.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "PRODUCER_VERIFIER",
+     "statement": "Historical verify.py source independence and stated algorithm implementation.",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "CB_HIGH",
+     "statement": "General high-density original core budget.",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "OPEN_CELLS",
+     "statement": "General cells (r,p)=(4,9),(5,10), 5<ell<=6.",
+     "referee_verdict": "UNVERIFIED"
+    },
+    {
+     "id": "REAL_GENERAL_RESEARCH",
+     "statement": "General REAL-133 and proposed global flag, path-type LP and spectral routes.",
+     "referee_verdict": "UNVERIFIED"
+    }
+   ],
+   "accepted_claims": [
+    "UNIT_MODEL",
+    "F",
+    "P",
+    "UR",
+    "CB_POLYGON_INCIDENCE",
+    "CB_POLYGON_POINT",
+    "POLYGON_FORMULAS",
+    "TCB_IMPLICATION",
+    "PETERSEN_TCB",
+    "REGULAR_RADIUS_TWO",
+    "TREES_AND_FLOWERS",
+    "CORONA",
+    "BOUNDARY",
+    "IMPORTED_IDENTITIES_OBSTRUCTIONS",
+    "INCIDENCE_PATH_LIFT",
+    "FAMILY_CERTIFICATES",
+    "CATALOGUE",
+    "LINE_GRAPH_TESTS",
+    "FINITE_CELL_EXCLUSION",
+    "MANIFEST"
+   ],
+   "rejected_claims": [],
+   "unverified_claims": [
+    "TCB",
+    "PRODUCER_VERIFIER",
+    "CB_HIGH",
+    "OPEN_CELLS",
+    "REAL_GENERAL_RESEARCH"
+   ],
+   "sha256": {
+    "astra_r11/cbhigh/report.md": "325cf000f47afc9bcc2e412912a6d590a7cb23d2f0bd4bed9f0b28246b28435f",
+    "astra_r11/cbhigh/scratch/REPORT.md": "2a8ffc912ea54f974c0c45995cf0a64c39ed109a79864429b7c845dc99d79815",
+    "astra_r11v/v_cbhigh/scratch/VERDICT.md": "a26755cb3d78a30b27097c6a733d090a7e98952e5e66a13ce38a5146f00407c8",
+    "astra_r11v/v_cbhigh/scratch/verdict.json": "9dfcb8587d9a365134fb84918ab551731dea080b7f912874e6776b8075d86911"
+   }
+  },
+  {
+   "session": "sel10",
+   "prover_dir": "astra_r11/sel10",
+   "referee_dir": "astra_r11v/v_sel10",
+   "referee_overall": "CORRECT",
+   "claims": [
+    {
+     "id": "P9_ENDPOINT",
+     "statement": "Strong C4-free, p<=9, all singleton losses>=6 and pair losses>=11 imply lambda<=5 at every P9 endpoint.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "P10_ENDPOINT_PAIR",
+     "statement": "Strong C4-free, p<=10, all singleton losses>=6 and pair losses>=11 imply lambda<=6 at every P10 endpoint.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "P10_ENDPOINT_FULL",
+     "statement": "Strong C4-free, n>=28, p<=10, and D(U)>=5|U|+1 for every nonempty proper U imply lambda<=5 at every P10 endpoint.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "MASS_P9",
+     "statement": "Every connected strong C4-free graph with p<=9 satisfies S<=5n.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "REMAINING_MINIMUM_COUNTEREXAMPLE",
+     "statement": "Every remaining minimum GEN_5 counterexample has p=10; every vertex with lambda>=6 has rooted maximum nine; rooted maxima nine and ten both occur.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "CELL_A_AND_REAL_P9",
+     "statement": "Cell A (r=4,p=9,ell>5) is empty, and REAL-133 holds for connected strong C4-free graphs with p<=9.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "SKELETON_COMPLETENESS",
+     "statement": "The neighbourhood skeleton domains and lambda<=t-2 reduction are exhaustive for t=9,10.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "TRACE_LOSS_RULES",
+     "statement": "Trace safety, singleton packing, inherited triangle exclusions, marginal identity (2), exact rational exclusions and exhaustive extension rules are sound.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "GLOBAL_ENDPOINT_FLOW_REDUCTION",
+     "statement": "For global P10 endpoint set B and A=V-B, p(G[A])<=9 and D(B)=sum_B lambda+sum_A u_B; charging inequality (3) would finish GEN_5.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "BOUNDARY_ALGEBRA",
+     "statement": "The requested boundary inequality is equivalent to D_G(E)<=5|E| and conflicts with critical loss for every nonempty proper E.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "LOW_UNIT_CHARGE_DOMAIN",
+     "statement": "Exactly 8442 global-P10 endpoint skeletons with lambda=3,4,5 admit 67358 positive endpoint-membership patterns.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "SMALL_AUDIT",
+     "statement": "The catalogue has all 1017 connected unlabelled strong C4-free graphs through order nine and 8722 rooted domains; the stated finite unit/path checks pass.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "PETERSEN_CONTROL",
+     "statement": "The saved graph is two Petersen graphs sharing one vertex, with n=19, S=60, p=9, minimum singleton loss 6, hub lambda 6 and rooted maximum 5, and 24 pairs of loss 10.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ARCHIVES_AND_INITIAL_TRACES",
+     "statement": "All saved incomplete/continuation search counts, root statuses, and the initial P9 trace analysis are accurately labelled.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ARTIFACT_HASHES",
+     "statement": "The supplied files agree with their declared manifest sizes and SHA-256 hashes.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "BOUNDARY_SELECTION_8",
+     "statement": "BOUNDARY_SELECTION_8 remains unresolved; no complete target counterexample is supplied.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "GEN_5",
+     "statement": "GEN_5 remains unresolved; no complete target counterexample is supplied.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "GEN_6",
+     "statement": "GEN_6 remains unresolved; no complete target counterexample is supplied.",
+     "referee_verdict": "CORRECT"
+    },
+    {
+     "id": "ORIGINAL_IMPLEMENTATION_PROVENANCE",
+     "statement": "The original verifier imports only the standard library and no prover modules; the original C kernel and stated source commands performed the historical checks.",
+     "referee_verdict": "UNVERIFIED"
+    }
+   ],
+   "accepted_claims": [
+    "P9_ENDPOINT",
+    "P10_ENDPOINT_PAIR",
+    "P10_ENDPOINT_FULL",
+    "MASS_P9",
+    "REMAINING_MINIMUM_COUNTEREXAMPLE",
+    "CELL_A_AND_REAL_P9",
+    "SKELETON_COMPLETENESS",
+    "TRACE_LOSS_RULES",
+    "GLOBAL_ENDPOINT_FLOW_REDUCTION",
+    "BOUNDARY_ALGEBRA",
+    "LOW_UNIT_CHARGE_DOMAIN",
+    "SMALL_AUDIT",
+    "PETERSEN_CONTROL",
+    "ARCHIVES_AND_INITIAL_TRACES",
+    "ARTIFACT_HASHES",
+    "BOUNDARY_SELECTION_8",
+    "GEN_5",
+    "GEN_6"
+   ],
+   "rejected_claims": [],
+   "unverified_claims": [
+    "ORIGINAL_IMPLEMENTATION_PROVENANCE"
+   ],
+   "sha256": {
+    "astra_r11/sel10/report.md": "913c1c5b25aa93cc956671f405dfd7c5ffc143d6f065883db18520c9dcebec42",
+    "astra_r11/sel10/scratch/REPORT.md": "a90536394c6cc73f2059fd6640567323292e1a1fad92e6c5e1000c968176b81f",
+    "astra_r11v/v_sel10/scratch/VERDICT.md": "5dc631d361b120af28dda99bc9ef3d8ffee9a16851f7beb10d216aa073ac0dea",
+    "astra_r11v/v_sel10/scratch/verdict.json": "a5a5c30e2c912aa966d3146ae88f1e2ff594d9000c6cb21deeca426b7c85c64c"
+   }
+  }
+ ]
+}

@@ -1,0 +1,550 @@
+{
+ "round": "R23",
+ "created": "2026-10-21 12:45 CST",
+ "protocol": "Astra prover -> separate fresh Astra referee (claim+report+data only; all manifest-listed certificate files copied to referee data). Built from referee verdict.json files only; a claim is accepted iff its referee verdict is CORRECT/CORRECT_WITH_FIXES (fixes adopted in PROOF_NOTES.md §4x).",
+ "briefing": "data/r23/BRIEFING.md sha256 ca2910b7b338dc149ea2f7e30b392f24aca5527c8fb88aae96a14825cafe5f4c",
+ "headline_verified": [
+  "Outer formulation: Proposal 3 (induced-critical) is equivalent to its irreducible version; no counterexample. Uniform: positive critical graphs have rho<=K-1 (T=0), rho<=max(K-1,2K-eps-2)<=2K-4; n<=K^2+K implies eps<=K-2; K=3 outer analogue empty",
+  "Every induced subgraph of Hoffman-Singleton on >=41 vertices contains P13 (CNF+RUP); all 163 outer HS cores closed; minimal outer irreducible is HS core 2 (6,42,3,2,0,p=20)",
+  "Model-impossible collar: at K=6 no positive proper model for outer n<=rho+42 (12 cells); first model shell n=rho+43 with eligible internal edges; antineighbourhood mass transfer: K>=4, S>Kn, Delta<=K+1 => some B_v=G-N[v] has positive (K-1)-surplus; every component of B_v has positive (K-2)-surplus; endpoint lift P_{2K-1} with clean endpoint => P_{2K+1}; (42,3) reduces to a 32-34-vertex GEN_5 endpoint problem FP42"
+ ],
+ "open": [
+  "FP42 / C6+ (K=6 outer collar)",
+  "CP(K) clean-port lemma",
+  "AR(K) mass transfer in strip Delta>=K+2",
+  "R(K) positive-model lemma beyond the collar",
+  "rows 4 and 8 for K>=6",
+  "NB-EX2(K), ST-EX(2)(K)",
+  "IR_K/GEN_K",
+  "RAD(r>=11)",
+  "REAL-133"
+ ],
+ "sessions": [
+  {
+   "session": "r23_outer_direct",
+   "prover_dir": "astra_r23/r23_outer_direct",
+   "referee_dir": "astra_r23v/v_r23_outer_direct",
+   "verdict_file": "astra_r23v/v_r23_outer_direct/scratch/verdict.json",
+   "verdict_sha256": "6c7a8f8590c7ee4c5f1f4335be954bfb09a392a4542d39ffd1aa06925bd64798",
+   "referee_overall": "CORRECT",
+   "required_fixes": [],
+   "claims": [
+    {
+     "id": "CONVENTIONS",
+     "statement": "Strong C4-free, mass, model, criticality and irreducibility conventions; accepted inputs have the used scope.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L1-A",
+     "statement": "P3(K) and OIR(K) are equivalent; a counterexample to P3 is irreducible and violates GEN_K.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L1-B",
+     "statement": "OE(K) implies P3(K); a regional converse is not claimed.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L2-A",
+     "statement": "Triangle-free positive induced-critical graphs satisfy rho <= K-1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L2-B",
+     "statement": "rho <= max(K-1, 2K-epsilon-2).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L2-C",
+     "statement": "At epsilon=1, rho <= 2K-4; hence this bound holds for all positive critical graphs, K>=3.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L2-D",
+     "statement": "K=3 outer rho>=3 is empty; K=4,5 path-capped analogues follow; K=6 surplus table and surviving ranges are correct.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L3-A",
+     "statement": "If positive capped graphs have order >=m, critical capped graphs with n<=m+rho have no positive proper model.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L3-B",
+     "statement": "Path-free collar n<=K^2+rho+3 and K=6 path-capped collar n<=rho+42; positive capped quotients need n>=rho+43.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L4-A",
+     "statement": "One-region contraction is admissible iff every outside vertex has at most one neighbor in A.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L4-B",
+     "statement": "Exact contraction mass loss and positive-surplus budget (23.6)-(23.7); representative costs cannot be added without justification.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L5-A",
+     "statement": "Contracting an entire connected dominating set cannot produce a positive admissible quotient for K>=2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L5-B",
+     "statement": "Connected-domination inequality (23.8), gamma_c>=K for positive graphs, and exclusion of a dominating set of size <=K with internal minimum degree >=2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L6-A",
+     "statement": "One-vertex augmentation raises an old-edge transversal by at most one; new-edge bound, regular-augmentation and pentagon-free-base screens.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L6-B",
+     "statement": "Every strongly C4-free one-vertex augmentation of the supplied G151 base has rho<=2.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L6-C",
+     "statement": "A simple undirected abelian Cayley graph that is strongly C4-free has degree <=2 and no positive K-surplus for K>=3.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L7-A",
+     "statement": "The specified host is HS, strongly C4-free, and all 1,000 displayed P13 paths are induced.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L7-B",
+     "statement": "The 550-variable, 2,932-clause CNF exactly encodes at most nine deletions and hitting all listed paths.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L7-C",
+     "statement": "The supplied RUP-with-deletions refutation is valid and derives the empty clause.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "L7-D",
+     "statement": "Every HS induced subgraph on at least 41 vertices, hence every positive-6-surplus induced subgraph, contains P13.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CERT-RHO",
+     "statement": "Packing and complete cover certificates prove exact all-edge tau and rho.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CERT-FLOW",
+     "statement": "Excluded-vertex and triangle-branch flows prove full induced criticality.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CONTROLS",
+     "statement": "329 distinct controls cover all stated source families, including 200 HS records, 114 repairs, six triangle controls and named controls.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CONTROL-AUDIT",
+     "statement": "Fresh long paths, all-edge rho, contact identities, connected dominating sets and applicable rho restrictions pass the supplied controls.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "TRIAL342",
+     "statement": "Deleting vertex 6 and using bag {3,42} gives a proper strongly C4-free positive quotient.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "POLARITY",
+     "statement": "Three ER parents, two nonpositive ER7 samples, and twelve positive triangle-free critical cores have the stated parameters and long paths.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SMALL-K",
+     "statement": "The three critical HS cores have (K,n,rho)=(3,17,1),(4,30,2),(5,35,2).",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "REPAIRS",
+     "statement": "All 500 repair outputs have the reported histogram and P13; exactly 383 triangular outputs have rho>=3 and epsilon=1.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SELECTED",
+     "statement": "Triangle trial 1 has (K,n,e,T,epsilon,rho)=(6,50,152,1,1,3), is induced-critical, and contains the displayed P13.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "BUDGET3",
+     "statement": "The complete stated 464-record size-at-most-three domain contains 5,246 transversals, none satisfying H.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "LIMITED-REPAIRS",
+     "statement": "G42 admits no legal single-edge addition; the stated HS triangle-addition/switch scans yield no positive legal output.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "SMALL-AUDIT",
+     "statement": "The complete connected strongly C4-free catalogue through order eight and all domination/contraction counts are correct.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "MINIMAL-OUTER",
+     "statement": "HS core 2 is an induced-critical, irreducible outer graph with (K,n,rho,epsilon,T,p)=(6,42,3,2,0,20); order 42 is minimum possible.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "EXCHANGE-OBSTRUCTION",
+     "statement": "HS core 7 has a P12 at exact one-vertex-exchange distance three from an extension.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "OTHER-OBSTRUCTIONS",
+     "statement": "Contracted Heawood, Robertson+1, F121/F91 and G151 retain the long-path and local-obstruction properties cited in the report.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "ROWS",
+     "statement": "The eight-row partition remains unchanged; rho tails are empty and the surviving model collar has the stated scope.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "CONDITIONAL-ASSEMBLY",
+     "statement": "Near-barrier input + small-transversal input + OIR imply IR and GEN; C+R imply P3; D implies OE implies P3.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "OPEN-TARGETS",
+     "statement": "P3, OIR, OE, unrestricted IR_K and GEN_K, and closure of rows 4/8.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "OPEN-COLLAR",
+     "statement": "C(K) and C6+ collar path assertions.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "OPEN-REMAINDER",
+     "statement": "R(K) and its K=6 restricted remainder.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "OPEN-DOMINATION",
+     "statement": "D(K), the proposed small/structured dominating-set alternative.",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "SEARCH-SCOPE",
+     "statement": "No requested counterexample was found; no timeout, sampled family or bounded search is used as a general exclusion.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "PACKAGE",
+     "statement": "All required artifacts and stated mathematical certificate rules suffice without prover development code.",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    }
+   ]
+  },
+  {
+   "session": "r23_outer_reformulate",
+   "prover_dir": "astra_r23/r23_outer_reformulate",
+   "referee_dir": "astra_r23v/v_r23_outer_reformulate",
+   "verdict_file": "astra_r23v/v_r23_outer_reformulate/scratch/verdict.json",
+   "verdict_sha256": "8b35326346921ce0942962cabaa8ec8cda580ce27f381c257da728a43b4c05d9",
+   "referee_overall": "CORRECT_WITH_FIXES",
+   "required_fixes": [
+    {
+     "id": "F1",
+     "locations": [
+      "claim/PROOF_REPORT.md:268",
+      "claim/PROOF_REPORT.md:280",
+      "claim/PROOF_REPORT.md:25",
+      "data/r23_finite_reduction.json:first_model_eligible_shell"
+     ],
+     "text": "State explicitly that model-exclusion and first-shell conclusions concern positive proper admissible models of positive induced-critical sources; alternatively assume directly that the positive model has a nonsingleton bag. Add these hypotheses to the finite-reduction metadata and matching summary wording.",
+     "reason": "The representative lower bound n-|J|>=1+rho requires an internal edge. It does not apply to the identity model or to a deletion-only model; induced criticality excludes the latter only for a proper model. Theorem 9 already contains the required qualification, but the subsequent standalone corollary and shell sentence omit it."
+    }
+   ],
+   "claims": [
+    {
+     "id": "C01",
+     "statement": "Conventions, criticality versus irreducibility, and limited scope of the round",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C02",
+     "statement": "Theorem 1: rooted normal form, including its converse",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C03",
+     "statement": "Exact mass identities (1)-(3), including every triangle correction",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C04",
+     "statement": "Root-edge pentagon links and their matching interpretation",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C05",
+     "statement": "Theorem 2: every antineighbourhood component has positive (K-2)-surplus; size bound (5)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C06",
+     "statement": "Lemma 3: delta>=K and n<=K^2+K imply S<=Kn",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C07",
+     "statement": "Sharpness of the order cutoff at K=4 and K=6",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C08",
+     "statement": "Global surplus corollary: n<=K^2+K forces epsilon<=K-2 under criticality",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C09",
+     "statement": "Lemma 4: scalar sufficient conditions (6)-(8)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C10",
+     "statement": "Theorem 5: K>=4, positive surplus and Delta<=K+1 imply F>0",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C11",
+     "statement": "Residual strip (10), and distinction between lower-parameter mass and same-K models",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C12",
+     "statement": "Lemma 6 and the conditional GEN_(K-1) endpoint reduction",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C13",
+     "statement": "Theorem 7: degree, surplus, triangle, connectivity and path restrictions at (42,3)",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C14",
+     "statement": "Exact finite normal-form reduction at order 42, without an exclusion claim",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C15",
+     "statement": "Theorem 8: deletion accounting and failure of the proposed deletion-only induction",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C16",
+     "statement": "Max-transversal replacement fails on 327 controls and on trial 342 as an irreducibility cutoff",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C17",
+     "statement": "Theorem 9: quotient path monotonicity and eligible internal edges",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C18",
+     "statement": "Inherited M=41 corollary and the twelve outer collar pairs",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C19",
+     "statement": "First model shell n=rho+43: quotient order 42, loss rho+1 and internal tau=rho",
+     "referee_verdict": "CORRECT_WITH_FIXES",
+     "accepted": true
+    },
+    {
+     "id": "C20",
+     "statement": "Minimum-counterexample use and conditional full GEN assembly",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C21",
+     "statement": "Complete 330-control provenance, criticality and target-scope classification",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C22",
+     "statement": "Root/component identities, positive-root witnesses and coverage by the new mass criteria",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C23",
+     "statement": "Every K=6 directed control edge starts P13",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C24",
+     "statement": "Candidate audit: 78 outer all-root failures and 17 successful order-42 controls",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C25",
+     "statement": "Complete order-ten catalogue, exact paths and full subset criticality classification",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C26",
+     "statement": "HS core 34 counterexample and its stated finite minimality",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C27",
+     "statement": "Catalogue indices 79,88 and contracted Heawood refute all-roots strengthenings",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C28",
+     "statement": "Two-Petersen amalgam obstruction and b-copy mass calculation",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C29",
+     "statement": "All 18 small-K negative directed-prefix certificates",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C30",
+     "statement": "Three-page pentagon book obstruction and family minimality",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C31",
+     "statement": "Robertson base refutes rho>=3 without positive mass",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C32",
+     "statement": "All 200 HS cores are irreducible with p=20; 163 are outer; core 7 needs three exchanges",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C33",
+     "statement": "Six triangle controls and triangle trial 1 root 35 obstruction",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C34",
+     "statement": "G151: all-size single-edge budget obstruction, zero-surplus minimum-cover model, root/path claims",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C35",
+     "statement": "Data formats, complete certificate domains, and manifest integrity",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C36",
+     "statement": "Eight-row reformulation, empty surplus slices and conditional CP/AR implications",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    },
+    {
+     "id": "C37",
+     "statement": "FP42, CP(K), AR(K), the outer model/path targets, NB/ST inputs, GEN_K and REAL-133",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C38",
+     "statement": "Arbitrary-bag irreducibility and exact longest paths of G151/F121/F91",
+     "referee_verdict": "UNVERIFIED",
+     "accepted": false
+    },
+    {
+     "id": "C39",
+     "statement": "All positive controls violate their GEN path cap; no new GEN counterexample is supplied",
+     "referee_verdict": "CORRECT",
+     "accepted": true
+    }
+   ]
+  }
+ ]
+}

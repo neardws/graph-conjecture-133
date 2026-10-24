@@ -1,0 +1,73 @@
+{
+ "payload": {
+  "schema": "c133.round_branch.r2.v1",
+  "round": "round_branch R2 (2026-10-18)",
+  "GEN3_audit": {
+   "verdict": "CORRECT (fresh adversarial Astra session, astra_r2/audit/report.md); 3 presentational fixes applied",
+   "reimplementations": [
+    "verify/indep_local.py",
+    "verify/local_c.c (all subsets of free pairs; matchings not imposed; cross pairs free in two-fork check)",
+    "astra_r2/audit/scratch/independent_audit.py"
+   ],
+   "local_c_counts": {
+    "two_fork": {
+     "free_pairs": 24,
+     "subsets": 16777216,
+     "c4free": 79,
+     "p7free": 43,
+     "excluded": 43
+    },
+    "3b1e_pm0": [
+     4320,
+     32,
+     32
+    ],
+    "3b1e_pm1": [
+     876,
+     0,
+     0
+    ],
+    "2b3e_pm0": [
+     17088,
+     18,
+     18
+    ],
+    "deg_D_pm2": [
+     1048,
+     0
+    ],
+    "deg_D_pm1": [
+     6288,
+     0
+    ],
+    "deg_D_pm0": [
+     24688,
+     0
+    ]
+   }
+  },
+  "GEN4": {
+   "status": "accepted (S+F, computer-assisted)",
+   "statement": "Every connected strong C4-free graph with no induced P9 has S <= 4n. Via: a minimum counterexample has L(v)=2lambda-t>=5 everywhere; strong C4-free P9-free graphs with L>=5 everywhere contain no induced K_{1,5} (finite attachment-lemma search tree from K_{1,5}); hence 3<=lambda<=4 and S-4n=-#{lambda=3}<=0.",
+   "consequence": "REAL-133 holds in the cells r=3, 4<ell<5 and r=4, 4<ell<=5 (GEN-BAND, PROOF_FULL_CURRENT Prop 14.1).",
+   "certificate_file": "data/GEN4_star_certificate_p9.json",
+   "certificate_sha256": "66539b1d4a47204ddeab66a40996581decddfe9eed9bf094b3fda05793c05c4d",
+   "expected": {
+    "records": 3796,
+    "terminal": 2287,
+    "arcs": 6679,
+    "c4safe_traces": 1929045,
+    "max_order": 27
+   }
+  },
+  "M3": {
+   "status": "finite (F)",
+   "statement": "connected strong C4-free P7-free graphs with min degree >=3 and n<=20: only Petersen (geng -d3 with P7 prune)"
+  },
+  "admissible4_small": {
+   "status": "finite (F), sanity only",
+   "statement": "connected strong C4-free P9-free graphs with min degree>=3 and L>=5 everywhere, n<=17: 11 graphs (n=10..16), all with max lambda<=4"
+  }
+ },
+ "payload_sha256": "e80d5cc0cac7cfe42d3bc4c6729964e1277a8e0465fb1713777cae2cf001b8e3"
+}
