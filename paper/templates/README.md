@@ -1,12 +1,12 @@
 # Journal templates
 
-The working manuscript stays `paper/main.tex`, in `amsart`. These notes record four publisher classes for a later submission copy. They do not change the article, and the class files are not stored in this directory: each publisher updates its bundle, and some licences forbid shipping the class by itself. Download the current bundle from the link below and keep it beside a copy of the manuscript.
+The working manuscript stays `paper/main.tex`, in `amsart`. These notes record four publisher classes for a later submission copy. They do not change the article. The Journal of Graph Theory is the target. Neil’s Wiley pack is in `wiley-njd/`. The other three classes are not stored here: download the current bundle from the link below.
 
 | Journal | Class | Bundle |
 | --- | --- | --- |
 | Discrete Mathematics (Elsevier) | `cas-sc` | [els-cas-templates](https://ctan.org/pkg/els-cas-templates) on CTAN |
 | SIAM Journal on Discrete Mathematics | `siamart` | Standard macros on the [SIAM journal-authors page](https://epubs.siam.org/journal-authors) |
-| Journal of Graph Theory (Wiley) | Wiley NJD | [New Journal Design template](https://authorservices.wiley.com/author-resources/Journal-Authors/Prepare/new-journal-design.html) |
+| Journal of Graph Theory (Wiley) | `USG` (Wiley NJD pack) | [`wiley-njd/`](wiley-njd/README.md) |
 | Combinatorica (Springer Nature) | `sn-jnl` | [Springer Nature LaTeX author support](https://www.springernature.com/gp/authors/campaigns/latex-author-support) |
 
 ## Elsevier, Discrete Mathematics
@@ -25,7 +25,7 @@ SIDMA uses the standard SIAM journal macros, not the online-only class `siamonli
 
 ## Wiley, Journal of Graph Theory
 
-Wiley’s New Journal Design template is the current NJD authoring bundle. The class in that bundle is `WileyNJDv5` (the package is `WileyNJDv5_Template.zip`, linked from the page above). The older class `WileyNJD-v2` is not the template Wiley now distributes. Options for font, columns, and the reference style are documented inside the zip; the AMS reference option is the one to read for a mathematics journal. Journal of Graph Theory accepts a free-format submission, so this class is not required in order to send the present `amsart` source. Use it when a submission or a production file is wanted in NJD. Journal-level instructions remain those on the journal’s author page.
+The target journal is the Journal of Graph Theory. The class Neil supplied is `USG.cls` (Wiley, 2024/05/07, v6.0), kept with its sample and the author-guidelines PDF in [`wiley-njd/`](wiley-njd/README.md). That directory is the pack to use for a later JGT copy. The journal accepts a free-format submission, and a PDF can be sent first, so `paper/main.tex` stays in `amsart` until a production file is required.
 
 ## Springer Nature, Combinatorica
 
