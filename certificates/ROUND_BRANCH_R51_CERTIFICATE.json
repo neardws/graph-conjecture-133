@@ -1,0 +1,4238 @@
+{
+  "round": "R51",
+  "created": "2026-10-31 06:28 CST",
+  "protocol": "Astra prover -> separate fresh Astra referee (mkver.sh). Built from referee verdict.json only; accept CORRECT/CORRECT_WITH_FIXES. Cap=.codex_cap=6; model gpt-6.1-sol xhigh; six-way continuous complete-proof push (Neil t209u + t215u). Local seal only: no GitHub push, no paper edit, no OneDrive. Inherits R50 cert 6a1c7aece7bc53906548cfb9f896b9ea32480f51d1edb9de46acbe693824b111. All six tracks CORRECT_WITH_FIXES.",
+  "briefing": "data/r51/BRIEFING.md sha256 7b67103cb30bcd0a1f4e624a775c38bf32ef168acab3d6d9b8622b00d8e3aea1",
+  "headline_verified": [
+    "r51_a38_univ (CORRECT_WITH_FIXES, 3UNV+21C+1CWF): ['Accepted ctx results are used as accepted background.', 'No exact longest induced-path order is claimed or certified for the large new fixtures; all asserted induced P13 witnesses were checked.', 'O",
+    "r51_tf_gen6 (CORRECT_WITH_FIXES, 28C+1UNV+1CWF): All stated mathematical partial claims verified relative to accepted ctx; packaging links and artifact locations require correction. Unrestricted assertions correctly remain open.",
+    "r51_star_prod (CORRECT_WITH_FIXES, 40C+1CWF+6UNV): ['Full TF-STAR-PRODUCTION6 and REAL-133 remain unproved as acknowledged.', 'No exact longest induced-path order of a large graph is asserted or inferred.', 'No TF-model irreducibility is asserted for ",
+    "r51_t6_univ (CORRECT_WITH_FIXES, 48C+1CWF+5UNV)",
+    "r51_genk_prod (CORRECT_WITH_FIXES, 14C+3CWF+3UNV): ['Exact longest induced-path orders of the large family graphs are not asserted by the prover and were not computed; their claimed P15 lower bounds were directly checked.', 'The original prover script",
+    "r51_rad_real133 (CORRECT_WITH_FIXES, 32C+3CWF+4UNV): All mathematical conclusions are assessed relative to supplied accepted ctx, with the explicit ambient-domain fix. Open targets and execution history remain unverified."
+  ],
+  "open": [
+    "Universal EB6 / empty A38 residual still open (r51_a38_univ CORRECT_WITH_FIXES; UNIVERSAL_EB6/FULL_ASSEMBLY UNVERIFIED)",
+    "Unrestricted TF GEN6 still open (r51_tf_gen6 CORRECT_WITH_FIXES; C27 unrestricted / REAL-133 UNVERIFIED)",
+    "Full TF-STAR-PRODUCTION6 / REAL-133 still open (r51_star_prod CORRECT_WITH_FIXES; O1–O5/H1 UNVERIFIED)",
+    "Universal T6 / TRI-GEN6 still open (r51_t6_univ CORRECT_WITH_FIXES; C50–C54 residual UNVERIFIED)",
+    "GEN_K / BOUNDARY-STAR / HYBRID-STAR universal production still open (r51_genk_prod CORRECT_WITH_FIXES; OPEN1–OPEN3 UNVERIFIED)",
+    "Funded noncyclic RAD + unconditional REAL-133 still open (r51_rad_real133 CORRECT_WITH_FIXES; OPEN_RAD_PRODUCTION / UNCONDITIONAL_REAL133 UNVERIFIED)"
+  ],
+  "sessions": [
+    {
+      "session": "r51_a38_univ",
+      "prover_dir": "astra_r51/r51_a38_univ",
+      "referee_dir": "astra_r51v/v_r51_a38_univ",
+      "prover_session_id": "01a18e8c-cee6-76c2-a0e0-1b1a45e369cc",
+      "referee_session_id": "01a18ed7-d1e5-7403-897a-0cfcf6619865",
+      "verdict_file": "astra_r51v/v_r51_a38_univ/scratch/verdict.json",
+      "verdict_sha256": "3913b37bd70408abc8acc7d93c31fe364854b1a02b1cdc120e98f5bbaca5c241",
+      "referee_overall": "CORRECT_WITH_FIXES",
+      "required_fixes": "['Replace the summary report and manifest links with PROOF_REPORT.md and ../data/r51_manifest.json; advertise python data/r51_verify.py from the package root.', 'Correct report certificate/source links from scratch/r51_* to ../data/r51_* and context links from ctx/... to ../ctx/... when interpreted relative to claim/PROOF_REPORT.md. Identify original-session-only locations as historical.', 'Refresh the manifest summary SHA-256. Delivered summary: cd6a91be40dd0eb466c94cca54169bff65d33b991d632e6e63651676a8836e59; manifest: 9ce3165f097e6eb15af9c13eb28b45aadd1b11fedeeca1138c867b036bf024ee. After reference fixes, synchronize report copies and refresh affected hashes.']",
+      "claim_breakdown": {
+        "UNVERIFIED": 3,
+        "CORRECT": 21,
+        "CORRECT_WITH_FIXES": 1
+      },
+      "claims": [
+        {
+          "id": "R51.UNIVERSAL_EB6",
+          "statement": "Universal EB6 on the full requested residual remains open.",
+          "prover_status": "CONJECTURED",
+          "verdict": "UNVERIFIED",
+          "reason": "The universal conjecture is explicitly left open; the source theorem does not supply its missing tree-existence/production step.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.TREE_PORT_METRIC",
+          "statement": "A connected ambient-isometric dominating tree has unique outside ports; outside edges have port distance two or three; two neighbor ports have distance at most four.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Unique contacts and distances follow from domination, ambient isometry, triangle-freeness and ordinary C4-freeness. The simultaneous-neighbor route has length four.",
+          "recomputed_counts": {
+            "supplementary_metric_tree_occurrences": 285576
+          }
+        },
+        {
+          "id": "R51.SIX_FOUR_DEGREES",
+          "statement": "For a subcubic metric domination tree, every outside vertex has at most six outside neighbors, and the subgraph on outside vertices with nonbranch ports has maximum degree four.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The first-direction split gives A<=6 and C<=4 at nonbranch centers; the latter restriction is used at exactly those centers.",
+          "recomputed_counts": {
+            "maximum_A": 6,
+            "maximum_C_at_nonbranch": 4
+          }
+        },
+        {
+          "id": "R51.LOCAL_BOUNDS",
+          "statement": "The explicit rooted-side maxima A(a), C(a) universally bound the corresponding degrees.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "A distance-three neighbor port excludes all other first directions. Otherwise all selected ports are at distance two. This proves both rooted-side maxima without an orientation premise.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.TREE_DISCHARGE",
+          "statement": "The stated intrinsic toll c satisfies sum c <= -30 on every finite nontrivial subcubic tree. The certificate contains a quarter-integer antisymmetric function on 66 local types; all 52,393 inequalities replay exactly.",
+          "prover_status": "PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "Regenerated the entire local domain and every directed type from actual representative trees; every exact integer inequality passes. Edge cancellation and the tree Euler identity give the universal theorem.",
+          "recomputed_counts": {
+            "type_sizes": [
+              1,
+              3,
+              10,
+              66
+            ],
+            "types": 66,
+            "upper_entries": 2145,
+            "nonzero_upper_entries": 1881,
+            "counts_by_degree": {
+              "1": 66,
+              "2": 2211,
+              "3": 50116
+            },
+            "local_inequalities": 52393,
+            "equalities": 12823,
+            "minimum_scaled_slack": 0,
+            "maximum_scaled_slack": 228,
+            "maximum_A": 6,
+            "maximum_C_at_nonbranch": 4,
+            "sharp_toll": -30,
+            "enumeration_sha256": "ca88413d02ca806c9a874e5adbda3acbc72422b0cfa6ed79d3819c839931b42f"
+          }
+        },
+        {
+          "id": "R51.EXACT_IDENTITY",
+          "statement": "epsilon6 = -32 - 2e(H_B) + Pi - sum ell - sigma_N - sigma_B, with every displayed slack nonnegative.",
+          "prover_status": "PROVED relative to R51.TREE_DISCHARGE",
+          "verdict": "CORRECT",
+          "reason": "Verified every edge multiplicity and every slack sign. Sum ell=-sum c-30 proves equation (14). Exact evaluations agree on all three subcubic fixtures.",
+          "recomputed_counts": {
+            "fixture_identities": [
+              {
+                "Pi": 0,
+                "e_HB": 6,
+                "sigma_N": 20,
+                "sigma_B": 0,
+                "sum_ell": "18",
+                "epsilon6": -82
+              },
+              {
+                "Pi": 0,
+                "e_HB": 6,
+                "sigma_N": 996,
+                "sigma_B": 0,
+                "sum_ell": "18",
+                "epsilon6": -1058
+              },
+              {
+                "Pi": 0,
+                "e_HB": 18,
+                "sigma_N": 76,
+                "sigma_B": 0,
+                "sum_ell": "98",
+                "epsilon6": -242
+              }
+            ]
+          }
+        },
+        {
+          "id": "R51.UNIVERSAL_PRODUCTION",
+          "statement": "Every finite connected TF ordinary-C4-free graph with delta>=4 and an ambient-isometric dominating subcubic tree D satisfying sum_branch(d_G-5)_+ <= 4 has V(G) nonempty and 6-cheap. If all branch vertices have actual degree at most five, epsilon6<=-32. No path cap, order, h, branch-count, or global actual-degree bound is assumed.",
+          "prover_status": "PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "Equation (14) and Pi<=8 beta give epsilon6<=-32+8 beta-2e(H_B). Beta<=4 therefore produces the nonempty whole vertex set, with no finite ambient cutoff.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.DEGREE4_WRITTEN",
+          "statement": "Under actual branch degree four, epsilon6=-10-4i-s_N-2s_B-2e(H_B)<=-10-4i, as in report equation (17).",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "With branch fibres of size one, direct counting and |D|=2b+i+2 prove the exact equality (17), independent of the charge certificate.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.PAID_EXCESS_CELL",
+          "statement": "The stronger sufficient metric-source test Pi(D)<=32+2e(H_B) produces V(G); the named headline class satisfies this automatically.",
+          "prover_status": "PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "Drop the nonnegative slacks in (14); Pi<=32+2e(H_B) is sufficient. No necessity for production is asserted.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.EXAMPLES",
+          "statement": "The m=5 example has n=59,e=136,epsilon6=-82,delta=4,Delta=12,radius=3,diameter=6,gamma>=8,36 actual degree-four vertices inducing a forest, branch actual degrees five, and displayed core Psi=3.",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Independently rebuilt both cover fixtures, attachments and projection. Checked all original adjacency edges, ordinary girth, core distances, packing constraints, low-degree forests and P13 witnesses.",
+          "recomputed_counts": {
+            "n": 59,
+            "e": 136,
+            "delta": 4,
+            "Delta": 12,
+            "triangles": 0,
+            "strong_C4_free": true,
+            "four_cycles": 0,
+            "S": 272,
+            "epsilon6": -82,
+            "radius": 3,
+            "diameter": 6,
+            "core_Psi": 3,
+            "core_branch_vertices": 4,
+            "core_max_degree": 3,
+            "branch_actual_degrees": [
+              5,
+              5,
+              5,
+              5
+            ],
+            "branch_excess": 0,
+            "actual_degree_four_vertices": 36,
+            "actual_degree_four_forest": true,
+            "actual_degree_four_independent": false,
+            "high_vertices": 23,
+            "ambient_isometry": true,
+            "packing_total": "8",
+            "maximum_closed_neighborhood_mass": "1",
+            "name": "METRIC_BRANCH5_5",
+            "m": 5,
+            "path_lower_bound": 13,
+            "identity": {
+              "Pi": 0,
+              "e_HB": 6,
+              "sigma_N": 20,
+              "sigma_B": 0,
+              "sum_ell": "18",
+              "epsilon6": -82
+            },
+            "minimum_target_distance": 1
+          }
+        },
+        {
+          "id": "R51.STRICT_FAMILY",
+          "statement": "The family for every integer m>=111 has n=8m+19,epsilon6=-8m-42,radius=3,diameter=6,gamma>=8,unbounded actual degrees,and no R46 or R50 headline domination source. It is uncapped and may have old cheap-cycle exits; no positive capped residual separation is asserted.",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Audited the all-m voltage, greedy-target, projection, packing, radius and source-exclusion arguments. Any old qualifying core has at most 31/25 vertices and must contain all eleven displayed core vertices, hence four branches, contradicting the accepted R50 classification.",
+          "recomputed_counts": {
+            "fixture": {
+              "n": 1035,
+              "e": 2576,
+              "delta": 4,
+              "Delta": 256,
+              "triangles": 0,
+              "strong_C4_free": true,
+              "four_cycles": 0,
+              "S": 5152,
+              "epsilon6": -1058,
+              "radius": 3,
+              "diameter": 6,
+              "core_Psi": 3,
+              "core_branch_vertices": 4,
+              "core_max_degree": 3,
+              "branch_actual_degrees": [
+                5,
+                5,
+                5,
+                5
+              ],
+              "branch_excess": 0,
+              "actual_degree_four_vertices": 1012,
+              "actual_degree_four_forest": false,
+              "actual_degree_four_independent": false,
+              "high_vertices": 23,
+              "ambient_isometry": true,
+              "packing_total": "8",
+              "maximum_closed_neighborhood_mass": "1",
+              "name": "METRIC_BRANCH5_127",
+              "m": 127,
+              "path_lower_bound": 13,
+              "identity": {
+                "Pi": 0,
+                "e_HB": 6,
+                "sigma_N": 996,
+                "sigma_B": 0,
+                "sum_ell": "18",
+                "epsilon6": -1058
+              },
+              "minimum_target_distance": 4
+            },
+            "triangle_voltages": [
+              1,
+              2,
+              3,
+              2
+            ],
+            "four_cycle_voltages": [
+              4,
+              -1,
+              1
+            ],
+            "radius_three_ball_bound": 22,
+            "greedy_forbidden_bound": 110,
+            "old_tree_order_bound": 31,
+            "old_unicyclic_order_bound": 25
+          }
+        },
+        {
+          "id": "R51.UNBOUNDED_BRANCH_CHAIN",
+          "statement": "For every k>=1 the specified bridge chain has n=59k,e=137k-1,epsilon6=-80k-2,h=23k,4k branching ports of actual degree five,Psi=10k-7,and a degree-four forest. The delivered k=3 adjacency replays. No cap upper bound or old-source exclusion is asserted.",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "The specified core-leaf bridges preserve isometry and the degree-four forest. Each bridge increases additive Psi by seven. All k=3 adjacency and numerical claims agree; the arbitrary-k construction follows by gluing along bridges.",
+          "recomputed_counts": {
+            "n": 177,
+            "e": 410,
+            "delta": 4,
+            "Delta": 12,
+            "triangles": 0,
+            "strong_C4_free": true,
+            "four_cycles": 0,
+            "S": 820,
+            "epsilon6": -242,
+            "core_Psi": 23,
+            "core_branch_vertices": 12,
+            "core_max_degree": 3,
+            "branch_actual_degrees": [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5
+            ],
+            "branch_excess": 0,
+            "actual_degree_four_vertices": 108,
+            "actual_degree_four_forest": true,
+            "actual_degree_four_independent": false,
+            "high_vertices": 69,
+            "ambient_isometry": true,
+            "packing_total": "24",
+            "identity": {
+              "Pi": 0,
+              "e_HB": 18,
+              "sigma_N": 76,
+              "sigma_B": 0,
+              "sum_ell": "98",
+              "epsilon6": -242
+            },
+            "path_lower_bound": 13
+          }
+        },
+        {
+          "id": "R51.BOUNDARY",
+          "statement": "The delivered 817-vertex intrinsic-degree-four metric-tree example has epsilon6=366,delta=4,Delta=103,actual branch degree four,405 independent actual-degree-four vertices,and P13. Removing intrinsic subcubicity invalidates the headline mass claim.",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Regenerated the entire base short-cycle domain, all signed voltage sums and all 2,634 final edges. Directly checked the isometric degree-four core, positive whole-graph surplus, independent low vertices and induced P13. This is an uncapped mass counterexample only.",
+          "recomputed_counts": {
+            "n": 817,
+            "e": 2634,
+            "delta": 4,
+            "Delta": 103,
+            "triangles": 0,
+            "strong_C4_free": true,
+            "four_cycles": 0,
+            "S": 5268,
+            "epsilon6": 366,
+            "core_Psi": 4,
+            "core_branch_vertices": 1,
+            "core_max_degree": 4,
+            "branch_actual_degrees": [
+              4
+            ],
+            "branch_excess": 0,
+            "actual_degree_four_vertices": 405,
+            "actual_degree_four_forest": true,
+            "actual_degree_four_independent": true,
+            "high_vertices": 412,
+            "ambient_isometry": true,
+            "base_triangles": 16,
+            "base_four_cycles": 33,
+            "nonzero_short_cycle_voltages": 49,
+            "path_lower_bound": 13
+          }
+        },
+        {
+          "id": "R51.K_TRANSFER",
+          "statement": "Every produced whole-graph set is K-cheap for real K>=6; no unrestricted higher-cap GEN_K conclusion is supplied.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Subtracting (K-6)|G| from epsilon6 proves the stated transfer for real K>=6. No larger unrestricted path cap is inferred.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.EXACT_RESIDUAL",
+          "statement": "Retain R50 exactly and require Pi(D)>32+2e(H_B) for every ambient-isometric dominating subcubic tree D. In particular beta(D)>=5 for all such D. The condition is vacuous when no D exists.",
+          "prover_status": "PROVED relative to accepted R50",
+          "verdict": "CORRECT",
+          "reason": "The set difference and universal quantifier over every eligible tree are exact relative to accepted R50. Pi<=8 beta implies beta>=5 in the residual. Even positive TF surplus is at least two, giving the displayed bound with 34.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.CONTROLS",
+          "statement": "All 52 original graph6 encodings/contacts and all 43 supplied paths are preserved; metrics and triangle-corrected scores replay. There are 14 triangular and 17 positive TF controls.",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "All 52 complete records equal their inherited counterparts. Fresh graph6 decoding, ordinary C4 tests, triangle-corrected scores and all 43 supplied paths agree. Additionally verified C106/C112 induced criticality with 218 fresh endpoint allocations; no model irreducibility is inferred.",
+          "recomputed_counts": {
+            "counts": {
+              "records": 52,
+              "paths": 43,
+              "triangular": 14,
+              "positive_TF": 17
+            },
+            "criticality": [
+              {
+                "name": "C106",
+                "n": 106,
+                "e": 319,
+                "epsilon6": 2,
+                "omission_assignments": 106,
+                "induced_critical": true,
+                "arbitrary_model_irreducibility": "not asserted or inferred"
+              },
+              {
+                "name": "C112",
+                "n": 112,
+                "e": 337,
+                "epsilon6": 2,
+                "omission_assignments": 112,
+                "induced_critical": true,
+                "arbitrary_model_irreducibility": "not asserted or inferred"
+              }
+            ]
+          }
+        },
+        {
+          "id": "R51.SISTER_SCOPE",
+          "statement": "R50 all-six CWF tools retain their corrected partial scopes. No model exit is promoted to a deletion-only EB6 result; assembly remains conditional.",
+          "prover_status": "PROVED relative to accepted context",
+          "verdict": "CORRECT",
+          "reason": "Compared the six cited accepted referee corrections with the retained scopes. The TF unused-port repair, STAR contact/mask qualifications, T6 delivery caveat, common edge-set intersection and RAD missing-artifact caveat are retained. These are not premises of the new charge.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.FULL_ASSEMBLY",
+          "statement": "Unrestricted EB6, unrestricted TF GEN6, universal T6, general GEN_K/RAD, and unconditional REAL-133 are not established.",
+          "prover_status": "CONJECTURED",
+          "verdict": "UNVERIFIED",
+          "reason": "All listed unrestricted statements remain unproved here, as explicitly acknowledged. Correct labelling of an open goal is not a proof of that goal.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.ACCOUNTING",
+          "statement": "TF deletion identities and whole-graph score criterion.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The lost score is 2(e(G[U])+|boundary U|); subtracting 6|U| gives 2w(U).",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.ACCEPTED_CONTEXT",
+          "statement": "Sealed base and corrected R50 hypotheses are retained.",
+          "prover_status": "PROVED relative to accepted context",
+          "verdict": "CORRECT",
+          "reason": "All 32 hashes agree; the cited mathematical tools are accepted background and used at their corrected scopes.",
+          "recomputed_counts": {
+            "context_hashes": 32
+          }
+        },
+        {
+          "id": "R51.FINITE_DOMAIN",
+          "statement": "The 66-type function has exactly 52,393 sufficient local configurations.",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "All unordered multisets of 1, 2 and 3 arms are enumerated. Degree information through distance three is determined by the distance-four representatives. Arm permutation preserves both sides of the inequality.",
+          "recomputed_counts": {
+            "type_sizes": [
+              1,
+              3,
+              10,
+              66
+            ],
+            "counts_by_degree": [
+              66,
+              2211,
+              50116
+            ],
+            "total": 52393
+          }
+        },
+        {
+          "id": "R51.TOLL_SHARPNESS",
+          "statement": "The stated ten-vertex tree has total intrinsic toll -30.",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Direct reconstruction and toll computation give -30. This asserts no ambient equality example.",
+          "recomputed_counts": {
+            "order": 10,
+            "toll": -30
+          }
+        },
+        {
+          "id": "R51.PROJECTION_PACKING",
+          "statement": "The fixed 23-vertex projection and weight formulas prove all-m isometry and gamma>=8.",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "The color map preserves each edge type and fixes the core. Direct distance verification on the projection proves the lower distance bound for every lift. Each symbolic closed-neighborhood packing bound is at most one for m>=5.",
+          "recomputed_counts": {
+            "projection_order": 23,
+            "packing_total": 8,
+            "fixture_maximum_closed_neighborhood_mass": 1
+          }
+        },
+        {
+          "id": "R51.DELIVERY",
+          "statement": "Manifest/summary integrity, portable references and advertised replay.",
+          "prover_status": "COMPUTED / metadata",
+          "verdict": "CORRECT_WITH_FIXES",
+          "reason": "All 30 artifact hashes, 32 context hashes and three report copies match. The summary hash is stale, and summary/report links still point to the original session or absent scratch paths. Use the delivered data/ctx paths and refresh affected hashes.",
+          "recomputed_counts": {
+            "artifact_hashes": 30,
+            "context_hashes": 32,
+            "report_copies": 3,
+            "summary_hash_matches": false,
+            "summary_actual_sha256": "cd6a91be40dd0eb466c94cca54169bff65d33b991d632e6e63651676a8836e59",
+            "summary_manifest_sha256": "9ce3165f097e6eb15af9c13eb28b45aadd1b11fedeeca1138c867b036bf024ee",
+            "delivered_verifier_static_imports": [
+              "collections",
+              "functools",
+              "itertools",
+              "pathlib",
+              "gzip",
+              "hashlib",
+              "json",
+              "itertools"
+            ],
+            "CNF_RUP_DRAT_files": 0
+          }
+        },
+        {
+          "id": "R51.EXECUTION_HISTORY",
+          "statement": "Claims about original-session tool use and writes outside that session.",
+          "prover_status": "Historical provenance",
+          "verdict": "UNVERIFIED",
+          "reason": "Static certificates cannot establish operational history. These assertions are not mathematical premises.",
+          "recomputed_counts": {}
+        }
+      ],
+      "limitations": "['Accepted ctx results are used as accepted background.', 'No exact longest induced-path order is claimed or certified for the large new fixtures; all asserted induced P13 witnesses were checked.', 'O"
+    },
+    {
+      "session": "r51_tf_gen6",
+      "prover_dir": "astra_r51/r51_tf_gen6",
+      "referee_dir": "astra_r51v/v_r51_tf_gen6",
+      "prover_session_id": "01a18e8c-d6bb-7171-aeab-e59647cf239b",
+      "referee_session_id": "01a18ed7-d5ec-75a1-8692-2fd2de50aec1",
+      "verdict_file": "astra_r51v/v_r51_tf_gen6/scratch/verdict.json",
+      "verdict_sha256": "ee4fd92686ef43077744725195dc8ab499d490c93d0d1ed7f25c545ef7e42467",
+      "referee_overall": "CORRECT_WITH_FIXES",
+      "required_fixes": "['Replace the summary external absolute links with links to the submitted report and manifest, e.g. PROOF_REPORT.md and ../data/r51_manifest.json from claim/CLAIM_SUMMARY.md.', 'Replace advertised scratch/r51_* artifact locations and scratch/r51_verify.py with the actual data locations and python data/r51_verify.py when invoked from the package root. Use file-relative links consistently for copies under claim and data, including ../ctx/... where appropriate.', 'After editing delivery text, synchronize the report copies and update their manifest lengths and SHA256 values. No mathematical theorem or numerical certificate needs repair.']",
+      "claim_breakdown": {
+        "CORRECT": 28,
+        "UNVERIFIED": 1,
+        "CORRECT_WITH_FIXES": 1
+      },
+      "claims": [
+        {
+          "id": "C01",
+          "statement": "Conventions, deletion price, and TF model definition",
+          "prover_status": "PROVED / definitions",
+          "verdict": "CORRECT",
+          "reason": "Strong C4-freeness is ordinary C4-freeness. For TF sources S=2e, and deleting X changes surplus by -mu_K,G(X). All quotient calculations retain every original interbag adjacency.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "C02",
+          "statement": "Accepted entry results and background scopes",
+          "prover_status": "Accepted background",
+          "verdict": "CORRECT",
+          "reason": "Read relative to the accepted ctx results and their corrections. R43 supplies connected-bag path lifting, global minimum-order TF irreducibility, full induced criticality, and minimum degree four at K=6; the inherited residual is retained without a new forcing assertion.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "C03",
+          "statement": "R50 crossed-triple correction and intermediate survivor",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Independent optional-contact enumeration gives exactly nine equality cores. All eight supplied P13s are induced, including the five formerly omitted cases. The remaining core has exact path order twelve; the final unused-port step is necessary and was independently rechecked.",
+          "recomputed_counts": {
+            "equality_cores": 9,
+            "P13_cores": 8,
+            "repaired_cases": 5,
+            "survivor": {
+              "p": 12,
+              "ordered_prefixes": 10602,
+              "witness": [
+                1,
+                7,
+                16,
+                4,
+                17,
+                20,
+                5,
+                18,
+                15,
+                3,
+                2,
+                12
+              ]
+            }
+          }
+        },
+        {
+          "id": "C04",
+          "statement": "Local extra-neighbor trace lemma (2.2)",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Every x in X misses centers by triangles, low endpoints by their full actual degrees, other u-ports by a C4 through u,p, and all v,z,w ports by their native center and p. Any neighbor of x other than p misses every center by a C4 through x,p.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "C05",
+          "statement": "Exhaustion of surviving pentagons through up",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "In G-v the other u-neighbor on a pentagon is s in S, and the other p-neighbor is a center or an element of X. Girth at least five makes these the only possible sources of a new C4 under contraction; new triangles would require an original C4.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "C06",
+          "statement": "The five parametric induced P13 constructions (2.4)-(2.8)",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Checked each consecutive edge, vertex distinctness, and all chord types. L fixes each exterior boundary trace; triangles and C4s fix the center contacts. D supplies r in the last two templates. Each selection needs at most three centers and at most two S ports, exactly as q>=3 guarantees. No center degree ceiling is used.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "C07",
+          "statement": "Theorem L: safe explicit exchange and all-K surplus identity",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The pentagon exclusions prove J=(G-v)/(up) is TF and strongly C4-free. Deletion loses q+1 edges and contraction one more, with no parallel-edge loss because u,p have no common neighbor. Thus delta n=-2, delta e=-q-2, and delta epsilon_K=2K-2q-4. At K=2q>=6 this is K-4>0.",
+          "recomputed_counts": {
+            "order_loss": 2,
+            "edge_loss": "q+2",
+            "surplus_gain": "2K-2q-4",
+            "six_surplus_gain": 2
+          }
+        },
+        {
+          "id": "C08",
+          "statement": "Setup M, incidence normal form, and exhaustive collision classification",
+          "prover_status": "PROVED using accepted R50",
+          "verdict": "CORRECT",
+          "reason": "The accepted two-center path lemma is degree independent and forces isolated selected edges, single-center stars, or parallel-center pairs. Independently enumerating endpoint partitions gives exactly six triple geometry orbits. Four/five-center classifications and required path exits were recomputed without source code.",
+          "recomputed_counts": {
+            "triple_classification": {
+              "codes": 77,
+              "geometry_orbits": 6,
+              "orbit_sizes": [
+                1,
+                4,
+                12,
+                12,
+                24,
+                24
+              ]
+            },
+            "4_center_classification": {
+              "codes": 2176,
+              "normalized_endpoint_partitions": 816,
+              "split_alternatives": 640,
+              "independent_P13s": 1536
+            },
+            "5_center_classification": {
+              "codes": 2320,
+              "normalized_endpoint_partitions": 3480,
+              "split_alternatives": 0,
+              "independent_P13s": 2320
+            }
+          }
+        },
+        {
+          "id": "C09",
+          "statement": "Theorem P: entire bounded-degree paired-center cell is produced",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "R50 pays isolated edges, single centers, and pairs, and its corrected exits dispose of the noncommon-port triples and four/five-center cases. In the remaining common-port triple, native ports fill v,z,w. Completeness of W gives L and minimum degree four gives D, so Theorem L closes every common-port degree. No existence of setup M is inferred.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "C10",
+          "statement": "Theorem A paid rows and original-degree identity (2.10)",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Independence of deleted centers makes their deletion prices additive. Boundary independence, disjointness, and center completeness give the accepted tree safety conditions after deletion. The gain is 4|A_C|-2D_C+6|W_C|: four for an isolated edge, 4r-2d+6 for one center, and 20-2D_C for two parallel centers.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "C11",
+          "statement": "Aggregate triple bounds: D<=15 for one/same-edge collisions; D<=17 for three distinct collisions",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The inherited rooted-path closure uses no center degree bounds. Two unique roots force four distinct exterior center incidences in the first two cases; two unused roots force six in the last. Therefore D>=16 or D>=18 respectively. Independently enumerated all seventeen permitted representative exterior traces and checked the written paths.",
+          "recomputed_counts": {
+            "closure_traces": 17,
+            "forced_incidence_lower_bounds": [
+              4,
+              4,
+              6
+            ],
+            "minimum_degree_sums": [
+              16,
+              16,
+              18
+            ]
+          }
+        },
+        {
+          "id": "C12",
+          "statement": "Aggregate crossed-triple bound D<=15",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Closure at the two charged ports forces at least three exterior vertices and hence D>=15. At equality exactly three center incidences exist: the common exterior vertex uses a, the other two use b and c by triangles/C4s. Each center then has degree five, so the corrected equality and final unused-port arguments apply.",
+          "recomputed_counts": {
+            "closure_traces": 5,
+            "equality_cores": 9,
+            "final_unused_port_traces": 21
+          }
+        },
+        {
+          "id": "C13",
+          "statement": "Four-center aggregate bound D<=23 and unrestricted five-center exit",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Four unique ports each need two distinct exterior neighbors; completeness separates these into eight vertices and closure forces eight center incidences. Thus D-16>=8, so D<=23 is impossible under the cap. Rechecked root symmetry and all twenty closure traces, the V-core path, and the five-center path classification.",
+          "recomputed_counts": {
+            "four_closure_traces": 20,
+            "four_V_core_P13": true,
+            "forced_exterior_incidences": 8,
+            "minimum_degree_sum": 24,
+            "five_center_codes": 2320
+          }
+        },
+        {
+          "id": "C14",
+          "statement": "Theorem A: universal production on every tabulated component",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The paid rows, degree-independent cap exits, and local exchange exhaust the classified components. Restriction to a single incidence component preserves complete centers and all original degrees; omitted selected endpoints cannot contact the retained boundaries. Theorem P is contained in this class.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "C15",
+          "statement": "4,043 local path records and the formula (q-1)(6q^2-q-1)",
+          "prover_status": "COMPUTED, corroborating a written proof",
+          "verdict": "CORRECT",
+          "reason": "Generated the contact domains independently and compared exact keys, edge sets, orders, and every path. Per s, the three domain sizes are q(2q-1), 2q, and 4q^2-2q-1. Their sum gives the displayed formula. This is not used as a finite-q substitute for the universal proof.",
+          "recomputed_counts": {
+            "total": 4043,
+            "counts": {
+              "q3_center": 30,
+              "q3_bridge": 12,
+              "q3_tail": 58,
+              "q4_center": 84,
+              "q4_bridge": 24,
+              "q4_tail": 165,
+              "q6_center": 330,
+              "q6_bridge": 60,
+              "q6_tail": 655,
+              "q8_center": 840,
+              "q8_bridge": 112,
+              "q8_tail": 1673
+            },
+            "exact_domain_match": true
+          }
+        },
+        {
+          "id": "C16",
+          "statement": "R51_COMMON_p6_centers5_158 source and positive output",
+          "prover_status": "COMPUTED / structural fixture",
+          "verdict": "CORRECT",
+          "reason": "Source is connected, TF, strongly C4-free, minimum degree four, common-port degree six, and center degrees five. The exact specified deletion and bag produce a TF strongly C4-free positive quotient.",
+          "recomputed_counts": {
+            "name": "R51_COMMON_p6_centers5_158",
+            "source": {
+              "n": 158,
+              "e": 475,
+              "triangles": 0,
+              "repeated_common_pairs": 0,
+              "raw_surplus": 2,
+              "conventional_surplus": 2,
+              "delta": 4,
+              "Delta": 8
+            },
+            "output": {
+              "n": 156,
+              "e": 470,
+              "triangles": 0,
+              "repeated_common_pairs": 0,
+              "raw_surplus": 4,
+              "conventional_surplus": 4,
+              "delta": 4,
+              "Delta": 8
+            },
+            "omissions": 158,
+            "endpoint_assignments": 74100,
+            "center_degrees": [
+              5,
+              5,
+              5
+            ],
+            "common_port_degree": 6,
+            "subsystems": [
+              {
+                "selected": [
+                  0
+                ],
+                "centers": [
+                  155,
+                  156,
+                  157
+                ],
+                "supports": [
+                  [
+                    0
+                  ],
+                  [
+                    0
+                  ],
+                  [
+                    0
+                  ]
+                ],
+                "pseudoforest_vertex_count": 4,
+                "incidence_edges": 3
+              },
+              {
+                "selected": [
+                  1
+                ],
+                "centers": [
+                  155,
+                  156,
+                  157
+                ],
+                "supports": [
+                  [
+                    1
+                  ],
+                  [
+                    1
+                  ],
+                  [
+                    1
+                  ]
+                ],
+                "pseudoforest_vertex_count": 4,
+                "incidence_edges": 3
+              },
+              {
+                "selected": [
+                  0,
+                  1
+                ],
+                "centers": [
+                  155,
+                  156,
+                  157
+                ],
+                "supports": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    1
+                  ]
+                ],
+                "pseudoforest_vertex_count": 5,
+                "incidence_edges": 6
+              }
+            ]
+          }
+        },
+        {
+          "id": "C17",
+          "statement": "R51_COMMON_p7_centers6_158 source and positive output",
+          "prover_status": "COMPUTED / structural fixture",
+          "verdict": "CORRECT",
+          "reason": "Independently verified the analogous source with common-port degree seven and all center degrees six, outside the old center ceiling. The specified output has the claimed order, edge count and surplus.",
+          "recomputed_counts": {
+            "name": "R51_COMMON_p7_centers6_158",
+            "source": {
+              "n": 158,
+              "e": 475,
+              "triangles": 0,
+              "repeated_common_pairs": 0,
+              "raw_surplus": 2,
+              "conventional_surplus": 2,
+              "delta": 4,
+              "Delta": 8
+            },
+            "output": {
+              "n": 156,
+              "e": 470,
+              "triangles": 0,
+              "repeated_common_pairs": 0,
+              "raw_surplus": 4,
+              "conventional_surplus": 4,
+              "delta": 4,
+              "Delta": 8
+            },
+            "omissions": 158,
+            "endpoint_assignments": 74100,
+            "center_degrees": [
+              6,
+              6,
+              6
+            ],
+            "common_port_degree": 7,
+            "subsystems": [
+              {
+                "selected": [
+                  0
+                ],
+                "centers": [
+                  155,
+                  156,
+                  157
+                ],
+                "supports": [
+                  [
+                    0
+                  ],
+                  [
+                    0
+                  ],
+                  [
+                    0
+                  ]
+                ],
+                "pseudoforest_vertex_count": 4,
+                "incidence_edges": 3
+              },
+              {
+                "selected": [
+                  1
+                ],
+                "centers": [
+                  155,
+                  156,
+                  157
+                ],
+                "supports": [
+                  [
+                    1
+                  ],
+                  [
+                    1
+                  ],
+                  [
+                    1
+                  ]
+                ],
+                "pseudoforest_vertex_count": 4,
+                "incidence_edges": 3
+              },
+              {
+                "selected": [
+                  0,
+                  1
+                ],
+                "centers": [
+                  155,
+                  156,
+                  157
+                ],
+                "supports": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    1
+                  ]
+                ],
+                "pseudoforest_vertex_count": 5,
+                "incidence_edges": 6
+              }
+            ]
+          }
+        },
+        {
+          "id": "C18",
+          "statement": "Fixture reconstruction and all selected degree-four subsystems",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Reconstructed both edge sets from the accepted common-port fixture using exactly the recorded removals and additions. The actual degree-four set is exactly the four selected endpoints. Each of the three nonempty edge subsystems has exactly the stated three centers: singleton subsystems are unary and violate the pseudoforest degree price; the full incidence graph is K_(2,3), with six edges on five vertices.",
+          "recomputed_counts": {
+            "fixtures": 2,
+            "subsystems_per_fixture": 3,
+            "full_incidence_vertices": 5,
+            "full_incidence_edges": 6
+          }
+        },
+        {
+          "id": "C19",
+          "statement": "Full induced criticality of both positive fixtures",
+          "prover_status": "PROVED by supplied endpoint allocations",
+          "verdict": "CORRECT",
+          "reason": "For every omitted vertex checked every surviving edge once, assigned only to an endpoint, with capacity at most three at every vertex. Restriction to any induced subgraph proves e(H)<=3|H|. This certifies induced criticality, not TF irreducibility; both fixtures are TF reducible by their positive outputs.",
+          "recomputed_counts": {
+            "omissions_per_source": 158,
+            "assignments_per_source": 74100,
+            "total_omissions": 316,
+            "total_assignments": 148200
+          }
+        },
+        {
+          "id": "C20",
+          "statement": "Positive fixtures are uncapped inputs and not counterexamples to TF GEN6",
+          "prover_status": "COMPUTED / status qualification",
+          "verdict": "CORRECT",
+          "reason": "Both supplied thirteen-vertex induced paths were checked directly. Consequently p>=13 for each source. No exact larger maximum or TF irreducibility is claimed.",
+          "recomputed_counts": {
+            "checked_P13s": 2
+          }
+        },
+        {
+          "id": "C21",
+          "statement": "Degree-two extra-neighbor sharpness kernel",
+          "prover_status": "COMPUTED / counterexample to dropping D for this exchange",
+          "verdict": "CORRECT",
+          "reason": "Reconstructed exactly the common-port core plus p-x-y-s. It is TF and strongly C4-free with x of degree two. Exhaustive induced-path enumeration proves p=12. The specified quotient has the explicit ordinary C4; the source has negative surplus and minimum degree one, so this is not a positive capped counterexample.",
+          "recomputed_counts": {
+            "name": "R51_EXTRA_DEGREE2_SHARPNESS",
+            "source": {
+              "n": 21,
+              "e": 29,
+              "triangles": 0,
+              "repeated_common_pairs": 0,
+              "raw_surplus": -68,
+              "conventional_surplus": -68,
+              "delta": 1,
+              "Delta": 5
+            },
+            "output": {
+              "n": 19,
+              "e": 24,
+              "triangles": 0,
+              "repeated_common_pairs": 2,
+              "raw_surplus": -66,
+              "conventional_surplus": -66,
+              "delta": 1,
+              "Delta": 6
+            },
+            "exact_paths": {
+              "p": 12,
+              "ordered_prefixes": 3821,
+              "witness": [
+                10,
+                16,
+                13,
+                3,
+                14,
+                17,
+                8,
+                1,
+                0,
+                5,
+                20,
+                19
+              ]
+            }
+          }
+        },
+        {
+          "id": "C22",
+          "statement": "61 inherited controls, 37 paths, and surplus distinctions",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Independently decoded or read every source, recomputed n,e, degrees, triangles and common-neighbor collisions, and checked every supplied P13. Both order-7065 controls were included. B46/B156 have raw surplus four and conventional surplus one; A40 and A157 have raw surpluses -4 and +2.",
+          "recomputed_counts": {
+            "total": 61,
+            "P13": 37,
+            "TF_C4_free": 57,
+            "triangular": 4
+          }
+        },
+        {
+          "id": "C23",
+          "statement": "The old R50 common-port fixture makes the new exchange unsafe without a cap",
+          "prover_status": "COMPUTED / kill-test",
+          "verdict": "CORRECT",
+          "reason": "Directly reconstructed the mate deletion and up contraction on the old fixture: there are exactly two repeated-common-neighbor pairs. Its source has a verified P13, so it does not contradict Theorem L.",
+          "recomputed_counts": {
+            "n": 156,
+            "e": 470,
+            "triangles": 0,
+            "repeated_common_pairs": 2,
+            "raw_surplus": 4,
+            "conventional_surplus": 4,
+            "delta": 4,
+            "Delta": 8
+          }
+        },
+        {
+          "id": "C24",
+          "statement": "General-K scope and descent",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The geometric proof is valid for integer q>=3 at fixed cap twelve; the all-real-K identity is algebraic. Specializing K=2q gains K-4. All bags are connected and all interbag edges retained, so accepted path lifting applies. No full 2K cap, odd-K, K=4, or triangle-inclusive extension is asserted.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "C25",
+          "statement": "R51 residual and the exact necessary uncovered degree conditions",
+          "prover_status": "PROVED relative to accepted residual",
+          "verdict": "CORRECT",
+          "reason": "Any Local51 or Aggregate51 configuration gives a smaller positive capped TF model or a cap contradiction. Their removal from corrected R50 is therefore valid with every selected-system quantifier retained. The listed remaining degree thresholds are precisely the integer complements of the covering rows, not claimed realizations or an unrestricted classification.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "C26",
+          "statement": "Sister-result scopes and REAL-133 assembly limitation",
+          "prover_status": "Accepted background / conditional consequences",
+          "verdict": "CORRECT",
+          "reason": "Used the stated accepted corrected scopes only. None supplies universal forcing of setup M or fills the unrestricted TF GEN6 gate. Separate T6, higher GEN/HYBRID, and RAD obligations remain.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "C27",
+          "statement": "Unrestricted TF GEN6 and unconditional REAL-133",
+          "prover_status": "OPEN; no proof claimed",
+          "verdict": "UNVERIFIED",
+          "reason": "The submitted partial theorem does not establish these assertions, and explicitly leaves them open. This is accurate status labelling, not a gap in the narrower claimed theorems.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "C28",
+          "statement": "Exploratory neighborhood probe is nonpremissory",
+          "prover_status": "Exploratory / no universal conclusion",
+          "verdict": "CORRECT",
+          "reason": "Independently reconstructed its local experiment and reproduced its trace list, tested cases and all four survivors. The survivor search is confined to that finite experiment; no theorem uses it.",
+          "recomputed_counts": {
+            "traces": 36,
+            "tested": 3488,
+            "survivors": [
+              [
+                [],
+                [],
+                []
+              ],
+              [
+                [],
+                [],
+                [
+                  7
+                ]
+              ],
+              [
+                [],
+                [],
+                [
+                  8
+                ]
+              ],
+              [
+                [],
+                [],
+                [
+                  9
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "id": "C29",
+          "statement": "Manifest hashes and duplicate report integrity",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Every listed artifact and context dependency has the stated length and SHA256. Both supplied data report copies equal the claim report byte for byte, and all five recorded R46-R50 certificate hashes agree.",
+          "recomputed_counts": {
+            "artifacts": 12,
+            "context": 42,
+            "report_duplicates_identical": true
+          }
+        },
+        {
+          "id": "C30",
+          "statement": "Replay dependency claim and delivery paths/links",
+          "prover_status": "COMPUTED / claimed delivery correction",
+          "verdict": "CORRECT_WITH_FIXES",
+          "reason": "Static import inspection confirms the supplied verifier uses standard-library modules plus its packaged graph helper and no imported producer/solver. However the summary still links outside this package, and report lines 183-189 and 266 plus manifest.local_replay advertise nonexistent scratch/r51_* files. The actual submitted artifacts are in data. Correct these references and refresh duplicate reports and affected hashes. This is a packaging error; independent checks did not use supplied executable code.",
+          "recomputed_counts": {}
+        }
+      ],
+      "limitations": "All stated mathematical partial claims verified relative to accepted ctx; packaging links and artifact locations require correction. Unrestricted assertions correctly remain open."
+    },
+    {
+      "session": "r51_star_prod",
+      "prover_dir": "astra_r51/r51_star_prod",
+      "referee_dir": "astra_r51v/v_r51_star_prod",
+      "prover_session_id": "01a18e8c-de89-74d1-a6fb-ca2f5508a83f",
+      "referee_session_id": "01a18ed7-d9fc-7073-b702-690b65c0a800",
+      "verdict_file": "astra_r51v/v_r51_star_prod/scratch/verdict.json",
+      "verdict_sha256": "b2ee957d6d2e538dadb3a7082c0e6f0231a5679cceccf2d76d3eee1f4745b4df",
+      "referee_overall": "CORRECT_WITH_FIXES",
+      "required_fixes": "['Replace the two absolute links in claim/CLAIM_SUMMARY.md with PROOF_REPORT.md and ../data/r51_manifest.json. Replace the obsolete report-copy basename with ../data/r51_REPORT.md or ../data/REPORT.md.', 'Update report line 9 and the scratch/ artifact references to the delivered data/ layout, or explicitly label that layout description as historical. Make manifest report/artifact references package-relative and self-contained; synchronize report copies and refresh affected hashes.']",
+      "claim_breakdown": {
+        "CORRECT": 40,
+        "CORRECT_WITH_FIXES": 1,
+        "UNVERIFIED": 6
+      },
+      "claims": [
+        {
+          "id": "R51.01",
+          "statement": "Conventions, original-degree prices, and complete TF models",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Common-neighbor uniqueness is equivalent to excluding all ordinary C4s. All quotients retain every surviving interbag edge; triangle corrections are included on triangular controls.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.02",
+          "statement": "Whole corrected R50 residual and accepted background scopes",
+          "prover_status": "PROVED relative to accepted ctx",
+          "verdict": "CORRECT",
+          "reason": "The residual is imported by exact reference, with its corrections and full criticality/irreducibility distinctions. No endpoint degree restriction is imposed on interior vertices.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.03",
+          "statement": "NEIGHBOR port geometry and complete conflict graph",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Triangles exclude within-arm port edges, and source C4s exclude shared ports and same-arm common exterior centers. Every new quotient C3/C4 is represented by a tested pair.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.04",
+          "statement": "N1 exact safety, necessity, properness, and price",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Deletion is an independent neighbor set. Each exterior vertex has at most one bag neighbor, so contraction loses exactly |I| edges and vertices. Both directions and raw identities passed all fixture choices.",
+          "recomputed_counts": {
+            "neighbor_fixture_arm_sets": 21816
+          }
+        },
+        {
+          "id": "R51.05",
+          "statement": "N2/N3 universal NEIGHBOR-AVERAGE for every integer K>=3",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Summing gains over k color classes yields the claimed inequality. Nonnegative weights 2d-2 ensure a nonempty maximizing class even when all weights vanish.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.06",
+          "statement": "Six-level thresholds five/bipartite and four/3-colorable; empty-low scope",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Substitution K=6 is exact; the empty-low unbounded family realizes the first threshold. No low-forest hypothesis is used by N.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.07",
+          "statement": "N4 exact weighted optimum over the declared neighbor family",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "N1 becomes epsilon-C+sum_I(2d-2). A nonempty maximum exists for a nonisolated root. This does not optimize arbitrary TF models.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.08",
+          "statement": "FANO structural degree-(7,4,4,4) star consequence",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The three degree-four arms earn 12 and deleting the degree-seven arm costs 8. Every asserted FANO source conflict and quotient was rebuilt.",
+          "recomputed_counts": {
+            "roots": 7,
+            "gain": 4,
+            "output": [
+              196,
+              591,
+              6
+            ]
+          }
+        },
+        {
+          "id": "R51.09",
+          "statement": "ROOT-CLOSURE geometry and fixed exterior",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "All unwanted root neighbors and every low neighbor of a retained arm are deleted. Ports are disjoint, outside W, and the conflict centers are exactly the retained exterior.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.10",
+          "statement": "F2/F3 complete closure safety, necessity, and original-degree price",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The forest identity c(Y)=|C|-|I|+sum t_v and cross-edge credit -2e(W,Y) give the displayed budget. No post-deletion high degree is substituted.",
+          "recomputed_counts": {
+            "closure_fixture_arm_sets": 22207
+          }
+        },
+        {
+          "id": "R51.11",
+          "statement": "F4 exact closure-family weighted optimum",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Port weights q-t_v are nonnegative and A is nonempty; maximizing F2 proves F4, including zero-weight arms.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.12",
+          "statement": "Side-tree pseudoforest funding and incident-tree coverage",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The full incidence graph gives 2s<=e_s<=s+|W+|, hence B<=r. Each covered tree supplies at least q-1 total port weight; 2(q-2)>=q-1 requires exactly q>=3.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.13",
+          "statement": "Universal ROOT-CLOSURE, even K>=6, and (q-1)-color extension",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "A heaviest class has weight at least r>=B. The q-1 color extension uses the same total-weight bound and has a nonempty selected class.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.14",
+          "statement": "Scope with large low trees, high root neighbors, and nonplanar conflicts",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Explicit sources realize all three features. Dense-external has the complete conflict graph K3,3; the chain family has low P3s and a high neighbor.",
+          "recomputed_counts": {
+            "dense_conflict_edges": 9,
+            "dense_source": [
+              343,
+              1041,
+              24
+            ],
+            "dense_output": [
+              331,
+              1005,
+              24
+            ]
+          }
+        },
+        {
+          "id": "R51.15",
+          "statement": "LOW-TREE root compatibility and complete exterior conflicts",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Shared ports of adjacent labels force triangles; shared ports of two arms force C4s. Pruned low-tree vertices cannot be exterior centers. Fixed root conflicts are removed before arm optimization.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.16",
+          "statement": "L1 exact low-root safety, necessity, and original tree price",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The retained star is a connected subtree, so c(X)=t_h+sum d_L(v)-2|I|. Price 2c(X) gives precisely 2(sum p_v-t_h). Incompatible arms were also tested directly.",
+          "recomputed_counts": {
+            "lowroot_fixture_arm_sets": 48,
+            "safe": 39,
+            "unsafe": 9
+          }
+        },
+        {
+          "id": "R51.17",
+          "statement": "L2 universal LOW-TREE-AVERAGE, even K>=4, and degree subcases",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "A heaviest k-color class has weight at least t_h>=1. Both degree-only subcases imply the stated total port-weight bound and retain the root compatibility requirement.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.18",
+          "statement": "L3 exact optimum and empty-eligible-set exception",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "For nonempty eligible sets, maximize L1. When eligibility is empty the family has no choice; the alpha=0 convention gives the residual equivalence only at epsilon6=2, as explicitly stated.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.19",
+          "statement": "Exterior-pentagon leaf consequence with automatic funding",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "A port edge across adjacent low labels would already be a source C4. A common retained center is exactly the specified exterior pentagon. Leaf port weight q offsets t_h<=q.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.20",
+          "statement": "TREE162 central low-root exchange",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Rebuilt with root port 130 retained and tested. The compatible arm weights are 2,1,2, the conflict graph is empty, and the budget is three.",
+          "recomputed_counts": {
+            "deleted_low_vertices": 8,
+            "gain": 4,
+            "output": [
+              151,
+              456,
+              6
+            ]
+          }
+        },
+        {
+          "id": "R51.21",
+          "statement": "Certified regular cores and arbitrary-length two-edge chains",
+          "prover_status": "PROVED with computer-assisted finite base",
+          "verdict": "CORRECT",
+          "reason": "Both bases are connected 6-regular TF strong-C4-free. Every join puncture is connected. A short cycle crossing a chain cut would need both cross edges and two internal paths of length at least two. All protected paths and attachment ports avoid join punctures.",
+          "recomputed_counts": {
+            "base_orders": [
+              312,
+              150
+            ],
+            "base_edges": [
+              936,
+              450
+            ],
+            "join_punctures_per_template": 4
+          }
+        },
+        {
+          "id": "R51.22",
+          "statement": "Unbounded empty-low production and full induced criticality, m>=12",
+          "prover_status": "PROVED with computer-assisted finite base",
+          "verdict": "CORRECT",
+          "reason": "Every finite edge set reconstructs exactly. Before restoring the one edge, every vertex has allocation load six and the symmetric support is connected. Thus every proper induced surplus is at most -2; restoration adds at most two. The core-plus-port punctures also all remain connected.",
+          "recomputed_counts": {
+            "tested_m": [
+              12,
+              13,
+              15
+            ],
+            "source": "(312m+7,936m+22,2)",
+            "output": "(312m+1,936m+4,2)",
+            "degree_histogram": "5:6, 7:8, 6:312m-7",
+            "root_conflict_edges": 3
+          }
+        },
+        {
+          "id": "R51.23",
+          "statement": "Unbounded six-P3 low-tree family, production and full criticality",
+          "prover_status": "PROVED with computer-assisted finite base",
+          "verdict": "CORRECT",
+          "reason": "Reconstructed all ports, cyclic assignments and edges. Balanced allocation before hw restoration has exactly two symmetric components, the core and gadget; the written case split proves the strict deficit on proper sets containing h,w.",
+          "recomputed_counts": {
+            "tested_m": [
+              1,
+              2,
+              5
+            ],
+            "source": "(312m+20,936m+61,2)",
+            "output": "(312m+1,936m+6,6)",
+            "root_conflict_edges": 6,
+            "budget": 4,
+            "selected_weight": 6
+          }
+        },
+        {
+          "id": "R51.24",
+          "statement": "Whole R48 leaf-pruned/whole-component repair barrier on both six-P3 families",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Enumerated all pentagons after own-tree pruning. Each high core port has a fixed all-high pentagon; each other terminal port forces at least two distinct further low components. The local witnesses survive every chain length.",
+          "recomputed_counts": {
+            "instances": 6,
+            "terminals_per_instance": 12,
+            "blocked_ports_per_instance": 24,
+            "unblocked_failed_ports_per_instance": 12,
+            "minimum_kappa": 2
+          }
+        },
+        {
+          "id": "R51.25",
+          "statement": "Uniform TREE162 extension and full induced criticality",
+          "prover_status": "PROVED with computer-assisted finite base",
+          "verdict": "CORRECT",
+          "reason": "All three edge lists reconstruct from the regular core, tree and attachments. The actual low graph is the twelve-vertex tree. Verified allocation has load eight only at its root and load six elsewhere; the accepted tree-augmentation argument applies for every m.",
+          "recomputed_counts": {
+            "tested_m": [
+              1,
+              2,
+              5
+            ],
+            "source": "(150m+12,450m+37,2)",
+            "output": "(150m+1,450m+6,6)"
+          }
+        },
+        {
+          "id": "R51.26",
+          "statement": "Uniform K6 closure barrier at every root, with a different positive model",
+          "prover_status": "PROVED with computer-assisted finite base",
+          "verdict": "CORRECT",
+          "reason": "At h,w the fixed center forces K6 with alpha=2 and B=4. Every other closure root has at most two arms and six high neighbors of high-induced degree six, so B>=18. Core-root-1 neighbor models are independently rebuilt with surplus 26 and unaffected by joins.",
+          "recomputed_counts": {
+            "tested_m": [
+              1,
+              2,
+              5
+            ],
+            "closure_roots_per_instance": 26,
+            "maximum_closure_surplus": -2,
+            "other_model_surplus": 26
+          }
+        },
+        {
+          "id": "R51.27",
+          "statement": "JOINT-ARITY4-155 graph, criticality, uncappedness, and pentagonal edges",
+          "prover_status": "PROVED with finite certificate",
+          "verdict": "CORRECT",
+          "reason": "The full graph reconstructs from the certified 150-core and four port triples. The tree-augmentation hypotheses and allocation verify. Every stored pentagon is genuine and the complete enumeration agrees; all core edges also have core-only pentagons.",
+          "recomputed_counts": {
+            "root_counts": {
+              "neighbor": 155,
+              "closure": 12,
+              "lowroot": 5
+            },
+            "maximum_surplus": {
+              "neighbor": 0,
+              "closure": -32,
+              "lowroot": 0
+            },
+            "pentagons": 559,
+            "covered_edges": 466,
+            "fixed_terminal_ports": 12,
+            "core_pentagons": 531,
+            "core_edges": 450
+          }
+        },
+        {
+          "id": "R51.28",
+          "statement": "JOINT155 defeats all three declared families and disproves the proposed 4-color threshold",
+          "prover_status": "PROVED with finite certificate",
+          "verdict": "CORRECT",
+          "reason": "Computed every root optimum independently. The central K4 has weight three per arm, alpha three and budget four, hence best surplus zero despite total weight 3t_h. No all-model irreducibility or capped counterexample follows.",
+          "recomputed_counts": {
+            "root_bounds": 172,
+            "neighbor_maximum": 0,
+            "closure_maximum": -32,
+            "all_five_lowroot_optima": 0
+          }
+        },
+        {
+          "id": "R51.29",
+          "statement": "All 31 fixture enumerations and raw/safe optimum checks",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Enumerated every nonempty arm set, including incompatible low-root arms. Built every quotient from all surviving source edges, tested ordinary C4s and triangles directly, and checked every raw identity and weighted optimum.",
+          "recomputed_counts": {
+            "fixtures": 31,
+            "arm_sets": 44071,
+            "safe": 43548,
+            "unsafe": 523
+          }
+        },
+        {
+          "id": "R51.30",
+          "statement": "Full-core gadget selection audits supporting criticality",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Independent Gray-code enumeration checks every selection, with proper maximum zero and full surplus two. All other induced subsets are covered by the verified allocation proofs, not by this finite enumeration alone.",
+          "recomputed_counts": {
+            "twenty_vertex_gadgets": 2,
+            "selections_each": 1048576,
+            "twelve_vertex_tree_instances": 3,
+            "selections_each_tree": 4096,
+            "joint_tree_selections": 32
+          }
+        },
+        {
+          "id": "R51.31",
+          "statement": "Dense-external and side-cycle source/model parameters; R50 comparison",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Complete edge lists and quotient parameters verify. Re-derived canonical selected low components and eligible roots from the written R50 specification; complete mate directions and external components agree.",
+          "recomputed_counts": {
+            "dense": {
+              "eligible_roots": [
+                312
+              ],
+              "mate_arcs": 12,
+              "external_components": 9,
+              "charge": 21,
+              "budget": 18
+            },
+            "side_source": [
+              334,
+              1003,
+              2
+            ],
+            "side_output": [
+              313,
+              943,
+              8
+            ]
+          }
+        },
+        {
+          "id": "R51.32",
+          "statement": "52 inherited controls, exact root classifications and P13 witnesses",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Independently decoded every original graph6 source from accepted data; recomputed actual low components, complete conflicts, all weighted bounds, class/rejection labels and every successful quotient. Every path edge and nonedge was checked.",
+          "recomputed_counts": {
+            "controls": 52,
+            "neighbor_roots": 2793,
+            "closure_roots": 200,
+            "lowroot_roots": 188,
+            "total_roots": 3181,
+            "P13_witnesses": 19
+          }
+        },
+        {
+          "id": "R51.33",
+          "statement": "FANO200, TREE162, HS parent and Q50 positive control outputs",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "All stored models reconstruct exactly. FANO has seven neighbor class roots and 28 low-root class roots; TREE has nine low-root class roots and twelve positive low-root outputs. HS parent has fifty neighbor outputs of surplus six; Q50 has its asserted neighbor output.",
+          "recomputed_counts": {
+            "positive_TF_neighbor_class_roots": 8,
+            "positive_TF_neighbor_outputs": 58,
+            "positive_TF_lowroot_class_roots": 37,
+            "positive_TF_lowroot_outputs": 41,
+            "positive_TF_closure_class_roots": 0,
+            "positive_TF_closure_outputs": 0
+          }
+        },
+        {
+          "id": "R51.34",
+          "statement": "Negative control results and correct source-domain exclusions",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "All asserted failures concern only the three declared families. C106 and C112 each have 29 nonbipartite closure systems. Empty-low quantifiers are vacuous, cyclic-low controls are excluded from the forest methods, and B46/B156 retain one triangle with raw surplus four and conventional surplus one.",
+          "recomputed_counts": {
+            "C106_nonbipartite_closures": 29,
+            "C112_nonbipartite_closures": 29,
+            "B46_B156_triangles_each": 1,
+            "B46_B156_raw_each": 4,
+            "B46_B156_epsilon_each": 1
+          }
+        },
+        {
+          "id": "R51.35",
+          "statement": "Bare-edge probe after at most two whole low-tree deletions",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Re-enumerated complete pentagons and every allowed whole-tree deletion set. Successful edge lists and the returned models agree exactly. These finite exits do not establish a nonredundancy theorem.",
+          "recomputed_counts": {
+            "controls": 17,
+            "successful_edges_Q50": 4,
+            "successful_edges_TREE162": 4,
+            "successful_edges_FANO200": 66,
+            "other_tested_controls_successful_edges": 0
+          }
+        },
+        {
+          "id": "R51.36",
+          "statement": "General-K scope distinctions",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "N holds for all integer K>=3. F identities hold for even K>=4 but the stated coverage forcing needs K>=6. L identities and forcing hold for even K>=4. No odd-K low-forest theorem is inferred.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.37",
+          "statement": "Induced-path cap transfer and minimum-counterexample exclusion",
+          "prover_status": "PROVED relative to accepted ctx",
+          "verdict": "CORRECT",
+          "reason": "For an induced quotient path, nonconsecutive bags are anticomplete. A shortest source path between endpoint bags inside their union is induced and visits all bags. Thus p(J)<=p(G), and a positive proper output contradicts capped minimality.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.38",
+          "statement": "Corrected sister scopes and conditional REAL-133 assembly limitations",
+          "prover_status": "PROVED relative to accepted ctx",
+          "verdict": "CORRECT",
+          "reason": "Checked the five cited accepted referee reports and the corrected R50 report. The optional-contact and common-edge-intersection repairs are retained, and no partial sister result is promoted to a missing universal gate.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.39",
+          "statement": "Exact joint nonproduction residual R51 and its simpler consequences",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The N bound uses actual epsilon6. When L is nonempty, criticality at a degree-four vertex and positive even surplus give epsilon6=2. F/L positivity then reduces exactly to alpha>=budget. Empty eligible sets, isolated low components and empty L are handled correctly. The neighbor-average and exterior-pentagon exclusions follow.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.40",
+          "statement": "Manifest bytes/hashes and agreement of delivered report copies",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Every listed artifact and input hash matches under the explicit export mapping to data/. All three delivered report copies have identical bytes. Hashing producer scripts does not execute or inspect them as source.",
+          "recomputed_counts": {
+            "artifact_hashes": 31,
+            "input_hashes": 28
+          }
+        },
+        {
+          "id": "R51.41",
+          "statement": "Self-contained delivery references and replay locations",
+          "prover_status": "Delivery metadata",
+          "verdict": "CORRECT_WITH_FIXES",
+          "reason": "The summary links point into the external producer session. Report line 9 and manifest paths still describe the producer scratch layout; the delivered artifacts are in data/. These are correctable delivery defects, with no missing mathematical certificate.",
+          "recomputed_counts": {
+            "external_summary_links": 2,
+            "artifact_hashes_matched_under_export_mapping": 31
+          }
+        },
+        {
+          "id": "R51.O1",
+          "statement": "Rank-1 forcing on the complete weighted residual",
+          "prover_status": "OPEN",
+          "verdict": "UNVERIFIED",
+          "reason": "No proof forces availability of any of the new source hypotheses or another exit on every remaining capped graph. Correctly labelled OPEN.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.O2",
+          "statement": "Rank-2 dense-contact escape on the whole remainder",
+          "prover_status": "OPEN",
+          "verdict": "UNVERIFIED",
+          "reason": "The clique barrier limits one specified family. A universally available exchange or cap-sensitive P13 argument is not supplied. Correctly labelled OPEN.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.O3",
+          "statement": "Rank-3 availability of the other accepted STAR exits",
+          "prover_status": "OPEN",
+          "verdict": "UNVERIFIED",
+          "reason": "Accepted sufficient criteria remain sufficient only; their universal availability is not proved. Correctly labelled OPEN.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.O4",
+          "statement": "Full TF-STAR-PRODUCTION6 and unconditional REAL-133",
+          "prover_status": "OPEN / explicitly not established",
+          "verdict": "UNVERIFIED",
+          "reason": "The report proves only its three explicit source subclasses and does not claim a capped counterexample or a full conjecture proof.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.O5",
+          "statement": "Other universal TF GEN6/EB6, T6, GEN_K/HYBRID and RAD gates",
+          "prover_status": "OPEN",
+          "verdict": "UNVERIFIED",
+          "reason": "The accepted context and this report leave the universal assembly antecedents unresolved.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.H1",
+          "statement": "Original execution, authorship, search, and no-external-action history",
+          "prover_status": "Historical provenance",
+          "verdict": "UNVERIFIED",
+          "reason": "Static artifacts cannot independently establish original-session execution or authorship history. None is needed as a mathematical premise.",
+          "recomputed_counts": {}
+        }
+      ],
+      "limitations": "['Full TF-STAR-PRODUCTION6 and REAL-133 remain unproved as acknowledged.', 'No exact longest induced-path order of a large graph is asserted or inferred.', 'No TF-model irreducibility is asserted for "
+    },
+    {
+      "session": "r51_t6_univ",
+      "prover_dir": "astra_r51/r51_t6_univ",
+      "referee_dir": "astra_r51v/v_r51_t6_univ",
+      "prover_session_id": "01a18e8c-e658-7aa3-9968-48b2e10776f0",
+      "referee_session_id": "01a18ed7-de00-7390-9b24-5537160f5a17",
+      "verdict_file": "astra_r51v/v_r51_t6_univ/scratch/verdict.json",
+      "verdict_sha256": "43a363ca628c59572fd24f3cbc20d51b3a9fefefe4d40a744ed7f1e27fbdb62b",
+      "referee_overall": "CORRECT_WITH_FIXES",
+      "required_fixes": "['Replace all three summary links to producer-session absolute locations with self-contained package links (PROOF_REPORT.md and ../data/r51_manifest.json as appropriate).', 'Rewrite all 33 report links for the supplied layout: ../ctx/... for accepted background and ../data/<filename> for certificates.', 'Correct report line 250 and current-delivery assertions in r51_delivery_check.json/r51_manifest.json, or explicitly label original-session locations and checks historical. Keep report copies identical and refresh affected hashes after editing.']",
+      "claim_breakdown": {
+        "CORRECT": 48,
+        "CORRECT_WITH_FIXES": 1,
+        "UNVERIFIED": 5
+      },
+      "claims": [
+        {
+          "id": "R51.C01",
+          "statement": "Conventional surplus, strong C4-freeness and induced-model conventions",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Common-neighbor and triangle-edge facts are valid; deletion telescoping uses -3T and produces proper positive induced models.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C02",
+          "statement": "Canonical cores, nontriangular boundaries and low-component setup",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "A triangular neighbor lies in the same G[Z] component. All core-boundary vertices are in the stipulated actual low set.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C03",
+          "statement": "Accepted dependencies, their CWF qualifications and parent hashes",
+          "prover_status": "Relative to accepted ctx",
+          "verdict": "CORRECT",
+          "reason": "Applications fit the accepted R50/R46/R28 scopes. Sister corrections are retained and are unused in the new proof.",
+          "recomputed_counts": {
+            "context_hashes": 29
+          }
+        },
+        {
+          "id": "R51.C04",
+          "statement": "Cactus/bridge block identification and t=p+sum ell_i",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Accepted block identification applies; triangle nodes cannot lie on two cactus cycles because their incidence degree is three.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C05",
+          "statement": "Local necklace route bounds and four route-order formulas",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Rim arcs omit the unused ear neighbor. Closed-neighborhood exceptions and the ell=6 antipode give the claimed bounds.",
+          "recomputed_counts": {
+            "anchors": 910,
+            "local_routes": 37700,
+            "max_short4": 5,
+            "max_short5_for_ell_ge_6": 6
+          }
+        },
+        {
+          "id": "R51.C06",
+          "statement": "Disjoint P8 root supply, equation (2)",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Block-cut attachments exclude shared roots from farther blocks; concatenation gives 4+5-1=8.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C07",
+          "statement": "Disjoint P10 root supply, equation (3)",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The same disjointness argument gives 5+6-1=10, including bridges and off-cycle triangle blocks.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C08",
+          "statement": "Off-cycle charge conditions supply at least t long roots",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Subtracting t from the two root-supply bounds gives exactly sum(ell_i-5)-p and sum(ell_i-6)-p.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C09",
+          "statement": "Linear triples with a>6k have an induced incidence P13",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Peeling leaves minimum degree seven. At i<=5, 2(8-i)>i-1 ensures an induced extension; two final distinct edge nodes complete P13.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C10",
+          "statement": "Low singleton and cyclic-component cheap exits",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Their exact margins are 2d-6 and sum(2d-6)-2e(C), giving the stated nonpositive bounds without criticality assumptions.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C11",
+          "statement": "Whole-core unit-demand accounting, equations (5)-(6)",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "All attached actual low components are included, core cross edges are counted correctly, and unattached components remain in E.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C12",
+          "statement": "Root surplus charge A>6k, equations (7)-(8)",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Positive E components are outputs; otherwise isolated vertices contribute -6 each. The bound n-A<=3(u-g) yields the exact source charge.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C13",
+          "statement": "Nonisolated-exterior induced P13 concatenation",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The shortest route avoids every nonisolated E vertex until its last vertex. Global nontriangularity forbids its final possible chord yw.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C14",
+          "statement": "Isolated-exterior representatives form an induced linear triple system",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "A nonattachment tree leaf has exactly three isolated neighbors. Different actual R-components are anticomplete; strong C4-freeness implies linearity.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C15",
+          "statement": "LONG-ROOT MASS PRODUCER6",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The cheap, positive induced-component, nonisolated-path and isolated-triple alternatives exhaust the source under its explicit root hypothesis.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C16",
+          "statement": "C6-PROD structural headline and leafless necklace subclasses",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The unconditional geometric root supply satisfies the intermediate producer hypothesis. Exterior degrees and return-incidence structure are unrestricted beyond the explicit boundary bound.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C17",
+          "statement": "WEAK-EXTERIOR CACTUS6 and the pentagonal subclass",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "If W is not cheap a good unit parent exists. Port deletion leaves intrinsic b>=2 and rooted P4; 8+1+4=13. Empty H forces the cheap exit.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C18",
+          "statement": "Finite local and block geometry counts",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Every supplied route is checked and independently rederived by induced-path search; incidence cactus and bridge hypotheses are checked.",
+          "recomputed_counts": {
+            "anchors": 910,
+            "local_routes": 37700,
+            "block_trees": 128,
+            "root_paths": 4367,
+            "maximum_order": 104,
+            "minimum_root_credit": 0
+          }
+        },
+        {
+          "id": "R51.C19",
+          "statement": "Strong-C4-free atlas domain and exact deletion-identity counts",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Complete independent vertex extension and exact isomorphism rejection reproduce the atlas domain. All nonempty subsets are checked at K=6,7,8.",
+          "recomputed_counts": {
+            "types": 194,
+            "counts_by_order": [
+              1,
+              2,
+              4,
+              8,
+              18,
+              44,
+              117
+            ],
+            "deletion_identities": 55032
+          }
+        },
+        {
+          "id": "R51.C20",
+          "statement": "Frozen conditional core-price subset audits",
+          "prover_status": "COMPUTED, conditional",
+          "verdict": "CORRECT",
+          "reason": "The optimized low-component deletion objective is derived from actual margins. Independent subset DP verifies every subset and every histogram bin; this does not establish full criticality.",
+          "recomputed_counts": {
+            "subset_counts": [
+              2097151,
+              33554431
+            ],
+            "minima": [
+              1,
+              1
+            ],
+            "histograms_match": true,
+            "complete_histograms": [
+              {
+                "template": "r51_pairs_5_6.json",
+                "subsets": 2097151,
+                "minimum": 1,
+                "minimum_mask": 32,
+                "histogram": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  57,
+                  369,
+                  1525,
+                  4514,
+                  11704,
+                  22896,
+                  45679,
+                  67205,
+                  109829,
+                  128484,
+                  174351,
+                  172802,
+                  203589,
+                  181205,
+                  204398,
+                  157540,
+                  186509,
+                  110811,
+                  136818,
+                  57446,
+                  71017,
+                  19201,
+                  21905,
+                  3824,
+                  2911,
+                  410,
+                  140,
+                  12,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "template": "r51_pairs_6_7.json",
+                "subsets": 33554431,
+                "minimum": 1,
+                "minimum_mask": 64,
+                "histogram": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  29,
+                  277,
+                  1506,
+                  5670,
+                  16731,
+                  41812,
+                  92227,
+                  183241,
+                  333189,
+                  556160,
+                  865675,
+                  1236673,
+                  1691475,
+                  2084609,
+                  2558877,
+                  2740237,
+                  3117261,
+                  2919283,
+                  3215761,
+                  2583178,
+                  2824889,
+                  1823103,
+                  1965726,
+                  931237,
+                  973973,
+                  313489,
+                  321108,
+                  66461,
+                  70197,
+                  8812,
+                  9778,
+                  848,
+                  832,
+                  71,
+                  30,
+                  6,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "R51.C21",
+          "statement": "6-regular base, separated ports and deletion connectivity",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "The base matches accepted context edge-for-edge, is TF and strongly C4-free; ports have distance at least three. Both switching edges can be deleted with required connectivity.",
+          "recomputed_counts": {
+            "n": 4030,
+            "e": 12090,
+            "degree": 6,
+            "ports": 129,
+            "minimum_port_distance": 3
+          }
+        },
+        {
+          "id": "R51.C22",
+          "statement": "Unbounded A/B constructions are strongly C4-free and 2-connected",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Two-terminal base switches preserve a 2-connected body. Private ports permit adding low vertices and then core vertices. Port separation and distinct parents exclude short cycles. Independent reconstruction matches every supplied edge.",
+          "recomputed_counts": {
+            "supplied_sources_reconstructed": 6,
+            "extra_r7_sources": 2
+          }
+        },
+        {
+          "id": "R51.C23",
+          "statement": "B-family parameters, surplus and return counts",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "u=24r+1, m=(39r-13)/2, n=33r+16 yield the reported source formulas, h=33r+13, beta=33r-3 and Euler excess 9r+12.",
+          "recomputed_counts": {
+            "orders_r1_3_5": [
+              8160,
+              24472,
+              40784
+            ],
+            "epsilon6": [
+              1,
+              1,
+              1
+            ],
+            "J_e_minus_v": [
+              21,
+              39,
+              57
+            ],
+            "source_parameters": [
+              {
+                "n": 8160,
+                "e": 24500,
+                "T": 13,
+                "epsilon6": 1,
+                "delta": 4,
+                "Delta": 25
+              },
+              {
+                "n": 24472,
+                "e": 73475,
+                "T": 39,
+                "epsilon6": 1,
+                "delta": 4,
+                "Delta": 59
+              },
+              {
+                "n": 40784,
+                "e": 122450,
+                "T": 65,
+                "epsilon6": 1,
+                "delta": 4,
+                "Delta": 93
+              }
+            ]
+          }
+        },
+        {
+          "id": "R51.C24",
+          "statement": "B-family exact fixed-core price 105r+13 and optimum -12",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "All multi components are forced and at most one unit survives per return clique. A constructed TF strong-C4-free quotient attains the matching lower bound.",
+          "recomputed_counts": {
+            "repair_prices": [
+              118,
+              328,
+              538
+            ],
+            "core_credits": [
+              105,
+              315,
+              525
+            ],
+            "optima": [
+              -12,
+              -12,
+              -12
+            ],
+            "attaining_model_hashes": {
+              "R51_B_r1": "e5ba30d297cd65bf8f29b0279f55cad985ddc844bad0f321752bb42b706cb2ea",
+              "R51_B_r3": "50be7deb931560a1617d437d1e801127c47d516cac5afec5d2267add4eefe830",
+              "R51_B_r5": "524de4569ba041d0e891a23b0fd8afd8f56306486bd247f44481350adc6ef94a"
+            }
+          }
+        },
+        {
+          "id": "R51.C25",
+          "statement": "A/B sources are singleton-critical, without a full criticality claim",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Every vertex has singleton margin at least one and source surplus is one, including actual exterior degrees after star deletion.",
+          "recomputed_counts": {
+            "sources": 6,
+            "minimum_singleton_margins": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "R51.C26",
+          "statement": "Affine template, parallel classes and backbone connectivity",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Independent F3^4 enumeration reproduces all normalized directions and selected lines. Triple linearity, disjoint parent triples and both backbone connectivity conditions pass.",
+          "recomputed_counts": {
+            "points": 81,
+            "parallel_classes": 40,
+            "all_lines": 1080,
+            "selected_lines": 927
+          }
+        },
+        {
+          "id": "R51.C27",
+          "statement": "Unbounded isolated-exterior family construction",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Every supplied source edge is rebuilt from affine lines and switches. Switching preserves linearity and parent disjointness; the 2-connected-backbone argument extends to all r.",
+          "recomputed_counts": {
+            "certified_instances": 3,
+            "strong_C4_free": true,
+            "two_connected": true
+          }
+        },
+        {
+          "id": "R51.C28",
+          "statement": "Isolated-family parameters, exact source charges and good-root mass",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "u=308r+1, low=924r+3 and exterior=81r give all formulas. Exactly six good parents per hexagon yield A=504r.",
+          "recomputed_counts": {
+            "orders": [
+              1317,
+              2630,
+              3943
+            ],
+            "epsilon6": [
+              18,
+              36,
+              54
+            ],
+            "whole_margins": [
+              504,
+              1008,
+              1512
+            ],
+            "exterior_surpluses": [
+              -486,
+              -972,
+              -1458
+            ],
+            "good_parents": [
+              168,
+              336,
+              504
+            ],
+            "good_units": [
+              504,
+              1008,
+              1512
+            ],
+            "complete_audits": [
+              {
+                "n": 1317,
+                "e": 4212,
+                "T": 168,
+                "epsilon6": 18,
+                "isolated_exterior": 81,
+                "good_parents": 168,
+                "good_units": 504,
+                "whole_deletion_margin": 504,
+                "exterior_surplus": -486,
+                "h": 2700,
+                "J_e_minus_v": 2391,
+                "minimum_whole_component_repair": 1800,
+                "fixed_family_maximum": -438
+              },
+              {
+                "n": 2630,
+                "e": 8412,
+                "T": 336,
+                "epsilon6": 36,
+                "isolated_exterior": 162,
+                "good_parents": 336,
+                "good_units": 1008,
+                "whole_deletion_margin": 1008,
+                "exterior_surplus": -972,
+                "h": 5391,
+                "J_e_minus_v": 4774,
+                "minimum_whole_component_repair": 3594,
+                "fixed_family_maximum": -870
+              },
+              {
+                "n": 3943,
+                "e": 12612,
+                "T": 504,
+                "epsilon6": 54,
+                "isolated_exterior": 243,
+                "good_parents": 504,
+                "good_units": 1512,
+                "whole_deletion_margin": 1512,
+                "exterior_surplus": -1458,
+                "h": 8082,
+                "J_e_minus_v": 7157,
+                "minimum_whole_component_repair": 5388,
+                "fixed_family_maximum": -1302
+              }
+            ]
+          }
+        },
+        {
+          "id": "R51.C29",
+          "statement": "Isolated-family core longest induced-path order is exactly eleven",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "One necklace gives at most seven; a path through the common rim vertex uses at most two blocks with rooted lengths at most six. Two such paths attain eleven.",
+          "recomputed_counts": {
+            "core_p": 11
+          }
+        },
+        {
+          "id": "R51.C30",
+          "statement": "Isolated-family exact fixed-core repair minimum and maximum surplus",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Disjoint triples allow at most 27r retained units. The untouched parallel class attains that bound and the quotient is directly checked.",
+          "recomputed_counts": {
+            "prices": [
+              1800,
+              3594,
+              5388
+            ],
+            "maximum_surpluses": [
+              -438,
+              -870,
+              -1302
+            ]
+          }
+        },
+        {
+          "id": "R51.C31",
+          "statement": "Minimum-seven and nontrivial-peeling hypergraph certificates",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Each peeling step is necessary-condition checked, remaining sets and degrees are recomputed, and both supplied and fresh P13 witnesses are verified.",
+          "recomputed_counts": {
+            "cases": 2,
+            "minimum_degrees": [
+              7,
+              14
+            ],
+            "peeling_steps": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "id": "R51.C32",
+          "statement": "Three-vertex unit variant and far-leaf representative",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Actual graph is strongly C4-free and 2-connected. The three-vertex unit has the claimed nonattachment leaf with exactly three isolated-exterior neighbors.",
+          "recomputed_counts": {
+            "n": 1319,
+            "e": 4218,
+            "T": 168,
+            "epsilon6": 18,
+            "unit_order": 3,
+            "representative": 1318
+          }
+        },
+        {
+          "id": "R51.C33",
+          "statement": "Frozen primary producer outputs and eleven positive fixture outputs",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "All seven frozen P13s verify. Independent code finds ten P13s and the one cheap set across all eleven supplied positive sources.",
+          "recomputed_counts": {
+            "frozen_outputs": 7,
+            "positive_inputs": 11,
+            "fresh_outputs": 11,
+            "fresh_witnesses": [
+              {
+                "input": "r51_fixture_A_r1.json.gz",
+                "type": "induced_path",
+                "order": 13,
+                "path": [
+                  19,
+                  13,
+                  12,
+                  11,
+                  10,
+                  0,
+                  1,
+                  2,
+                  29,
+                  84,
+                  131,
+                  100,
+                  115
+                ],
+                "independently_found_long_roots": 12
+              },
+              {
+                "input": "r51_fixture_A_r3.json.gz",
+                "type": "induced_path",
+                "order": 13,
+                "path": [
+                  19,
+                  13,
+                  12,
+                  11,
+                  10,
+                  0,
+                  1,
+                  2,
+                  69,
+                  244,
+                  291,
+                  260,
+                  275
+                ],
+                "independently_found_long_roots": 36
+              },
+              {
+                "input": "r51_fixture_A_r5.json.gz",
+                "type": "induced_path",
+                "order": 13,
+                "path": [
+                  19,
+                  13,
+                  12,
+                  11,
+                  10,
+                  0,
+                  1,
+                  2,
+                  109,
+                  404,
+                  451,
+                  420,
+                  435
+                ],
+                "independently_found_long_roots": 60
+              },
+              {
+                "input": "r51_fixture_B_r1.json.gz",
+                "type": "induced_path",
+                "order": 13,
+                "path": [
+                  16,
+                  15,
+                  14,
+                  13,
+                  12,
+                  0,
+                  5,
+                  4,
+                  3,
+                  2,
+                  32,
+                  627,
+                  597
+                ],
+                "independently_found_long_roots": 16
+              },
+              {
+                "input": "r51_fixture_B_r3.json.gz",
+                "type": "induced_path",
+                "order": 13,
+                "path": [
+                  16,
+                  15,
+                  14,
+                  13,
+                  12,
+                  0,
+                  5,
+                  4,
+                  3,
+                  2,
+                  80,
+                  819,
+                  789
+                ],
+                "independently_found_long_roots": 48
+              },
+              {
+                "input": "r51_fixture_B_r5.json.gz",
+                "type": "induced_path",
+                "order": 13,
+                "path": [
+                  16,
+                  15,
+                  14,
+                  13,
+                  12,
+                  0,
+                  5,
+                  4,
+                  3,
+                  2,
+                  128,
+                  1011,
+                  981
+                ],
+                "independently_found_long_roots": 80
+              },
+              {
+                "input": "r51_isolated_r1.json.gz",
+                "type": "induced_path",
+                "order": 13,
+                "path": [
+                  471,
+                  1236,
+                  336,
+                  1239,
+                  365,
+                  1238,
+                  338,
+                  1241,
+                  364,
+                  1237,
+                  337,
+                  1240,
+                  421
+                ],
+                "independently_found_long_roots": 168
+              },
+              {
+                "input": "r51_isolated_r2.json.gz",
+                "type": "induced_path",
+                "order": 13,
+                "path": [
+                  779,
+                  2468,
+                  644,
+                  2471,
+                  673,
+                  2470,
+                  646,
+                  2473,
+                  672,
+                  2469,
+                  645,
+                  2472,
+                  729
+                ],
+                "independently_found_long_roots": 336
+              },
+              {
+                "input": "r51_isolated_r3.json.gz",
+                "type": "induced_path",
+                "order": 13,
+                "path": [
+                  1087,
+                  3700,
+                  952,
+                  3703,
+                  981,
+                  3702,
+                  954,
+                  3705,
+                  980,
+                  3701,
+                  953,
+                  3704,
+                  1037
+                ],
+                "independently_found_long_roots": 504
+              },
+              {
+                "input": "r51_nontrivial_unit.json.gz",
+                "type": "induced_path",
+                "order": 13,
+                "path": [
+                  471,
+                  1236,
+                  336,
+                  1239,
+                  365,
+                  1238,
+                  338,
+                  1241,
+                  364,
+                  1237,
+                  337,
+                  1240,
+                  421
+                ],
+                "independently_found_long_roots": 168
+              },
+              {
+                "input": "r51_cheap_fixture.json.gz",
+                "type": "cheap_set",
+                "margin": -1,
+                "output_surplus": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "R51.C34",
+          "statement": "A-family source parameters, exterior minimum and fixed-core optimum -6",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "u=20r+1, m=(33r-7)/2 and n=27r+10 give the formulas. Price 87r+7 exceeds credit 87r by seven; source surplus one gives optimum -6.",
+          "recomputed_counts": {
+            "orders": [
+              4114,
+              12334,
+              20554
+            ],
+            "J_e_minus_v": [
+              13,
+              27,
+              41
+            ],
+            "prices": [
+              94,
+              268,
+              442
+            ],
+            "optima": [
+              -6,
+              -6,
+              -6
+            ],
+            "minimum_intrinsic_b": 3,
+            "source_parameters": [
+              {
+                "n": 4114,
+                "e": 12359,
+                "T": 11,
+                "epsilon6": 1,
+                "delta": 4,
+                "Delta": 21
+              },
+              {
+                "n": 12334,
+                "e": 37052,
+                "T": 33,
+                "epsilon6": 1,
+                "delta": 4,
+                "Delta": 49
+              },
+              {
+                "n": 20554,
+                "e": 61745,
+                "T": 55,
+                "epsilon6": 1,
+                "delta": 4,
+                "Delta": 77
+              }
+            ],
+            "attaining_model_hashes": {
+              "R51_A_r1": "323360043c3005ecee90eaa02f7aab4952a71b4f165f3100392f66fb2413bc18",
+              "R51_A_r3": "963a235294ec367b0aeebced6758af543351edd0e3b4e1d8878783f064d1737a",
+              "R51_A_r5": "518679db685dc15f3ee00cab6cffe212e8338110a01dd695fb3458c28a7b32b9"
+            }
+          }
+        },
+        {
+          "id": "R51.C35",
+          "statement": "Positive cheap fixture margin -1 and retained surplus two",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Source, actual deletion set and retained induced graph are checked directly.",
+          "recomputed_counts": {
+            "n": 4114,
+            "e": 12359,
+            "T": 11,
+            "epsilon6": 1,
+            "margin": -1,
+            "output_order": 4030,
+            "output_surplus": 2
+          }
+        },
+        {
+          "id": "R51.C36",
+          "statement": "A/B fail the six specified R50 predicates and named older repair cells",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Connected N0 defeats TRACE/CLOSURE; a size-six matching defeats COVER; min b defeats EVEN. Unit counts and exterior minima defeat BULK/NECKLACE. Return clique and Euler/weighted obstructions match their exact named scopes.",
+          "recomputed_counts": {
+            "sources": 6,
+            "N0_connected": true,
+            "matching_lower_bound_tau": 6,
+            "A_h": [
+              34,
+              88,
+              142
+            ],
+            "A_beta": [
+              24,
+              78,
+              132
+            ],
+            "B_h": [
+              46,
+              112,
+              178
+            ],
+            "B_beta": [
+              30,
+              96,
+              162
+            ]
+          }
+        },
+        {
+          "id": "R51.C37",
+          "statement": "Preserved controls, inherited paths and conventional surplus labels",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "All encodings agree with accepted R50 and the inherited R47 paths. Every ordinary C4 and supplied path is checked in the original graph.",
+          "recomputed_counts": {
+            "controls": 62,
+            "inherited_paths": 41,
+            "A40_epsilon6": -4,
+            "A157_epsilon6": 2,
+            "ORTH133_epsilon6": 126
+          }
+        },
+        {
+          "id": "R51.C38",
+          "statement": "Negative root-deficit controls",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Exhaustive rooted path enumeration verifies every maximum witness and exact root count. They limit the root-count inference, not positive production.",
+          "recomputed_counts": {
+            "root_counts": [
+              10,
+              12
+            ],
+            "triangle_counts": [
+              11,
+              13
+            ],
+            "epsilon6": [
+              -93,
+              -111
+            ],
+            "exact_p": [
+              9,
+              11
+            ]
+          }
+        },
+        {
+          "id": "R51.C39",
+          "statement": "Capped all-model-irreducible six-level consequence",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Each output either violates p<=12 or supplies a positive proper admissible induced model; deletions preserve the cap and need not be TF.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C40",
+          "statement": "General-K accounting inequality (10)",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "With r=floor(K/2), q<=r and actual cutoff r+1, the accounting gives F_K(W)<=3t-(K-r)u+n and then <=(3-r)t-(K-2r)u<=0 in the no-good-parent case.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C41",
+          "statement": "Weak-exterior parameter transfer to K>=6",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The retained assumptions s>=3 and s>=2K-9 give a path of order 8+1+(s+1)>=2K+1. Positivity is epsilon_K, not epsilon6.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C42",
+          "statement": "Separate exterior-free K=7 extension",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "F7(W)<=A-u, isolated points cost seven, and the degree-eight triple argument reaches seven point vertices and then P15. Core roots have order twelve.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C43",
+          "statement": "Stated limitation of the direct triple argument at K>=8",
+          "prover_status": "PROVED scope limitation",
+          "verdict": "CORRECT",
+          "reason": "The greedy threshold is floor(3K/2)-2, greater than K at K>=8. This is only a limitation of that coefficient argument; no impossibility theorem is asserted.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C44",
+          "statement": "Conditional assembly scope",
+          "prover_status": "PROVED relative to accepted ctx",
+          "verdict": "CORRECT",
+          "reason": "New induced-model/path exits insert into the triangular obligation. Other universal gates are not promoted from their accepted partial scopes.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C45",
+          "statement": "Exact relative residual R51, equation (11), and its structural reading",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "It is exactly the complement of the two existential canonical-core exits inside corrected R50. Nonemptiness is not asserted; the listed unforced cases remain outside this proof.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C46",
+          "statement": "Examples are not positive capped counterexamples or irreducibility certificates",
+          "prover_status": "Scope statement",
+          "verdict": "CORRECT",
+          "reason": "Positive examples have verified P13s. Root-deficit examples have negative surplus. Full induced criticality and arbitrary-model irreducibility are expressly not inferred.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C47",
+          "statement": "Supplied main replays import no producer and invoke no solver",
+          "prover_status": "Implementation description",
+          "verdict": "CORRECT",
+          "reason": "Static AST imports are standard modules/NetworkX, with the hypergraph replay importing the supplied checker; neither imports a producer or solver or uses dynamic import/eval. Our checking did not execute these scripts.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C48",
+          "statement": "Manifest content integrity and duplicate report equality",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Every manifested artifact/context hash and byte count matches and no extra unmanifested certificate is present.",
+          "recomputed_counts": {
+            "artifacts": 44,
+            "context": 29,
+            "report_copies_equal": true,
+            "hash_mismatches": 0
+          }
+        },
+        {
+          "id": "R51.C49",
+          "statement": "Summary/report links and current data/scratch delivery statements",
+          "prover_status": "Delivery metadata",
+          "verdict": "CORRECT_WITH_FIXES",
+          "reason": "The summary points outside the self-contained package. All 33 report links fail relative to claim/. data does not resolve to this referee scratch. Rewrite links and current-location assertions, or label historical provenance explicitly.",
+          "recomputed_counts": {
+            "report_links": 33,
+            "broken_relative_report_links": 33,
+            "summary_external_links": 3,
+            "data_resolves_to_scratch": false
+          }
+        },
+        {
+          "id": "R51.C50",
+          "statement": "Original replay execution, optional search and external-operation history",
+          "prover_status": "Historical assertions",
+          "verdict": "UNVERIFIED",
+          "reason": "Static artifacts and logs cannot independently establish which commands ran or which external operations did not occur. All mathematical outputs are independently verified here.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C51",
+          "statement": "Full universal T6 / TRI-GEN6 / target U-T6",
+          "prover_status": "Explicitly open",
+          "verdict": "UNVERIFIED",
+          "reason": "The proof covers only its named cactus/root/exterior classes and does not force their hypotheses on all residual inputs.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C52",
+          "statement": "Emptiness of the residual R51",
+          "prover_status": "Explicitly open",
+          "verdict": "UNVERIFIED",
+          "reason": "Equation (11) defines a relative complement and supplies no proof that it is empty.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C53",
+          "statement": "Universal EB6 or unrestricted TF GEN6, GEN/HYBRID, and RAD gates",
+          "prover_status": "Explicitly open",
+          "verdict": "UNVERIFIED",
+          "reason": "Only their accepted partial contexts are referenced; no new universal proof of these independent gates is supplied.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.C54",
+          "statement": "Unconditional REAL-133",
+          "prover_status": "Explicitly open",
+          "verdict": "UNVERIFIED",
+          "reason": "Required universal assembly antecedents remain unproved. No positive capped counterexample is supplied either.",
+          "recomputed_counts": {}
+        }
+      ],
+      "limitations": null
+    },
+    {
+      "session": "r51_genk_prod",
+      "prover_dir": "astra_r51/r51_genk_prod",
+      "referee_dir": "astra_r51v/v_r51_genk_prod",
+      "prover_session_id": "01a18e8c-ee29-77f3-a805-c44b9ab49b0a",
+      "referee_session_id": "01a18ed7-e206-78a2-8eea-0c5032ae550a",
+      "verdict_file": "astra_r51v/v_r51_genk_prod/scratch/verdict.json",
+      "verdict_sha256": "0283e22cd5acd0653324b8b4ca19682f4fdcba81dc282d3666fcff9486129452",
+      "referee_overall": "CORRECT_WITH_FIXES",
+      "required_fixes": "['In claim/PROOF_REPORT.md line 364, replace the assertion that the last stress examples force the second/third construction by the precise assertion that they exercise these constructions. ROOT_CLOSURE_THIRD admits the second-case induced path [11,3,44,8,52,10] as well as a third-case path; alternatively specify a deterministic selection rule and qualify the statement to that rule.', 'At claim/PROOF_REPORT.md line 368, specify that WIDE_BOOK16 refutes the rooted-P7 extension to the full ROOTED-SIX minimum-degree domain. Its chosen root has center degree four; it is not a counterexample with root degree exactly two and only the nonroot cubic condition removed.', 'Update claim-summary/report links and manifest storage descriptions for the delivered claim/, data/, ctx/ layout. data is not a scratch alias here. Point certificate/script links to ../data/<basename>, background links to ../ctx/<path>, and the summary report link to PROOF_REPORT.md. Do not assert that all artifacts are in scratch or that the former external report-copy path is part of this delivery.']",
+      "claim_breakdown": {
+        "CORRECT": 14,
+        "CORRECT_WITH_FIXES": 3,
+        "UNVERIFIED": 3
+      },
+      "claims": [
+        {
+          "id": "R51.E00",
+          "statement": "ROOTED-CLOSURE6: no rooted P6 forces the exact bipartition root-plus-contact-neighbors versus its complement; one degree-(d-1) root and every other degree d>=3 contradict its degree sums. Thus every unshielded bridge of a regular complete two-center component produces P13 with arbitrary internal original contacts.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Checked every displayed path and all possible chords in ROOTED-CLOSURE6. Strong C4-freeness makes root-plus-contact-neighbors A-independent; the other part is independent by the two stated path cases. The regular degree sums differ by one modulo d. Applying this on the two bridge sides gives an induced P13 with no cross chords.",
+          "recomputed_counts": {
+            "small_C4_free_contact_cases": 26974,
+            "small_no_rooted_P6_cases_with_verified_bipartition": 20
+          }
+        },
+        {
+          "id": "R51.E01",
+          "statement": "ROOTED-SIX, all finite simple connected center graphs with root degree at least two, other degrees at least three, and at most one root contact.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The thin-root hypothesis permits v not R-adjacent to a; the degree lower bounds permit w outside {a,u,v}. The three original path vertices have no R-edge. No C4 assumption is required for this elementary lemma.",
+          "recomputed_counts": {
+            "small_thin_root_contact_cases": 42481
+          }
+        },
+        {
+          "id": "R51.E02",
+          "statement": "Every unshielded thin bridge in complete two-center geometry of minimum center arity at least three produces induced P13, at arbitrary ambient order.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "After deleting the bridge, both roots have A-degree at least two and all other vertices have degree at least three. Thinness supplies ROOTED-SIX. Exact boundary frequency, independent boundary and no crossing R-edge exclude every cross chord.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.E03",
+          "statement": "Universal positive proper TF-model production on the entire bridge-local cubic-center class at cap twelve, with arbitrary internal contact degrees; uncapped universal positive-model-or-P13 alternative.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The path alternative excludes all cubic bridges under cap twelve. Each odd component in the Tutte test sends at least three edges to the removed set; a perfect matching follows componentwise. Its complementary boundary deletion has size 2b/3 and actual six-margin at most 4b/3 <= 4m. R45 safety and the exact identity apply in both stated source domains; the contracted bag is nontrivial.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.E04",
+          "statement": "At cap twelve every bridge of every regular center component of arity at least three must be crossed by an original center contact. In nonregular minimum-arity-three components the additional thin-endpoint obstruction holds.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Contrapositives of the independently checked bridge P13 lemmas. No positivity, criticality, capacity or source degree ceiling is needed.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.E05",
+          "statement": "ROOTED-SEVEN for one degree-two root, every other center cubic, and matching contacts; includes its forced five-center exception.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Both root-contact cases and the forced five-center exception were checked. All vertices and edge-vertices are distinct and all forbidden chords are excluded by matching of R and E(A) disjoint from R. Independent exhaustive attacks on all labeled root-degree-two/almost-cubic graphs of orders five and seven found no counterexample.",
+          "recomputed_counts": {
+            "labeled_almost_cubic_center_graphs": 816,
+            "matching_contact_cases": 49896
+          }
+        },
+        {
+          "id": "R51.E06",
+          "statement": "Matching-contact unshielded cubic center bridges produce induced P15.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Each bridge side satisfies ROOTED-SEVEN; concatenation through the unique bridge edge-vertex gives 7+1+7 vertices. Locality excludes all crossing contacts.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.E07",
+          "statement": "Native K=7 positive TF-model production at cap fourteen on the stated matching bridge-local cubic-center class, with gain at least 3m+gamma.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "At cap fourteen the matching-contact bridge P15 excludes every bridge. Actual boundary prices are 2d-7 <= 1, so F7(Y) <= 2b/3 <= 2m. The K=7 identity therefore gives epsilon7(J) >= epsilon7(G)+gamma+3m.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.E08",
+          "statement": "Unbounded positive fully induced-critical partial-star family: n=56+156t, e=169+468t, epsilon6=2, seven active unselected root neighbors, every root edge pentagonal.",
+          "prover_status": "PROVED computer-assisted at one fixed core; PROVED for all t>=65",
+          "verdict": "CORRECT",
+          "reason": "Independently rebuilt the core and both complete delivered family graphs. All source edge sets, strong C4-freeness, triangle counts, degrees, low forest and root pentagons agree. The uniform base argument is sound: offset differences are distinct; differences 1 and 2 give connectivity; connected even-regular bases have proper nonempty cuts of size at least two. The checked core deletion margin proves full positive induced criticality for every t>=65. Private attachment bridges show rho=0 and provide other model exits; no irreducibility is inferred.",
+          "recomputed_counts": {
+            "family_instances": [
+              {
+                "t": 65,
+                "source": {
+                  "n": 10196,
+                  "e": 30589,
+                  "T": 0,
+                  "K": 6,
+                  "epsilon": 2
+                },
+                "output": {
+                  "n": 10171,
+                  "e": 30513,
+                  "T": 0,
+                  "K": 6,
+                  "epsilon": 0
+                },
+                "min_degree": 4,
+                "max_degree": 15,
+                "low_vertices": 39,
+                "low_edges": 24,
+                "active": 24,
+                "inactive": 7,
+                "matching_number": 7,
+                "star_optimum": 0
+              },
+              {
+                "t": 66,
+                "source": {
+                  "n": 10352,
+                  "e": 31057,
+                  "T": 0,
+                  "K": 6,
+                  "epsilon": 2
+                },
+                "output": {
+                  "n": 10327,
+                  "e": 30981,
+                  "T": 0,
+                  "K": 6,
+                  "epsilon": 0
+                },
+                "min_degree": 4,
+                "max_degree": 15,
+                "low_vertices": 39,
+                "low_edges": 24,
+                "active": 24,
+                "inactive": 7,
+                "matching_number": 7,
+                "star_optimum": 0
+              }
+            ],
+            "core_vertices": 56,
+            "core_edges": 91,
+            "private_base_copies": 78,
+            "root_edge_pentagons": 15,
+            "rho": 0
+          }
+        },
+        {
+          "id": "R51.E09",
+          "statement": "All 65,535 nonempty center subsets have exact minimum core half-margin at least one after minimizing every tree subset.",
+          "prover_status": "PROVED computer-assisted",
+          "verdict": "CORRECT",
+          "reason": "A separately implemented generic min-sum dynamic program on the entire 40-vertex tree, conditioned on all 65535 nonempty center masks, reproduces every delivered margin entry and the full histogram. Both states of every tree vertex are minimized without connectivity assumptions or symmetry breaking. For an empty center mask every nonempty tree subset has its component count plus eleven if it contains the root.",
+          "recomputed_counts": {
+            "n": 56,
+            "e": 91,
+            "tree_order": 40,
+            "base_copies": 78,
+            "center_subsets": 65535,
+            "minimum": 1,
+            "minimizers": 16,
+            "margin_histogram": {
+              "1": 16,
+              "2": 214,
+              "3": 1068,
+              "4": 3138,
+              "5": 6797,
+              "6": 11436,
+              "7": 15048,
+              "8": 14657,
+              "9": 9342,
+              "10": 3285,
+              "11": 509,
+              "12": 25
+            },
+            "minimizer_masks": [
+              62199,
+              62207,
+              62455,
+              62463,
+              63223,
+              63231,
+              63479,
+              63487,
+              64247,
+              64255,
+              64503,
+              64511,
+              65271,
+              65279,
+              65527,
+              65535
+            ],
+            "root_pentagons": 15,
+            "matching_number": 7,
+            "deficiency": 2,
+            "leaf_charge": 17
+          }
+        },
+        {
+          "id": "R51.E10",
+          "statement": "The new family has exact specified boundary-only star optimum zero, R50 leaf charge 17>16, and a fixed induced P15.",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Independent subset matching gives nu(Q)=7 and deficiency two; deleting center 15 certifies the matching upper bound. Actual active degrees are four, so the exact boundary-only optimum is 2+32-48+14=0. Both reconstructed quotients attain it. The bridge tree has three terminal blocks, giving leaf charge 17, and the specified P15 is induced.",
+          "recomputed_counts": {
+            "matching_number": 7,
+            "deficiency": 2,
+            "prescribed_star_optima": [
+              0,
+              0
+            ],
+            "leaf_charge": 17,
+            "budget": 16,
+            "path_lower_bound": 15
+          }
+        },
+        {
+          "id": "R51.E11",
+          "statement": "Actual-degree general-K payment, source-cap preservation, minimum-order consequence, qualified GEN_(K-1)+T_K+Z_K assembly, and exact new residual.",
+          "prover_status": "PROVED relative to accepted context",
+          "verdict": "CORRECT",
+          "reason": "The general-K bound follows from F_K(Y)=sum(2d-K) <= (2D-K)2b/3 and the accepted (K-2)m+gamma identity. Cap preservation, whole-class minimum order and the qualified GEN/T/Z assembly are used at their accepted scopes. The residual is exactly the complement of existence of a covered star; negation quantifies over every root and nonempty arm set. No strictness, nonemptiness, universal GEN_K or radius preservation is inferred. Sister-track CWF interpretations match the accepted referee reports.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.E12",
+          "statement": "Eleven bridge graphs, including both closure contact cases and nonthin bridge endpoints, two full large family constructions, eleven R50 fixtures, nine positive R50 quotients, and 53 mandatory controls pass replay.",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT_WITH_FIXES",
+          "reason": "All reported graph/certificate counts, parameter tuples, model adjacencies, chosen-star classifications and supplied path witnesses were independently verified. However report line 364 says the final stress graphs force the second/third closure constructions. ROOT_CLOSURE_THIRD also has seven valid second-construction choices on its high-contact side; it exercises but does not globally force the third case. Replace force by exercise, or specify the deterministic choice rule.",
+          "recomputed_counts": {
+            "stress_graphs": 11,
+            "all_stress_bridge_cuts": 1359,
+            "maximum_center_order": 2998,
+            "maximum_inflated_order": 7495,
+            "maximum_nonmatching_contact_degree": 4,
+            "R50_fixtures": 11,
+            "positive_fixture_models": 9,
+            "mandatory_controls": 53,
+            "control_degree_sequences": 53,
+            "control_path_witnesses": 44,
+            "outside_geometry": 46,
+            "outside_source_domains": 7,
+            "reconciled_replay_path_witnesses": 9078,
+            "third_example_closure_case_counts": [
+              0,
+              7,
+              1
+            ]
+          }
+        },
+        {
+          "id": "R51.E13",
+          "statement": "MATCHING_CONTACT20 has exact p=12 and epsilon6=-64; WIDE_BOOK16 has exact specified rooted order six.",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT_WITH_FIXES",
+          "reason": "Both exact stated path bounds and prefix counts are correct. MATCHING_CONTACT20 is TF and strongly C4-free, with epsilon6=-64, rho=0 and p=12. WIDE_BOOK16 has rooted order six, epsilon6=-54, rho=0 and unrooted p=11. Its specified root has A-degree four: phrase its scope consequence as failure of rooted P7 on the full ROOTED-SIX minimum-degree domain. It does not isolate necessity of nonroot cubic equality while preserving root degree exactly two.",
+          "recomputed_counts": {
+            "matching_contact20": {
+              "name": "MATCHING_CONTACT20",
+              "parameters": {
+                "n": 20,
+                "e": 28,
+                "T": 0,
+                "K": 6,
+                "epsilon": -64
+              },
+              "order": 12,
+              "states": 5888,
+              "witness": [
+                8,
+                0,
+                2,
+                13,
+                4,
+                18,
+                7,
+                3,
+                16,
+                6,
+                5,
+                12
+              ]
+            },
+            "wide_book16": {
+              "name": "WIDE_BOOK16",
+              "parameters": {
+                "n": 16,
+                "e": 21,
+                "T": 0,
+                "K": 6,
+                "epsilon": -54
+              },
+              "order": 6,
+              "states": 42,
+              "witness": [
+                0,
+                1,
+                10,
+                2,
+                14,
+                3
+              ]
+            },
+            "additional_unrooted_wide_book16": {
+              "order": 11,
+              "states": 1238,
+              "witness": [
+                6,
+                2,
+                14,
+                3,
+                11,
+                1,
+                12,
+                4,
+                15,
+                5,
+                9
+              ]
+            },
+            "rho": [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "R51.E14",
+          "statement": "In every capped regular center component all center bridge cuts must be crossed, without contact-degree restrictions; a component with l terminal bridge blocks needs at least ceil(l/2) interblock contacts.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Every bridge cut in a regular center component must have an internal crossing original contact by E00. In a bridge tree with terminal blocks, each terminal block needs an incident interblock contact; each such contact accounts for at most two terminal blocks, giving ceil(l/2). The deficiency and branching assertions are the accepted fixed-star formula and bridge-leaf inequality with epsilon6>=2.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.OPEN1",
+          "statement": "Universal R45.BOUNDARY-STAR-PRODUCTION6 on the complete minimum-counterexample residual.",
+          "prover_status": "OPEN",
+          "verdict": "UNVERIFIED",
+          "reason": "Explicitly left open. No argument forces a covered boundary star on every residual graph.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.OPEN2",
+          "statement": "Universal R44.HYBRID-STAR-PRODUCTION6 and the crossing-contact barrier class.",
+          "prover_status": "OPEN",
+          "verdict": "UNVERIFIED",
+          "reason": "Explicitly left open. Contacts crossing every deficient bridge cut and unrestricted hybrid production are not settled.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.OPEN3",
+          "statement": "Unrestricted TF GEN6, universal EB6/T6, full GEN_K/Z_K/RAD, and REAL-133.",
+          "prover_status": "OPEN",
+          "verdict": "UNVERIFIED",
+          "reason": "Explicitly left open. The partial results do not establish unrestricted TF GEN6, universal EB6/T6, general GEN/T/Z/RAD or REAL-133.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.EXPLORATION",
+          "statement": "Random, crossing-contact, arbitrary-contact and saved rooted-extension exploratory records, with no universal theorem inferred.",
+          "prover_status": "EXPLORATORY / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "All 1495 random source domains were reconstructed. All supplied paths were checked, and all 153 negative random records were exhausted from scratch. The exhaustive dumbbell matching domain was independently generated in full. The 30000 tripod trials are sampled, not exhaustive. All 9000 rooted P7 trials and both saved rooted-extension histograms were independently checked.",
+          "recomputed_counts": {
+            "random_sources": 1495,
+            "random_P13_witnesses": 1342,
+            "random_negative_exact_orders": {
+              "12": 148,
+              "11": 5
+            },
+            "random_negative_prefix_total": 902548,
+            "exhaustive_dumbbell_domain": 2490,
+            "tripod_records": 30000,
+            "tripod_unique_contact_sets": 29179,
+            "rooted_center_graphs": 18,
+            "rooted_trials": 9000,
+            "maximum_contact_degree": 7,
+            "extension_histograms": [
+              {
+                "13": 1,
+                "12": 11,
+                "9": 4,
+                "11": 27,
+                "10": 17
+              },
+              {
+                "13": 1,
+                "12": 11,
+                "11": 29,
+                "9": 2,
+                "10": 18
+              }
+            ]
+          }
+        },
+        {
+          "id": "R51.DELIVERY",
+          "statement": "Claim summary references, local report links, data/scratch alias, manifest layout and hash integrity.",
+          "prover_status": "DELIVERY / PASS",
+          "verdict": "CORRECT_WITH_FIXES",
+          "reason": "All 24 artifact and 37 context-dependency hashes match when artifact basenames are resolved in data; claim/PROOF_REPORT.md and data/REPORT.md are byte-identical. In this supplied delivery data is an ordinary directory, scratch initially empty, both summary links target the former session and all 20 report hyperlinks resolve to missing paths. The manifest storage/alias assertion describes the former layout. Correct the delivery references without changing mathematical contents.",
+          "recomputed_counts": {
+            "artifacts": 24,
+            "context_dependencies": 37,
+            "all_hashes_match": true,
+            "data_is_symlink": false,
+            "scratch_alias_claim_correct": false
+          }
+        }
+      ],
+      "limitations": "['Exact longest induced-path orders of the large family graphs are not asserted by the prover and were not computed; their claimed P15 lower bounds were directly checked.', 'The original prover script"
+    },
+    {
+      "session": "r51_rad_real133",
+      "prover_dir": "astra_r51/r51_rad_real133",
+      "referee_dir": "astra_r51v/v_r51_rad_real133",
+      "prover_session_id": "01a18e8c-f5fa-7a01-b05e-8bdf6073d829",
+      "referee_session_id": "01a18ed7-e60a-71a2-adb6-b2815a621e1a",
+      "verdict_file": "astra_r51v/v_r51_rad_real133/scratch/verdict.json",
+      "verdict_sha256": "777526b9b207fbdc52e84d2057ad97fc069003ea379b93010819804da2a935a2",
+      "referee_overall": "CORRECT_WITH_FIXES",
+      "required_fixes": "['At claim/PROOF_REPORT.md Section 2, explicitly add “Let G be connected and strongly C4-free” before the source assumptions. Keep this ambient domain on the K=4 and mixed variants. The proof of 2D^triangle<=z requires it.', 'Replace original-session delivery references with package-local paths, or clearly label them as provenance. In the summary use PROOF_REPORT.md and ../data/r51_manifest.json; in the report use ../ctx/... and ../data/.... Correct the assertion that the supplied data directory is a scratch symlink. Synchronize supplied report copies and their hashes if edited.']",
+      "claim_breakdown": {
+        "CORRECT": 32,
+        "CORRECT_WITH_FIXES": 3,
+        "UNVERIFIED": 4
+      },
+      "claims": [
+        {
+          "id": "R51.CONVENTIONS",
+          "statement": "Strong C4, unit degrees, score and deletion conventions.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Ordinary C4/common-neighbor equivalence and all triangle-incidence signs verify.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.ACCEPTED_INPUTS",
+          "statement": "Accepted rooted, block, anchor and assembly inputs at their qualified scopes.",
+          "prover_status": "PROVED relative to ctx",
+          "verdict": "CORRECT",
+          "reason": "Checked packaged qualifications, rooted induced-path wording, small/terminal exceptions and R50 seal.",
+          "recomputed_counts": {
+            "context_hashes": 42
+          }
+        },
+        {
+          "id": "R51.SOURCE_DOMAIN",
+          "statement": "General source assumptions for H51, including the K=4 extension.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT_WITH_FIXES",
+          "reason": "Explicitly add that G is connected and strongly C4-free. This ambient hypothesis is implicit in the intended RAD domain but missing from the general source paragraph. The independently checked C6-sun/C4-graft example satisfies its displayed metric/core conditions but violates 2D<=z and gives subdivision credit -1 at K=4.",
+          "recomputed_counts": {
+            "omission_attack": {
+              "n": 21,
+              "e": 22,
+              "S": 44,
+              "r": 5,
+              "p": 9,
+              "z": 1,
+              "destroyed_triangles": 1,
+              "subdivision_credit": -1
+            }
+          }
+        },
+        {
+          "id": "R51.ROOTED_BLOCKS",
+          "statement": "Rooted partition, exact losses and root-preserving presentations (1)-(4).",
+          "prover_status": "PROVED relative to ctx",
+          "verdict": "CORRECT",
+          "reason": "Block separators give the assigned partition; only the retained port edge is subtracted, with score two. Ancestral and port-deleted caps have the accepted scope.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.PEELING",
+          "statement": "Minimum-unit peeling computes kappa (5).",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Unit degrees decrease by zero or one on deleting a neighbor. First-removal and attaining-remainder arguments prove both bounds.",
+          "recomputed_counts": {
+            "induced_subsets": 56177
+          }
+        },
+        {
+          "id": "R51.UNIT_CORE_ROOTED_OBSTRUCTION",
+          "statement": "Lemma 1: kappa(H)<=max(1,q_H(o)-2).",
+          "prover_status": "PROVED relative to R29 L3",
+          "verdict": "CORRECT",
+          "reason": "A shortest route to a connected attaining core is anticomplete before its final outside vertex. L3 and induced concatenation apply; the triangle exception is retained.",
+          "recomputed_counts": {
+            "small_rooted_instances": 2062
+          }
+        },
+        {
+          "id": "R51.ROOT_EDGE_CHARGE",
+          "statement": "Lemma 2: root charge (7), including triangles.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Common nonroot neighbors contribute a triangle at each root; n_a+n_b-2c<=w. Other triangles improve the inequality.",
+          "recomputed_counts": {
+            "small_edges": 2189,
+            "control_edges": 11103
+          }
+        },
+        {
+          "id": "R51.UNIT_CORE_PRICES",
+          "statement": "N1/N2 prices and the separate terminal estimate (8).",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The beta caps plus gap budgets give mu+1<=K-eta. The q<=2 case uses S<=2w and never beta<=0.",
+          "recomputed_counts": {
+            "one_root_small_prices": 2061,
+            "pair_root_small_prices": 668
+          }
+        },
+        {
+          "id": "R51.TRANSVERSAL_RESTORATION",
+          "statement": "Lemma 3: all-size restoration bound (9).",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Each X-pair has at most one common outside neighbor; the lost-triangle term is nonpositive.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.PENTAGON_TRANSVERSAL_PRODUCTION",
+          "statement": "Connected retained-root C5-free remainder and quantitative T price (10)-(11).",
+          "prover_status": "PROVED relative to ROOT",
+          "verdict": "CORRECT",
+          "reason": "ROOT is applied only to the connected strong (C4,C5)-free remainder. Each alpha matches the applicable retained-root cap.",
+          "recomputed_counts": {
+            "one_root_bounds": 68867,
+            "pair_root_bounds": 36241
+          }
+        },
+        {
+          "id": "R51.SINGLETON_BUDGETS",
+          "statement": "Singleton classes, q-version and exact larger-transversal budgets (12)-(14).",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "All formulas expand exactly; pair-root nonport singletons require s>=4, while port singletons work at s=3.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.SUBDIVISION",
+          "statement": "Destroyed-triangle identity and funding (15)-(16).",
+          "prover_status": "PROVED relative to R50",
+          "verdict": "CORRECT",
+          "reason": "With the restored ambient strong-C4 hypothesis, each destroyed edge-disjoint triangle consumes at least two new vertices. Credit >=(K-7/2)z>=0.",
+          "recomputed_counts": {
+            "checked_triangle_score_increase": 7
+          }
+        },
+        {
+          "id": "R51.UNIVERSAL_PRODUCTION_PARTIAL",
+          "statement": "All-depth outside deletion, inequality H51 and direct cycle remainder.",
+          "prover_status": "PROVED relative to accepted context",
+          "verdict": "CORRECT_WITH_FIXES",
+          "reason": "Verified after explicitly restoring the ambient domain in R51.SOURCE_DOMAIN. Exact block losses sum, cycle isometry gives S(C)=2|C|, and radius makes U nonempty.",
+          "recomputed_counts": {
+            "new_graphs": 13,
+            "new_block_prices": 28835
+          }
+        },
+        {
+          "id": "R51.MIXED_PRODUCTION",
+          "statement": "Component ambient alternatives (17) combined with block production.",
+          "prover_status": "PROVED relative to R46",
+          "verdict": "CORRECT",
+          "reason": "Whole component losses add independently; displayed block credits are restricted to block-paid components.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.RADIAL_ARMS_ANTICOMPLETE",
+          "statement": "Selected radial arm interiors are pairwise anticomplete under the cap.",
+          "prover_status": "PROVED relative to metric labels",
+          "verdict": "CORRECT",
+          "reason": "An equal-depth edge at adjacent ports yields the stated induced P_(2s+2h). Every possible chord is excluded by depth and port distance.",
+          "recomputed_counts": {
+            "additional_rung_subsets": 4095,
+            "strong_C4_free_radius_instances": 661
+          }
+        },
+        {
+          "id": "R51.NET_AND_PATH_BOUND",
+          "statement": "Net matching graphs, two-connectivity, pentagons, spectrum and (18)-(19).",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Incidence uniqueness, matching parity, Gram eigenvalues and indicator-vector estimates verify. The path type inequalities give the stated uniform bound.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.SUN_METRICS",
+          "statement": "Exact sun/graft radii, path orders, unique anchors and old-cycle exclusions (20).",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "Verified full structural path upper bounds and lower witnesses. Opposite terminals certify all radius lower bounds; graft separation excludes alternative anchors.",
+          "recomputed_counts": {
+            "new_exact_cap_certificates": 13,
+            "reclosure_exact_cap_certificates": 2
+          }
+        },
+        {
+          "id": "R51.NEW_T_PORTION",
+          "statement": "Infinite T portion with unbounded mean-to-core gap (21).",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "kappa=k and the mean formula verify. One nonroot matched endpoint is a transversal. Actual minimum degree excludes suppressed cores; all old tests and N fail.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.NEW_N_PORTION",
+          "statement": "Punctured full-net N portion and large-transversal obstruction (22).",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The induced minimum-q subgraph, exact degree sums, connectivity and path bound verify. The pentagon packing survives puncturing and eventually exceeds every T budget.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.R50_RECLOSURE",
+          "statement": "The entire displayed R50 irregular residual family is paid.",
+          "prover_status": "PROVED / COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Deleting a nonroot endpoint of its unique added edge leaves a connected bipartite graph; the singleton theorem applies to the entire family.",
+          "recomputed_counts": {
+            "records": 2,
+            "gaps": [
+              "54/61",
+              "102/113"
+            ],
+            "credits": [
+              68,
+              124
+            ],
+            "exact_p": [
+              133,
+              237
+            ]
+          }
+        },
+        {
+          "id": "R51.STRICT_GEOMETRIC_COVERAGE",
+          "statement": "Strict geometric enlargement of the R50 source class.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The infinite new portions fail every old test at their unique anchors. Only negative-surplus source-class separation is asserted.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.EXACT_RESIDUAL",
+          "statement": "Quantified residual R51 and inclusion R51 subset R50.",
+          "prover_status": "PROVED",
+          "verdict": "CORRECT",
+          "reason": "The forall-anchor/exists-component and exists-block/forall-presentation quantifiers are exactly the negation of the sufficient source theorem.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.RESIDUAL_FAMILY",
+          "statement": "Infinite tight negative-surplus residual family (23)-(24).",
+          "prover_status": "PROVED / exact arithmetic",
+          "verdict": "CORRECT",
+          "reason": "Mean/core gap and degree formulas verify. Pentagon incidence bounds imply packing >=q^2/50>h+2; every T budget fails. Only the identity presentation exists and max lambda<K.",
+          "recomputed_counts": {
+            "prime_checked": 1000003,
+            "core_order": 1500008500012,
+            "B": 3010009030,
+            "h": 3010009031,
+            "K": 3010009033,
+            "r": 3010009034,
+            "packing_lower_bound": "250001750004000003/7500020"
+          }
+        },
+        {
+          "id": "R51.EXAMPLE_CERTIFICATES",
+          "statement": "New full-graph and subdivision certificates.",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Rebuilt affine cores and every full-graph edge, checked every peeling witness, transversal, subdivision, triangle, radius, lower path, structural cap and extracted block price.",
+          "recomputed_counts": {
+            "graphs": 13,
+            "prices": 28835,
+            "maximum_order": 3898,
+            "with_triangles": 9,
+            "rho": 0
+          }
+        },
+        {
+          "id": "R51.SMALL_ENUMERATION",
+          "statement": "Complete connected strong-C4-free enumeration through order eight and local audits.",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Independent complete vertex extension and exact isomorphism checks give a bijection with all submitted records; all roots and applicable root edges are checked.",
+          "recomputed_counts": {
+            "counts": [
+              1,
+              1,
+              2,
+              3,
+              8,
+              19,
+              57,
+              186
+            ],
+            "graphs": 277,
+            "rooted_maxima": 2062,
+            "rooted_paths": 18932,
+            "induced_subsets": 56177,
+            "one_root_transversal_bounds": 68867,
+            "pair_root_transversal_bounds": 36241
+          }
+        },
+        {
+          "id": "R51.FAMILY_CERTIFICATES",
+          "statement": "Finite field/Gram/pentagon/packing certificates.",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Reconstructed all incidences and matching edges and checked every indexed cycle, occurrence count, Gram entry and disjoint witness.",
+          "recomputed_counts": {
+            "templates": 4,
+            "pentagons": [
+              60,
+              1176,
+              7260,
+              12312
+            ],
+            "total_pentagons": 20808,
+            "disjoint": [
+              4,
+              17,
+              40,
+              53
+            ],
+            "total_disjoint": 114
+          }
+        },
+        {
+          "id": "R51.CONTROLS",
+          "statement": "Mandatory controls, conventional surpluses, radii and rejection paths.",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "All submitted values reproduce. The sole radius-at-least-eleven control has radius 12 and its valid P24. No new criticality or irreducibility assertion is inferred.",
+          "recomputed_counts": {
+            "controls": 52,
+            "neighbor_units": 3752,
+            "root_edge_charges": 11103,
+            "A40_epsilon6": -4,
+            "A157_epsilon6": 2,
+            "extra_exact_rho_checks": 52
+          }
+        },
+        {
+          "id": "R51.SHELLS",
+          "statement": "Inherited shell classification and new prices.",
+          "prover_status": "COMPUTED relative to accepted caps",
+          "verdict": "CORRECT",
+          "reason": "Independently checked graphs, radii, gates, extracted blocks and every price. Old upper bounds remain explicitly accepted context.",
+          "recomputed_counts": {
+            "shells": 67,
+            "paid": 60,
+            "excluded": 7,
+            "prices": 3860
+          }
+        },
+        {
+          "id": "R51.OBSTRUCTIONS",
+          "statement": "Twelve hypothesis obstructions and simplicial deletion.",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "Direct scores, radii, ordinary-C4 tests, rho, supplied paths and exhaustive exact maxima verify. The retained simplicial-deletion radius is four rather than five.",
+          "recomputed_counts": {
+            "records": 12,
+            "exact_p_in_report_order": [
+              23,
+              21,
+              21,
+              22,
+              22,
+              24,
+              24,
+              65,
+              25,
+              21,
+              22,
+              26
+            ],
+            "rho_all": 0,
+            "simplicial_radii": [
+              5,
+              4
+            ]
+          }
+        },
+        {
+          "id": "R51.PARAMETER_AND_SISTER_SCOPE",
+          "statement": "K>=4 new alternatives, K>=5 union, and partial sister-track inputs.",
+          "prover_status": "PROVED relative to ctx",
+          "verdict": "CORRECT",
+          "reason": "Boundary arithmetic and every imported scope verify; no unrestricted GEN or missing universal sister gate is claimed.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.REAL_REDUCTION",
+          "statement": "Conditional REAL-133 assembly with the smaller paid RAD residual.",
+          "prover_status": "PROVED conditional implication",
+          "verdict": "CORRECT",
+          "reason": "Lower-radius RAD gives deficit -|D|, cancelled by F<=|D|. The alternative six-level gate, T6, higher T/Z and qualified PCT obligations are retained.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.LEAST_COUNTEREXAMPLE",
+          "statement": "Qualified terminal-essential and positive residual restrictions.",
+          "prover_status": "PROVED relative to ctx",
+          "verdict": "CORRECT",
+          "reason": "Retains s>=4, both possible path orders 2r-2 and 2r-1, and no fixed-K criticality or all-model irreducibility conclusion.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.FINITE_CERTIFICATES",
+          "statement": "All numerical finite certificate claims and data-only verification.",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "All mathematical counts agree. The complete enumeration and structural upper reductions were independently checked. No SAT/CNF/RUP/DRAT proof is used or listed.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.MANIFEST",
+          "statement": "Supplied artifacts, context identities and report content hashes.",
+          "prover_status": "COMPUTED",
+          "verdict": "CORRECT",
+          "reason": "All listed files exist in data under their original scratch basenames and match every byte length and SHA-256; the three supplied report texts agree.",
+          "recomputed_counts": {
+            "artifact_hashes": 36,
+            "context_hashes": 42,
+            "supplied_matching_report_texts": 3
+          }
+        },
+        {
+          "id": "R51.DELIVERY",
+          "statement": "Report/summary locations and package replay wording.",
+          "prover_status": "Delivery metadata",
+          "verdict": "CORRECT_WITH_FIXES",
+          "reason": "Label original-session locations as provenance or replace with package-local paths. Here data is not a scratch symlink; root REPORT.md and original scratch targets are absent. Absolute links point outside the supplied referee package.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.EXECUTION_PROVENANCE",
+          "statement": "Original producer executions, code independence and external-write history.",
+          "prover_status": "Historical assertions",
+          "verdict": "UNVERIFIED",
+          "reason": "Static data cannot certify original process history. Our own independent replay verifies mathematical outputs; the producer history is not a proof premise.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "OPEN_RAD_PRODUCTION",
+          "statement": "Full universal RAD / OPEN-RAD-PRODUCTION.",
+          "prover_status": "OPEN / NOT PROVED",
+          "verdict": "UNVERIFIED",
+          "reason": "Correctly left open; only the qualified named source class has been proved.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "UNCONDITIONAL_REAL133",
+          "statement": "Unconditional REAL-133.",
+          "prover_status": "OPEN / NOT PROVED",
+          "verdict": "UNVERIFIED",
+          "reason": "Correctly left open; the universal assembly antecedents remain unproved.",
+          "recomputed_counts": {}
+        },
+        {
+          "id": "R51.OPEN_PAID_RESIDUAL",
+          "statement": "Universal positive least-counterexample production on the residual.",
+          "prover_status": "OPEN / NOT PROVED",
+          "verdict": "UNVERIFIED",
+          "reason": "No general production for wide components or the remaining irregular pentagonal blocks is supplied or claimed.",
+          "recomputed_counts": {}
+        }
+      ],
+      "limitations": "All mathematical conclusions are assessed relative to supplied accepted ctx, with the explicit ambient-domain fix. Open targets and execution history remain unverified."
+    }
+  ],
+  "notes": {
+    "accepted_sessions": [
+      "r51_a38_univ",
+      "r51_tf_gen6",
+      "r51_star_prod",
+      "r51_t6_univ",
+      "r51_genk_prod",
+      "r51_rad_real133"
+    ],
+    "gap_sessions": [],
+    "failed_claim_no_referee": [],
+    "referee_failed_no_verdict": [],
+    "ncodex_at_seal": 0,
+    "codex_cap": 6,
+    "parent_round_cert": "data/r50/ROUND_BRANCH_R50_CERTIFICATE.json",
+    "parent_round_cert_sha256": "6a1c7aece7bc53906548cfb9f896b9ea32480f51d1edb9de46acbe693824b111",
+    "all_six_accepted": true,
+    "verdicts": {
+      "r51_a38_univ": "CORRECT_WITH_FIXES",
+      "r51_tf_gen6": "CORRECT_WITH_FIXES",
+      "r51_star_prod": "CORRECT_WITH_FIXES",
+      "r51_t6_univ": "CORRECT_WITH_FIXES",
+      "r51_genk_prod": "CORRECT_WITH_FIXES",
+      "r51_rad_real133": "CORRECT_WITH_FIXES"
+    },
+    "n_CORRECT": 0,
+    "n_CORRECT_WITH_FIXES": 6,
+    "sealed_by": "Grok Bot automation Graph133 完整证明收尾检查 (local seal) @ 2026-10-31 06:28 CST",
+    "r52_auto_launched": false,
+    "failed_claim_details": {}
+  }
+}
