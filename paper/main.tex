@@ -233,7 +233,8 @@ $\ROOT(6)$--$8$, $\RAD(5)$--$10$ & outline only & verdict records & searches abs
 REAL-133 for $\lr\le 5$ & deduction only & inherits the previous rows & yes & not claimed\\
 $\mathrm{Struct}(r)$; bipartite $\GEN_5$ & no & verdict records & base and DAG absent & not a theorem\\
 Records (M)(S)(P) & no & R35--R40 verdicts & predicates undefined & $\mathcal F_0$ open\\
-Quarantined notes, App.~\ref{app:window} & no & R51--R53 & R45 absent & not a theorem\\
+Quarantined lem.~\ref{lem:singleton} & no & no & no record & not a counterexample\\
+Quarantined lems.~\ref{lem:coredeg}, \ref{lem:cubic}--\ref{lem:radsource} & no & R51--R53 & R45 absent & not theorems\\
 Unrestricted $\GEN_6$; REAL-133 & no & no & not supplied & open\\
 \bottomrule
 \end{tabular}
@@ -596,7 +597,7 @@ If Quarantined statement~\ref{thm:r4} were a theorem, then REAL-133 would hold f
 \end{qrecord}
 
 \begin{proof}
-The following calculation is conditional on Quarantined statement~\ref{thm:r4}. Let $r=4$. By Theorem~\ref{thm:ess}, $\pp\ge7$. If $\pp=7$, the radius-four bound would give $\lr\le2$. If $\pp\ge8$, then $\pp\ge r+4\ge r+\lceil\lr\rceil$ with no appeal to that bound.
+The following calculation is conditional on Quarantined statement~\ref{thm:r4}. Let $r=4$. By Theorem~\ref{thm:ess}, $\pp\ge7$. The statement $\RAD(4)$ asks for $\lr\le r-1=3$ when $\pp=7$. Quarantined statement~\ref{thm:r4} claims the stronger bound $S\le2n$, hence $\lr\le2$. That stronger bound is not a theorem. If it held, then $\lr\le2\le3$, so $\RAD(4)$ would hold, and $7\ge4+\lr$, so REAL-133 would hold in the case $\pp=7$. If $\pp\ge8$ and $\lr\le4$, then $\pp\ge r+4\ge r+\lceil\lr\rceil$ with no appeal to that bound.
 \end{proof}
 
 \subsection{Radius five, six and seven}
@@ -940,7 +941,7 @@ The following paths are cited by the article or by fields inside the JSON files,
 \end{itemize}
 The consequences for the claim ladder are as follows.
 \begin{itemize}
-\item Quarantined lemmas~\ref{lem:forks}--\ref{lem:mixed}, Quarantined statements~\ref{thm:gen4}, \ref{thm:root}, \ref{thm:rad5}--\ref{thm:radsharp}, \ref{thm:bip} and~\ref{thm:struct}, and the finite parts of Appendix~\ref{app:cells} are not re-runnable from this repository. They are not theorems. Rounds R1--R10 contribute JSON records of accepted counts. They do not contain the programs that produced the counts. Rounds R41--R45 and R54 are absent. In particular every argument that cites R45 is not checkable here.
+\item Quarantined lemmas~\ref{lem:forks}--\ref{lem:mixed}, Quarantined statements~\ref{thm:gen4}, \ref{thm:rad5}--\ref{thm:radsharp}, \ref{thm:bip} and~\ref{thm:struct}, and the finite parts of Appendix~\ref{app:cells} are not re-runnable from this repository. They are not theorems. Rounds R1--R10 contribute JSON records of accepted counts. They do not contain the programs that produced the counts. Rounds R41--R45 and R54 are absent. In particular every argument that cites R45 is not checkable here.
 \item The proved reductions of Section~\ref{sec:Gred} do not use the R35--R40 searches. The lists (M), (S) and (P) are verdict records only. Their search payloads are absent, and several of their predicates are undefined in this article, so those lists do not determine a subclass. The cheap-deletion question for the class $\mathcal F_0$ is open.
 \item Quarantined lemmas~\ref{lem:coredeg}, \ref{lem:singleton}, \ref{lem:cubic}, \ref{lem:cactus} and~\ref{lem:radsource} are not theorems. Quarantined lemma~\ref{lem:cubic} depends on the missing round R45. The others depend on unwritten rules or, in the case of Quarantined lemma~\ref{lem:singleton}, on a rule that is not defined in this paper. Quarantined lemma~\ref{lem:singleton} is not a verified counterexample.
 \item No absent file is used to assert unrestricted $\GEN_6$ or REAL-133. Both remain open. A successful \texttt{sha256sum} check authenticates JSON bytes. It does not promote a quarantined statement to a theorem.
@@ -1066,7 +1067,7 @@ Here $I_j$ is the number of \emph{oriented} induced paths on $j$ vertices (each 
 
 \section{Further partial results}\label{app:window}
 
-The lemmas marked proved have their hypotheses written in full and their proofs written below. The counterexample is a single explicit graph. Every other note is quarantined: its enumeration, or a certificate it depends on, is not in this archive, so it is not a theorem and it is not on the claim ladder. No note in this appendix is unrestricted $\GEN_6$, and none is REAL-133. Write $\varepsilon_6(G)=S(G)-6|G|$. A nonempty set is $6$-cheap when its deletion loss is at most six times its order. A quotient is \emph{proper} when the output has fewer vertices than the input.
+The lemmas marked proved have their hypotheses written in full and their proofs written below. Quarantined lemma~\ref{lem:singleton} is a conditional observation: no rule is defined and no graph is exhibited, so it is not a counterexample and it depends on no record. The remaining notes are quarantined because an enumeration or a certificate they use is not in this archive. None of them is a theorem, and none is on the claim ladder. No note in this appendix is unrestricted $\GEN_6$, and none is REAL-133. Write $\varepsilon_6(G)=S(G)-6|G|$. A nonempty set is $6$-cheap when its deletion loss is at most six times its order. A quotient is \emph{proper} when the output has fewer vertices than the input.
 
 \begin{lemma}[ports; proved]\label{lem:core}
 Let $G$ be triangle-free and strong $C_4$-free, and let $D\subseteq V(G)$ be a connected dominating set such that $d_G(x,y)=d_{G[D]}(x,y)$ for all $x,y\in D$. Write $H=V(G)\setminus D$.
@@ -1257,7 +1258,8 @@ App.~\ref{app:routes} & \nolinkurl{L/astra_r4/idea*}, \nolinkurl{L/astra_r5/idea
 Proved reductions, \S\ref{sec:Gred} & written in the text & on the claim ladder; $\mathcal F_0$ not shown empty\\
 Records (M), (S), (P) & \nolinkurl{certificates/ROUND_BRANCH_R35_CERTIFICATE.json}--\texttt{R40}; search payloads absent & quarantined; predicates undefined; not a class\\
 Lems.~\ref{lem:core}, \ref{lem:coreid}, \ref{lem:avg} & proved in App.~\ref{app:window} & on the claim ladder\\
-Quarantined lems.~\ref{lem:coredeg}, \ref{lem:singleton}, \ref{lem:cubic}, \ref{lem:cactus}, \ref{lem:radsource} & R51--R53 verdicts only; R45 absent & not on the claim ladder\\
+Quarantined lem.~\ref{lem:singleton} & no record; conditional observation & not on the claim ladder\\
+Quarantined lems.~\ref{lem:coredeg}, \ref{lem:cubic}, \ref{lem:cactus}, \ref{lem:radsource} & R51--R53 verdicts only; R45 absent & not on the claim ladder\\
 \bottomrule
 \end{longtable}
 \endgroup
