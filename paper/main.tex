@@ -2,7 +2,6 @@
 \usepackage[margin=1.05in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{booktabs}
-\usepackage{longtable}
 \usepackage{array}
 \usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
@@ -85,17 +84,13 @@ If $G$ contains a $4$-cycle, the conjecture reads $\pp(G)\ge r(G)+1$, and this a
 H.~Chen~\cite{chen} has studied mainly the earlier floor version $\pp\ge r+\lfloor\lr\rfloor$. That preprint describes itself as AI-assisted and not peer-reviewed, and we have not checked its proofs. For the floor version it claims proofs when $\lfloor\lr\rfloor\le2$, when $\lfloor\lr\rfloor=3$ and $r=2$, and for minimum-order counterexamples with $\lfloor\lr\rfloor=3$ and $r=3$. For the real-valued form it records an exhaustive check on strong $C_4$-free graphs with at most $13$ vertices, and its Theorem~6.7 states that $\operatorname{diam}(G)=2$ and $\lr>3$ imply $\pp\ge6$; this overlaps with the case $r=2$, $3<\lr\le4$ of our Theorem~A for graphs of diameter $2$. Its Lemma~7.18 contains the trace classification in the first part of our Lemma~\ref{lem:c6}. Our proofs are independent of~\cite{chen}.
 
 \subsection*{Status labels}
-Every statement carries one of the following labels.
+A statement in this paper has one of the following statuses. A supplement, a finite classification, a checker, or a Lean development that is not a file in this repository confers none of them.
 \begin{itemize}
-\item \textbf{Proved}: a complete written proof in this paper, possibly using the published theorems quoted in Section~\ref{sec:prelim}.
-\item \textbf{Proved (written proof in the supplement)}: a complete written proof without computer assistance that is too long to reproduce here; the exact file is named in the statement and in Appendix~\ref{app:index}. If that file is not in this repository, the proof is not checkable here (Section~\ref{sec:data}).
-\item \textbf{Finite classification}: a written proof that also uses an exhaustive classification of small base configurations (at most $13$ vertices; single-vertex attachment tests on them have at most $14$ vertices), intended to be re-run by a stand-alone checker. That checker is not in this repository (Section~\ref{sec:data}).
-\item \textbf{Computer-assisted, payload absent}: a written reduction together with a finite enumeration that is not a file in this repository. Such a statement is quarantined. It is not a theorem of this paper.
-\item \textbf{Quarantined (not independently checkable from this archive)}: the mathematical sentence is printed, together with the missing input. It is not part of the citable claim ladder. No proved theorem takes it as a hypothesis. A conditional sentence may name it as an explicit supposition; the conclusion is then not claimed either. A certificate hash authenticates stored JSON bytes only. It does not replace a missing payload.
-\item \textbf{Computer-assisted partial result}: proved reductions, which are theorems, kept separate from verdict records, which are not. An open deletion question is stated for an explicitly defined family and is not shown to be settled. Such a result does not close an open problem of Section~\ref{sec:open}.
-\item \textbf{Counterexample}: an explicit witness, proved in the text, that a stated construction fails or that a stated universal sentence is false, at the quantifiers written in the lemma. The witness is not used as a positive hypothesis elsewhere.
-\item \textbf{Formalised}: the statement and its proof are checked by the Lean~4 kernel. The Lean development named in Section~\ref{sec:lean} is not included in this repository.
-\item \textbf{Conjecture} or \textbf{open}: not proved. Finite evidence, if any, is stated with its exact domain.
+\item \textbf{Proved}: a complete written argument in this article, possibly using the published theorems quoted in Section~\ref{sec:prelim}.
+\item \textbf{Conditional}: a written implication. The hypothesis is stated in the article and is not proved. Only the implication is a theorem.
+\item \textbf{Quarantined}: a printed sentence whose justification is an enumeration, a report, or a search payload that is not in this repository. It is not a theorem and it is not on the claim ladder. No proved theorem takes it as a hypothesis. A certificate hash authenticates stored JSON bytes only.
+\item \textbf{Counterexample}: an explicit witness, with its proof written in the text, that a stated construction fails or that a stated universal sentence is false, at the quantifiers written with the example.
+\item \textbf{Open}: not proved.
 \end{itemize}
 
 \subsection*{The reduction}
@@ -234,7 +229,8 @@ REAL-133 for $\lr\le 5$ & deduction only & inherits the previous rows & yes & no
 $\mathrm{Struct}(r)$; bipartite $\GEN_5$ & no & verdict records & base and DAG absent & not a theorem\\
 Records (M)(S)(P) & no & R35--R40 verdicts & predicates undefined & $\mathcal F_0$ open\\
 Quarantined lem.~\ref{lem:singleton} & no & no & no record & not a counterexample\\
-Quarantined lems.~\ref{lem:coredeg}, \ref{lem:cubic}--\ref{lem:radsource} & no & R51--R53 & R45 absent & not theorems\\
+Quarantined lem.~\ref{lem:cubic} & no & R50, R51 & R45 absent & not a theorem\\
+Quarantined lems.~\ref{lem:coredeg}, \ref{lem:cactus}, \ref{lem:radsource} & no & no named round & constructions unwritten & not theorems\\
 Unrestricted $\GEN_6$; REAL-133 & no & no & not supplied & open\\
 \bottomrule
 \end{tabular}
@@ -847,7 +843,7 @@ Theorem~\ref{thm:B} reduces a counterexample of REAL-133 to a violation of some 
 \item \textbf{REAL-133 for $3<\lr\le 6$.} Quarantined statement~\ref{prop:cells} would place a counterexample with $5<\lr\le 6$ in one of two cells if its hypotheses were theorems. They are not. Appendix~\ref{app:cells} does not close those cells.
 \item \textbf{$\GEN_K$ for $K\ge 3$ on the claim ladder, and $\GEN_K$ for $K\ge 5$ in any form.} $\GEN_3$ and $\GEN_4$ are quarantined. On one endpoint route, the missing steps include $\mathrm{EP}(8)$ and a boundary-selection inequality for $K=5,6$; the report that states that inequality is not in this repository. $\mathrm{EP}(9)$ fails (Example~\ref{ex:ep}), so that route cannot be uniform in $q$.
 \item \textbf{$\ROOT(q)$ for $q\ge 4$ as a theorem, and $\RAD(r)$ for $r\ge 4$ as a theorem.} $\ROOT(3)$ is proved. The cases $4\le q\le 8$ and $4\le r\le 10$ are quarantined. For $q=9$, all $350$ seeds of $\mathcal L_9$ remain open, and $\RAD(r)$ is open for every $r\ge 11$.
-\item \textbf{Level $6$ and REAL-133.} Partial Result~G does not empty the class of triangle-free strong $C_4$-free graphs with $\pp\in\{11,12\}$, minimum degree at least $4$, and every endpoint of every longest induced path of degree at most $7$. Whether every graph in that class has a nonempty $6$-cheap set is open. So is $S\le 6n$ for every triangle-free strong $C_4$-free graph with $\pp\le 12$ (unrestricted triangle-free $\GEN_6$), and so is the same bound when triangles are allowed. The inductive passage from $\GEN_{K-1}$ to $\GEN_K$ is open for the native path cap $2K$ when $K\ge 7$. REAL-133 is open. Appendix~\ref{app:window} proves two port lemmas and an averaging inequality, and quarantines the remaining notes. Quarantined lemma~\ref{lem:singleton} is a conditional observation about an undefined rule that would delete nothing on a one-vertex tree. It exhibits no graph, it is not a verified counterexample, and it does not assert that any graph admits no positive proper model. It does not prove unrestricted $\GEN_6$.
+\item \textbf{Level $6$ and REAL-133.} Partial Result~G does not show that the class $\mathcal F_0$ of Section~\ref{sec:partialG} contains no positive graph. Whether every positive graph in $\mathcal F_0$ has a nonempty $6$-cheap set is open. So is $S\le 6n$ for every triangle-free strong $C_4$-free graph with $\pp\le 12$ (unrestricted triangle-free $\GEN_6$), and so is the same bound when triangles are allowed. The inductive passage from $\GEN_{K-1}$ to $\GEN_K$ is open for the native path cap $2K$ when $K\ge 7$. REAL-133 is open. Appendix~\ref{app:window} proves two port lemmas and an averaging inequality, and quarantines the remaining notes. Quarantined lemma~\ref{lem:singleton} is a conditional observation about an undefined rule that would delete nothing on a one-vertex tree. It exhibits no graph, it is not a verified counterexample, and it does not assert that any graph admits no positive proper model. It does not prove unrestricted $\GEN_6$.
 \end{enumerate}
 
 \begin{conjecture}[uniform rooted and radius bounds]\label{conj:uniform}
@@ -895,7 +891,7 @@ This section states which verification files the public repository contains, how
 \subsection*{Files present}
 The directory \nolinkurl{certificates/} contains one JSON file \texttt{ROUND\_BRANCH\_R$k$\_CERTIFICATE.json} for each round $k\in\{1,\ldots,40\}\cup\{46,\ldots,53\}$, together with a \texttt{sha256sum} sidecar of the same stem ending in \texttt{.sha256}, and a second copy of that sidecar ending in \texttt{.json.sha256}. There are $48$ JSON files. Rounds R41--R45 are not included. There is no R54 file. The notes \nolinkurl{notes/RESULTS_TO_2026-10-24.md} and \nolinkurl{notes/RESULTS_TO_2026-11-01.md} summarise referee headlines. They are not proofs. The directory \nolinkurl{data/} contains only \nolinkurl{data/README.md}, which points back to \nolinkurl{certificates/}.
 
-Appendix~\ref{app:index} lists every JSON file with its SHA-256 value. The records used by Partial Result~G and by Appendix~\ref{app:window} are the following.
+The records cited for Partial Result~G, and the verdict files named by Quarantined lemma~\ref{lem:cubic}, are the following. Every other certificate file in \nolinkurl{certificates/} has a sidecar of the same form. Appendix~\ref{app:index} records claim status and does not reprint those hashes.
 
 \begin{center}\small
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{12.4cm}@{}}
@@ -908,6 +904,7 @@ File & SHA-256\\
 \texttt{R38} & \path{0f199e4ec5681d92467b04bd0747029235edba3341ef7b3f3f13feeec2ee2bd5}\\
 \texttt{R39} & \path{dc1224bcc8843e6fdbcf285e68d036e0945165acb585b1c8f65c5bec5bb34477}\\
 \texttt{R40} & \path{71819fcdd5681a6cb5413a6ff326d1d6d651ebd5f2e316886d8f4abc0de9e4f7}\\
+\texttt{R50} & \path{6a1c7aece7bc53906548cfb9f896b9ea32480f51d1edb9de46acbe693824b111}\\
 \texttt{R51} & \path{aebe0c00de6fd8ed0059280a2ac6d9c56e6c64355487912d0fde5a5be04999f7}\\
 \texttt{R52} & \path{8383d17dac2d9f23995b066b4a9e82a6b977602ee9451bab90fd810161ee171a}\\
 \texttt{R53} & \path{b90cc797e755cb8cf849937c20ad1576ea551a7b0ec3b780676c3e84d81b6ecd}\\
@@ -926,7 +923,7 @@ for f in ROUND_BRANCH_R*_CERTIFICATE.sha256; do
   sha256sum -c "$f" || exit 1
 done
 \end{verbatim}
-A successful check shows that the JSON bytes are the bytes named in Appendix~\ref{app:index}. It does not re-run a graph search, does not execute a checker program, and does not recreate a referee session. What the JSON establishes is the stored verdict of each listed claim, including the claim identifier, the recorded statement, and the mark \textsc{correct}, \textsc{correct with fixes}, \textsc{incorrect} or \textsc{unverified}. Matching the hash authenticates that record. It does not authenticate a file the JSON only mentions.
+A successful check shows that the JSON bytes match the sidecar. It does not re-run a graph search, does not execute a checker program, and does not recreate a referee session. What the JSON establishes is the stored verdict of each listed claim, including the claim identifier, the recorded statement, and the mark \textsc{correct}, \textsc{correct with fixes}, \textsc{incorrect} or \textsc{unverified}. Matching the hash authenticates that record. It does not authenticate a file the JSON only mentions.
 
 The R46 file records, as an internal pointer, an R45 hash
 \texttt{1b05993f54e0fb96942dd0ef9af0c2529a6e731ea11cc7d243a6d8a4a8136b33}.
@@ -943,7 +940,7 @@ The consequences for the claim ladder are as follows.
 \begin{itemize}
 \item Quarantined lemmas~\ref{lem:forks}--\ref{lem:mixed}, Quarantined statements~\ref{thm:gen4}, \ref{thm:rad5}--\ref{thm:radsharp}, \ref{thm:bip} and~\ref{thm:struct}, and the finite parts of Appendix~\ref{app:cells} are not re-runnable from this repository. They are not theorems. Rounds R1--R10 contribute JSON records of accepted counts. They do not contain the programs that produced the counts. Rounds R41--R45 and R54 are absent. In particular every argument that cites R45 is not checkable here.
 \item The proved reductions of Section~\ref{sec:Gred} do not use the R35--R40 searches. The lists (M), (S) and (P) are verdict records only. Their search payloads are absent, and several of their predicates are undefined in this article, so those lists do not determine a subclass. The cheap-deletion question for the class $\mathcal F_0$ is open.
-\item Quarantined lemmas~\ref{lem:coredeg}, \ref{lem:singleton}, \ref{lem:cubic}, \ref{lem:cactus} and~\ref{lem:radsource} are not theorems. Quarantined lemma~\ref{lem:cubic} depends on the missing round R45. The others depend on unwritten rules or, in the case of Quarantined lemma~\ref{lem:singleton}, on a rule that is not defined in this paper. Quarantined lemma~\ref{lem:singleton} is not a verified counterexample.
+\item Quarantined lemmas~\ref{lem:coredeg}, \ref{lem:singleton}, \ref{lem:cubic}, \ref{lem:cactus} and~\ref{lem:radsource} are not theorems. Quarantined lemma~\ref{lem:cubic} depends on the missing round R45 and on the verdict files of rounds R50 and R51. Those files do not contain the matching or the quotient. Quarantined lemmas~\ref{lem:coredeg}, \ref{lem:cactus} and~\ref{lem:radsource} depend on constructions that are not written in this paper; they name no round. Quarantined lemma~\ref{lem:singleton} depends on a rule that is not defined in this paper and on no record. It is not a verified counterexample.
 \item No absent file is used to assert unrestricted $\GEN_6$ or REAL-133. Both remain open. A successful \texttt{sha256sum} check authenticates JSON bytes. It does not promote a quarantined statement to a theorem.
 \end{itemize}
 
@@ -1024,7 +1021,7 @@ The numbers of seeds are $7,17,43,116,350$ for $q=5,\dots,9$. No depths $b_q$ co
 
 \section{The band \texorpdfstring{$5<\lr\le6$}{5<l<=6}: setting and partial closures}\label{app:cells}
 
-Throughout, $G$ is connected and strong $C_4$-free, in Cell~A ($r=4$, $\pp=9$) or Cell~B ($r=5$, $\pp=10$). To \emph{close} a subcase means to prove $S(G)\le5n$ for every graph of the cell satisfying its hypotheses. All results below hold at every order. Sources are given in Appendix~\ref{app:index}.
+Throughout, $G$ is connected and strong $C_4$-free, in Cell~A ($r=4$, $\pp=9$) or Cell~B ($r=5$, $\pp=10$). To \emph{close} a subcase means to prove $S(G)\le5n$ for every graph of the cell satisfying its hypotheses. All results below hold at every order. The working-tree paths that named the sources of the computer-assisted items are not files in this repository (Section~\ref{sec:data}).
 
 \subsection*{Nested cores and subcases}
 Theorem~\ref{thm:cs} gives a connected dominating induced subgraph $H$ (the \emph{core}) that is $C_{\pp+1}$ or $P_{\pp-1}$-free, and applying it again inside $H$ gives an \emph{inner core} $J$ dominating $H$; then $J$ $2$-dominates $G$.
@@ -1152,7 +1149,7 @@ Lemmas~\ref{lem:core}, \ref{lem:coreid} & unique ports; cut identity & proved\\
 Lemma~\ref{lem:avg} & the maximum is at least the average, for nonempty classes & proved\\
 Quarantined lemma~\ref{lem:singleton} & conditional observation; no rule and no witness graph & not a counterexample\\
 Quarantined lemma~\ref{lem:coredeg} & a degree bound whose tree list is absent & not a theorem\\
-Quarantined lemma~\ref{lem:cubic} & a bridge-leaf quotient; round R45 is absent & not a theorem\\
+Quarantined lemma~\ref{lem:cubic} & a bridge-leaf quotient; R50 and R51; R45 absent & not a theorem\\
 Quarantined lemmas~\ref{lem:cactus}, \ref{lem:radsource} & sentences whose constructions are not written here & not theorems\\
 \bottomrule
 \end{tabular}
@@ -1161,109 +1158,24 @@ Quarantined lemmas~\ref{lem:cactus}, \ref{lem:radsource} & sentences whose const
 None of the quarantined lemmas is a hypothesis of a proved theorem. In particular they do not imply unrestricted $\GEN_6$, and Quarantined lemma~\ref{lem:coredeg} does not produce a $6$-cheap set in every endpoint-bounded triangle-free graph of path order $11$ or $12$.
 
 \section{Index of proofs, certificates and referee reports}\label{app:index}
-The certificate files that this repository actually contains are listed below. Each SHA-256 value is the hash of the JSON bytes. The sidecar in \nolinkurl{certificates/} repeats that hash in \texttt{sha256sum} form. Section~\ref{sec:data} gives the check commands.
+The directory \nolinkurl{certificates/} contains the $48$ JSON verdict files named in Section~\ref{sec:data}, each with a \texttt{sha256sum} sidecar. Section~\ref{sec:data} prints the hashes of the files cited for Partial Result~G and for Quarantined lemma~\ref{lem:cubic}, and it gives the check. A matching hash authenticates stored bytes. It does not supply a missing argument, and it does not place a quarantined sentence on the claim ladder. Rounds R41--R45 and R54 are not files in this repository.
 
-\begingroup\small
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{7.6cm}@{}}
+Paths of the form \texttt{data/rounds/}, \texttt{lanes/} and \texttt{verdicts/} were the layout of a working tree that is not part of this repository. They are not proofs, and they are not reproduced here.
+
+\begin{center}\small
+\begin{tabular}{@{}p{5.5cm}p{5.3cm}p{3.5cm}@{}}
 \toprule
-File under \texttt{certificates/} & SHA-256\\
+Result & What this archive contains & Claim status\\
 \midrule
-\endhead
-\nolinkurl{certificates/ROUND_BRANCH_R1_CERTIFICATE.json} & \path{667f02a7a486d13f5445b3a7df21a2c7c0e76003d403e186fb8512daaae4df4d}\\
-\nolinkurl{certificates/ROUND_BRANCH_R2_CERTIFICATE.json} & \path{e1db58a751f33e1fb40dab786609b46146969b6eb1395fab5ebc14c7f515e46c}\\
-\nolinkurl{certificates/ROUND_BRANCH_R3_CERTIFICATE.json} & \path{cef23e9c94e16d64c647b7babbb792e54a62b7ab3d2490c2782eb5bf3b362f2b}\\
-\nolinkurl{certificates/ROUND_BRANCH_R4_CERTIFICATE.json} & \path{42c860ade94c3037ee9d448bd0945c932780738abda0588cc578c514959b8443}\\
-\nolinkurl{certificates/ROUND_BRANCH_R5_CERTIFICATE.json} & \path{ac372227c3718a66595825f48b0f0f5b2a340432f0d4ba27875d22ea2bf606ec}\\
-\nolinkurl{certificates/ROUND_BRANCH_R6_CERTIFICATE.json} & \path{fa5d1eefea0b551d8729e0ec29c8eec2f87230a2123545e522391fd356ce9ecb}\\
-\nolinkurl{certificates/ROUND_BRANCH_R7_CERTIFICATE.json} & \path{222e74e8d57ffbf1831232c6ab1d6a7da53b0e03732de97b3039642671be16c4}\\
-\nolinkurl{certificates/ROUND_BRANCH_R8_CERTIFICATE.json} & \path{8265dadbfe1d0b6ad576e3f5029de9999dbb77f00cc2abeff364893ce27ebf8b}\\
-\nolinkurl{certificates/ROUND_BRANCH_R9_CERTIFICATE.json} & \path{b65661bc26dbe97fd430c67b654dd95c7d16c5ff9d08c315968cc4757b75c1b7}\\
-\nolinkurl{certificates/ROUND_BRANCH_R10_CERTIFICATE.json} & \path{3fc0bd9179f01d6537428a52ce01e72baf3d5ae1e0720d456f98e22b72687706}\\
-\nolinkurl{certificates/ROUND_BRANCH_R11_CERTIFICATE.json} & \path{279ffa80b7dad0c81c675184001d3136bcca95fed6a4c527ccdc44eea1917d7c}\\
-\nolinkurl{certificates/ROUND_BRANCH_R12_CERTIFICATE.json} & \path{bb04701f4f5f71476c65d573f789ac246af192f56b4f4f7c5498af60d54b1507}\\
-\nolinkurl{certificates/ROUND_BRANCH_R13_CERTIFICATE.json} & \path{65be08d6da4472882eeb1116c68ae877745a35ff94d03e817a5f106a230622fa}\\
-\nolinkurl{certificates/ROUND_BRANCH_R14_CERTIFICATE.json} & \path{bf9c54e049f0e994c1f7c74f697098ab5f8577e14ab46a46751d281a2a4655a8}\\
-\nolinkurl{certificates/ROUND_BRANCH_R15_CERTIFICATE.json} & \path{b19d57690283b2e5fa5b90dad78ec5d890b365f1520e9348c805a771b127b293}\\
-\nolinkurl{certificates/ROUND_BRANCH_R16_CERTIFICATE.json} & \path{fd826854e2b26ffdd3174fc9ff74cca00e1de5ea383455199d87bc277fb60c69}\\
-\nolinkurl{certificates/ROUND_BRANCH_R17_CERTIFICATE.json} & \path{4fac5fa2984cf9fb528de431ff05391d72757ad008c988fc2342f5d7a05871e5}\\
-\nolinkurl{certificates/ROUND_BRANCH_R18_CERTIFICATE.json} & \path{eb251a5db4654ed820939b137f47c59623c3f0e5ed7421bff9c115e373e780e8}\\
-\nolinkurl{certificates/ROUND_BRANCH_R19_CERTIFICATE.json} & \path{c64b5ef4000d56e19e0a8560af7a6ab7e3d89fb26796b64c04b23870bd0d616c}\\
-\nolinkurl{certificates/ROUND_BRANCH_R20_CERTIFICATE.json} & \path{cbdd36f7d48c45a9944b3dd3342467527ba5953a315e708dcb3b7dc58a70bc48}\\
-\nolinkurl{certificates/ROUND_BRANCH_R21_CERTIFICATE.json} & \path{e890a775b9565a6b86e44f83b2393b84b6a3f2252573cdfbfabc602db12e9075}\\
-\nolinkurl{certificates/ROUND_BRANCH_R22_CERTIFICATE.json} & \path{fa45115f68645a0393efe9e23a6608a49c612d85983bac3c86a2e1dddb292170}\\
-\nolinkurl{certificates/ROUND_BRANCH_R23_CERTIFICATE.json} & \path{97a06c2ab116458fb6f35e5fe709be02e595145461623f28688201f6b04ceef2}\\
-\nolinkurl{certificates/ROUND_BRANCH_R24_CERTIFICATE.json} & \path{5e7cab43a5f88ac993aba22def0f54fad058ba8c3dd2b0c9e2defae62847b55a}\\
-\nolinkurl{certificates/ROUND_BRANCH_R25_CERTIFICATE.json} & \path{50843797d497073c9d3583bca80a9f800ff7b44adf0569dbe24edec7ed16b83d}\\
-\nolinkurl{certificates/ROUND_BRANCH_R26_CERTIFICATE.json} & \path{0eedd34db33fb01f662af881807385cc658985a7aaacaefe74e1c32cb8fdd963}\\
-\nolinkurl{certificates/ROUND_BRANCH_R27_CERTIFICATE.json} & \path{59c8d16c9a2410138f8b7d9ad57403cbff95576bd58983e7c2f6c3d10abe30db}\\
-\nolinkurl{certificates/ROUND_BRANCH_R28_CERTIFICATE.json} & \path{e17c42d95cd2a195962d8e45e50b067db58807121c43a2a2d9faf67b8f369dea}\\
-\nolinkurl{certificates/ROUND_BRANCH_R29_CERTIFICATE.json} & \path{5d61db5b9d2f66b694674888cacb067b413cc8739806bdb58435cc977f7919a5}\\
-\nolinkurl{certificates/ROUND_BRANCH_R30_CERTIFICATE.json} & \path{3f3b111a9bcb7a9b11831d55e6a0786a85ff67551e620375b6c82d7627239bbb}\\
-\nolinkurl{certificates/ROUND_BRANCH_R31_CERTIFICATE.json} & \path{fa0b2e093e8721345a0bbe452949f547405182a6515837bbfebbd451c8708764}\\
-\nolinkurl{certificates/ROUND_BRANCH_R32_CERTIFICATE.json} & \path{46340d86df9ee4792c9f4c799ed8c0308387d3cdca17c4ec926134188e2e8a21}\\
-\nolinkurl{certificates/ROUND_BRANCH_R33_CERTIFICATE.json} & \path{ddd07bbaefb662739825062c0a536752d6c7b19921dfc872999ef626e930d529}\\
-\nolinkurl{certificates/ROUND_BRANCH_R34_CERTIFICATE.json} & \path{8d29038b7bb95d90c21d2bea517dcb28302d60242367becb8d589c254fa3aa4f}\\
-\nolinkurl{certificates/ROUND_BRANCH_R35_CERTIFICATE.json} & \path{132f7ecaba1663f20811bb8930e71f55ac481aa55003d638ca2ad3c0841eb0af}\\
-\nolinkurl{certificates/ROUND_BRANCH_R36_CERTIFICATE.json} & \path{410e10c00646bc3cba711a601b826b83a2078c4fec0b474ab0340e2c91137b34}\\
-\nolinkurl{certificates/ROUND_BRANCH_R37_CERTIFICATE.json} & \path{27894d51a027f033ec005b94f6ff57f75c1a4bdb866eb926af207324b6683758}\\
-\nolinkurl{certificates/ROUND_BRANCH_R38_CERTIFICATE.json} & \path{0f199e4ec5681d92467b04bd0747029235edba3341ef7b3f3f13feeec2ee2bd5}\\
-\nolinkurl{certificates/ROUND_BRANCH_R39_CERTIFICATE.json} & \path{dc1224bcc8843e6fdbcf285e68d036e0945165acb585b1c8f65c5bec5bb34477}\\
-\nolinkurl{certificates/ROUND_BRANCH_R40_CERTIFICATE.json} & \path{71819fcdd5681a6cb5413a6ff326d1d6d651ebd5f2e316886d8f4abc0de9e4f7}\\
-\nolinkurl{certificates/ROUND_BRANCH_R46_CERTIFICATE.json} & \path{18acca0d37550ed985cb9b5f8b205c16a22bdbc788d2084a52e940aba9daf030}\\
-\nolinkurl{certificates/ROUND_BRANCH_R47_CERTIFICATE.json} & \path{da0ef7adb88d62efd4cacac7281c80bfeead1c81e810b102e42e07253176aae7}\\
-\nolinkurl{certificates/ROUND_BRANCH_R48_CERTIFICATE.json} & \path{1ebbc46c67c63a1ecc4fad07a95aa325cc51687c077b75109839072ef7d8dd4e}\\
-\nolinkurl{certificates/ROUND_BRANCH_R49_CERTIFICATE.json} & \path{e95aabd77cdf22b8669cd27c8943e8e51ec93da5740255c7f8c363f4af41c44b}\\
-\nolinkurl{certificates/ROUND_BRANCH_R50_CERTIFICATE.json} & \path{6a1c7aece7bc53906548cfb9f896b9ea32480f51d1edb9de46acbe693824b111}\\
-\nolinkurl{certificates/ROUND_BRANCH_R51_CERTIFICATE.json} & \path{aebe0c00de6fd8ed0059280a2ac6d9c56e6c64355487912d0fde5a5be04999f7}\\
-\nolinkurl{certificates/ROUND_BRANCH_R52_CERTIFICATE.json} & \path{8383d17dac2d9f23995b066b4a9e82a6b977602ee9451bab90fd810161ee171a}\\
-\nolinkurl{certificates/ROUND_BRANCH_R53_CERTIFICATE.json} & \path{b90cc797e755cb8cf849937c20ad1576ea551a7b0ec3b780676c3e84d81b6ecd}\\
-\bottomrule
-\end{longtable}
-\endgroup
-
-The lane paths in the next table, of the form \texttt{data/rounds/}, \texttt{lanes/} and \texttt{verdicts/}, were the layout of a working tree that is not part of this repository. They are citations of where a written argument was produced. They are not files a reader can open here. A result whose only detailed proof lives on such a path is qualified in Section~\ref{sec:data}.
-
-Paths below are written as in that working tree. For each lane, the written proof was \texttt{report.md} and, where present, \nolinkurl{scratch/REPORT.md}. Referee lanes contain the referees' own code, which is not included here.
-
-
-\begingroup\small
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{5.8cm}>{\raggedright\arraybackslash}p{4.6cm}@{}}
-\toprule
-Result & Proof and certificates & Referee / audit\\
-\midrule
-\endhead
-Quarantined lemmas~\ref{lem:forks}--\ref{lem:mixed}; Quarantined statement~\ref{thm:gen3} & \S\ref{sec:gen3}; \nolinkurl{L/astra_r1/A}; \nolinkurl{verify_round_branch_r1.py}; \texttt{data/lean/} & \nolinkurl{L/astra_r2/audit}; \nolinkurl{audits_r2_r6/astra_r2_audit.report.md}\\
-Quarantined statement~\ref{thm:gen4} & \nolinkurl{L/astra_r2/gen4}; \nolinkurl{referee_data/GEN4_star_certificate_p9.json}; \nolinkurl{verify_round_branch_r2.py} & \nolinkurl{audits_r2_r6/astra_r3_audit4.report.md}\\
-Quarantined lemma~\ref{lem:c8}; Quarantined statement~\ref{thm:r4} & \S\ref{sec:r4}; \nolinkurl{data/check_lemmas.py} & --\\
-Quarantined statement~\ref{thm:rad5} & \nolinkurl{L/astra_r3/rad5/scratch/RAD5_PROOF.md} & \nolinkurl{audits_r2_r6/astra_r4_audit5.report.md}\\
-Quarantined statement~\ref{thm:rad6}; $\ROOT(4)$ & \nolinkurl{L/astra_r3b/radK2/scratch/RAD6_ROOT_REPORT.md} & \nolinkurl{audits_r2_r6/astra_r4_audit6.report.md}\\
-Quarantined statement~\ref{thm:rad7}; $\ROOT(5)$ & \nolinkurl{L/astra_r4/rad7/scratch/RAD7_ROOT5_REPORT.md}; \nolinkurl{referee_data/r7/ROOT5_EQUALITY_PROOF_radpush.md} & \nolinkurl{audits_r2_r6/astra_r5_auditR7.report.md}; \nolinkurl{V/astra_r7v/v_radpush}\\
-Quarantined statement~\ref{thm:struct} & \nolinkurl{L/astra_r5/radr} & \nolinkurl{audits_r2_r6/astra_r6_auditStruct.report.md}\\
-$\ROOT(6)$, sharp $\RAD(8)$ & \nolinkurl{L/astra_r7/root6}, \nolinkurl{L/astra_r7/radpush}; \nolinkurl{referee_data/r7/P6_EQUALITY_REPAIR.md} & \nolinkurl{V/astra_r7v/v_root6}, \texttt{v\_radpush}\\
-$\ROOT(7)$, sharp $\RAD(9)$ & \nolinkurl{L/astra_r8/root7} (certificates \nolinkurl{near_P7.json}, \nolinkurl{near_P8.json}, \nolinkurl{near_P9.json}, \nolinkurl{prefix_*.json}, \nolinkurl{*_exclusions*.json}, \dots) & \nolinkurl{V/astra_r8v/v_root7}\\
-$\ROOT(8)$, sharp $\RAD(10)$, $\ROOT(9)$ partial & \nolinkurl{L/astra_r9/root8b} (eight proof certificates \nolinkurl{far3_parentcap14.json}, \nolinkurl{near_dK_a7*.json}, $K=0,\dots,6$) & \nolinkurl{V/astra_r9v/v_root8b}\\
-Quarantined statement~\ref{thm:Lq}; Quarantined lemma~\ref{lem:Lqbasic} & \nolinkurl{L/astra_r8/root8} (\S\S2--5; \nolinkurl{far4_patches.json}, \nolinkurl{child_seeds8.json}) & \nolinkurl{V/astra_r8v/v_root8}\\
-Quarantined statement~\ref{thm:radsharp}; conditional $\RAD$ & \S\ref{sec:root}; \nolinkurl{L/astra_r9/unify} \S\S1,3 & \nolinkurl{V/astra_r9v/v_unify}\\
-Theorem~\ref{thm:blocks}(1)(2); part (3) not claimed & \S\ref{sec:classes}; \nolinkurl{L/astra_r10/td}; \nolinkurl{referee_data/r9/cactus_proof_counterexample.json} & \nolinkurl{V/astra_r10v/v_td}\\
-Quarantined statement~\ref{thm:bip}; clique-sums & \nolinkurl{L/astra_r8/cells} (\nolinkurl{bipartite_p11_certificate.json}, \nolinkurl{bipartite_proof.py}); \nolinkurl{L/astra_r9/cellsA2} & \nolinkurl{V/astra_r8v/v_cells}, \nolinkurl{V/astra_r9v/v_cellsA2}\\
-App.~\ref{app:cells}, items 2, 3 & \nolinkurl{L/astra_r4/cells}, \nolinkurl{L/astra_r5/cellsre}, \nolinkurl{L/astra_r7/cellsA1A2B1} (fixed-core certificates \nolinkurl{A_*_stars.json}, \nolinkurl{A_*_finish.json}, \dots) & \nolinkurl{audits_r2_r6/astra_r5_cellsre.report.md}; \nolinkurl{V/astra_r7v/v_cellsA1A2B1}\\
-App.~\ref{app:cells}, items 4--7 & \nolinkurl{L/astra_r8/cells}, \nolinkurl{L/astra_r8/cellsA1B1}, \nolinkurl{L/astra_r9/cellsA2} & \nolinkurl{V/astra_r8v/v_cells}, \texttt{v\_cellsA1B1}; \nolinkurl{V/astra_r9v/v_cellsA2}\\
-App.~\ref{app:cells}, items 8, 9 & \nolinkurl{L/astra_r9/cellsA1B1b} & \nolinkurl{V/astra_r9v/v_cellsA1B1b}\\
-App.~\ref{app:cells}, item 10 & \nolinkurl{L/astra_r8/sel8}, \nolinkurl{L/astra_r8/ep8}, \nolinkurl{L/astra_r9/sel9} (endpoint certificates \nolinkurl{critical*.json}, \nolinkurl{star_K5.json}); \nolinkurl{L/astra_r10/cb} & \nolinkurl{V/astra_r8v/v_sel8}, \texttt{v\_ep8}; \nolinkurl{V/astra_r9v/v_sel9}; \nolinkurl{V/astra_r10v/v_cb}\\
-Ex.~\ref{ex:radstar}, \ref{ex:plane} & \S\ref{sec:neg}; \nolinkurl{L/astra_r5/radr} \S10; \nolinkurl{verify_round_branch_r3.py} & \nolinkurl{audits_r2_r6/astra_r6_auditStruct.report.md}\\
-Ex.~\ref{ex:star5} & \nolinkurl{L/astra_r3/genK} & \nolinkurl{verify_round_branch_r3.py}\\
-Ex.~\ref{ex:ep}, $\mathrm{EP}^+(6)$ & \nolinkurl{L/astra_r4/ep}, \nolinkurl{L/astra_r5/ep8}, \nolinkurl{L/astra_r7/ep78b} & \nolinkurl{audits_r2_r6/astra_r6_auditStruct.report.md}; \nolinkurl{V/astra_r7v/v_ep78b}\\
-Ex.~\ref{ex:cb}, \ref{ex:heawood}, Conj.~\ref{conj:cbhigh} & \nolinkurl{L/astra_r10/cb}; \nolinkurl{referee_data/r10/petersen_cb.json} & \nolinkurl{V/astra_r10v/v_cb}\\
-App.~\ref{app:routes} & \nolinkurl{L/astra_r4/idea*}, \nolinkurl{L/astra_r5/ideas}, \nolinkurl{L/astra_r10/td} & \nolinkurl{verify_round_branch_r5.py}; \nolinkurl{V/astra_r10v/v_td}\\
-Proved reductions, \S\ref{sec:Gred} & written in the text & on the claim ladder; $\mathcal F_0$ not shown empty\\
-Records (M), (S), (P) & \nolinkurl{certificates/ROUND_BRANCH_R35_CERTIFICATE.json}--\texttt{R40}; search payloads absent & quarantined; predicates undefined; not a class\\
+Proved reductions, \S\ref{sec:Gred} & written in the text & on the claim ladder; positive graphs in $\mathcal F_0$ not settled\\
+Records (M), (S), (P) & R35--R40 verdicts; payloads absent & quarantined; predicates undefined\\
 Lems.~\ref{lem:core}, \ref{lem:coreid}, \ref{lem:avg} & proved in App.~\ref{app:window} & on the claim ladder\\
 Quarantined lem.~\ref{lem:singleton} & no record; conditional observation & not on the claim ladder\\
-Quarantined lems.~\ref{lem:coredeg}, \ref{lem:cubic}, \ref{lem:cactus}, \ref{lem:radsource} & R51--R53 verdicts only; R45 absent & not on the claim ladder\\
+Quarantined lem.~\ref{lem:cubic} & verdicts R50 and R51; R45 absent & not on the claim ladder\\
+Quarantined lems.~\ref{lem:coredeg}, \ref{lem:cactus}, \ref{lem:radsource} & constructions not written here & not on the claim ladder\\
 \bottomrule
-\end{longtable}
-\endgroup
-
+\end{tabular}
+\end{center}
 
 \begin{thebibliography}{99}
 
