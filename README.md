@@ -14,11 +14,14 @@ Continuous proving is stopped. This snapshot is not a claim that REAL-133 is pro
 
 | Result | Status |
 |--------|--------|
-| REAL-133 for \(\ell\le 3\); for \(r\le 2\) and \(\ell\le 4\); for \(r=4\) and \(\ell\le 4\); for \(r\ge 5\) and \(\ell\le 4\) | Proved in `paper/main.tex` (Theorem A). The case \(r=4\), \(p=7\) gives \(\ell\le 2\), with the equality family of the radius-four corollary |
-| The cell \(r=3\), \(p=6\), \(3<\ell\le 4\) | Open. Any counterexample of REAL-133 with \(\ell\le 4\) falls in this cell |
-| \(\mathrm{GEN}_3\), \(\mathrm{GEN}_4\), \(\mathrm{ROOT}(q)\) for \(q\ge 5\) outside the block class, \(\mathrm{RAD}(r)\) for \(r\ge 5\) | Not theorems of the manuscript. A minimum counterexample to \(\mathrm{GEN}_4\), if one exists, is 2-connected. Certificate JSON is not a checker archive |
-| \(\mathrm{ROOT}(3)\), \(\mathrm{ROOT}(4)\), and \(\mathrm{ROOT}(q)\) for every \(q\) when every block is bipartite or a cycle | Proved in the manuscript. The Petersen classification (\(\ell(P)=3\), \(\ell(P-v)=8/3\), and \(\ell\le 5/2\) otherwise, attained by \(H_8\)) is a theorem |
-| Continuous window **R35–R40** partial mass theorems toward \(\mathrm{EB}_6\) / triangle-free \(\mathrm{GEN}_6\) | **Accepted** only as referee CORRECT / CORRECT_WITH_FIXES → paper **Theorem G** |
+| Exact \(M(n)\) for connected strong-\(C_4\)-free \(P_6\)-free graphs | Proved in `paper/main.tex`. Values \(16/7\), \(5/2\), \(8/3\), \(3\), and \(2+2/n\) for \(n\ge 11\), with the extremal graphs unique |
+| Structure at \(r=4\), \(p=7\) | Proved: \(C_8\) or the \(C_6\)-extension in the structure theorem; \(S=2n-b-m\), with equality for \(C_8\) and the leafed \(C_6\) |
+| Triangle-free \(\mathrm{GEN}_3\) | Proved: \(2e\le 3n\), equality only for the Petersen graph. Bipartite graphs of induced-path order at most 6 are included. General \(\mathrm{GEN}_3\), for graphs that contain a triangle, is open |
+| REAL-133 for \(\ell\le 3\); for \(r\le 2\) and \(\ell\le 4\); for \(r=4\) and \(\ell\le 4\); for \(r\ge 5\) and \(\ell\le 4\) | Proved (Theorem A). The case \(r=4\), \(p=7\) gives \(\ell\le 2\) |
+| The cell \(r=3\), \(p=6\), \(3<\ell\le 4\) | Open. Any counterexample of REAL-133 with \(\ell\le 4\) falls in this cell and contains a triangle |
+| \(\mathrm{GEN}_4\), \(\mathrm{ROOT}(q)\) for \(q\ge 5\) outside the block class, \(\mathrm{RAD}(r)\) for \(r\ge 5\), unrestricted \(\mathrm{GEN}_6\) | Not theorems of the manuscript. A minimum counterexample to \(\mathrm{GEN}_4\), if one exists, is 2-connected. Certificate JSON is not a checker archive |
+| \(\mathrm{ROOT}(3)\), \(\mathrm{ROOT}(4)\), and \(\mathrm{ROOT}(q)\) for every \(q\) when every block is bipartite or a cycle | Proved in the manuscript |
+| Continuous window **R35–R40** partial mass theorems toward \(\mathrm{EB}_6\) / triangle-free \(\mathrm{GEN}_6\) | **Accepted** only as referee CORRECT / CORRECT_WITH_FIXES. Not a theorem of the article |
 | Rounds **R46–R53** | Sealed certificates under `certificates/`. Partial CORRECT_WITH_FIXES scaffolding only. Not a proof of the six gates. Summary: `notes/RESULTS_TO_2026-11-01.md` |
 | Last sealed round | **R53** (`b90cc797e755cb8cf849937c20ad1576ea551a7b0ec3b780676c3e84d81b6ecd`): 5/6 CORRECT_WITH_FIXES; STAR **INCORRECT**. No R54 certificate |
 | Six universal gates: EB6/A38, unrestricted TF GEN6, TF-STAR-PRODUCTION6, universal T6, GEN_K/HYBRID, funded RAD → unconditional REAL-133 | **Open**. R49–R53 did not shrink this list |
@@ -39,7 +42,7 @@ PUBLISH_MANIFEST.md
 
 ## Paper
 
-Revised against the two external referee reports of 1 November 2026. The title is *Induced Paths, Radius, and Average Neighborhood Independence in Graphs without 4-Cycles*. The article leads with the Petersen classification, the radius-four equality family, the rooted bounds of orders 3 and 4, and the reduction. Round logs and undefined search predicates are not part of the article; see `notes/REFEREE_2026-11-01_REVISION.md` and `notes/manuscript_before_referee_2026-11-01.tex`. REAL-133, \(\mathrm{GEN}_3\) and unrestricted \(\mathrm{GEN}_6\) stay open.
+Revised against the external referee reports of 1 November 2026, including the major restructuring of the extremal function \(M(n)\), the radius-four structure theorem, and the triangle-free bound. The title is *Induced Paths, Radius, and Extremal Neighborhood Independence in Graphs without 4-Cycles*. REAL-133, \(\mathrm{GEN}_3\) for graphs that contain a triangle, and unrestricted \(\mathrm{GEN}_6\) stay open.
 
 - Source: [`paper/main.tex`](paper/main.tex)
 - PDF: [`paper/main.pdf`](paper/main.pdf)
