@@ -179,8 +179,8 @@ R41–R45 certificate JSON files are not in this snapshot. No R54 certificate is
 | `notes/PROOF_NOTES.md` | 47183 | `31e8384c050802ff…` |
 | `notes/RESULTS_TO_2026-10-24.md` | 13830 | `2969860e602a0408…` |
 | `notes/RESULTS_TO_2026-11-01.md` | 18185 | `5edf318ee14e9948…` |
-| `paper/main.pdf` | 322692 | `aa2301136cfce912…` |
-| `paper/main.tex` | 134332 | `37d8fabcbb6ccbaf…` |
+| `paper/main.pdf` | 334060 | `26da902c75d5dc67…` |
+| `paper/main.tex` | 142784 | `e203434fa10ab1f6…` |
 
 ## Intentionally excluded
 
