@@ -148,3 +148,11 @@ Cert sha256 `27894d51a027f033ec005b94f6ff57f75c1a4bdb866eb926af207324b6683758`. 
   - `v_r40_tf_dfree`: 22 CORRECT + 5 CWF + 4 UNVERIFIED / 31. Verdict sha256 `60d33f7f0b373cbfece4b727dbb5c55443b9c2c0adf0fd535ea459579632b05d`.
 - Certificate: `ROUND_BRANCH_R40_CERTIFICATE.json` sha256 `71819fcdd5681a6cb5413a6ff326d1d6d651ebd5f2e316886d8f4abc0de9e4f7`.
 - Packaging (t184u): RESULTS_TO_2026-10-24.md; paper update `paper/main.tex`; GitHub staging at `/workspace/graph133/github_publish/` (no push from this agent).
+
+## Snapshot 2026-11-01 Asia/Shanghai — proving stopped; last sealed round R53
+
+Continuous proving is stopped. No R55, and no R54 certificate (R54 exited without a trusted verdict). Last sealed round: **R53**, `ROUND_BRANCH_R53_CERTIFICATE.json` sha256 `b90cc797e755cb8cf849937c20ad1576ea551a7b0ec3b780676c3e84d81b6ecd` (five sessions CORRECT_WITH_FIXES; STAR INCORRECT).
+
+R46–R53 certificates are in `certificates/` with `sha256sum` sidecars. R41–R45 JSON files are not in this pack. R49–R53 are mostly partial CWF scaffolding. The six universal gates stay open (EB6/A38, unrestricted TF GEN6, TF-STAR-PRODUCTION6, universal T6, GEN_K/HYBRID, funded RAD → unconditional REAL-133). That scaffolding did not shrink the distance to a complete proof. REAL-133 is not proved.
+
+Non-theorem distance note: `notes/DISTANCE_ASSESS_R54.md` sha256 `ce156ef7fe942b391cd41fd88e29db404cc660a6b7cd2070968acce4f69f4dde` (byte-identical to the assess file). Its conclusion is research-open: do not auto-chain R55; if work resumes later, attack A38/EB6 class-forcing first. Bilingual summary: `notes/RESULTS_TO_2026-11-01.md`. The 2026-10-24 results note is unchanged.

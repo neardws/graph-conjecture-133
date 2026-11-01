@@ -1,31 +1,34 @@
 # PUBLISH_MANIFEST
 
-Staging root: `/workspace/graph133/github_publish/`
-Target remote: `https://github.com/neardws/graph-conjecture-133` (currently README-only).
-This agent does **not** `git push`; parent CloudAgent should upload from this tree.
+Public snapshot of `https://github.com/neardws/graph-conjecture-133` as of 2026-11-01 (Asia/Shanghai).
+Continuous proving is stopped. Last sealed round is R53. There is no R54 certificate.
+This manifest does not claim that REAL-133 or the six universal production gates are proved.
 
-Total payload files (excluding this manifest): 127
+Total payload files (excluding this manifest): 153
 
 ## Tree
 
 ```
-github_publish/
-├── README.md
-├── PUBLISH_MANIFEST.md
-├── paper/main.tex
-├── paper/main.pdf
-├── certificates/ROUND_BRANCH_R{1..40}_CERTIFICATE.json (+ .sha256 + .json.sha256)
-├── notes/RESULTS_TO_2026-10-24.md
-├── notes/PROGRESS.md          # excerpt
-├── notes/PROOF_NOTES.md       # excerpt
-└── data/README.md             # pointer only
+README.md
+PUBLISH_MANIFEST.md
+paper/main.tex
+paper/main.pdf
+certificates/ROUND_BRANCH_R{1..40,46..53}_CERTIFICATE.json (+ .sha256 + .json.sha256)
+notes/RESULTS_TO_2026-10-24.md   # unchanged R35–R40 summary
+notes/RESULTS_TO_2026-11-01.md   # R46–R53 scaffolding vs open gates
+notes/DISTANCE_ASSESS_R54.md     # non-theorem strategy note
+notes/PROGRESS.md
+notes/PROOF_NOTES.md
+data/README.md
 ```
+
+R41–R45 certificate JSON files are not in this snapshot. No R54 certificate is included.
 
 ## Included files
 
 | Path | Bytes | SHA-256 (first 16) |
 |------|------:|--------------------|
-| `README.md` | 3529 | `142df2af94021b5b…` |
+| `README.md` | 4884 | `8b2dc358372932a1…` |
 | `certificates/ROUND_BRANCH_R10_CERTIFICATE.json` | 9744 | `3fc0bd9179f01d65…` |
 | `certificates/ROUND_BRANCH_R10_CERTIFICATE.json.sha256` | 100 | `26bf849cf99e9cfd…` |
 | `certificates/ROUND_BRANCH_R10_CERTIFICATE.sha256` | 100 | `26bf849cf99e9cfd…` |
@@ -128,9 +131,33 @@ github_publish/
 | `certificates/ROUND_BRANCH_R40_CERTIFICATE.json` | 52306 | `71819fcdd5681a6c…` |
 | `certificates/ROUND_BRANCH_R40_CERTIFICATE.json.sha256` | 100 | `cd653d32a517fd2a…` |
 | `certificates/ROUND_BRANCH_R40_CERTIFICATE.sha256` | 100 | `cd653d32a517fd2a…` |
+| `certificates/ROUND_BRANCH_R46_CERTIFICATE.json` | 179849 | `18acca0d37550ed9…` |
+| `certificates/ROUND_BRANCH_R46_CERTIFICATE.json.sha256` | 100 | `afcba9d6c83f3346…` |
+| `certificates/ROUND_BRANCH_R46_CERTIFICATE.sha256` | 100 | `afcba9d6c83f3346…` |
+| `certificates/ROUND_BRANCH_R47_CERTIFICATE.json` | 67709 | `da0ef7adb88d62ef…` |
+| `certificates/ROUND_BRANCH_R47_CERTIFICATE.json.sha256` | 100 | `ccf2fb948afcd812…` |
+| `certificates/ROUND_BRANCH_R47_CERTIFICATE.sha256` | 100 | `ccf2fb948afcd812…` |
+| `certificates/ROUND_BRANCH_R48_CERTIFICATE.json` | 33368 | `1ebbc46c67c63a1e…` |
+| `certificates/ROUND_BRANCH_R48_CERTIFICATE.json.sha256` | 100 | `d78db86e99cb1f46…` |
+| `certificates/ROUND_BRANCH_R48_CERTIFICATE.sha256` | 100 | `d78db86e99cb1f46…` |
+| `certificates/ROUND_BRANCH_R49_CERTIFICATE.json` | 46314 | `e95aabd77cdf22b8…` |
+| `certificates/ROUND_BRANCH_R49_CERTIFICATE.json.sha256` | 100 | `07ec046696b5ff11…` |
+| `certificates/ROUND_BRANCH_R49_CERTIFICATE.sha256` | 100 | `07ec046696b5ff11…` |
 | `certificates/ROUND_BRANCH_R4_CERTIFICATE.json` | 8523 | `42c860ade94c3037…` |
 | `certificates/ROUND_BRANCH_R4_CERTIFICATE.json.sha256` | 99 | `47465d65c56c2bfd…` |
 | `certificates/ROUND_BRANCH_R4_CERTIFICATE.sha256` | 99 | `47465d65c56c2bfd…` |
+| `certificates/ROUND_BRANCH_R50_CERTIFICATE.json` | 185528 | `6a1c7aece7bc5390…` |
+| `certificates/ROUND_BRANCH_R50_CERTIFICATE.json.sha256` | 100 | `2d77953b5cbb106a…` |
+| `certificates/ROUND_BRANCH_R50_CERTIFICATE.sha256` | 100 | `2d77953b5cbb106a…` |
+| `certificates/ROUND_BRANCH_R51_CERTIFICATE.json` | 175656 | `aebe0c00de6fd8ed…` |
+| `certificates/ROUND_BRANCH_R51_CERTIFICATE.json.sha256` | 100 | `f94e772640e33a41…` |
+| `certificates/ROUND_BRANCH_R51_CERTIFICATE.sha256` | 100 | `f94e772640e33a41…` |
+| `certificates/ROUND_BRANCH_R52_CERTIFICATE.json` | 226160 | `8383d17dac2d9f23…` |
+| `certificates/ROUND_BRANCH_R52_CERTIFICATE.json.sha256` | 100 | `0f54923dec508cbf…` |
+| `certificates/ROUND_BRANCH_R52_CERTIFICATE.sha256` | 100 | `0f54923dec508cbf…` |
+| `certificates/ROUND_BRANCH_R53_CERTIFICATE.json` | 40859 | `b90cc797e755cb8c…` |
+| `certificates/ROUND_BRANCH_R53_CERTIFICATE.json.sha256` | 100 | `e09bdf6c73a64459…` |
+| `certificates/ROUND_BRANCH_R53_CERTIFICATE.sha256` | 100 | `e09bdf6c73a64459…` |
 | `certificates/ROUND_BRANCH_R5_CERTIFICATE.json` | 3690 | `ac372227c3718a66…` |
 | `certificates/ROUND_BRANCH_R5_CERTIFICATE.json.sha256` | 99 | `8c629392a6c2bf58…` |
 | `certificates/ROUND_BRANCH_R5_CERTIFICATE.sha256` | 99 | `8c629392a6c2bf58…` |
@@ -146,25 +173,45 @@ github_publish/
 | `certificates/ROUND_BRANCH_R9_CERTIFICATE.json` | 26450 | `b65661bc26dbe97f…` |
 | `certificates/ROUND_BRANCH_R9_CERTIFICATE.json.sha256` | 99 | `e75e87b781825be4…` |
 | `certificates/ROUND_BRANCH_R9_CERTIFICATE.sha256` | 99 | `e75e87b781825be4…` |
-| `data/README.md` | 879 | `f52316c613fbdcc3…` |
-| `notes/PROGRESS.md` | 26729 | `5a2ed99e56f711dc…` |
+| `data/README.md` | 1221 | `d8189b4e0bff02db…` |
+| `notes/DISTANCE_ASSESS_R54.md` | 17464 | `ce156ef7fe942b39…` |
+| `notes/PROGRESS.md` | 27891 | `0e91ba3eed0f0856…` |
 | `notes/PROOF_NOTES.md` | 47183 | `31e8384c050802ff…` |
 | `notes/RESULTS_TO_2026-10-24.md` | 13830 | `2969860e602a0408…` |
-| `paper/main.pdf` | 315372 | `b19e51b00d222189…` |
-| `paper/main.tex` | 130485 | `bc69f15221b69322…` |
+| `notes/RESULTS_TO_2026-11-01.md` | 18185 | `5edf318ee14e9948…` |
+| `paper/main.pdf` | 322692 | `aa2301136cfce912…` |
+| `paper/main.tex` | 134332 | `37d8fabcbb6ccbaf…` |
 
 ## Intentionally excluded
 
-- Entire `work/round_branch/astra_*` trees (prover/referee sessions, `codex.log`, ctx dumps)
-- Paper `*.bak` backups and TeX intermediate aux/log/fls
+- Entire prover/referee session trees, `codex.log`, and context dumps
+- TeX intermediate aux/log/fls files
 - Full computational `data/` supplement (Lean, nauty, lane reports)
 - Unredacted author email; private credentials
-- Any proof rounds after window close 2026-10-24 18:00 Asia/Shanghai
+- R41–R45 certificate files (not in the 2026-11-01 pack)
+- Any R54 certificate (none was sealed; R54 exited without a trusted verdict)
 
-## R40 integrity
+## R53 integrity
 
-- `certificates/ROUND_BRANCH_R40_CERTIFICATE.sha256` → `71819fcdd5681a6cb5413a6ff326d1d6d651ebd5f2e316886d8f4abc0de9e4f7`
-- Verdicts: a38 `55962388…`; tf `60d33f7f…`; overall CWF both sides
+- `certificates/ROUND_BRANCH_R53_CERTIFICATE.sha256` → `b90cc797e755cb8cf849937c20ad1576ea551a7b0ec3b780676c3e84d81b6ecd`
+- Five sessions CORRECT_WITH_FIXES; STAR session INCORRECT. Six universal gates remain open.
+- This is scaffolding. It is not a proof of REAL-133.
+
+## R46–R53 certificate SHA-256
+
+- `18acca0d37550ed985cb9b5f8b205c16a22bdbc788d2084a52e940aba9daf030` `certificates/ROUND_BRANCH_R46_CERTIFICATE.json`
+- `da0ef7adb88d62efd4cacac7281c80bfeead1c81e810b102e42e07253176aae7` `certificates/ROUND_BRANCH_R47_CERTIFICATE.json`
+- `1ebbc46c67c63a1ecc4fad07a95aa325cc51687c077b75109839072ef7d8dd4e` `certificates/ROUND_BRANCH_R48_CERTIFICATE.json`
+- `e95aabd77cdf22b8669cd27c8943e8e51ec93da5740255c7f8c363f4af41c44b` `certificates/ROUND_BRANCH_R49_CERTIFICATE.json`
+- `6a1c7aece7bc53906548cfb9f896b9ea32480f51d1edb9de46acbe693824b111` `certificates/ROUND_BRANCH_R50_CERTIFICATE.json`
+- `aebe0c00de6fd8ed0059280a2ac6d9c56e6c64355487912d0fde5a5be04999f7` `certificates/ROUND_BRANCH_R51_CERTIFICATE.json`
+- `8383d17dac2d9f23995b066b4a9e82a6b977602ee9451bab90fd810161ee171a` `certificates/ROUND_BRANCH_R52_CERTIFICATE.json`
+- `b90cc797e755cb8cf849937c20ad1576ea551a7b0ec3b780676c3e84d81b6ecd` `certificates/ROUND_BRANCH_R53_CERTIFICATE.json`
+
+## Distance note (not a theorem)
+
+- `notes/DISTANCE_ASSESS_R54.md` → `ce156ef7fe942b391cd41fd88e29db404cc660a6b7cd2070968acce4f69f4dde`
+- Strategy assessment only. Research-open. It does not authorise an automatic R55 round.
 
 ## No LICENSE
 
