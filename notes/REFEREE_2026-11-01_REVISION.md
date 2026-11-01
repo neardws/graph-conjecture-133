@@ -20,4 +20,17 @@ The gap below the Petersen graph is Proposition (near the \(P_6\)-free mass boun
 
 Verdict history, model names, round identifiers, and undefined predicates (endpoint-reducing deletions of unnamed weight, one-vertex Robertson punctures, and the graphs named only inside those records) are not in the article. The conditional deletion lemmas whose hypotheses are written in full remain, and they do not prove that the class \(\mathcal F_0\) is free of positive graphs.
 
-Computer-dependent inequalities stay unproved. There is still no versioned public archive here of a checker, its inputs, and a completeness argument for \(\mathrm{GEN}_3\), \(\mathrm{GEN}_4\), \(\mathrm{ROOT}(q)\) with \(q\ge 4\) outside the block class, \(\mathrm{RAD}(r)\) for \(r\ge 5\), bipartite \(\mathrm{GEN}_5\), or a structure theorem at radius at least 5.
+Computer-dependent inequalities stay unproved. There is still no versioned public archive here of a checker, its inputs, and a completeness argument for \(\mathrm{GEN}_3\), \(\mathrm{GEN}_4\), \(\mathrm{ROOT}(q)\) with \(q\ge 5\) outside the block class, \(\mathrm{RAD}(r)\) for \(r\ge 5\), bipartite \(\mathrm{GEN}_5\), or a structure theorem at radius at least 5.
+
+## Second report (Chinese major revision, same day)
+
+The title is now *Induced Paths, Radius, and Average Neighborhood Independence in Graphs without 4-Cycles*. WOWII 133 remains the first sentence of the abstract and a keyword. Authors are unchanged.
+
+1. For \(5<\ell\le 6\), the necessary pairs are \((r,p)\) with \(r=2\), \(p\in\{6,7\}\); \(r=3\), \(p\in\{6,7,8\}\); \(r=4\), \(p\in\{8,9\}\); \(r=5\), \(p\in\{9,10\}\); and \(r=6\), \(p=11\). The table does not claim that each cell occurs.
+2. \(K_{2,3}\) is kept as a test of dropping the strong \(C_4\)-free hypothesis. It is not used to justify the block restriction.
+3. The Petersen classification is a theorem: \(\ell(P)=3\), \(\ell(P-v)=8/3\), and \(\ell\le 5/2\) otherwise, attained only by \(H_8\). Figure 1 is `paper/fig1-petersen.pdf`. The distance-layer counting proof of \(S\le 3n\) is no longer the primary proof; the case division is.
+4. The radius-four equality family is a corollary, with Figure 2. Within \(\ell\le 4\), every counterexample falls in \(r=3\), \(p=6\), \(3<\ell\le 4\). The range \(r\ge 5\) uses Erdős–Saks–Sós.
+5. \(\mathrm{ROOT}(4)\) is a theorem, with the inductive proof, Figure 3, the distance-layer remark, the terminal strengthening by 2 when the eccentricity is 3, and the cut-vertex consequence for a minimum counterexample to \(\mathrm{GEN}_4\). \(\mathrm{GEN}_4\) stays open.
+6. Literature comparisons sit in the introduction. Formal Conjectures pull request 5727 is cited at merge commit `5faef0c4dc3d226f8f9a9fc8f581b6221283eb6e`. The ear lemma lists the seven vertices \(u_5,v,u_1,a_1,a_2,a_3,a_4\). The terminal conjecture implies the corresponding \(\mathrm{ROOT}(q)\) by attaching a path of \(q-1\) edges; that implication does not prove the conjecture. The old deletion and port appendices are `notes/supplement-deletion-ports.tex`, outside the article. The counts 790 and 73 are recomputed by `paper/scripts/c8_configurations.py`. The deletion loss 20 is recomputed by `paper/scripts/check_ep9.py`.
+
+REAL-133, \(\mathrm{GEN}_3\) and unrestricted \(\mathrm{GEN}_6\) stay open.
