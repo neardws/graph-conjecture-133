@@ -24,4 +24,6 @@ Build products (`aux`, `log`, `bbl`, `blg`, `synctex`) and the compiled sample P
 
 ## No wrapper for the article
 
-There is no `wiley-main.tex` that inputs `paper/main.tex`. That file is a complete document, with its own `\documentclass`. Feeding it to `USG` would nest the two classes. A Journal of Graph Theory copy, when one is wanted, should be a separate file started from `Optimal-Design-layout.tex`.
+There is no `wiley-main.tex` that inputs `paper/main.tex`. That file is a complete document, with its own `\documentclass`. Feeding it to `USG` would nest the two classes. A Journal of Graph Theory copy has to be a separate file started from `Optimal-Design-layout.tex`.
+
+The submission source is `paper/wiley-jgt.tex`, a complete `USG` document with the `ASNA` option, set in one column. It does not input `paper/main.tex`. The portable manuscript remains `paper/main.tex` in `amsart`.

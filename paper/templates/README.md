@@ -25,7 +25,7 @@ SIDMA uses the standard SIAM journal macros, not the online-only class `siamonli
 
 ## Wiley, Journal of Graph Theory
 
-The target journal is the Journal of Graph Theory. The class Neil supplied is `USG.cls` (Wiley, 2024/05/07, v6.0), kept with its sample and the author-guidelines PDF in [`wiley-njd/`](wiley-njd/README.md). That directory is the pack to use for a later JGT copy. The journal accepts a free-format submission, and a PDF can be sent first, so `paper/main.tex` stays in `amsart` until a production file is required.
+The target journal is the Journal of Graph Theory. The class Neil supplied is `USG.cls` (Wiley, 2024/05/07, v6.0), kept with its sample and the author-guidelines PDF in [`wiley-njd/`](wiley-njd/README.md). The submission source is [`../wiley-jgt.tex`](../wiley-jgt.tex), a complete `USG` document with the `ASNA` option. `paper/main.tex` remains the portable `amsart` manuscript and is not input by that file.
 
 ## Springer Nature, Combinatorica
 
@@ -35,4 +35,4 @@ Combinatorica’s instructions ask for a manuscript of at most 30 pages in 11-po
 
 ## What this directory does not do
 
-`paper/main.tex` is not converted to any of these classes. A submission copy should be a separate file, started from the publisher’s sample and filled from the present source, so that the portable article and its proofs stay in `amsart`.
+`paper/main.tex` is not converted in place. The Journal of Graph Theory copy is the separate file `paper/wiley-jgt.tex`. The portable article and its proofs stay in `amsart`.
