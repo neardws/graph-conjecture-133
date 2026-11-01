@@ -3,8 +3,9 @@
 Public snapshot of `https://github.com/neardws/graph-conjecture-133` as of 2026-11-01 (Asia/Shanghai).
 Continuous proving is stopped. Last sealed round is R53. There is no R54 certificate.
 This manifest does not claim that REAL-133 or the six universal production gates are proved.
+The article `paper/main.tex` was revised against the external referee report of 1 November 2026. Certificate hashes below are not proofs in that article.
 
-Total payload files (excluding this manifest): 153
+Total payload files (excluding this manifest): 155
 
 ## Tree
 
@@ -19,6 +20,8 @@ notes/RESULTS_TO_2026-11-01.md   # R46–R53 scaffolding vs open gates
 notes/DISTANCE_ASSESS_R54.md     # non-theorem strategy note
 notes/PROGRESS.md
 notes/PROOF_NOTES.md
+notes/REFEREE_2026-11-01_REVISION.md
+notes/manuscript_before_referee_2026-11-01.tex
 data/README.md
 ```
 
@@ -28,7 +31,7 @@ R41–R45 certificate JSON files are not in this snapshot. No R54 certificate is
 
 | Path | Bytes | SHA-256 (first 16) |
 |------|------:|--------------------|
-| `README.md` | 4884 | `8b2dc358372932a1…` |
+| `README.md` | 5646 | `2dd6be2d8b819c15…` |
 | `certificates/ROUND_BRANCH_R10_CERTIFICATE.json` | 9744 | `3fc0bd9179f01d65…` |
 | `certificates/ROUND_BRANCH_R10_CERTIFICATE.json.sha256` | 100 | `26bf849cf99e9cfd…` |
 | `certificates/ROUND_BRANCH_R10_CERTIFICATE.sha256` | 100 | `26bf849cf99e9cfd…` |
@@ -173,14 +176,16 @@ R41–R45 certificate JSON files are not in this snapshot. No R54 certificate is
 | `certificates/ROUND_BRANCH_R9_CERTIFICATE.json` | 26450 | `b65661bc26dbe97f…` |
 | `certificates/ROUND_BRANCH_R9_CERTIFICATE.json.sha256` | 99 | `e75e87b781825be4…` |
 | `certificates/ROUND_BRANCH_R9_CERTIFICATE.sha256` | 99 | `e75e87b781825be4…` |
-| `data/README.md` | 1221 | `d8189b4e0bff02db…` |
+| `data/README.md` | 1198 | `57ccc1054f3e5f0b…` |
 | `notes/DISTANCE_ASSESS_R54.md` | 17464 | `ce156ef7fe942b39…` |
 | `notes/PROGRESS.md` | 27891 | `0e91ba3eed0f0856…` |
 | `notes/PROOF_NOTES.md` | 47183 | `31e8384c050802ff…` |
 | `notes/RESULTS_TO_2026-10-24.md` | 13830 | `2969860e602a0408…` |
 | `notes/RESULTS_TO_2026-11-01.md` | 18185 | `5edf318ee14e9948…` |
-| `paper/main.pdf` | 334060 | `26da902c75d5dc67…` |
-| `paper/main.tex` | 142784 | `e203434fa10ab1f6…` |
+| `notes/REFEREE_2026-11-01_REVISION.md` | 6568 | `86af7234c6ff6dd9…` |
+| `notes/manuscript_before_referee_2026-11-01.tex` | 156992 | `e8f1834cbb1dcd80…` |
+| `paper/main.pdf` | 585702 | `32f3f8aef10d6a8e…` |
+| `paper/main.tex` | 85645 | `0eb9055f70915f60…` |
 
 ## Intentionally excluded
 

@@ -14,10 +14,10 @@ Continuous proving is stopped. This snapshot is not a claim that REAL-133 is pro
 
 | Result | Status |
 |--------|--------|
-| Conjecture for \(\ell(G)\le 5\) | Proved (paper Theorems A–F lineage) |
-| \(\mathrm{GEN}_3\) | Proved + Lean 4 formalisation (supplement) |
-| \(\mathrm{GEN}_4\) | Proved with finite certificate |
-| \(\mathrm{ROOT}(q)\) for \(3\le q\le 8\), \(\mathrm{RAD}(r)\) for \(4\le r\le 10\) | Proved (sharp forms as in paper) |
+| REAL-133 for \(\ell\le 3\); for \(r\le 2\) and \(\ell\le 4\); for \(r=4\) and \(\ell\le 4\); for \(r\ge 5\) and \(\ell\le 4\) | Proved in `paper/main.tex` (Theorem A). The case \(r=4\), \(p=7\) gives \(\ell\le 2\), with the equality family of the radius-four corollary |
+| The cell \(r=3\), \(p=6\), \(3<\ell\le 4\) | Open. Any counterexample of REAL-133 with \(\ell\le 4\) falls in this cell |
+| \(\mathrm{GEN}_3\), \(\mathrm{GEN}_4\), \(\mathrm{ROOT}(q)\) for \(q\ge 5\) outside the block class, \(\mathrm{RAD}(r)\) for \(r\ge 5\) | Not theorems of the manuscript. A minimum counterexample to \(\mathrm{GEN}_4\), if one exists, is 2-connected. Certificate JSON is not a checker archive |
+| \(\mathrm{ROOT}(3)\), \(\mathrm{ROOT}(4)\), and \(\mathrm{ROOT}(q)\) for every \(q\) when every block is bipartite or a cycle | Proved in the manuscript. The Petersen classification (\(\ell(P)=3\), \(\ell(P-v)=8/3\), and \(\ell\le 5/2\) otherwise, attained by \(H_8\)) is a theorem |
 | Continuous window **R35–R40** partial mass theorems toward \(\mathrm{EB}_6\) / triangle-free \(\mathrm{GEN}_6\) | **Accepted** only as referee CORRECT / CORRECT_WITH_FIXES → paper **Theorem G** |
 | Rounds **R46–R53** | Sealed certificates under `certificates/`. Partial CORRECT_WITH_FIXES scaffolding only. Not a proof of the six gates. Summary: `notes/RESULTS_TO_2026-11-01.md` |
 | Last sealed round | **R53** (`b90cc797e755cb8cf849937c20ad1576ea551a7b0ec3b780676c3e84d81b6ecd`): 5/6 CORRECT_WITH_FIXES; STAR **INCORRECT**. No R54 certificate |
@@ -38,6 +38,8 @@ PUBLISH_MANIFEST.md
 ```
 
 ## Paper
+
+Revised against the two external referee reports of 1 November 2026. The title is *Induced Paths, Radius, and Average Neighborhood Independence in Graphs without 4-Cycles*. The article leads with the Petersen classification, the radius-four equality family, the rooted bounds of orders 3 and 4, and the reduction. Round logs and undefined search predicates are not part of the article; see `notes/REFEREE_2026-11-01_REVISION.md` and `notes/manuscript_before_referee_2026-11-01.tex`. REAL-133, \(\mathrm{GEN}_3\) and unrestricted \(\mathrm{GEN}_6\) stay open.
 
 - Source: [`paper/main.tex`](paper/main.tex)
 - PDF: [`paper/main.pdf`](paper/main.pdf)

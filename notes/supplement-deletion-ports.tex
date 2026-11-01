@@ -1,0 +1,79 @@
+% Supplementary notes. Not part of paper/main.tex and not a theorem of the article.
+% These are the former Appendices B and C. They do not prove S\le6n, and they
+% are not used as hypotheses in the manuscript.
+%
+% The class F_0 referred to below is the class of connected triangle-free
+% strong C_4-free graphs G with p(G) in {11,12}, minimum degree at least 4,
+% and with every endpoint of every induced path of order p(G) of degree at most 7.
+
+\section{Deletion in the triangle-free class}\label{app:delete}
+
+Let $\mathcal F$ be the class of finite triangle-free strong $C_4$-free graphs with $\pp\le 12$. Write $\varepsilon_6(G)=S(G)-6|G|$, and call $G$ \emph{positive} when $\varepsilon_6(G)>0$. A nonempty set $U\subseteq V(G)$ is \emph{$6$-cheap} when $D_G(U)\le 6|U|$.
+
+\begin{lemma}\label{lem:tfmargin}
+Let $G$ be triangle-free and strong $C_4$-free, and let $\varnothing\ne U\subseteq V(G)$. Then
+\[
+D_G(U)=2e\bigl(G[U]\bigr)+2e(U,V(G)\setminus U),
+\]
+and $\varepsilon_6(G)-\varepsilon_6(G-U)=D_G(U)-6|U|$. If $D_G(U)\le 6|U|$ and $\varepsilon_6(G)>0$, then $U\ne V(G)$ and $\varepsilon_6(G-U)\ge\varepsilon_6(G)>0$. If $K\ge 6$ is real and $D_G(U)\le 6|U|$, then $D_G(U)\le K|U|$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:basic}, $\lambda(v)=d(v)$ and $S(G)=2e(G)$. The edges counted by $S(G)$ but not by $S(G-U)$ are exactly the edges that meet $U$, so $D_G(U)=2e(G[U])+2e(U,V(G)\setminus U)$. The identity for $\varepsilon_6$ is the definition. If $U=V(G)$, then $D_G(U)=S(G)$, hence $D_G(U)-6|U|=\varepsilon_6(G)$. Thus $\varepsilon_6(G)>0$ forbids $D_G(V(G))\le 6|V(G)|$. The inequality $D_G(U)\le 6|U|$ rearranges to $\varepsilon_6(G-U)\ge\varepsilon_6(G)$. For real $K\ge 6$ one has $6|U|\le K|U|$.
+\end{proof}
+
+\begin{lemma}\label{lem:degenerate}
+Assume that every nonempty triangle-free strong $C_4$-free graph of minimum degree at least~$4$ contains an induced $P_{11}$. Then every triangle-free strong $C_4$-free graph with $\pp\le 10$ is $3$-degenerate, and therefore satisfies $e\le 3(n-1)$ and $S\le 6(n-1)$ whenever $n\ge 1$. In particular $S\le 6n$.
+\end{lemma}
+
+\begin{proof}
+Let $H$ be a nonempty induced subgraph of a triangle-free strong $C_4$-free graph with $\pp\le 10$. Then $H$ is triangle-free and strong $C_4$-free, and $\pp(H)\le 10$, so $H$ has no induced $P_{11}$. The assumed hypothesis forces $\delta(H)\le 3$. Delete a vertex of degree at most~$3$ in the current graph and repeat. Each of the first $n-1$ deletions removes at most three edges, and the last vertex is isolated, so $e\le 3(n-1)$. Lemma~\ref{lem:basic}(3) gives $S=2e$.
+\end{proof}
+
+The path hypothesis of Lemma~\ref{lem:degenerate} is not proved in this paper.
+
+\begin{proposition}\label{prop:Gequiv}
+Let $\mathcal R\subseteq\mathcal F$. Suppose that every positive graph in $\mathcal F\setminus\mathcal R$ has a nonempty $6$-cheap set. Then the following are equivalent.
+\begin{enumerate}
+\item Every positive graph in $\mathcal R$ has a nonempty $6$-cheap set.
+\item Every graph in $\mathcal F$ satisfies $S\le 6n$.
+\end{enumerate}
+The supposition is not a proof that any particular subclass is empty.
+\end{proposition}
+
+\begin{proof}
+If (2) holds, then no graph in $\mathcal F$ is positive, so (1) holds vacuously. Conversely, assume (1) and the supposition, and suppose some graph in $\mathcal F$ is positive. Among all positive induced subgraphs of members of $\mathcal F$, choose $H$ of minimum order. Then $H\in\mathcal F$, and $H$ is connected. If $H$ had a nonempty $6$-cheap set $U$, Lemma~\ref{lem:tfmargin} would give a smaller positive induced subgraph $H-U$. Thus $H\in\mathcal R$, contradicting (1). Hence no graph in $\mathcal F$ is positive.
+\end{proof}
+
+Let $\mathcal F_0$ be the class defined in Section~\ref{sec:open}. Proposition~\ref{prop:Gequiv} does not show that $\mathcal F_0$ contains no positive graph.
+
+\section{Ports of a distance-preserving dominating set}\label{app:ports}
+
+\begin{lemma}\label{lem:core}
+Let $G$ be triangle-free and strong $C_4$-free, and let $D\subseteq V(G)$ be a connected dominating set such that $d_G(x,y)=d_{G[D]}(x,y)$ for all $x,y\in D$. Write $H=V(G)\setminus D$.
+\begin{enumerate}
+\item Every vertex of $H$ has exactly one neighbour in $D$.
+\item If $x,y\in H$ are adjacent, with neighbours $a$ and $b$ in $D$, then $a\ne b$, $a\not\sim b$, and $d_{G[D]}(a,b)\le 3$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $x\in H$. Since $D$ dominates and $x\notin D$, the vertex $x$ has a neighbour in $D$. If $a,b\in N(x)\cap D$ are distinct, then $d_G(a,b)\le 2$, hence $d_{G[D]}(a,b)\le 2$. Distance one gives the triangle $axb$. Distance two gives a $4$-cycle through $x$ and a length-$2$ path in $G[D]$.
+
+For (2), if $a=b$ then $axy$ is a triangle, and if $a\sim b$ then $axyb$ is a $4$-cycle. The path $a,x,y,b$ has length three, so $d_{G[D]}(a,b)\le 3$.
+\end{proof}
+
+\begin{lemma}\label{lem:coreid}
+Under the hypotheses of Lemma~\ref{lem:core}, the cut between $D$ and $H$ has exactly $|H|$ edges, and
+\[
+\varepsilon_6(G)=2e(G[D])-6|D|+2e(G[H])-4|H|.
+\]
+If in addition $e(G[H])\le 2|H|$, then $\varepsilon_6(G)\le 2e(G[D])-6|D|$. The inequality $\varepsilon_6(G)\le -2|D|$ does not follow from this identity alone. In particular the identity does not produce a $6$-cheap set in every triangle-free strong $C_4$-free graph of path order $11$ or $12$.
+\end{lemma}
+
+\begin{proof}
+Each vertex of $H$ has exactly one neighbour in $D$. Lemma~\ref{lem:basic}(3) gives $S(G)=2\bigl(e(G[D])+e(G[H])+|H|\bigr)$. Subtract $6(|D|+|H|)$.
+\end{proof}
+
+If $D$ is a single vertex and the minimum degree of $G$ is at least~$4$, Lemma~\ref{lem:core} forces $G$ to be a star, whose leaves have degree one. Thus no one-vertex set satisfies the hypotheses of Lemma~\ref{lem:core} in a graph of minimum degree at least~$4$.
+
