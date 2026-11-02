@@ -34,6 +34,10 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{example}[theorem]{Example}
+\renewcommand{\thetheorem}{S\thesection.\arabic{theorem}}
+\makeatletter
+\@ifundefined{theHtheorem}{}{\renewcommand{\theHtheorem}{S\thesection.\arabic{theorem}}}
+\makeatother
 
 \title[Supplement]{Supplement to Induced Paths, Radius, and Extremal Neighborhood Independence in Graphs without 4-Cycles}
 \author{Xingchen Wang}
@@ -44,7 +48,7 @@
 \maketitle
 
 \begin{abstract}
-This supplement contains the rooted bounds, the endpoint obstructions, the high-radius constructions, and the conditional reduction for $\GEN_3$ removed from the article. Numbered references to results proved in the article point to that file. The article's Theorems on $M(n)$, radius four, the exact triangle-free function $f(n)$, and graphs with at most one triangle do not depend on these arguments.
+This supplement contains the rooted bounds, the endpoint obstructions, the high-radius constructions, the candidate pairs in the ranges $4<\lr\le 5$ and $5<\lr\le 6$, and the conditional reduction for $\GEN_3$ removed from the article. Numbered statements in this file carry an S prefix. Numbered references to results proved in the article point to that file. The article's Theorems on $M(n)$, radius four, the exact triangle-free function $f(n)$, and graphs with at most one triangle do not depend on these arguments.
 \end{abstract}
 
 \section{Rooted bounds of orders three and four}\label{sec:root3}
@@ -120,7 +124,7 @@ Such a graph is connected and strong $C_4$-free, with $\pp(G)\le 8$ and $S(G)\ge
 The hypothesis $n_1\ge 2$ gives $4n-n_1+1\le 4n-1$, so $S(G)<4n$, contradicting $S(G)\ge 4n+1$.
 \end{proof}
 
-For $q\ge 5$ the bound $\ROOT(q)$ is not proved for arbitrary strong $C_4$-free graphs. Section~\ref{sec:status} records the limitation. The next section proves every index for graphs whose blocks are bipartite or cycles. Conjecture~\ref{conj:td} would imply $\ROOT(q)$ for the same $q$, by the attachment in Section~\ref{sec:status}. That implication is not a proof of the conjecture, and for $q\ge 5$ it does not prove $\ROOT(q)$.
+For $q\ge 5$ the bound $\ROOT(q)$ is not proved for arbitrary strong $C_4$-free graphs. Section~\ref{sec:high} records the limitation. The next section proves every index for graphs whose blocks are bipartite or cycles. Conjecture~\ref{conj:td} would imply $\ROOT(q)$ for the same $q$, by the attachment in Section~\ref{sec:high}. That implication is not a proof of the conjecture, and for $q\ge 5$ it does not prove $\ROOT(q)$.
 
 \section{Rooted bounds for every index}\label{sec:blocks}
 
@@ -305,6 +309,102 @@ n=6f+b(f-1),\qquad S=12f+b(q+1)f,\qquad r=t+3,\qquad \pp=2t+5=2r-1.
 Distances inside the flower are unchanged. Every vertex of an attached copy is within distance $f-1\le t$ of $c_0$, so each cycle vertex has eccentricity $t+3$, while a vertex $x$ of a copy has distance $d_F(x,c_0)+t+3$ from the tip of the arm at $c_3$. An induced path meets the cycle in at most five consecutive vertices, and each of its two ends outside the cycle contributes at most $t$ vertices. Mass is additive at cut vertices by Lemma~\ref{lem:cut}. For fixed $q$, as $b\to\infty$ one has $\lr\to(q+1)f/(f-1)$. Letting $q\to\infty$, with $r=f+2$, this limit grows like $\sqrt{r/2}$. For $q=5$ and $b=17$ one has $n=1409$, $r=64$, $\pp=127$ and $S=7068>5n$. These graphs satisfy $\RAD(r)$ for their own radius, and they show that $\lr$ is unbounded on the class $\pp=2r-1$. Any theorem $\RAD(r)$ must use a bound that depends on $r$.
 \end{example}
 
+
+\section{Candidate pairs above density four}\label{sec:high}
+
+The two lemmas below are the density restrictions used for the pairs $(r,\pp)=(2,6)$, $(3,6)$ and $(2,7)$. They are not used in the proofs of Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf}, \ref{thm:fn} and~\ref{thm:onetri}.
+
+\begin{lemma}\label{lem:rad2bip}
+Let $G$ be connected, bipartite and strong $C_4$-free, with $r(G)=2$. Then $G$ is a tree, $\lr(G)=2-2/n$ and $\pp(G)\le 5$.
+\end{lemma}
+
+\begin{proof}
+Let $s$ be a centre, and let $A$ be the colour class of $s$ and $B$ the other class. Every vertex of $B$ lies at odd distance from $s$, hence at distance~$1$, so $B\subseteq N(s)$. Every vertex $x\in A\setminus\{s\}$ lies at distance~$2$ from $s$, so $x$ has a neighbour in $B$. Two such neighbours would form a $4$-cycle with $s$. Thus $x$ has exactly one neighbour. There is no edge inside $A$ or inside $B$, and the number of edges is $|B|+|A|-1=n-1$. A connected graph with $n-1$ edges is a tree. There are no triangles, so $S=2e=2n-2$ and $\lr=2-2/n$. Every vertex of $A\setminus\{s\}$ is a leaf. An induced path contains at most two leaves, and the unique path between them has the form leaf, neighbour in $B$, $s$, neighbour in $B$, leaf. Hence $\pp(G)\le 5$.
+\end{proof}
+
+\begin{lemma}\label{lem:bip8}
+Let $G$ be a connected triangle-free strong $C_4$-free $P_8$-free graph. Then $e(G)\le 2n-2$. In particular, for $n\ge 2$ one has $\lr(G)=2e(G)/n<4$.
+\end{lemma}
+
+\begin{proof}
+The graph has no triangle and no $4$-cycle subgraph, so every cycle has length at least~$5$. The bound $e\le 2n-2$ holds for $n=1$. Let $n\ge 2$, and proceed by induction on the order. If $G$ is a tree, then $e=n-1\le 2n-2$. Otherwise the girth is at least~$5$. Theorem~1 of Chudnovsky and Stacho~\cite{chudstacho} then asserts that $G$ is the Petersen graph, the Heawood graph, the graph obtained by contracting one edge of the Heawood graph, or else $G$ has a vertex of degree at most~$2$. These three exceptions have pairs $(n,e)$ equal to $(10,15)$, $(14,21)$ and $(13,20)$. Each satisfies $e\le 2n-2$, since $15\le 18$, $21\le 26$ and $20\le 24$.
+
+In every remaining case some vertex $v$ has degree at most~$2$. Every component $H$ of $G-v$ is connected, triangle-free, strong $C_4$-free and $P_8$-free. The inductive hypothesis gives $e(H)\le 2|H|-2$. If $G-v$ has $c\ge 1$ components, then
+\[
+e(G)=e(G-v)+d(v)\le 2(n-1)-2c+2\le 2n-2,
+\]
+because $d(v)\le 2$ and $c\ge 1$. Since $G$ is triangle-free, $S=2e\le 4n-4$, so $\lr\le 4-4/n<4$.
+\end{proof}
+
+Lemma~\ref{lem:e2n} gives $\lr<4$ whenever $\pp\le 6$. The pairs $(r,\pp)=(2,6)$ and $(3,6)$ are therefore excluded from the range $\lr\ge 4$, and from no wider range. Proposition~\ref{prop:theta} realises $(3,6)$: the graph $\theta_k$ has $\lr=3-6/n$. Lemma~\ref{lem:bip8} applies to every connected triangle-free strong $C_4$-free graph of induced-path order~$7$, since such a graph is $P_8$-free, and yields $\lr<4$. Equivalently, if $\pp=7$ and $\lr\ge 4$, then $G$ contains a triangle. In the range $5<\lr\le 6$ the pairs $(2,7)$ and $(3,7)$ therefore occur only for graphs that contain a triangle. The same conclusion does not forbid $(r,\pp)=(2,7)$ in a triangle-free graph. Lemma~\ref{lem:rad2bip} is the bipartite restriction: a connected bipartite strong $C_4$-free graph of radius~$2$ is a tree, so its induced-path order is at most~$5$.
+
+\begin{example}\label{ex:p5leaves}
+Let $P$ be the Petersen graph, and let $u$ and $v$ be the ends of an induced $P_5$ in $P$. Such a path exists by the proof of Theorem~\ref{thm:fn}, and $u$ and $v$ are nonadjacent. Form $G$ by adding one leaf at $u$ and one leaf at $v$. Then
+\[
+(r(G),\pp(G),|V(G)|,S(G),\lr(G))=(2,7,12,34,17/6).
+\]
+The graph $P$ has $15$ edges. The two new edges create no cycle, so $G$ is triangle-free and strong $C_4$-free, $n=12$, $e=17$ and $S=2e=34$. Thus $\lr=17/6$. The graph $P$ is $P_6$-free, because it is the extremal graph of order~$10$ in Theorem~\ref{thm:petersen}. A leaf has degree one, so it is an end of every induced path that contains it. Deleting the leaves that lie on an induced path of $G$ leaves an induced path of $P$, of order at most~$5$. The path formed by the two leaves and the chosen $P_5$ is induced, because each leaf is adjacent only to its endpoint. Hence $\pp(G)=7$. The radius is~$2$. The proof of Theorem~\ref{thm:petersen} records that the diameter of $P$ is~$2$, so $u$ and $v$ have a common neighbour $w$. Every vertex of $P$ is at distance at most~$2$ from $w$, and each new leaf is at distance~$2$ from $w$. Thus the eccentricity of $w$ is~$2$.
+\end{example}
+
+Suppose $4<\lr\le 5$ and $G$ violates REAL-133. Then $\lceil\lr\rceil=5$, so Corollary~\ref{cor:reduction} with $K=4$ gives either $r\le 4$ and $2r-1\le\pp\le r+4$, or $r=5$ and $\pp=9$. Lemma~\ref{lem:e2n} forces $\lr<4$ whenever $\pp\le 6$, so $\pp\ge 7$. Corollary~\ref{cor:r4mass} forces $\lr\le 2$ when $(r,\pp)=(4,7)$. The pairs that remain are $(3,7)$, $(4,8)$ and $(5,9)$.
+
+For $5<\lr\le 6$, Corollary~\ref{cor:reduction} gives $2r-1\le\pp\le r+5$ and $r\le 6$. Lemma~\ref{lem:r1} excludes radius~$1$, Theorem~\ref{thm:petersen} excludes $\pp\le 5$, and Corollary~\ref{cor:r4mass} excludes $(4,7)$. The pairs $(2,6)$ and $(3,6)$ do not occur in this range, by the density restriction above, though $(3,6)$ occurs at $\lr=3-6/n$. If $\pp=7$ and $\lr\ge 4$, then $G$ contains a triangle, so $(2,7)$ and $(3,7)$ occur in this range only for graphs that contain a triangle. The pairs that remain are necessary conditions for a counterexample. The table does not assert that any of them occurs.
+
+For $q\ge 5$ the bound $\ROOT(q)$ is not proved for an arbitrary strong $C_4$-free graph. Theorem~\ref{thm:blocks} gives every index in the block class $\mathcal B$. Proposition~\ref{prop:gen4cut} shows that a minimum counterexample to $\GEN_4$ is $2$-connected, and $\GEN_4$ itself is open. The statements $\GEN_K$ for $K\ge 4$, unrestricted $\GEN_6$, $\RAD(r)$ for $r\ge 5$, and $\ROOT(q)$ for $q\ge 5$ outside $\mathcal B$ are open. No structure theorem for connected strong $C_4$-free graphs of radius $r\ge 5$ and path order $2r-1$ is proved in the article.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}p{8.6cm}p{5.0cm}@{}}
+\toprule
+Statement & Status\\
+\midrule
+$\ROOT(3)$ and $\ROOT(4)$; the terminal strengthening of Proposition~\ref{prop:root4plus} & proved, Lemma~\ref{lem:rootedp4} and Theorem~\ref{thm:root4}\\
+$\ROOT(q)$ for every $q$, in the class $\mathcal B$ & proved, Theorem~\ref{thm:blocks}\\
+a minimum counterexample to $\GEN_4$ is $2$-connected & proved, Proposition~\ref{prop:gen4cut}; $\GEN_4$ is open\\
+$\GEN_K$ for $K\ge 4$, unrestricted $\GEN_6$, $\RAD(r)$ for $r\ge 5$, and $\ROOT(q)$ for $q\ge 5$ outside $\mathcal B$ & open\\
+pairs $(r,\pp)$ still necessary for $4<\lr\le 5$ & $(3,7)$, $(4,8)$, $(5,9)$\\
+pairs $(r,\pp)$ still necessary for $5<\lr\le 6$ & $(2,7)$, $(3,7)$, $(3,8)$, $(4,8)$, $(4,9)$, $(5,9)$, $(5,10)$, $(6,11)$\\
+$(2,6)$ and $(3,6)$ in the range $\lr\ge 4$ & excluded, by Lemma~\ref{lem:e2n}; $\theta_k$ realises $(3,6)$ at $\lr=3-6/n$\\
+$(2,7)$ and $(3,7)$ in the range $5<\lr\le 6$ & each such graph contains a triangle, by Lemma~\ref{lem:bip8}\\
+$(r,\pp)=(2,7)$ in a triangle-free graph & possible with $\lr<4$; Example~\ref{ex:p5leaves}\\
+\bottomrule
+\end{tabular}
+\caption{Rooted bounds and the candidate pairs above density four. The rows for $4<\lr\le 5$ and for $5<\lr\le 6$ record necessary pairs only.}\label{tab:high}
+\end{table}
+
+\begin{conjecture}\label{conj:uniform}
+$\ROOT(q)$ holds for every $q\ge 3$. For every $r\ge 5$, every connected strong $C_4$-free graph of radius $r$ and path order $2r-1$ satisfies $S\le(r-1)n-2r(r-3)$, with equality only for $C_{2r}$.
+\end{conjecture}
+
+The cases $q=3$ and $q=4$ are Lemma~\ref{lem:rootedp4} and Theorem~\ref{thm:root4}, and every $q$ holds in $\mathcal B$ by Theorem~\ref{thm:blocks}. The radius bound is not claimed for $r\ge 5$.
+
+\begin{conjecture}\label{conj:td}
+If $F$ is connected and strong $C_4$-free, $\pp_s(F)=q$ and the eccentricity of $s$ is $q-1$, then
+\[
+S(F)\le(q-1)(n-1)-(q-3)D-m-(q-2)(q-3).
+\]
+\end{conjecture}
+
+For $q=4$ the subtracted term is $2$, and Proposition~\ref{prop:root4plus} is this case. For $q\ge 5$ the conjecture is open. The terminal bound in $\mathcal B$ is the first part of Theorem~\ref{thm:blocks}.
+
+Conjecture~\ref{conj:td}, for a fixed $q$, implies $\ROOT(q)$. The implication does not prove the conjecture. Let $F$ be connected and strong $C_4$-free with $\pp_s(F)\le q$. Form $G$ by attaching a path of $q-1$ new edges at $s$. Then $G$ is terminal of index $q$: the new path is an induced path of order $q$ starting at $s$, and every induced path of $F$ that starts at $s$ has order at most $q$. The order, the root degree and the mass increase by $q-1$, $1$ and $2(q-1)$ respectively, and $m$ is unchanged. Write $N=n+q-1$ and $D_G=D+1$. The terminal inequality in $G$ reads
+\[
+S(F)+2(q-1)\le(q-1)(N-1)-(q-3)D_G-m-(q-2)(q-3).
+\]
+The identity $N-1=n+q-2$ gives $(q-1)(N-1)=(q-1)(n-1)+(q-1)^2$, and $(q-3)D_G=(q-3)D+(q-3)$. The terms that do not involve $n$, $D$ or $m$ are
+\[
+(q-1)^2-(q-3)-(q-2)(q-3)-2(q-1)=(q-3)\bigl((q-1)-(q-1)\bigr)=0.
+\]
+What remains is $S(F)\le(q-1)(n-1)-(q-3)D-m$, which is $\ROOT(q)$. For $q=4$ this route uses Proposition~\ref{prop:root4plus}. The induction in Theorem~\ref{thm:root4} does not. For $q\ge 5$ the hypothesis is open, so the implication leaves $\ROOT(q)$ open.
+
+\begin{conjecture}\label{conj:cbhigh}
+Every connected strong $C_4$-free graph $G$ that is not a cycle and has $\lr(G)>5$ has an eligible core $H$, in the sense of Example~\ref{ex:cb}, with
+\[
+S(G)-S(H)\le(\pp-r)\bigl(n-|H|\bigr)+|H|.
+\]
+\end{conjecture}
+
+Example~\ref{ex:cb} shows that the budget without a restriction on $\lr$ is false, and that the Petersen graph is a counterexample with $\lr=3$. The example does not show that $5$ is the correct cutoff, and it does not count eligible cores. A reported count of cores of order at most~$12$ is not a result of this paper. If the conjecture, the range $\lr\le 5$, and an induction on the order were all available, REAL-133 would follow. The range $\lr\le 5$ is not a theorem, so this route is not a proof of REAL-133. Example~\ref{ex:heawood} shows that a proof cannot rely only on the scalar constraints listed there.
 
 \appendix
 
