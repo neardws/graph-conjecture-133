@@ -50,7 +50,7 @@
 \maketitle
 
 \begin{abstract}
-This supplement contains the rooted bounds, the endpoint obstructions, the high-radius constructions, the candidate pairs in the ranges $4<\lr\le 5$ and $5<\lr\le 6$, the finite-search certificate for the one-triangle lemma, and a conditional reduction for $\GEN_3$ that the article no longer uses. Numbered statements in this file carry an S prefix. Numbered references to results proved in the article point to that file. The article's Theorems on $M(n)$, radius four, and the exact triangle-free function $f(n)$ do not depend on these arguments. Theorem~\ref{thm:gen3} uses the certificate in Section~\ref{sec:certificate}.
+This supplement contains the rooted bounds, the endpoint obstructions, the high-radius constructions, the candidate pairs in the ranges $4<\lr\le 5$ and $5<\lr\le 6$, the finite-search certificate for the one-triangle lemma, and a conditional reduction for $\GEN_3$ that the article no longer uses. Numbered statements in this file carry an S prefix. Numbered references to results proved in the article point to that file. The article's Theorems on $M(n)$, radius four, and the exact triangle-free function $f(n)$ do not depend on these arguments. Theorem~\ref{thm:gen3} uses the certificate in Section~\ref{sec:certificate}, checked by \texttt{certificates/gen3/verify\_gen3.py}.
 \end{abstract}
 
 \section{Rooted bounds of orders three and four}\label{sec:root3}
@@ -412,7 +412,7 @@ Example~\ref{ex:cb} shows that the budget without a restriction on $\lr$ is fals
 
 \section{The finite certificate}\label{sec:certificate}
 
-Lemma~\ref{lem:finite} and Lemma~\ref{lem:twotri} are proved by finite searches whose completeness arguments are in the article. This section records the audit. The decision array is not printed here, and it is not reconstructed in the text. The companion program \texttt{verify\_gen3.py} is formal submission material. It uses only the Python standard library, requires Python~3.10 or later, and embeds the certificate. The command is \texttt{python3 verify\_gen3.py}. The program is deposited as \texttt{certificates/gen3/verify\_gen3.py}. The directory states that this file accompanies the submission. The counts below are the output of that program.
+Lemma~\ref{lem:finite} and Lemma~\ref{lem:twotri} are proved by finite searches whose completeness arguments are in the article. This section records the audit. The decision array is not printed here, and it is not reconstructed in the text. The companion program \texttt{certificates/gen3/verify\_gen3.py} is formal submission material. It uses only the Python standard library, requires Python~3.10 or later, and embeds the certificate. From that directory the command is \texttt{python3 verify\_gen3.py}. The counts below are the output of that program.
 
 The checker labels each new vertex by the current order. It checks that the selected vertex or pair is deficient, visits every child neighbourhood in increasing integer-mask order, and consumes the supplied choices in preorder. A new $4$-cycle exists exactly when two members of the new neighbourhood have a common neighbour in the graph already built. For a new induced $P_7$, the checker tests six old vertices together with the new vertex and reads their induced edges. At an unrestricted node it compares the labelled graph with $H_{3,2}$ and continues to explore the extensions. A missing choice, or an unused choice, makes the verification fail. The verifier imposes no order cutoff and performs no isomorphism pruning.
 
