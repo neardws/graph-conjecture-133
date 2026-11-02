@@ -88,13 +88,15 @@
   \renewcommand{\theHexample}{\thesection.\arabic{example}}}
 \makeatother
 
-% The class title page hardcodes the Allergy masthead and an open-access
-% badge, and it names the Wiley logo with an .eps extension. This draft
-% uses the pack's Wiley_logo.pdf, omits the Allergy mark and the badge,
-% and leaves volume, DOI, and received/revised/accepted unset.
+% The class title page hardcodes the Allergy masthead, an open-access
+% badge, and the Wiley logo. This copy omits those marks and leaves
+% volume, DOI, and received/revised/accepted unset. The journal line
+% reads Preprint.
 \makeatletter
-\patchcmd{\@maketitle}{Wiley_logo.eps}{Wiley_logo.pdf}{}{%
-  \PackageWarning{wiley-jgt}{Could not retarget the Wiley logo}}
+\patchcmd{\@maketitle}{%
+    \node[anchor=north east,inner sep=0mm]
+    (LOG) at ([yshift=0mm]current page header area.north east){\includegraphics[width=26.5mm]{Wiley_logo.eps}};}{}{}{%
+  \PackageWarning{wiley-jgt}{Could not drop the Wiley logo}}
 \patchcmd{\@maketitle}{%
     \node[anchor=north east,inner sep=0mm]
     (LOG1) at ([yshift=-11.75mm]current page header area.north east){\includegraphics[width=56mm]{allergy.eps}};}{}{}{%
@@ -143,7 +145,7 @@
 \makeatother
 
 \articletype{Research Article}
-\journal{Journal of Graph Theory}
+\journal{Preprint}
 \startpage{1}
 \historydates{}
 
@@ -153,8 +155,9 @@
 \titlemark{Induced paths, radius, and extremal neighbourhood independence}
 
 \author{Xingchen Wang}
-\author{Neil Xu}
+\author{Xincao Xu}
 \authormark{WANG AND XU}
+\corres{Xingchen Wang (\email{lovestarsni@gmail.com})~|~Xincao Xu (\email{neard.ws@gmail.com})}
 
 \keywords{induced path, radius, neighbourhood independence, $4$-cycle, WOWII Conjecture 133}
 
@@ -350,7 +353,7 @@ For every $n\ge 7$ the extremal graph is unique up to isomorphism. For $n=10$ it
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.98\linewidth]{fig1-petersen.pdf}\\[1.15em]
+  \includegraphics[width=.78\linewidth]{fig1-petersen.pdf}\\[1.15em]
   \begin{tikzpicture}[scale=1.05,line join=round]
     \foreach \i/\ang in {0/90,1/30,2/-30,3/-90,4/210,5/150}
       \node[circle,draw,fill=black,inner sep=1.45pt] (c\i) at (\ang:1.28) {};
@@ -952,7 +955,7 @@ REAL-133 & open\\
 The rooted bounds, the endpoint obstructions, the high-radius constructions, and the conditional reduction for $\GEN_3$ are in the supplement. The proofs of Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf}, \ref{thm:fn} and~\ref{thm:onetri} and of Corollary~\ref{cor:cellsharp} do not use those rooted bounds or the three suppositions of the reduction. The cut-vertex step in Theorem~\ref{thm:onetri} repeats the comparison of Theorem~\ref{thm:red} and uses only Lemmas~\ref{lem:rootedp4} and~\ref{lem:cut}. No structure theorem for connected strong $C_4$-free graphs of radius $r\ge 5$ and path order $2r-1$ is proved here.
 
 \section*{Acknowledgments}
-The authors are responsible for the text, including any errors. Language-model tools were used to prepare drafts. Neil Xu's correspondence address is omitted from this version. Xingchen Wang is listed by name only.
+The authors are solely responsible for the content of this article. Language-model tools were used in the preparation of drafts of the manuscript.
 
 \bibliography{wiley-jgt}
 
