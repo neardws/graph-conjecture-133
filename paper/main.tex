@@ -39,14 +39,16 @@
 \title[Induced paths, radius, and extremal neighbourhood independence]{Induced Paths, Radius, and Extremal Neighborhood Independence in Graphs without 4-Cycles}
 
 \author{Xingchen Wang}
-\author{Neil Xu}
+\thanks{Email address of Xingchen Wang: \texttt{lovestarsni@gmail.com}.}
+\author{Xincao Xu}
+\thanks{Email address of Xincao Xu: \texttt{neard.ws@gmail.com}.}
 
 \date{November 2026}
 
 \begin{document}
 
 \begin{abstract}
-Let $M(n)$ be the maximum of $\lr(G)=S(G)/n$ over connected graphs of order $n$ with no $4$-cycle subgraph and no induced path on six vertices, where $S(G)$ is the sum of $\alpha(G[N(v)])$. Then $M(7)=16/7$, $M(8)=5/2$, $M(9)=8/3$, $M(10)=3$ and $M(n)=2+2/n$ for every $n\ge 11$, and for every $n\ge 7$ the extremal graph is unique; in particular $S\le 3n$, with equality only for the Petersen graph. A connected graph with no $4$-cycle subgraph, of radius~$4$ and induced-path order~$7$, is $C_8$ or a $6$-cycle extended by a matching and isolated vertices at each cycle vertex and at most one further vertex on each cycle edge, and satisfies $S=2n-b-m$. For connected triangle-free graphs with no $4$-cycle subgraph and no induced path on seven vertices, $2e\le 3n$ with equality only for the Petersen graph, and the maximum of $2e$ on $n\ge 10$ vertices is $3n-\min\{n-10,\,5+\mathbf{1}_{\{n\text{ even}\}}\}$; a graph in the same path-and-cycle class with exactly one triangle still satisfies $S\le 3n$. Every connected graph with no $4$-cycle subgraph satisfies $\pp\ge r+\lr$ whenever $\lr\le 3$, whenever $r\le 2$ and $\lr\le 4$, whenever $r=4$ and $\lr\le 4$, and whenever $r\ge 5$ and $\lr\le 4$. Every remaining counterexample to Conjecture~133 of \emph{Written on the Wall II} with $\lr\le 4$ lies in the cell $r=3$, $\pp=6$, $T\ge 2$, $n\ge 17$ and $3<\lr\le 4-16/n$.
+Let $M(n)$ be the maximum of $\lr(G)=S(G)/n$ over connected graphs of order $n$ with no $4$-cycle subgraph and no induced path on six vertices, where $S(G)$ is the sum of $\alpha(G[N(v)])$. This maximum is $16/7$, $5/2$, $8/3$ and $3$ at orders $7$, $8$, $9$ and $10$, and $2+2/n$ for every $n\ge 11$; for every $n\ge 7$ the extremal graph is unique, and $S\le 3n$ with equality only for the Petersen graph. A connected graph with no $4$-cycle subgraph has radius~$4$ and induced-path order~$7$ if and only if it is $C_8$ or a $6$-cycle extended by a matching and isolated vertices at each cycle vertex and at most one further vertex on each cycle edge, and every such graph satisfies $S=2n-b-m$. For connected triangle-free graphs with no $4$-cycle subgraph and no induced path on seven vertices, the maximum of $2e$ on $n\ge 10$ vertices is $3n-\min\{n-10,\,5+\mathbf{1}_{\{n\text{ even}\}}\}$, and the extremal graphs are determined: for $10\le n\le 14$, the Petersen graph with the $n-10$ leaves on one vertex or on the two ends of one edge; for $n=15$, those graphs together with $F_2$; for $n=16$, those graphs together with $F'_0$ and the two graphs formed by adding one leaf to the order-$15$ graph $F_2$; for odd $n\ge 17$, only $F_2$; and for even $n\ge 18$, exactly $F'_0$ and the two graphs formed by adding one leaf to the order-$(n-1)$ graph $F_2$. A graph in the same path-and-cycle class with exactly one triangle still satisfies $S\le 3n$. Every connected graph with no $4$-cycle subgraph satisfies $\pp\ge r+\lr$ whenever $\lr\le 3$, whenever $r\le 2$ and $\lr\le 4$, whenever $r=4$ and $\lr\le 4$, and whenever $r\ge 5$ and $\lr\le 4$. Every remaining counterexample to Conjecture~133 of \emph{Written on the Wall II} with $\lr\le 4$ has $r=3$, $\pp=6$, at least two triangles, order at least~$17$ and $3<\lr\le 4-16/n$.
 \end{abstract}
 
 \keywords{induced path, radius, neighbourhood independence, $4$-cycle, WOWII Conjecture 133}
@@ -61,7 +63,7 @@ All graphs are finite and simple. For a graph $G$ with $n\ge 2$ vertices let $\p
 \]
 where $\alpha$ is the independence number and $N(v)$ the open neighbourhood. Write $S(G)$ for the sum in the numerator, and write $c_{C_4}(G)=1$ if $G$ contains no $4$-cycle as a subgraph and $c_{C_4}(G)=0$ otherwise. A graph with no $4$-cycle subgraph is called \emph{strong $C_4$-free}.
 
-The two structural results of the paper are Theorems~\ref{thm:petersen} and~\ref{thm:r4}. Let $P$ denote the Petersen graph and $P-v$ the graph obtained by deleting one vertex. Theorem~\ref{thm:petersen} determines the maximum $M(n)$ of $\lr$ over connected strong $C_4$-free $P_6$-free graphs of order $n\ge 7$. The value is $16/7$ at order~$7$, $5/2$ at order~$8$, attained only by the graph $H_8$ of Figure~\ref{fig:petersen-extremal}, $8/3$ at order~$9$, attained only by $P-v$, and $3$ at order~$10$, attained only by $P$. For every $n\ge 11$ the maximum is $2+2/n$. For every $n\ge 7$, the extremal graph is unique up to isomorphism. The same theorem gives $S\le 3n$, with equality only for $P$.
+The main results are Theorems~\ref{thm:petersen}, \ref{thm:r4} and~\ref{thm:fn}. Let $P$ denote the Petersen graph and $P-v$ the graph obtained by deleting one vertex. Theorem~\ref{thm:petersen} determines the maximum $M(n)$ of $\lr$ over connected strong $C_4$-free $P_6$-free graphs of order $n\ge 7$. The value is $16/7$ at order~$7$, $5/2$ at order~$8$, attained only by the graph $H_8$ of Figure~\ref{fig:petersen-extremal}, $8/3$ at order~$9$, attained only by $P-v$, and $3$ at order~$10$, attained only by $P$. For every $n\ge 11$ the maximum is $2+2/n$. For every $n\ge 7$, the extremal graph is unique up to isomorphism. The same theorem gives $S\le 3n$, with equality only for $P$.
 
 The shape of the extremal graph changes between orders~$10$ and~$11$, and the change is forced by the induced $6$-cycle branch. A vertex off such a cycle meets it in an antipodal pair. Distinct off-cycle vertices of the first distance layer use distinct pairs, so there are at most three of them. If at least two antipodal pairs are occupied, any two vertices of the second distance layer would have two common neighbours in the first layer. That layer therefore has size at most one, and the order is $6+k+h\le 10$. The graph of order~$10$ in this branch is $P$. At order~$11$ the branch with two or more occupied pairs is empty. Every remaining graph in the induced $6$-cycle branch has a single off-cycle vertex $a$ joined to one antipodal pair, and the second distance layer induces a matching together with isolated vertices. If that matching has $m$ edges, the count in the proof of Theorem~\ref{thm:petersen} gives $S=2n+2-m$. Equality $S=2n+2$ holds only for $m=0$, that is, only when every vertex of the second layer is a leaf, and the extremal graph is then the graph $\Gamma_{n-7}$ of Figure~\ref{fig:petersen-extremal}. The class itself is not a single graph: the graph obtained from $\Gamma_4$ by joining two of its leaves is strong $C_4$-free and $P_6$-free of order~$11$, and it has $S=23$, strictly below the extremal value~$24$. Every graph in the induced $5$-cycle branch has $S\le 2n+1$, and every chordal graph in the class has $S\le 2n-2$, so both fall short of $2n+2$. Uniqueness of the extremal graph can fail for smaller orders. The same case division shows that at order~$4$ both $P_4$ and $K_{1,3}$ attain $S=6$, and that at order~$6$ both $C_6$ and the graph obtained from $C_5$ by adding one leaf attain $S=12$.
 
@@ -92,15 +94,15 @@ If $G$ contains a $4$-cycle, the conjecture reads $\pp(G)\ge r(G)+1$. A shortest
 \begin{equation}\label{eq:target}
 \pp(G)-r(G)\ \ge\ \lceil \lr(G)\rceil .
 \end{equation}
-Theorem~\ref{thm:A} is the range in which the estimates of this paper give REAL-133. The triangle-free bound is Theorem~\ref{thm:tf}, and Theorem~\ref{thm:fn} is the exact value of that maximum for every order $n\ge 10$. With the deficit lemmas of Section~\ref{sec:tf} and the one-triangle bound of Theorem~\ref{thm:onetri}, every counterexample in the range $\lr\le 4$ falls in the cell of Corollary~\ref{cor:cellsharp}: radius~$3$, induced-path order~$6$, at least two triangles, order at least~$17$, and $3<\lr\le 4-16/n$.
+Theorem~\ref{thm:A} is the range in which the estimates of this paper give REAL-133. The triangle-free bound is Theorem~\ref{thm:tf}, and Theorem~\ref{thm:fn} is the exact value of that maximum for every order $n\ge 10$, together with the isomorphism type of every graph that attains it. With the deficit lemmas of Section~\ref{sec:tf} and the one-triangle bound of Theorem~\ref{thm:onetri}, every counterexample in the range $\lr\le 4$ falls in the cell of Corollary~\ref{cor:cellsharp}: radius~$3$, induced-path order~$6$, at least two triangles, order at least~$17$, and $3<\lr\le 4-16/n$. In the range $\lr\le 4$, this is how far Conjecture~\ref{conj:133} is pushed.
 
-H.~Chen~\cite{chen} studies the floor form $\pp\ge r+\lfloor\lr\rfloor$ of the same conjecture. The arguments below do not use his proofs. His Lemma~2.1 is the local matching lemma: in a strong $C_4$-free graph the neighbourhood of every vertex is a disjoint union of edges and isolated vertices, and $S=2e-3T$. Lemma~\ref{lem:basic} records the same description. His Lemma~7.18 states that if an induced $6$-cycle lies in a strong $C_4$-free $P_6$-free graph, then every vertex outside the cycle has either no neighbour on the cycle or exactly two, and those two are antipodal. His Corollary~7.20 records the consequence for the cycle vertices: each has triangle count zero, and its degree is $2$ or $3$ according as its antipodal slot is empty or occupied. The same restriction on traces is Lemma~\ref{lem:c6} when the cycle dominates, and it is the description of the first distance layer in the proof of Theorem~\ref{thm:petersen}. His Theorem~6.7 states that a connected $C_4$-subgraph-free graph of diameter~$2$ with $\lr>3$ has an induced path on at least six vertices. On the slice $r=2$ and $3<\lr\le 4$ this is the same numerical conclusion as Theorem~\ref{thm:A}. The increment here is that Theorem~\ref{thm:A} also covers radius~$2$ when the diameter is larger than~$2$, while Theorem~\ref{thm:petersen} determines the extremal value at every order. Immediately after the proof of his Theorem~3.6, Chen records that every regular graph of girth at least~$5$ and radius~$2$ satisfies the floor form, and that this includes every Moore graph of diameter~$2$. A Moore graph of diameter~$2$ has $\lr$ equal to its degree, an integer, so the floor form and the real form coincide. The Moore assertion of Proposition~\ref{prop:regbip} in the supplement is an alternate proof of that known case.
+H.~Chen~\cite{chen} studies the floor form $\pp\ge r+\lfloor\lr\rfloor$ of the same conjecture. The arguments below do not use his proofs. His Lemma~2.1 is the local matching lemma: in a strong $C_4$-free graph the neighbourhood of every vertex is a disjoint union of edges and isolated vertices, and $S=2e-3T$. Lemma~\ref{lem:basic} records the same description. His Lemma~7.18 states that if an induced $6$-cycle lies in a strong $C_4$-free $P_6$-free graph, then every vertex outside the cycle has either no neighbour on the cycle or exactly two, and those two are antipodal. His Corollary~7.20 records the consequence for the cycle vertices: each has triangle count zero, and its degree is $2$ or $3$ according as its antipodal slot is empty or occupied. His Lemma~7.22 applies to a graph in the class RES of his Definition~7.2 --- a connected $C_4$-free graph of radius~$2$, diameter~$3$ and $\lr>3$ in which every vertex of neighbourhood independence at least~$3$ has eccentricity at most~$2$ --- that in addition has no induced $P_6$. In the forced hexagon of that argument, if $P$ is an outer vertex and $W_P$ is the set of second-layer vertices adjacent to $P$, part~(b) states that every vertex of $W_P$ is adjacent to the other outer vertex, and part~(c) deduces from the absence of a $4$-cycle that $W_P$ contains at most one vertex. The same restriction on traces is Lemma~\ref{lem:c6} when the cycle dominates, and it is the description of the first distance layer in the proof of Theorem~\ref{thm:petersen}. His Theorem~6.7 states that a connected $C_4$-subgraph-free graph of diameter~$2$ with $\lr>3$ has an induced path on at least six vertices. On the slice $r=2$ and $3<\lr\le 4$ this is the same numerical conclusion as Theorem~\ref{thm:A}. The increment here is that Theorem~\ref{thm:A} also covers radius~$2$ when the diameter is larger than~$2$, while Theorem~\ref{thm:petersen} determines the extremal value at every order. Immediately after the proof of his Theorem~3.6, Chen records that every regular graph of girth at least~$5$ and radius~$2$ satisfies the floor form, and that this includes every Moore graph of diameter~$2$. A Moore graph of diameter~$2$ has $\lr$ equal to its degree, an integer, so the floor form and the real form coincide. The Moore assertion of Proposition~\ref{prop:regbip} in the supplement is an alternate proof of that known case.
 
-The exact function $M(n)$ is not a consequence of those lemmas. The proof of Theorem~\ref{thm:petersen} continues to the second distance layer, and it treats the induced $5$-cycle branch and the chordal branch separately. For every $n\ge 7$ it also gives uniqueness. Below that range the same division produces two extremal graphs at orders~$4$ and~$6$, as recorded above. Theorem~\ref{thm:tf} is the two-step argument from the classification, due to Chen and Xu~\cite[Lemma~3.4]{chenxu}, of the connected triangle-free strong $C_4$-free $P_7$-free graphs with no clique cutset. If $v$ is a cut vertex, induced paths that start at $v$ in distinct components of $G-v$ concatenate, so one side has rooted path order at most~$3$ and falls under Lemma~\ref{lem:rootedp4}. If there is no cut vertex but $\{u,v\}$ is a clique cutset, a shortest $u$--$v$ path in each of two components has three internal vertices, and those six vertices together with $v$ induce a $P_7$. Restoring clique cutsets therefore yields no new equality graph: every graph with a clique cutset is strictly below $2e=3n$, and the only equality graph on the Chen--Xu list is the Petersen graph.
+The exact function $M(n)$ is not a consequence of those lemmas. Lemma~7.22 controls the second layer only inside RES, and only after the hexagon has been forced. The proof of Theorem~\ref{thm:petersen} removes those hypotheses. It treats the full class of connected strong $C_4$-free $P_6$-free graphs, continues to the second distance layer, and handles the induced $5$-cycle branch and the chordal branch separately. For every $n\ge 7$ it also gives uniqueness. Below that range the same division produces two extremal graphs at orders~$4$ and~$6$, as recorded above. Theorem~\ref{thm:tf} is the two-step argument from the classification, due to Chen and Xu~\cite[Lemma~3.4]{chenxu}, of the connected triangle-free strong $C_4$-free $P_7$-free graphs with no clique cutset. If $v$ is a cut vertex, induced paths that start at $v$ in distinct components of $G-v$ concatenate, so one side has rooted path order at most~$3$ and falls under Lemma~\ref{lem:rootedp4}. If there is no cut vertex but $\{u,v\}$ is a clique cutset, a shortest $u$--$v$ path in each of two components has three internal vertices, and those six vertices together with $v$ induce a $P_7$. Restoring clique cutsets therefore yields no new equality graph: every graph with a clique cutset is strictly below $2e=3n$, and the only equality graph on the Chen--Xu list is the Petersen graph.
 
 Examples~\ref{ex:radstar} and~\ref{ex:plane} in the supplement start from an $r$-ciliate of larger radius and add further blocks. They are not part of the radius-$4$ classification. In Example~\ref{ex:radstar} each added path of length four contributes $3$ vertices and $4$ edges, so it increases $S=2e$ by $8$ while the radius and the induced-path order remain those of the ciliate. In Example~\ref{ex:plane} each attached copy of the incidence graph of a projective plane adds $(q+1)f$ to $S$ and $f-1$ to the order, and the radius and the path order remain $t+3$ and $2t+5$.
 
-Section~\ref{sec:small} proves Theorem~\ref{thm:petersen}. Section~\ref{sec:r4} proves Theorem~\ref{thm:r4}. Section~\ref{sec:tf} proves the triangle-free bound, the exact function $f(n)$, the one-triangle bound, and the strengthened residual cell. Section~\ref{sec:band} is the application to REAL-133, including the $\theta_k$ examples and the cells in the ranges $4<\lr\le 5$ and $5<\lr\le 6$. The rooted inequalities, the endpoint obstructions, the high-radius constructions, and the conditional reduction for $\GEN_3$ are in the supplement; they are not used for Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf} and~\ref{thm:fn} or for Corollary~\ref{cor:cellsharp}. Table~\ref{tab:status} is the list of what is proved and what is open. A finite search is not a proof in this article. Where the repository does not contain a versioned checker, an input list, and a completeness argument, the corresponding statement is not used as a hypothesis.
+Section~\ref{sec:small} proves Theorem~\ref{thm:petersen}. Section~\ref{sec:r4} proves Theorem~\ref{thm:r4}. Section~\ref{sec:tf} proves the triangle-free bound, the exact function $f(n)$ and the extremal graphs, the one-triangle bound, and the strengthened residual cell. Section~\ref{sec:band} is the application to REAL-133 in the range $\lr\le 4$, including the $\theta_k$ examples. The rooted inequalities, the endpoint obstructions, the high-radius constructions, the conditional reduction for $\GEN_3$, and the candidate pairs in the ranges $4<\lr\le 5$ and $5<\lr\le 6$ are in the supplement; they are not used for Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf} and~\ref{thm:fn} or for Corollary~\ref{cor:cellsharp}. Table~\ref{tab:status} is the list of what is proved and what is open. A finite search is not a proof in this article. Where the repository does not contain a versioned checker, an input list, and a completeness argument, the corresponding statement is not used as a hypothesis.
 
 \section{Preliminaries}\label{sec:prelim}
 
@@ -238,7 +240,7 @@ For every $n\ge 7$ the extremal graph is unique up to isomorphism. For $n=10$ it
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.98\linewidth]{fig1-petersen.pdf}\\[1.15em]
+  \includegraphics[width=.78\linewidth]{fig1-petersen.pdf}\\[1.15em]
   \begin{tikzpicture}[scale=1.05,line join=round]
     \foreach \i/\ang in {0/90,1/30,2/-30,3/-90,4/210,5/150}
       \node[circle,draw,fill=black,inner sep=1.45pt] (c\i) at (\ang:1.28) {};
@@ -300,11 +302,7 @@ Consequently $n=5+h+j$ and $e=5+h+2j+m+b$. The triangles are the $j$ pair triang
 S=2e-3T=2n+2b-j-m.
 \]
 
-The integer $b$ is at most~$1$. The opposite edge of the support $c_i$ is $\{c_{i+2},c_{i+3}\}$, and as $i$ runs through the cycle this edge runs through every edge exactly once. A singleton meets at most one vertex of the opposite pair class, and that class contains at most one vertex. Thus two singleton--pair edges use two distinct supports and the two opposite pair vertices. Supports at distance~$1$ are nonadjacent, for an edge between the corresponding singletons would form a $4$-cycle with the cycle edge; supports at distance~$2$ are nonadjacent, for an edge between the corresponding singletons would form an induced $6$-cycle along the longer arc. Pair vertices on distinct edges are nonadjacent, as already recorded.
-
-Suppose the supports are at distance~$2$: a singleton $s$ at $c_0$ is adjacent to the pair vertex $p$ on $\{c_2,c_3\}$, and a singleton $t$ at $c_2$ is adjacent to the pair vertex $q$ on $\{c_4,c_0\}$. The path $s,p,c_2,t,q,c_4$ is an induced $P_6$. The consecutive non-edges are the trace restrictions. The distance-$2$ pairs on the path are $s c_2$, $p t$, $c_2 q$ and $t c_4$: $s$ meets only $c_0$ on the cycle, $t$ meets only its opposite pair vertex $q$, $q$ meets the cycle only in $\{c_4,c_0\}$, and $t$ meets the cycle only in $c_2$. The distance-$3$ pairs are $s t$, $p q$ and $c_2 c_4$, all non-edges by the preceding paragraph or by the cycle. The distance-$4$ pairs are $s q$ and $p c_4$, and neither singleton--pair incidence is the opposite one.
-
-Suppose the supports are at distance~$1$: $s$ at $c_0$ is adjacent to $p$ on $\{c_2,c_3\}$, and $t$ at $c_1$ is adjacent to $q$ on $\{c_3,c_4\}$. The path $s,p,c_3,q,t,c_1$ is an induced $P_6$, by the same trace restrictions: the only singleton--pair edges among these vertices are $sp$ and $tq$, the only cycle edges on the path are $pc_3$ and $qc_3$, and $t$ is adjacent to $c_1$ alone on the cycle. Either configuration contradicts the hypothesis that $G$ is $P_6$-free. Therefore $b\le 1$.
+The integer $b$ is at most~$1$. Two singleton--pair edges would use two distinct supports: the opposite edge of $c_i$ is $\{c_{i+2},c_{i+3}\}$, these edges exhaust the cycle as $i$ varies, and each pair class contains at most one vertex. The graph is $(P_6,C_4)$-free and, in this case, has no induced $C_6$, so Theorem~3.2(d) of Karthick and Maffray applies~\cite{km}. If the two supports lie at distance~$2$ on $C$, those two singleton classes cannot both be nonempty. If they lie at distance~$1$, the two corresponding pair classes cannot both be nonempty. Either alternative contradicts the existence of both edges, so $b\le 1$.
 
 If $b=0$, then $S=2n-j-m\le 2n$. If $b=1$, then $j\ge 1$ because $b\le\min(h,j)$, so $S=2n+2-j-m\le 2n+1$. In this case $S\le 2n+1$.
 
@@ -319,7 +317,7 @@ The case division does not use $n\ge 7$. At order~$4$ there is no cycle of lengt
 \end{proof}
 
 \begin{remark}\label{rem:km}
-Karthick and Maffray describe the structure of graphs with no induced $P_6$ and no induced $4$-cycle, and deduce the colouring bound $\chi\le\lceil 5\omega/4\rceil$~\cite{km}. Their Theorems~3.2 and~3.3 describe the neighbourhood, on an induced $C_5$ or $C_6$, of a vertex outside the cycle. Specialising the $6$-cycle description to graphs with no $4$-cycle subgraph excludes a consecutive triple, a consecutive quadruple and the full cycle as a support, and leaves an antipodal pair. That is the trace statement at the beginning of Case~1. The constraint on the second layer, the bound $h\le 1$ when $k\in\{2,3\}$, and the exact function $M(n)$ are further arguments. They are not consequences of the local support list, and the colouring theorem is not a substitute for the extremal statement under the subgraph prohibition.
+Karthick and Maffray describe the structure of graphs with no induced $P_6$ and no induced $4$-cycle, and deduce the colouring bound $\chi\le\lceil 5\omega/4\rceil$~\cite{km}. Their Theorems~3.2 and~3.3 describe the neighbourhood, on an induced $C_5$ or $C_6$, of a vertex outside the cycle. Specialising the $6$-cycle description to graphs with no $4$-cycle subgraph excludes a consecutive triple, a consecutive quadruple and the full cycle as a support, and leaves an antipodal pair. That is the trace statement at the beginning of Case~1. Part~(d) of their Theorem~3.2 is the $C_6$-free restriction used to bound the number of singleton--pair edges in Case~2. The constraint on the second layer, the bound $h\le 1$ when $k\in\{2,3\}$, and the exact function $M(n)$ are further arguments. They are not consequences of the local support list, and the colouring theorem is not a substitute for the extremal statement under the subgraph prohibition.
 \end{remark}
 
 \begin{remark}\label{rem:bh}
@@ -363,7 +361,7 @@ The proof of Lemma~\ref{lem:c8} does not use a machine enumeration. An independe
 \end{remark}
 
 \begin{theorem}\label{thm:r4}
-Let $G$ be connected and strong $C_4$-free, with $r(G)=4$ and $\pp(G)=7$. Then either $G\cong C_8$, or $G$ is obtained from a $6$-cycle $C=v_0v_1\cdots v_5$ by the following construction and by no further vertices or edges. For each $i$ there is a nonempty set $C_i$ of vertices outside $C$. Every vertex of $C_i$ is adjacent to $v_i$ and to no other vertex of $C$. There is no edge between $C_i$ and $C_j$ for $i\ne j$, and $G[C_i]$ is a matching together with isolated vertices. For each edge of $C$ there is at most one further vertex, adjacent precisely to the two ends of that edge.
+A connected graph $G$ is strong $C_4$-free and satisfies $r(G)=4$ and $\pp(G)=7$ if and only if either $G\cong C_8$, or $G$ is obtained from a $6$-cycle $C=v_0v_1\cdots v_5$ by the following construction and by no further vertices or edges. For each $i$ there is a nonempty set $C_i$ of vertices outside $C$. Every vertex of $C_i$ is adjacent to $v_i$ and to no other vertex of $C$. There is no edge between $C_i$ and $C_j$ for $i\ne j$, and $G[C_i]$ is a matching together with isolated vertices. For each edge of $C$ there is at most one further vertex, adjacent precisely to the two ends of that edge.
 \end{theorem}
 
 \begin{figure}[htbp]
@@ -422,7 +420,7 @@ Let $G$ be connected and strong $C_4$-free, with $r(G)=4$ and $\pp(G)=7$. Then e
 \end{figure}
 
 \begin{proof}
-Theorem~\ref{thm:ess} gives $\pp(G)\ge 7$, which agrees with the hypothesis. Apply Theorem~\ref{thm:cs} with $k=8$. There is a connected dominating set $X$ such that $G[X]$ is $P_6$-free or $G[X]\cong C_8$.
+First suppose that $G$ is strong $C_4$-free, with $r(G)=4$ and $\pp(G)=7$. Theorem~\ref{thm:ess} gives $\pp(G)\ge 7$, which agrees with the hypothesis. Apply Theorem~\ref{thm:cs} with $k=8$. There is a connected dominating set $X$ such that $G[X]$ is $P_6$-free or $G[X]\cong C_8$.
 
 If $G[X]\cong C_8$, Lemma~\ref{lem:c8} gives $G=C_8$.
 
@@ -554,6 +552,7 @@ Let $f(n)$ be the maximum of $2e(G)$ over connected triangle-free strong $C_4$-f
 \[
 f(n)=3n-\min\bigl\{n-10,\ 5+\mathbf{1}_{\{n\text{ even}\}}\bigr\}.
 \]
+Write $\mathcal P(n)$ for the isomorphism classes of graphs obtained from the Petersen graph by placing $n-10$ leaves on a single vertex or on the two endpoints of a single edge. For $10\le n\le 14$ the extremal graphs are exactly the classes in $\mathcal P(n)$. For $n=15$ they are the classes in $\mathcal P(15)$ together with $F_2$, four classes in all. For $n=16$ they are the classes in $\mathcal P(16)$, the graph $F'_0$, and the two graphs obtained from the order-$15$ graph $F_2$ by adding a leaf at a hub or at the midpoint of its unique $2$-edge branch, seven classes in all. For odd $n\ge 17$ the unique extremal graph is $F_2$. For even $n\ge 18$ there are exactly three: $F'_0$, and the two graphs obtained from the order-$(n-1)$ graph $F_2$ by adding a leaf at a hub or at the midpoint of its unique $2$-edge branch.
 \end{theorem}
 
 \begin{proof}
@@ -572,8 +571,43 @@ Every fixed row of the table in Lemma~\ref{lem:fcount} satisfies $\eta\ge h-10$.
 \]
 
 \emph{Attainment.}
-Attach $n-10$ leaves to a single vertex of the Petersen graph. The resulting graph is connected and triangle-free, and a leaf lies on no cycle, so it remains strong $C_4$-free. An induced path that uses one leaf has the leaf at an end and the rest in the Petersen graph, which is $P_6$-free, so the path has at most six vertices. An induced path that uses two leaves has three vertices, because both leaves meet only the chosen vertex. The deficit is $n-10$. For the other deficit, use $F_2$ at odd orders and $F'_0$ at even orders. In the descriptions preceding Lemma~\ref{lem:fcount}, each of these graphs consists of internally disjoint three-edge paths between two hubs, together with one additional two-edge path in the case of $F_2$. Every cycle uses two of those paths and therefore has length at least five. An induced path that contains at most one hub meets that hub in at most two of the paths and so has at most five vertices. An induced path that contains both hubs uses at most one path between them, a segment of at most three edges, and each end extends by at most one further edge before the next vertex meets the opposite hub and creates a chord. Its order is at most six. The table of Lemma~\ref{lem:fcount} gives deficits $5$ and $6$ respectively. The smaller of the two deficits is therefore attained, which is $f(n)$.
+The value $f(n)$ is attained by the graphs named in the statement; the next paragraph shows that no other graph attains it. A leaf added to a triangle-free strong $C_4$-free graph creates neither a triangle nor a cycle. Realise the Petersen graph on the $2$-element subsets of $\{1,2,3,4,5\}$, with two subsets adjacent when they are disjoint. This is the graph $P$ of Theorem~\ref{thm:petersen}. The symmetric group on the ground set acts on the vertices. The action is vertex-transitive and edge-transitive, and it carries any two nonadjacent vertices to $\{1,2\}$ and $\{1,3\}$. The path
+\[
+\{1,2\},\{3,4\},\{1,5\},\{2,3\},\{1,4\}
+\]
+is an induced $P_5$ starting at $\{1,2\}$, and
+\[
+\{1,2\},\{3,4\},\{1,5\},\{2,4\},\{1,3\}
+\]
+is an induced $P_5$ with ends $\{1,2\}$ and $\{1,3\}$. Thus every vertex of $P$ is an end of an induced $P_5$, and every pair of nonadjacent vertices is the pair of ends of an induced $P_5$.
+
+Place $a$ leaves at one end of an edge of $P$ and $b$ leaves at the other, with $a+b=n-10$ and $a\ge b\ge 0$. The case $b=0$ is the placement at a single vertex. The graph is connected, triangle-free and strong $C_4$-free. It has $15+(n-10)$ edges, so its deficit is $n-10$. An induced path uses a leaf only as an end. A path that uses two leaves at the same vertex has order three. A path that uses one leaf at each end of the chosen edge is the edge itself with the two leaves attached: the ends of that edge are adjacent, so no longer induced path of $P$ has those ends. A path that uses one leaf restricts to an induced path of $P$ and has order at most six, because $P$ is $P_6$-free. Thus the graph is $P_7$-free. Vertex-transitivity and edge-transitivity give one isomorphism class for each pair $(a,b)$. Distinct pairs give nonisomorphic graphs: the Petersen graph is cubic, so the degrees of the vertices adjacent to a leaf are $3+a$ and $3+b$ when $b\ge 1$, and the single value $3+a$ when $b=0$. These are the classes in $\mathcal P(n)$, and they attain deficit $n-10$.
+
+For the deficit $5+\mathbf{1}_{\{n\text{ even}\}}$, use $F_2$ at odd orders and $F'_0$ at even orders. In the descriptions preceding Lemma~\ref{lem:fcount}, each of these graphs consists of internally disjoint three-edge paths between two hubs, together with one additional two-edge path in the case of $F_2$. Every cycle uses two of those paths and therefore has length at least five. An induced path that contains at most one hub meets that hub in at most two of the paths and so has at most five vertices. An induced path that contains both hubs uses at most one path between them, a segment of at most three edges, and each end extends by at most one further edge before the next vertex meets the opposite hub and creates a chord. Its order is at most six. The table of Lemma~\ref{lem:fcount} gives deficits $5$ and $6$ respectively. The smaller of the two deficits is therefore attained.
+
+\emph{Equality.}
+Write $\delta(n)$ for the minimum in the statement, and let $G$ satisfy $3n-2e(G)=\delta(n)$. The identity $3n-2e(G)=\eta(Q)+n-h$ and the upper bound force the core $Q$ to be the Petersen graph, $F_2$ or $F'_0$. Every other core in the table of Lemma~\ref{lem:fcount}, and each of $K_1$ and $K_2$, has $\eta(Q)-h\ge -8$, hence deficit at least $n-8$. For $n\ge 10$ one has $n-8>\delta(n)$, since $\delta(n)\le n-10$.
+
+If $Q$ is the Petersen graph, then $\eta(Q)=0$, $h=10$ and the deficit is $n-10$. This equals $\delta(n)$ if and only if $10\le n\le 16$. The vertices outside $Q$ form trees attached at single vertices of $Q$. A tree of depth at least two contains a path $y,a,s$ of length two ending at its attachment vertex $s$. Concatenating that path with an induced $P_5$ of $Q$ that starts at $s$ produces an induced $P_7$: the only edge from $\{y,a\}$ into $Q$ is $as$, and $a$ is not adjacent to the neighbour of $s$ on the $P_5$ because that neighbour and $a$ would form a triangle with $s$. Thus every attached tree is a star of leaves at its attachment vertex. If leaves are attached at two nonadjacent vertices $u$ and $v$, an induced $P_5$ with those ends, extended by one leaf at each end, is an induced $P_7$. The set of attachment vertices is therefore a clique. The Petersen graph is triangle-free, so the attachments lie on one vertex or on the two ends of one edge. These are the classes in $\mathcal P(n)$.
+
+If $Q=F_2$, then $\eta(Q)=5$ and $h=5+2t$ is odd, so the deficit is $5+n-h$. For odd $n$ this equals $\delta(n)=5$ if and only if $n=h$ and $n\ge 15$, in which case $G$ is $F_2$. For even $n$ the orders $n$ and $h$ have opposite parity, so $n-h\ge 1$ and the deficit is at least~$6$. Equality with $\delta(n)$ holds if and only if $n-h=1$ and $\delta(n)=6$, hence $n\ge 16$ is even and $G$ is $F_2$ of order $n-1$ with a single leaf. Here $t=(n-6)/2\ge 5$.
+
+If $Q=F'_0$, then $\eta(Q)=6$ and the deficit is $6+n-h\ge 6$, with equality if and only if $n=h$. Then $\delta(n)=6$, so $n\ge 16$ is even and $G$ is $F'_0$.
+
+It remains to decide where the leaf may be placed on $F_2$. Adding a leaf at a vertex $v$ of a $P_7$-free graph preserves $P_7$-freeness if and only if $v$ is not an end of an induced $P_6$: the leaf has degree one, so it is an end of every induced path that contains it, and the remainder is an induced path starting at $v$. Label $F_2$ as in the description before Lemma~\ref{lem:fcount}, and call $v_1$ and $v_3$ the hubs. The unique $2$-edge branch is $v_1v_2v_3$, with midpoint $v_2$. The remaining $v_1$--$v_3$ paths are the $t$ matching paths through $A_1\cup A_3$ and the path $v_1v_5v_4v_3$; call these the long branches. The map that swaps $v_1$ with $v_3$, swaps $v_5$ with $v_4$, fixes $v_2$, and swaps the two ends of each matching edge preserves the cycle, the matching, and every spoke, so it is an automorphism. It exchanges the two hubs, so a leaf at either hub gives one isomorphism class.
+
+The hubs and $v_2$ are not ends of an induced $P_6$, and every other vertex is. Let $P$ be an induced path starting at $v_1$. If the second vertex is $v_2$, the third is $v_3$, and the fourth is either $v_4$ or a vertex of $A_3$. In the first subcase the only continuation is $v_5$, and $v_1v_5$ is a chord, so the induced path has order at most four. In the second the only continuation is the match in $A_1$, and that match is adjacent to $v_1$, so again the order is at most four. If instead the path leaves $v_1$ along a long branch, it may continue to $v_3$ and then to the $v_3$-end of one further long branch. The resulting path has order five. Its last vertex has no neighbour off that path except its partner on the same long branch, and that partner is adjacent to $v_1$. The path does not extend, and the edge $v_1v_2$ is a chord of any continuation through $v_2$. Thus no induced $P_6$ starts at $v_1$, and none starts at $v_3$.
+
+Every induced path that starts at $v_2$ has second vertex $v_1$ or $v_3$. From $v_1$ it can enter only one long branch, and the far end of that branch is $v_3$, which is adjacent to $v_2$. The path stops before $v_3$ and has order at most four. Thus $v_2$ is not an end of an induced $P_6$.
+
+Now let $p$ be an internal vertex of a long branch, adjacent to $v_1$; the automorphism gives the vertices adjacent to $v_3$. Since $t\ge 5$, two further long branches $v_1abv_3$ and $v_1cdv_3$ are available. The path $p,v_1,a,b,v_3,d$ is an induced $P_6$. The only neighbours of an internal vertex of a long branch are its two neighbours on that branch, the hubs are nonadjacent, and vertices on distinct long branches are nonadjacent except through the hubs. Thus $p$ is an end of an induced $P_6$.
+
+A leaf at a hub or at $v_2$ therefore keeps the graph $P_7$-free, and a leaf at any other vertex does not. The two hubs are equivalent under the automorphism above, while $v_2$ is the unique common neighbour of the hubs, so the two placements are not isomorphic: for $t\ge 5$ the neighbour of the leaf has degree $t+3$ or degree $3$ according as it is a hub or $v_2$.
+
+The graphs just listed are pairwise nonisomorphic. A graph in $\mathcal P(n)$ has $n-10$ vertices of degree one and its $2$-connected core has order~$10$. The graph $F_2$ has minimum degree two. The graph $F'_0$ has minimum degree two and even order. Each one-leaf extension of $F_2$ has exactly one vertex of degree one, and the two extensions are separated by the degree of its neighbour. For $10\le n\le 14$ one has $\delta(n)=n-10$, so only $\mathcal P(n)$ occurs. For $n=15$, $\mathcal P(15)$ consists of the three pairs $(5,0)$, $(4,1)$ and $(3,2)$, and $F_2$ is a fourth class. For $n=16$, $\mathcal P(16)$ consists of the four pairs $(6,0)$, $(5,1)$, $(4,2)$ and $(3,3)$, and $F'_0$ together with the two one-leaf extensions makes seven classes. For odd $n\ge 17$ only $F_2$ meets $\delta(n)$. For even $n\ge 18$ the three graphs $F'_0$ and the two one-leaf extensions are the only ones.
 \end{proof}
+
+An enumeration of the equality graphs of orders $10$ through $18$ finds $1,1,2,2,3,4,7,1,3$ isomorphism classes. The count agrees with Theorem~\ref{thm:fn} and is not used in the proof.
 
 \begin{theorem}\label{thm:onetri}
 Let $G$ be a connected strong $C_4$-free $P_7$-free graph with at most one triangle. Then $S(G)\le 3n$. In particular the same bound holds for a graph with exactly one triangle.
@@ -774,43 +808,15 @@ For $k\ge 3$ let $\theta_k$ consist of two vertices $x,y$ joined by $k$ internal
 Every cycle consists of two complete branches and so has length $6$; in particular there is no $4$-cycle. There are no triangles, so $S=2e=6k$. Every vertex has eccentricity $3$: $d(x,y)=3$ and $d(a_i,b_j)=3$ for $i\ne j$. The path $a_jxa_ib_iyb_l$ (with $j,i,l$ distinct) is induced. Conversely, let $P$ be an induced path. If $P$ avoids $x$ and $y$, it lies inside one edge $a_ib_i$. If $P$ contains $x$ but not $y$, then $x$ has at most two neighbours on $P$, each followed on $P$ by at most its $b$-vertex, so $|P|\le 5$. If $P$ contains $x$ and $y$, then every $a_j$ on $P$ is adjacent on $P$ to $x$ and every $b_j$ to $y$, at most one branch lies entirely on $P$, and so $P$ consists of $x$, $y$, at most one full branch and at most one further neighbour of each of $x$ and $y$. Hence $|P|\le 6$.
 \end{proof}
 
-Thus no argument with a uniform positive margin in $\lr$ can prove $\GEN_3$, already among graphs of radius~$3$. The resulting division of REAL-133 is recorded once, in Table~\ref{tab:status}.
+Thus no argument with a uniform positive margin in $\lr$ can prove $\GEN_3$, already among graphs of radius~$3$. The graphs $\theta_k$ realise $(r,\pp)=(3,6)$ with $\lr=3-6/n<4$.
 
 Let $3<\lr\le 4$, and suppose $G$ violates REAL-133. Corollary~\ref{cor:cellsharp} places every such counterexample in the cell $r=3$, $\pp=6$, $T\ge 2$, $n\ge 17$ and $3<\lr\le 4-16/n$. In particular $\lr=4$ does not occur. The parts of that argument that are not the Erd\H{o}s--Saks--S\'os bound are Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf}, \ref{thm:fn} and~\ref{thm:onetri}, together with Lemmas~\ref{lem:e2n} and~\ref{lem:delta2}. The inequality $\GEN_3$ for graphs with two or more triangles would close the remaining cell. It is not proved in this paper; the supplement gives a conditional reduction.
 
-\begin{lemma}\label{lem:rad2bip}
-Let $G$ be connected, bipartite and strong $C_4$-free, with $r(G)=2$. Then $G$ is a tree, $\lr(G)=2-2/n$ and $\pp(G)\le 5$.
-\end{lemma}
-
-\begin{proof}
-Let $s$ be a centre, and let $A$ be the colour class of $s$ and $B$ the other class. Every vertex of $B$ lies at odd distance from $s$, hence at distance~$1$, so $B\subseteq N(s)$. Every vertex $x\in A\setminus\{s\}$ lies at distance~$2$ from $s$, so $x$ has a neighbour in $B$. Two such neighbours would form a $4$-cycle with $s$. Thus $x$ has exactly one neighbour. There is no edge inside $A$ or inside $B$, and the number of edges is $|B|+|A|-1=n-1$. A connected graph with $n-1$ edges is a tree. There are no triangles, so $S=2e=2n-2$ and $\lr=2-2/n$. Every vertex of $A\setminus\{s\}$ is a leaf. An induced path contains at most two leaves, and the unique path between them has the form leaf, neighbour in $B$, $s$, neighbour in $B$, leaf. Hence $\pp(G)\le 5$.
-\end{proof}
-
-\begin{lemma}\label{lem:bip8}
-Let $G$ be a connected triangle-free strong $C_4$-free $P_8$-free graph. Then $e(G)\le 2n-2$. In particular, for $n\ge 2$ one has $\lr(G)=2e(G)/n<4$.
-\end{lemma}
-
-\begin{proof}
-The graph has no triangle and no $4$-cycle subgraph, so every cycle has length at least~$5$. The bound $e\le 2n-2$ holds for $n=1$. Let $n\ge 2$, and proceed by induction on the order. If $G$ is a tree, then $e=n-1\le 2n-2$. Otherwise the girth is at least~$5$. Theorem~1 of Chudnovsky and Stacho~\cite{chudstacho} then asserts that $G$ is the Petersen graph, the Heawood graph, the graph obtained by contracting one edge of the Heawood graph, or else $G$ has a vertex of degree at most~$2$. These three exceptions have pairs $(n,e)$ equal to $(10,15)$, $(14,21)$ and $(13,20)$. Each satisfies $e\le 2n-2$, since $15\le 18$, $21\le 26$ and $20\le 24$.
-
-In every remaining case some vertex $v$ has degree at most~$2$. Every component $H$ of $G-v$ is connected, triangle-free, strong $C_4$-free and $P_8$-free. The inductive hypothesis gives $e(H)\le 2|H|-2$. If $G-v$ has $c\ge 1$ components, then
-\[
-e(G)=e(G-v)+d(v)\le 2(n-1)-2c+2\le 2n-2,
-\]
-because $d(v)\le 2$ and $c\ge 1$. Since $G$ is triangle-free, $S=2e\le 4n-4$, so $\lr\le 4-4/n<4$.
-\end{proof}
-
-Lemma~\ref{lem:rad2bip} excludes the pair $(r,\pp)=(2,7)$ for every connected bipartite strong $C_4$-free graph: the induced-path order is at most~$5$, and $\lr<2$. Lemma~\ref{lem:bip8} is the same exclusion for every connected triangle-free graph in the class, and it also excludes $(r,\pp)=(3,7)$ from the range $5<\lr\le 6$. A graph with $\pp=7$ is $P_8$-free, so a triangle-free graph of that path order has $\lr<4$. Thus any graph with $(r,\pp)\in\{(2,7),(3,7)\}$ and $5<\lr\le 6$ contains a triangle. Lemma~\ref{lem:e2n} excludes $(2,6)$ and $(3,6)$ for every connected strong $C_4$-free graph: $\pp\le 6$ forces $\lr<4$.
-
-The rooted bounds of orders three and four, the rooted bounds for every index, the endpoint obstructions, the high-radius constructions, and the conditional reduction for $\GEN_3$ are collected in the supplement. Figure~1 and Figure~2 remain in the article. The proofs of Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf}, \ref{thm:fn} and~\ref{thm:onetri} and of Corollary~\ref{cor:cellsharp} do not use those rooted bounds or the three suppositions of the reduction. The cut-vertex step in Theorem~\ref{thm:onetri} repeats the comparison of Theorem~\ref{thm:red} and uses only Lemmas~\ref{lem:rootedp4} and~\ref{lem:cut}.
-
 \section{What is proved and what is open}\label{sec:status}\label{sec:open}\label{sec:notclaimed}
 
-The comparisons with Chen~\cite{chen}, Chen and Xu~\cite{chenxu}, Chen, Wu and Xu~\cite{cwx}, Chudnovsky and Stacho~\cite{chudstacho}, DeLaVi\~na, Larson, Pepper and Waller~\cite{dlpw}, Karthick and Maffray~\cite{km}, and Brandst\"adt and Ho\`ang~\cite{bh} are in the introduction, in Section~\ref{sec:tf} and in Remarks~\ref{rem:km} and~\ref{rem:bh}. Table~\ref{tab:status} is the only status list. An open row is not a hypothesis of a proved row. A finite search is not a proof here.
+The comparisons with Chen~\cite{chen}, Chen and Xu~\cite{chenxu}, Chen, Wu and Xu~\cite{cwx}, Chudnovsky and Stacho~\cite{chudstacho}, DeLaVi\~na, Larson, Pepper and Waller~\cite{dlpw}, Karthick and Maffray~\cite{km}, and Brandst\"adt and Ho\`ang~\cite{bh} are in the introduction, in Section~\ref{sec:tf} and in Remarks~\ref{rem:km} and~\ref{rem:bh}. Table~\ref{tab:status} records the results used for the range $\lr\le 4$. An open row is not a hypothesis of a proved row. A finite search is not a proof here.
 
-Suppose $4<\lr\le 5$ and $G$ violates REAL-133. Then $\lceil\lr\rceil=5$, so Corollary~\ref{cor:reduction} with $K=4$ gives either $r\le 4$ and $2r-1\le\pp\le r+4$, or $r=5$ and $\pp=9$. Lemma~\ref{lem:e2n} forces $\lr<4$ whenever $\pp\le 6$, so $\pp\ge 7$. Corollary~\ref{cor:r4mass} forces $\lr\le 2$ when $(r,\pp)=(4,7)$. The pairs that remain are $(3,7)$, $(4,8)$ and $(5,9)$.
-
-For $5<\lr\le 6$, Corollary~\ref{cor:reduction} gives $2r-1\le\pp\le r+5$ and $r\le 6$. Lemma~\ref{lem:r1} excludes radius~$1$, Theorem~\ref{thm:petersen} excludes $\pp\le 5$, and Corollary~\ref{cor:r4mass} excludes $(4,7)$. Lemma~\ref{lem:e2n} excludes $(2,6)$ and $(3,6)$. Lemma~\ref{lem:bip8} shows that a triangle-free graph with $\pp=7$ has $\lr<4$, so the pairs $(2,7)$ and $(3,7)$ are possible in this range only for graphs that contain a triangle. Lemma~\ref{lem:rad2bip} is the stronger bipartite exclusion of $(2,7)$. The pairs that remain are necessary conditions for a counterexample. The table does not assert that any of them occurs.
+Lemma~\ref{lem:e2n} gives $\lr<4$ whenever $\pp\le 6$. This excludes the pairs $(r,\pp)=(2,6)$ and $(3,6)$ from the range $\lr\ge 4$, and from no wider range: the graphs $\theta_k$ realise $(3,6)$ with $\lr=3-6/n$. The same density restriction applies to induced-path order~$7$. If $\pp=7$ and $\lr\ge 4$, then $G$ contains a triangle. The condition does not forbid $(r,\pp)=(2,7)$ in a triangle-free graph. The supplement gives a triangle-free example with parameters $(r,\pp,n,S,\lr)=(2,7,12,34,17/6)$, and it records the pairs that remain necessary in the bands $4<\lr\le 5$ and $5<\lr\le 6$.
 
 \begin{table}[ht]
 \centering\small
@@ -818,67 +824,25 @@ For $5<\lr\le 6$, Corollary~\ref{cor:reduction} gives $2r-1\le\pp\le r+5$ and $r
 \toprule
 Statement & Status\\
 \midrule
-$M(n)$ for connected strong $C_4$-free $P_6$-free graphs & proved, Theorem~\ref{thm:petersen}\\
-the structure of graphs with $r=4$ and $\pp=7$, the formula $S=2n-b-m$, and the equality family & proved, Theorem~\ref{thm:r4} and Corollaries~\ref{cor:r4mass}, \ref{cor:r4eq}\\
+$M(n)$ for connected strong $C_4$-free $P_6$-free graphs, with uniqueness for $n\ge 7$ & proved, Theorem~\ref{thm:petersen}\\
+graphs with $r=4$ and $\pp=7$, the formula $S=2n-b-m$, and the equality family & proved, Theorem~\ref{thm:r4} and Corollaries~\ref{cor:r4mass}, \ref{cor:r4eq}\\
 $2e\le 3n$ for connected triangle-free strong $C_4$-free $P_7$-free graphs, equality only for the Petersen graph & proved, Theorem~\ref{thm:tf}\\
-the exact value $f(n)$ for the same class, $n\ge 10$ & proved, Theorem~\ref{thm:fn}\\
+the exact value $f(n)$ and the extremal graphs, $n\ge 10$ & proved, Theorem~\ref{thm:fn}\\
 $S\le 3n$ for connected strong $C_4$-free $P_7$-free graphs with at most one triangle & proved, Theorem~\ref{thm:onetri}\\
 $\Delta\ge 1$ for $n\ge 4$, hence $e\le 2n-4$ and $\lr<4$; if $n\ge 6$ and $T\le 2$, then $\Delta\ge 2$ & proved, Lemmas~\ref{lem:e2n} and~\ref{lem:delta2}\\
 REAL-133 for $\lr\le 3$; for $r\le 2$ and $\lr\le 4$; for $r=4$ and $\lr\le 4$; for $r\ge 5$ and $\lr\le 4$ & proved, Theorem~\ref{thm:A}\\
-$\ROOT(3)$ and $\ROOT(4)$; the terminal strengthening of Proposition~\ref{prop:root4plus} & proved in the supplement\\
-$\ROOT(q)$ for every $q$, in the class $\mathcal B$ & proved in the supplement, Theorem~\ref{thm:blocks}\\
-a minimum counterexample to $\GEN_4$ is $2$-connected & proved in the supplement, Proposition~\ref{prop:gen4cut}; $\GEN_4$ is open\\
-the cell $r=3$, $\pp=6$, $T\ge 2$, $n\ge 17$, $3<\lr\le 4-16/n$ & open; Corollary~\ref{cor:cellsharp}, and $\lr=4$ does not occur\\
-$\GEN_3$ for graphs with two or more triangles & open; the reduction in the supplement is conditional\\
-$\GEN_K$ for $K\ge 4$, unrestricted $\GEN_6$, $\RAD(r)$ for $r\ge 5$, and $\ROOT(q)$ for $q\ge 5$ outside $\mathcal B$ & open\\
+any counterexample to REAL-133 with $\lr\le 4$ & the cell $r=3$, $\pp=6$, $T\ge 2$, $n\ge 17$, $3<\lr\le 4-16/n$; open, Corollary~\ref{cor:cellsharp}\\
+$\GEN_3$ for graphs with two or more triangles & open; a conditional reduction is in the supplement\\
 REAL-133 & open\\
-pairs $(r,\pp)$ still necessary for $4<\lr\le 5$ & $(3,7)$, $(4,8)$, $(5,9)$\\
-pairs $(r,\pp)$ still necessary for $5<\lr\le 6$ & $(2,7)$, $(3,7)$, $(3,8)$, $(4,8)$, $(4,9)$, $(5,9)$, $(5,10)$, $(6,11)$\\
-pairs excluded from $5<\lr\le 6$ for every strong $C_4$-free graph & $(2,6)$ and $(3,6)$, by Lemma~\ref{lem:e2n}\\
-$(2,7)$ and $(3,7)$ in the range $5<\lr\le 6$ & each such graph contains a triangle, by Lemma~\ref{lem:bip8}\\
 \bottomrule
 \end{tabular}
-\caption{Proved statements and statements left open. The rows for $4<\lr\le 5$ and for $5<\lr\le 6$ record necessary pairs only.}\label{tab:status}
+\caption{Proved statements and the residual cell for $\lr\le 4$.}\label{tab:status}
 \end{table}
 
-No structure theorem for connected strong $C_4$-free graphs of radius $r\ge 5$ and path order $2r-1$ is proved here. Notes on deletion in the triangle-free class, and on ports of a distance-preserving dominating set, are kept outside this article in \texttt{notes/supplement-deletion-ports.tex}.
-
-\begin{conjecture}\label{conj:uniform}
-$\ROOT(q)$ holds for every $q\ge 3$. For every $r\ge 5$, every connected strong $C_4$-free graph of radius $r$ and path order $2r-1$ satisfies $S\le(r-1)n-2r(r-3)$, with equality only for $C_{2r}$.
-\end{conjecture}
-
-The cases $q=3$ and $q=4$ are Lemma~\ref{lem:rootedp4} and Theorem~\ref{thm:root4}, and every $q$ holds in $\mathcal B$ by Theorem~\ref{thm:blocks}. The radius bound is not claimed for $r\ge 5$.
-
-\begin{conjecture}\label{conj:td}
-If $F$ is connected and strong $C_4$-free, $\pp_s(F)=q$ and the eccentricity of $s$ is $q-1$, then
-\[
-S(F)\le(q-1)(n-1)-(q-3)D-m-(q-2)(q-3).
-\]
-\end{conjecture}
-
-For $q=4$ the subtracted term is $2$, and Proposition~\ref{prop:root4plus} is this case. For $q\ge 5$ the conjecture is open. The terminal bound in $\mathcal B$ is the first part of Theorem~\ref{thm:blocks}.
-
-Conjecture~\ref{conj:td}, for a fixed $q$, implies $\ROOT(q)$. The implication does not prove the conjecture. Let $F$ be connected and strong $C_4$-free with $\pp_s(F)\le q$. Form $G$ by attaching a path of $q-1$ new edges at $s$. Then $G$ is terminal of index $q$: the new path is an induced path of order $q$ starting at $s$, and every induced path of $F$ that starts at $s$ has order at most $q$. The order, the root degree and the mass increase by $q-1$, $1$ and $2(q-1)$ respectively, and $m$ is unchanged. Write $N=n+q-1$ and $D_G=D+1$. The terminal inequality in $G$ reads
-\[
-S(F)+2(q-1)\le(q-1)(N-1)-(q-3)D_G-m-(q-2)(q-3).
-\]
-The identity $N-1=n+q-2$ gives $(q-1)(N-1)=(q-1)(n-1)+(q-1)^2$, and $(q-3)D_G=(q-3)D+(q-3)$. The terms that do not involve $n$, $D$ or $m$ are
-\[
-(q-1)^2-(q-3)-(q-2)(q-3)-2(q-1)=(q-3)\bigl((q-1)-(q-1)\bigr)=0.
-\]
-What remains is $S(F)\le(q-1)(n-1)-(q-3)D-m$, which is $\ROOT(q)$. For $q=4$ this route uses Proposition~\ref{prop:root4plus}. The induction in Theorem~\ref{thm:root4} does not. For $q\ge 5$ the hypothesis is open, so the implication leaves $\ROOT(q)$ open.
-
-\begin{conjecture}\label{conj:cbhigh}
-Every connected strong $C_4$-free graph $G$ that is not a cycle and has $\lr(G)>5$ has an eligible core $H$, in the sense of Example~\ref{ex:cb}, with
-\[
-S(G)-S(H)\le(\pp-r)\bigl(n-|H|\bigr)+|H|.
-\]
-\end{conjecture}
-
-Example~\ref{ex:cb} shows that the budget without a restriction on $\lr$ is false, and that the Petersen graph is a counterexample with $\lr=3$. The example does not show that $5$ is the correct cutoff, and it does not count eligible cores. A reported count of cores of order at most~$12$ is not a result of this paper. If the conjecture, the range $\lr\le 5$, and an induction on the order were all available, REAL-133 would follow. The range $\lr\le 5$ is not a theorem, so this route is not a proof of REAL-133. Example~\ref{ex:heawood} shows that a proof cannot rely only on the scalar constraints listed there.
+The rooted bounds, the endpoint obstructions, the high-radius constructions, and the conditional reduction for $\GEN_3$ are in the supplement. The proofs of Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf}, \ref{thm:fn} and~\ref{thm:onetri} and of Corollary~\ref{cor:cellsharp} do not use those rooted bounds or the three suppositions of the reduction. The cut-vertex step in Theorem~\ref{thm:onetri} repeats the comparison of Theorem~\ref{thm:red} and uses only Lemmas~\ref{lem:rootedp4} and~\ref{lem:cut}. No structure theorem for connected strong $C_4$-free graphs of radius $r\ge 5$ and path order $2r-1$ is proved here.
 
 \section*{Acknowledgments}
-The authors are responsible for the text, including any errors. Language-model tools were used to prepare drafts. Neil Xu's correspondence address is omitted from this version. Xingchen Wang is listed by name only.
+The authors are solely responsible for the content of this article. Language-model tools were used in the preparation of drafts of the manuscript.
 
 \begin{thebibliography}{99}
 
