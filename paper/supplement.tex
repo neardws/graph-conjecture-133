@@ -50,12 +50,12 @@
 \maketitle
 
 \begin{abstract}
-This supplement contains the rooted bounds, the endpoint obstructions, the high-radius constructions, the candidate pairs in the ranges $4<\lr\le 5$ and $5<\lr\le 6$, the finite-search certificate for the one-triangle lemma, and a conditional reduction for $\GEN_3$ that the article no longer uses. Numbered statements in this file carry an S prefix. Numbered references to results proved in the article point to that file. The article's Theorems on $M(n)$, radius four, and the exact triangle-free function $f(n)$ do not depend on these arguments. Theorem~\ref{thm:gen3} uses the certificate in Section~\ref{sec:certificate}, checked by \texttt{certificates/gen3/verify\_gen3.py}.
+This supplement contains the rooted bounds, the endpoint obstructions, the high-radius constructions, the candidate pairs in the ranges $4<\lr\le 5$ and $5<\lr\le 6$, the one-triangle bound, the edge-deficit estimates, and the finite-search certificate for Lemma~\ref{lem:finite}. Numbered statements in this file carry an S prefix. Numbered references to results proved in the article point to that file. The article's Theorems on $M(n)$, radius four, and the exact triangle-free function $f(n)$ do not depend on these arguments. Theorem~\ref{thm:gen3} uses the certificate in Section~\ref{sec:certificate} and does not use the other arguments of this supplement. The program is the file \texttt{certificates/gen3/verify\_gen3.py} at commit \texttt{dd555d305b4a69076cafb845087f00b4144f07cc}, run from the repository root by \texttt{python3 certificates/gen3/verify\_gen3.py}.
 \end{abstract}
 
 \section{Rooted bounds of orders three and four}\label{sec:root3}
 
-The arguments of this section and of Sections~\ref{sec:blocks} and~\ref{sec:neg} are not used for Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf}, \ref{thm:fn}, \ref{thm:onetri} and~\ref{thm:gen3} or for Corollary~\ref{cor:real133}. The rooted bound that bears on the next open band is Theorem~\ref{thm:root4}: it is the estimate which shows that a minimum counterexample to $\GEN_4$ is $2$-connected. The distance-layer form of the same estimate is omitted. The block-class bound and the Moore observation are kept because they delimit $\GEN_K$, and Example~\ref{ex:ep} is kept because it is the explicit failure of the endpoint inequalities at order nine.
+The arguments of this section and of Sections~\ref{sec:blocks} and~\ref{sec:neg} are not used for Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf}, \ref{thm:fn} and~\ref{thm:gen3} or for Corollary~\ref{cor:real133}. Theorem~\ref{thm:onetri} uses Lemma~\ref{lem:rootedp4}. The rooted bound that bears on the next open band is Theorem~\ref{thm:root4}: it is the estimate which shows that a minimum counterexample to $\GEN_4$ is $2$-connected. The distance-layer form of the same estimate is omitted. The block-class bound and the Moore observation are kept because they delimit $\GEN_K$, and Example~\ref{ex:ep} is kept because it is the explicit failure of the endpoint inequalities at order nine.
 
 For a vertex $s$ of a connected graph $F$ let $\pp_s(F)$ be the largest order of an induced path starting at $s$. Write $D=d_F(s)$ and $m=e(F[N(s)])$.
 
@@ -314,7 +314,7 @@ Distances inside the flower are unchanged. Every vertex of an attached copy is w
 
 \section{Candidate pairs above density four}\label{sec:high}
 
-The two lemmas below are the density restrictions used for the pairs $(r,\pp)=(2,6)$, $(3,6)$ and $(2,7)$. They are not used in the proofs of Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf}, \ref{thm:fn} and~\ref{thm:onetri}.
+The two lemmas below are the density restrictions for induced-path order~$7$ and for bipartite graphs of radius~$2$. They are not used in the proofs of Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf}, \ref{thm:fn} and~\ref{thm:gen3}. The pairs $(r,\pp)=(2,6)$ and $(3,6)$ are settled by Corollary~\ref{cor:sharp}.
 
 \begin{lemma}\label{lem:rad2bip}
 Let $G$ be connected, bipartite and strong $C_4$-free, with $r(G)=2$. Then $G$ is a tree, $\lr(G)=2-2/n$ and $\pp(G)\le 5$.
@@ -338,7 +338,9 @@ e(G)=e(G-v)+d(v)\le 2(n-1)-2c+2\le 2n-2,
 because $d(v)\le 2$ and $c\ge 1$. Since $G$ is triangle-free, $S=2e\le 4n-4$, so $\lr\le 4-4/n<4$.
 \end{proof}
 
-Lemma~\ref{lem:e2n} gives $\lr<4$ whenever $\pp\le 6$. The pairs $(r,\pp)=(2,6)$ and $(3,6)$ are therefore excluded from the range $\lr\ge 4$, and from no wider range. Proposition~\ref{prop:theta} realises $(3,6)$: the graph $\theta_k$ has $\lr=3-6/n$. Lemma~\ref{lem:bip8} applies to every connected triangle-free strong $C_4$-free graph of induced-path order~$7$, since such a graph is $P_8$-free, and yields $\lr<4$. Equivalently, if $\pp=7$ and $\lr\ge 4$, then $G$ contains a triangle. In the range $5<\lr\le 6$ the pairs $(2,7)$ and $(3,7)$ therefore occur only for graphs that contain a triangle. The same conclusion does not forbid $(r,\pp)=(2,7)$ in a triangle-free graph. Lemma~\ref{lem:rad2bip} is the bipartite restriction: a connected bipartite strong $C_4$-free graph of radius~$2$ is a tree, so its induced-path order is at most~$5$.
+If $\pp=6$, Corollary~\ref{cor:sharp} gives $S\le 3n-1$ and $\lr<3$. The pairs $(r,\pp)=(2,6)$ and $(3,6)$ are therefore excluded from the range $\lr\ge 3$. The same corollary shows that $3$ is a sharp supremum and is not attained: the graph $F_2$ of Theorem~\ref{thm:fn}, with at least three branches of length~$3$, has radius~$2$ and $\lr=3-5/n$, and the graph $\theta_k$ of Proposition~\ref{prop:theta} has radius~$3$ and $\lr=3-6/n$.
+
+Lemma~\ref{lem:bip8} gives $\lr<4$ only under the triangle-free hypothesis. The lemma applies to every connected triangle-free strong $C_4$-free graph of induced-path order~$7$, since such a graph is $P_8$-free. If $\pp=7$ and $\lr\ge 4$, then $G$ contains a triangle. In the range $5<\lr\le 6$ the pairs $(2,7)$ and $(3,7)$ therefore occur only for graphs that contain a triangle. The same conclusion does not forbid $(r,\pp)=(2,7)$ in a triangle-free graph. Lemma~\ref{lem:rad2bip} is the bipartite restriction: a connected bipartite strong $C_4$-free graph of radius~$2$ is a tree, so its induced-path order is at most~$5$.
 
 \begin{example}\label{ex:p5leaves}
 Let $P$ be the Petersen graph, and let $u$ and $v$ be the ends of an induced $P_5$ in $P$. Such a path exists by the proof of Theorem~\ref{thm:fn}, and $u$ and $v$ are nonadjacent. Form $G$ by adding one leaf at $u$ and one leaf at $v$. Then
@@ -348,15 +350,15 @@ Let $P$ be the Petersen graph, and let $u$ and $v$ be the ends of an induced $P_
 The graph $P$ has $15$ edges. The two new edges create no cycle, so $G$ is triangle-free and strong $C_4$-free, $n=12$, $e=17$ and $S=2e=34$. Thus $\lr=17/6$. The graph $P$ is $P_6$-free, because it is the extremal graph of order~$10$ in Theorem~\ref{thm:petersen}. A leaf has degree one, so it is an end of every induced path that contains it. Deleting the leaves that lie on an induced path of $G$ leaves an induced path of $P$, of order at most~$5$. The path formed by the two leaves and the chosen $P_5$ is induced, because each leaf is adjacent only to its endpoint. Hence $\pp(G)=7$. The radius is~$2$. The proof of Theorem~\ref{thm:petersen} records that the diameter of $P$ is~$2$, so $u$ and $v$ have a common neighbour $w$. Every vertex of $P$ is at distance at most~$2$ from $w$, and each new leaf is at distance~$2$ from $w$. Thus the eccentricity of $w$ is~$2$.
 \end{example}
 
-Suppose $4<\lr\le 5$ and $G$ violates REAL-133. Then $\lceil\lr\rceil=5$, so Corollary~\ref{cor:reduction} with $K=4$ gives either $r\le 4$ and $2r-1\le\pp\le r+4$, or $r=5$ and $\pp=9$. Lemma~\ref{lem:e2n} forces $\lr<4$ whenever $\pp\le 6$, so $\pp\ge 7$. Corollary~\ref{cor:r4mass} forces $\lr\le 2$ when $(r,\pp)=(4,7)$. The pairs that remain are $(3,7)$, $(4,8)$ and $(5,9)$.
+Suppose $4<\lr\le 5$ and $G$ violates REAL-133. Then $\lceil\lr\rceil=5$, so Corollary~\ref{cor:reduction} with $K=4$ gives either $r\le 4$ and $2r-1\le\pp\le r+4$, or $r=5$ and $\pp=9$. Theorem~\ref{thm:gen3} forces $\lr\le 3$ whenever $\pp\le 6$, so $\pp\ge 7$. Corollary~\ref{cor:r4mass} forces $\lr\le 2$ when $(r,\pp)=(4,7)$. The pairs that remain are $(3,7)$, $(4,8)$ and $(5,9)$.
 
-For $5<\lr\le 6$, Corollary~\ref{cor:reduction} gives $2r-1\le\pp\le r+5$ and $r\le 6$. Lemma~\ref{lem:r1} excludes radius~$1$, Theorem~\ref{thm:petersen} excludes $\pp\le 5$, and Corollary~\ref{cor:r4mass} excludes $(4,7)$. The pairs $(2,6)$ and $(3,6)$ do not occur in this range, by the density restriction above, though $(3,6)$ occurs at $\lr=3-6/n$. If $\pp=7$ and $\lr\ge 4$, then $G$ contains a triangle, so $(2,7)$ and $(3,7)$ occur in this range only for graphs that contain a triangle. The pairs that remain are necessary conditions for a counterexample. The table does not assert that any of them occurs.
+For $5<\lr\le 6$, Corollary~\ref{cor:reduction} gives $2r-1\le\pp\le r+5$ and $r\le 6$. Lemma~\ref{lem:r1} excludes radius~$1$, Theorem~\ref{thm:petersen} excludes $\pp\le 5$, and Corollary~\ref{cor:r4mass} excludes $(4,7)$. Corollary~\ref{cor:sharp} excludes $(2,6)$ and $(3,6)$ from $\lr\ge 3$. Lemma~\ref{lem:bip8} uses the triangle-free hypothesis: if $\pp=7$ and $\lr\ge 4$, then $G$ contains a triangle, so $(2,7)$ and $(3,7)$ occur in this range only for graphs that contain a triangle. The pairs that remain are necessary conditions for a counterexample. The table does not assert that any of them occurs.
 
 For $q\ge 5$ the bound $\ROOT(q)$ is not proved for an arbitrary strong $C_4$-free graph. Theorem~\ref{thm:blocks} gives every index in the block class $\mathcal B$. Proposition~\ref{prop:gen4cut} shows that a minimum counterexample to $\GEN_4$ is $2$-connected, and $\GEN_4$ itself is open. The statements $\GEN_K$ for $K\ge 4$, unrestricted $\GEN_6$, $\RAD(r)$ for $r\ge 5$, and $\ROOT(q)$ for $q\ge 5$ outside $\mathcal B$ are open. No structure theorem for connected strong $C_4$-free graphs of radius $r\ge 5$ and path order $2r-1$ is proved in the article.
 
 \begin{table}[ht]
 \centering\small
-\begin{tabular}{@{}p{8.6cm}p{5.0cm}@{}}
+\begin{tabular}{@{}p{8.2cm}>{\raggedright\arraybackslash}p{5.4cm}@{}}
 \toprule
 Statement & Status\\
 \midrule
@@ -366,8 +368,8 @@ a minimum counterexample to $\GEN_4$ is $2$-connected & proved, Proposition~\ref
 $\GEN_K$ for $K\ge 4$, unrestricted $\GEN_6$, $\RAD(r)$ for $r\ge 5$, and $\ROOT(q)$ for $q\ge 5$ outside $\mathcal B$ & open\\
 pairs $(r,\pp)$ still necessary for $4<\lr\le 5$ & $(3,7)$, $(4,8)$, $(5,9)$\\
 pairs $(r,\pp)$ still necessary for $5<\lr\le 6$ & $(2,7)$, $(3,7)$, $(3,8)$, $(4,8)$, $(4,9)$, $(5,9)$, $(5,10)$, $(6,11)$\\
-$(2,6)$ and $(3,6)$ in the range $\lr\ge 4$ & excluded, by Lemma~\ref{lem:e2n}; $\theta_k$ realises $(3,6)$ at $\lr=3-6/n$\\
-$(2,7)$ and $(3,7)$ in the range $5<\lr\le 6$ & each such graph contains a triangle, by Lemma~\ref{lem:bip8}\\
+$(2,6)$ and $(3,6)$ & $\lr<3$, and $3$ is a sharp unattained supremum: $F_2$ with $t\ge 2$ gives $3-5/n$ at radius~$2$, and $\theta_k$ gives $3-6/n$ at radius~$3$, Corollary~\ref{cor:sharp}\\
+$(2,7)$ and $(3,7)$ in the range $5<\lr\le 6$ & each such graph contains a triangle; the bound $\lr<4$ of Lemma~\ref{lem:bip8} uses the triangle-free hypothesis\\
 $(r,\pp)=(2,7)$ in a triangle-free graph & possible with $\lr<4$; Example~\ref{ex:p5leaves}\\
 \bottomrule
 \end{tabular}
@@ -408,15 +410,163 @@ S(G)-S(H)\le(\pp-r)\bigl(n-|H|\bigr)+|H|.
 
 Example~\ref{ex:cb} shows that the budget without a restriction on $\lr$ is false, and that the Petersen graph is a counterexample with $\lr=3$. The example does not show that $5$ is the correct cutoff, and it does not count eligible cores. A reported count of cores of order at most~$12$ is not a result of this paper. If the conjecture, the range $\lr\le 5$, and an induction on the order were all available, REAL-133 would follow. The range $\lr\le 5$ is not a theorem, so this route is not a proof of REAL-133. Example~\ref{ex:heawood} shows that a proof cannot rely only on the scalar constraints listed there.
 
+\section{One triangle and the edge deficit}\label{sec:edges}
+
+The arguments of this section are not used for Theorem~\ref{thm:gen3} or for Corollary~\ref{cor:real133}. Theorem~\ref{thm:onetri} is the hand proof for a graph with at most one triangle. Lemma~\ref{lem:twotri} is the companion finite search. Lemmas~\ref{lem:deficit}, \ref{lem:e2n} and~\ref{lem:delta2} bound the number of edges. They are recorded because those bounds do not pass through the identity $S=2e-3T$.
+
+\begin{theorem}\label{thm:onetri}
+Let $G$ be a connected strong $C_4$-free $P_7$-free graph with at most one triangle. Then $S(G)\le 3n$. In particular the same bound holds for a graph with exactly one triangle.
+\end{theorem}
+
+\begin{proof}
+Suppose $G$ is a counterexample of minimum order in the stated class, so $S(G)\ge 3n+1$. Theorem~\ref{thm:tf} forces $G$ to contain a triangle, hence exactly one. Let $v$ be a cut vertex. For each component $C$ of $G-v$ let $\rho_C$ be the largest order of an induced path in $G[C\cup\{v\}]$ with end $v$. Two such paths from different components form an induced path on $\rho_C+\rho_{C'}-1\le 6$ vertices, so some component $C_1$ has $\rho_{C_1}\le 3$. Put $G_1=G[C_1\cup\{v\}]$ and $G_2=G-C_1$, with $n_i=|G_i|$, so $n=n_1+n_2-1$ and $n_1\ge 2$. Both graphs are connected, smaller than $G$, strong $C_4$-free and $P_7$-free, and each has at most one triangle. Lemma~\ref{lem:rootedp4} gives $S(G_1)\le 2(n_1-1)$, and minimality gives $S(G_2)\le 3n_2$. By Lemma~\ref{lem:cut},
+\[
+S(G)\le 2(n_1-1)+3n_2=3n-(n_1-1)<3n.
+\]
+Thus $G$ is $2$-connected.
+
+Let $v$ be a vertex of minimum degree among the three vertices of the triangle, write $d=d(v)$, and let $u$ and $w$ be the other two. The graph $H=G-v$ is connected and triangle-free. Apply Lemma~\ref{lem:strip} to $H$, and write $Q$ for its core, $h=|V(Q)|$ and $\eta=\eta(Q)$. Set
+\[
+a=\bigl|N_G(v)\cap V(Q)\bigr|,\qquad
+c=\bigl|V(H)\setminus\bigl(V(Q)\cup N_G(v)\bigr)\bigr|,
+\]
+and $t=|V(H)|-h$. The vertices of $H$ outside $Q$ are the $d-a$ neighbours of $v$ that miss $Q$, together with the $c$ vertices counted above, so $t=d-a+c$. Lemma~\ref{lem:strip} gives $e(H)=e(Q)+t$. Since $G$ has one triangle, $S(G)=2e(G)-3$ and $e(G)=e(H)+d$, and therefore
+\begin{equation}\label{eq:onetri}
+S(G)-3n=2d-6-\eta-t=d+a-6-\eta-c.
+\end{equation}
+
+The core satisfies $a\le\eta+3$ and, for every edge $xy$ of $Q$,
+\begin{equation}\label{eq:core}
+a+\min\{d_Q(x),d_Q(y)\}\le\eta+5.
+\end{equation}
+These bounds are read from the list in Lemma~\ref{lem:fcount}, using the descriptions that precede that lemma. If $Q$ is the Petersen graph, then $\eta=0$. Every two nonadjacent vertices of the Petersen graph have a common neighbour, so two such vertices cannot both be adjacent to $v$. Thus $N(v)\cap V(Q)$ is a clique, necessarily of size at most two, and every degree in $Q$ is three. Both bounds follow. For each remaining fixed graph of order at least three one has $h\le 11$ and minimum degree at least two. The open neighbourhoods in $Q$ of any two vertices of $N(v)\cap V(Q)$ are disjoint: a common neighbour would form a $4$-cycle with $v$. Hence $a\le\lfloor h/2\rfloor\le 5$. Every degree in these graphs is at most four. The only rows with $\eta<4$ are $F_4$ and $F_{12}$, both with $\eta=3$. The path-and-spoke description of $F_4$ has maximum degree three. In $F_{12}$ the only vertices of degree four are $v_1$ and $v_5$ on the $7$-cycle. Each is adjacent to two cycle vertices and to two of $\{x_1,x_2,x_5\}$, and $v_1$ is not adjacent to $v_5$, so every edge of $F_{12}$ has an end of degree at most three. This gives~\eqref{eq:core} and the bound on $a$. In each parameterised family every non-hub vertex is adjacent to a hub, and each hub has at most one neighbour in common with $v$, so $a\le 4$ even after both hubs are counted. Every edge has an end of degree two, because the edges are the internal edges of the paths between the hubs described above, and $\eta$ is $5$ or $6$. The graphs $K_1$ and $K_2$ satisfy both bounds directly: $K_1$ has $\eta=3$ and no edge, and $K_2$ has $\eta=4$.
+
+If $u$ or $w$ lies outside $Q$, say $u$, the tree attachments give $u$ at most one neighbour in $Q$. Apart from $w$, no neighbour of $u$ in $H$ is adjacent to $v$, because the triangle is unique. Thus $d\le d(u)\le c+3$. Substituting in~\eqref{eq:onetri} gives $S(G)-3n\le a-\eta-3$, and $a\le\eta+3$ yields $S(G)-3n\le 0$. If instead both $u$ and $w$ lie in $Q$, then $uw$ is an edge of $Q$, and every neighbour of either vertex that lies in $H-V(Q)$ lies in the set counted by $c$. Since $v$ has minimum degree among the three triangle vertices,
+\[
+d\le 1+c+\min\{d_Q(u),d_Q(w)\}.
+\]
+Substituting in~\eqref{eq:onetri} and applying~\eqref{eq:core} to the edge $uw$ again yields $S(G)\le 3n$.
+\end{proof}
+
+\begin{lemma}\label{lem:twotri}
+Every connected strong $C_4$-free $P_7$-free graph with at least two triangles has a vertex $v$ with $L(v)\le 3$.
+\end{lemma}
+
+\begin{proof}
+Let $G$ be connected, strong $C_4$-free and $P_7$-free, and suppose $G$ has at least two triangles. Two triangles do not share an edge. If they did, their four or three vertices would contain a $4$-cycle: the two vertices opposite a shared edge, together with the ends of that edge, span a $4$-cycle when the opposite vertices are nonadjacent, and a shared edge whose opposite vertices are adjacent still leaves a $4$-cycle through one opposite vertex and the third vertex of either triangle. Thus two triangles share at most one vertex.
+
+If two triangles share a vertex, an extra edge between their unshared vertices creates a $4$-cycle with an edge of one triangle. The union of the two triangles is therefore an induced subgraph, on five vertices. If two triangles are disjoint, let $d$ be the length of a shortest path joining their vertex sets. A second edge between the two triangles creates a $4$-cycle, whether or not the two edges share an end. For $d\ge 2$, no interior vertex of the path is adjacent to a second vertex of either triangle: such an adjacency would be a chord of the shortest path, or else it would meet two vertices of one triangle and form a $4$-cycle with the third. The two triangles and the path therefore induce the graph consisting of the two triangles joined by that path. Extending the path by one further vertex of each triangle produces an induced path on $d+3$ vertices. Since $\pp(G)\le 6$, one has $d\le 3$.
+
+Four induced subgraphs therefore exhaust the configurations. Two triangles may share a vertex, or they may be joined by a path of length $1$, $2$ or $3$. These graphs have orders $5$, $6$, $7$ and $8$ respectively. From each of them, grow a labelled induced subgraph by the rule of Lemma~\ref{lem:finite}, with one change: at every node select a single vertex whose current deletion loss is strictly less than $4$, and admit only those neighbourhoods that meet the corresponding one-vertex set. Section~\ref{sec:certificate} records the four searches. They visit $36$, $31$, $46$ and $5$ nodes, and the largest orders they reach are $17$, $15$, $11$ and $10$. Every branch closes. An induced copy of any of the four graphs inside a graph with $L\ge 4$ at every vertex would extend at every node. Therefore no graph with at least two triangles has $L\ge 4$ at every vertex.
+\end{proof}
+
+\begin{remark}\label{rem:twotri}
+Lemma~\ref{lem:twotri} is not required for Theorem~\ref{thm:gen3}. It yields a second proof of the inequality $S\le 3n$. Proceed by induction on the order. Theorem~\ref{thm:tf} and Theorem~\ref{thm:onetri} give the inequality when the graph has at most one triangle. If there are at least two triangles, Lemma~\ref{lem:twotri} supplies a vertex $v$ with $L(v)\le 3$. Each component of $G-v$ is smaller and lies in the class, so the inductive bound sums to $S(G-v)\le 3(n-1)$. Hence $S(G)\le 3(n-1)+3=3n$. The equality analysis remains that of Theorem~\ref{thm:gen3}.
+\end{remark}
+
+
+\begin{lemma}\label{lem:deficit}
+Let $G$ be a graph and let $K$ be a clique cutset of order $t$, with $G-K$ having $k\ge 2$ components. For each component $C$ let $G_C$ be the subgraph induced by $C\cup K$, and write $\Delta(H)=2|V(H)|-3-e(H)$. Then
+\[
+\Delta(G)=\sum_C\Delta(G_C)+(k-1)\Bigl[\binom{t}{2}+3-2t\Bigr].
+\]
+The bracket equals $1$ if $t=1$ and equals $0$ if $t=2$ or $t=3$.
+\end{lemma}
+
+\begin{proof}
+The edges inside $K$ are counted $k$ times among the graphs $G_C$, and $|V(G)|=\sum_C|V(G_C)|-(k-1)t$, so
+\[
+e(G)=\sum_C e(G_C)-(k-1)\binom{t}{2}.
+\]
+Therefore
+\begin{align*}
+\Delta(G)
+&=2\sum_C|V(G_C)|-2(k-1)t-3-\sum_C e(G_C)+(k-1)\binom{t}{2}\\
+&=\sum_C\bigl(\Delta(G_C)+3\bigr)-3-2(k-1)t+(k-1)\binom{t}{2}\\
+&=\sum_C\Delta(G_C)+(k-1)\Bigl[\binom{t}{2}+3-2t\Bigr].
+\end{align*}
+The bracket is $0+3-2=1$ for $t=1$, $1+3-4=0$ for $t=2$, and $3+3-6=0$ for $t=3$.
+\end{proof}
+
+\begin{lemma}\label{lem:e2n}
+Let $G$ be a connected strong $C_4$-free $P_7$-free graph on $n\ge 2$ vertices, and write $\Delta(G)=2n-3-e(G)$. Then $\Delta(G)\ge 0$. If $n\ge 4$, then $\Delta(G)\ge 1$, so $e(G)\le 2n-4$ and $S(G)\le 4n-8-3T(G)$. In particular $\lr(G)<4$.
+\end{lemma}
+
+\begin{proof}
+A copy of $K_4$ contains a $4$-cycle, so $\omega(G)\le 3$. A diamond contains a $4$-cycle, so every graph in the class is $(P_7,C_4,\mathrm{diamond})$-free in the sense of Chen, Wu and Xu~\cite{cwx}. The proof is by induction on $n$. For $n=2$ the graph is $K_2$ and $\Delta=0$. For $n=3$ the maximum of $e$ is $3$, attained by $K_3$, and $\Delta\ge 0$.
+
+Let $n=4$. A graph on four vertices with five edges is $K_4$ minus an edge. Labelling the missing edge $cd$, the cycle $a\,c\,b\,d$ uses four edges of the graph. Thus $e\le 4$ and $\Delta=5-e\ge 1$.
+
+Now let $n\ge 5$, and assume the two claims for every smaller graph in the class. Every block $G_C$ arising from a clique cutset is itself connected, strong $C_4$-free and $P_7$-free, of order strictly less than $n$.
+
+Suppose first that $v$ is a cut vertex, and that $G-v$ has $k\ge 2$ components. Lemma~\ref{lem:deficit} with $t=1$ gives $\Delta(G)=\sum_i\Delta(G_i)+(k-1)$. Each side has order at least~$2$, so $\Delta(G_i)\ge 0$ by induction, and $\Delta(G)\ge k-1\ge 1$.
+
+Suppose next that a triangle $K$ is a clique cutset and $G-K$ has $k\ge 2$ components. Each side $G_i$ contains $K$ and at least one further vertex, so its order is at least~$4$. Lemma~\ref{lem:deficit} gives $\Delta(G)=\sum_i\Delta(G_i)$, and induction supplies $\Delta(G_i)\ge 1$. Hence $\Delta(G)\ge k\ge 2$.
+
+Suppose that $\{u,v\}$ is a clique cutset and $G-\{u,v\}$ has $k\ge 2$ components. Lemma~\ref{lem:deficit} gives $\Delta(G)=\sum_i\Delta(G_i)$. Induction gives $\Delta(G_i)\ge 0$ for every side, and each side has order at least~$3$. If every side had deficit~$0$, then each side would have order~$3$ and exactly three edges, so each side would be a triangle. Two triangles that share the edge $uv$ span a $4$-cycle on their two opposite vertices, which contradicts the hypothesis that $G$ is strong $C_4$-free. Some side therefore has positive deficit, and $\Delta(G)\ge 1$.
+
+Suppose finally that $G$ has no clique cutset. Theorem~1.1 of~\cite{cwx} states that a connected $(P_7,C_4,\mathrm{diamond})$-free graph with no clique cutset is the Petersen graph, or the graph $F$ defined below, or else has minimum degree at most $\max\{2,\omega-1\}$. Here $\omega\le 3$, so the last quantity is at most~$2$. The Petersen graph has $n=10$ and $e=15$, hence $\Delta=2$. The graph $F$ is obtained from a $7$-cycle $v_1\cdots v_7$ by adding an independent set $\{y_1,y_2,y_3\}$ with
+\[
+N(y_1)=\{v_1,v_4,v_5\},\qquad
+N(y_2)=\{v_2,v_5,v_6\},\qquad
+N(y_3)=\{v_3,v_6,v_7\}.
+\]
+The three triangles of $F$ are $y_1v_4v_5$, $y_2v_5v_6$ and $y_3v_6v_7$, and $F$ has $n=10$ and $e=16$. The vertices $v_1,v_7,y_3,v_3,v_4,v_5,y_2$, in that order, induce a $P_7$. The path edges are the cycle edges $v_1v_7$, $v_3v_4$ and $v_4v_5$, together with $v_7y_3$, $y_3v_3$ and $v_5y_2$. There is no chord. The set $\{y_1,y_2,y_3\}$ is independent; $y_3$ meets the cycle only in $\{v_3,v_6,v_7\}$ and $y_2$ only in $\{v_2,v_5,v_6\}$; and none of $v_1v_3$, $v_1v_4$, $v_1v_5$, $v_7v_3$, $v_7v_4$, $v_7v_5$, $v_3v_5$ is a cycle edge. Thus $F$ is not $P_7$-free. It is not a graph of the class, and it contributes no candidate. Every remaining graph in the class with no clique cutset is the Petersen graph or has a vertex of degree at most~$2$. The bound on the number of edges is unchanged. If some vertex $v$ has degree at most~$2$, then $v$ is not a cut vertex, so $G-v$ is connected and lies in the class. Deleting $v$ changes the deficit by
+\[
+\Delta(G)-\Delta(G-v)=2-d(v)\ge 0.
+\]
+For $n\ge 5$ the order of $G-v$ is at least~$4$, so induction gives $\Delta(G-v)\ge 1$ and therefore $\Delta(G)\ge 1$.
+
+Lemma~\ref{lem:basic}(3) gives $S=2e-3T$. For $n\ge 4$ one has $e\le 2n-4$, so $S\le 4n-8-3T\le 4n-8$ and $\lr\le 4-8/n<4$. For $2\le n\le 3$ one has $e\le 2n-3$ and $S\le 4n-6$, so again $\lr<4$.
+\end{proof}
+
+\begin{lemma}\label{lem:delta2}
+Let $G$ be a connected strong $C_4$-free $P_7$-free graph.
+\begin{enumerate}
+\item If $n\ge 5$ and $T(G)\le 1$, then $\Delta(G)\ge 2$, so $e(G)\le 2n-5$. If $T(G)=1$, then $S(G)\le 4n-13$.
+\item If $n\ge 4$ and $T(G)\ge 2$, then $S(G)\le 4n-14$.
+\item If $n\ge 5$ and $T(G)\ge 1$, then $S(G)\le 4n-13$.
+\item If $n\ge 6$ and $T(G)\le 2$, then $\Delta(G)\ge 2$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+If $T\ge 2$ and $n\ge 4$, Lemma~\ref{lem:e2n} gives $e\le 2n-4$, hence $S=2e-3T\le 2(2n-4)-6=4n-14$. This is (2). Once (1) is known, $T=1$ gives $S=2e-3\le 4n-13$, and (2) is at least as strong, so (3) follows. It remains to prove $\Delta\ge 2$ when $n\ge 5$ and $T\le 1$.
+
+The proof is by induction on $n$. Let $n=5$. A chordless cycle in a strong $C_4$-free graph has length at least~$5$, so the only possible hole on five vertices is a $5$-cycle. A chord of $C_5$ produces a $4$-cycle, and there is no room for a further vertex, so $G\cong C_5$. Then $e=5$, $T=0$ and $\Delta=2$. If $G$ has no hole, then $G$ is chordal. A simplicial vertex of a connected chordal graph on at least two vertices is not a cut vertex, and its neighbourhood is a clique. That clique has order at most two: a simplicial vertex of degree three or more, together with three neighbours, contains a $K_4$ and therefore a $4$-cycle. Deleting a simplicial vertex of degree one removes one edge and no triangle. Deleting a simplicial vertex of degree two removes two edges and exactly one triangle. Repeating until a single vertex remains gives $e=n-1+T$. Here $T\le 1$, so $e\le 5$ and $\Delta=7-e\ge 2$.
+
+Now let $n\ge 6$, with $T(G)\le 1$, and assume the deficit claim for every smaller graph in the class that has at most one triangle. By Lemma~\ref{lem:e2n} every graph in the class of order at least~$2$ has nonnegative deficit, and every graph of order at least~$4$ has deficit at least~$1$.
+
+Suppose $v$ is a cut vertex and $G-v$ has $k\ge 2$ components. Lemma~\ref{lem:deficit} gives $\Delta(G)=\sum_i\Delta(G_i)+(k-1)$. If this quantity were at most~$1$, then $k=2$ and both sides would have deficit~$0$. A side of deficit~$0$ has order at most~$3$, so $n\le 3+3-1=5$, a contradiction. Thus $\Delta(G)\ge 2$.
+
+Suppose a triangle is a clique cutset, with $k\ge 2$ sides. Each side has order at least~$4$, so each has deficit at least~$1$ by Lemma~\ref{lem:e2n}, and Lemma~\ref{lem:deficit} gives $\Delta(G)\ge 2$.
+
+Suppose $\{u,v\}$ is a clique cutset and $G-\{u,v\}$ has $k\ge 2$ components, and suppose toward a contradiction that $\Delta(G)\le 1$. Lemma~\ref{lem:deficit} gives $\Delta(G)=\sum_i\Delta(G_i)$. A side of order at least~$4$ has deficit at least~$1$. A side of deficit~$0$ therefore has order~$3$ and three edges, so it is a triangle. Two such sides would give two triangles and a $4$-cycle, which is impossible under $T(G)\le 1$ and the strong $C_4$-free hypothesis. If every side had deficit at least~$1$, the sum would be at least~$k\ge 2$. Hence exactly one side is a triangle, of deficit~$0$, and exactly one other side is present: a third side would contribute deficit at least~$1$ and would push the sum to at least~$2$. The hypothesis $T(G)\le 1$ forces the other side $G_2$ to be triangle-free. Its order is $n-1\ge 5$. The inductive hypothesis gives $\Delta(G_2)\ge 2$, so $\Delta(G)\ge 2$, a contradiction. Thus $\Delta(G)\ge 2$.
+
+Suppose finally that $G$ has no clique cutset. The Petersen graph has $T=0$ and $\Delta=2$. The graph $F$ displayed in the proof of Lemma~\ref{lem:e2n} is not $P_7$-free, so it is not a candidate in this class. In every remaining case Chen, Wu and Xu supply a vertex $v$ of degree at most~$2$. This vertex is not a cut vertex. It lies in at most one triangle, and $T(G-v)=T(G)-t(v)\le 1$. The graph $G-v$ is connected, strong $C_4$-free and $P_7$-free, of order at least~$5$. Induction gives $\Delta(G-v)\ge 2$. Since $\Delta(G)=\Delta(G-v)+2-d(v)\ge\Delta(G-v)$, one has $\Delta(G)\ge 2$.
+
+It remains to prove (4). Part (1) already gives the claim when $T\le 1$. Suppose $T=2$, and proceed by induction on $n$ from order six. Lemma~\ref{lem:e2n} supplies $\Delta\ge 0$ for every connected graph in the class of order at least two, and $\Delta\ge 1$ for every such graph of order at least four.
+
+Suppose $v$ is a cut vertex and $G-v$ has $k\ge 2$ components. Lemma~\ref{lem:deficit} gives $\Delta(G)=\sum_i\Delta(G_i)+(k-1)$. A value at most~$1$ would require $k=2$ and both sides of deficit~$0$, hence both of order at most three, and then $n\le 5$. Thus $\Delta(G)\ge 2$. Suppose a triangle is a clique cutset. Each side has order at least four, the side deficits add, and Lemma~\ref{lem:e2n} gives $\Delta(G)\ge 2$. Suppose $\{u,v\}$ is a clique cutset and $G-\{u,v\}$ has $k\ge 2$ components. The side deficits again add. A side of deficit~$0$ has order three and three edges, so it is a triangle. Two such sides would contain a $4$-cycle, so there is at most one. If $\Delta(G)\le 1$, there are exactly two sides, one a triangle and the other a graph of order $n-1\ge 5$ with at most one triangle. Part (1) gives that side deficit at least two, a contradiction. This handles every clique cutset.
+
+Suppose $G$ has no clique cutset. The Petersen graph does not have exactly two triangles. The graph $F$ of Lemma~\ref{lem:e2n} is excluded by the induced $P_7$ recorded there, so it is not a candidate with $T=2$. Theorem~1.1 of Chen, Wu and Xu, in the form already used for Lemma~\ref{lem:e2n}, therefore supplies a vertex $x$ of degree at most two. The graph $J=G-x$ is connected, and $\Delta(G)=\Delta(J)+2-d(x)$. For $n\ge 7$ the inductive hypothesis gives $\Delta(J)\ge 2$ when $T(J)\le 2$, while $T(J)\le 1$ is the case of part (1); in both subcases $\Delta(G)\ge 2$. For $n=6$ the same comparison leaves only the case $d(x)=2$, $|V(J)|=5$ and $\Delta(J)=1$. Then $J$ has six edges. A hole in $J$ would be a $5$-cycle, and any chord of that cycle is a $4$-cycle, so $J$ is chordal. The simplicial deletion in the order-five argument above gives $e(J)=|V(J)|-1+T(J)$, hence $T(J)=2$. Two triangles on five vertices cannot share an edge, for that graph contains a $4$-cycle, and they cannot be disjoint, so they share exactly one vertex. Every pair of vertices of this graph has a common neighbour. Joining $x$ to any two of them creates a $4$-cycle, which contradicts $d(x)=2$.
+\end{proof}
+
+\begin{remark}\label{rem:cwx}
+The degree bound in Theorem~1.1 of Chen, Wu and Xu does not by itself yield $S\le 3n$. Lemmas~\ref{lem:e2n} and~\ref{lem:delta2} are the deficit estimates that follow from that theorem once clique cutsets of order $1$, $2$ and $3$ are restored. The graph $F$ of Lemma~\ref{lem:e2n} is excluded by an induced $P_7$, so only the Petersen graph is counted as an exception, and the bound on the number of edges is unchanged. The resulting estimate is $\lr<4$. These lemmas are not used in the proof of Theorem~\ref{thm:gen3}, which gives the sharper bound $S\le 3n$.
+\end{remark}
+
 \appendix
 
 \section{The finite certificate}\label{sec:certificate}
 
-Lemma~\ref{lem:finite} and Lemma~\ref{lem:twotri} are proved by finite searches whose completeness arguments are in the article. This section records the audit. The decision array is not printed here, and it is not reconstructed in the text. The companion program \texttt{certificates/gen3/verify\_gen3.py} is formal submission material. It uses only the Python standard library, requires Python~3.10 or later, and embeds the certificate. From that directory the command is \texttt{python3 verify\_gen3.py}. The counts below are the output of that program.
+Lemma~\ref{lem:finite} is proved by a finite search whose completeness argument is in the article. The completeness argument for Lemma~\ref{lem:twotri} is in Section~\ref{sec:edges}. This section records the audit. The decision arrays are not printed here, and they are not reconstructed in the text.
 
-The checker labels each new vertex by the current order. It checks that the selected vertex or pair is deficient, visits every child neighbourhood in increasing integer-mask order, and consumes the supplied choices in preorder. A new $4$-cycle exists exactly when two members of the new neighbourhood have a common neighbour in the graph already built. For a new induced $P_7$, the checker tests six old vertices together with the new vertex and reads their induced edges. At an unrestricted node it compares the labelled graph with $H_{3,2}$ and continues to explore the extensions. A missing choice, or an unused choice, makes the verification fail. The verifier imposes no order cutoff and performs no isomorphism pruning.
+The program is submitted with the manuscript as a separate file. In the repository \url{https://github.com/neardws/graph-conjecture-133} it is \texttt{certificates/gen3/verify\_gen3.py} at commit \texttt{dd555d305b4a69076cafb845087f00b4144f07cc}. The SHA-256 digest of that file is \texttt{6be3852172aa401387b498c7e5a8a0efbbdde72aabb1e7fad0db9085b89eb86c}. The present revision does not alter the file. The program uses only the Python standard library, requires Python~3.10 or later, embeds the decision certificate, and takes no arguments. From the repository root the command is \texttt{python3 certificates/gen3/verify\_gen3.py}. A passing run prints the node counts and the line \texttt{PASS. All branches and all decision entries verified.} The counts below are the output of that program.
 
-The reason a finite tree covers every order is the one given in the proof of Lemma~\ref{lem:finite}. If the current induced subgraph $H$ has a vertex $v$ with $L_H(v)<4$ and $v$ has no neighbour outside $H$, the degree and the triangle count of $v$ are already final, which contradicts $L\ge 4$ in the finished graph. If two adjacent vertices have degree two in $H$, at least one has a neighbour outside $H$. The deficient vertex, or one vertex of that pair, is a set that some new vertex must meet. When $H$ already satisfies both local conditions, the search compares it with $H_{3,2}$. If $H$ is a proper induced subgraph of a connected graph satisfying the hypotheses, some vertex outside $H$ has a neighbour in $H$, and the node is unrestricted. For a fixed embedding into the target graph, the old neighbourhood of a required new vertex is one of the sets the node enumerates, and the child is kept. An embedded proper prefix therefore extends. Every potential counterexample continues along some branch.
+The checker labels each new vertex by the current order. A decision is an integer, a pair, or an unrestricted node. An integer names a vertex whose current deletion loss is less than~$4$, and every neighbourhood explored at that node contains the vertex. A pair $(a,b)$ names two adjacent vertices of degree two. The neighbourhood $U$ explored at that node is required only to satisfy $U\cap\{a,b\}\neq\varnothing$. The verifier does not replace the pair by one predetermined endpoint: fixing a single endpoint in advance would drop every branch that meets only the other endpoint. The checker visits every legal child neighbourhood in increasing integer-mask order and consumes the supplied choices in preorder. A new $4$-cycle exists exactly when two members of the new neighbourhood have a common neighbour in the graph already built. For a new induced $P_7$, the checker tests six old vertices together with the new vertex and reads their induced edges. At an unrestricted node it compares the labelled graph with $H_{3,2}$ and continues to explore the extensions. A missing choice, or an unused choice, makes the verification fail. The verifier imposes no order cutoff and performs no isomorphism pruning.
+
+The reason a finite tree covers every order is the one given in the proof of Lemma~\ref{lem:finite}. If the current induced subgraph $H$ has a vertex $v$ with $L_H(v)<4$ and $v$ has no neighbour outside $H$, the degree and the triangle count of $v$ are already final, which contradicts $L\ge 4$ in the finished graph. If $a$ and $b$ are adjacent vertices of degree two in $H$, at least one has a neighbour outside $H$. The new neighbourhood $U$ is required to satisfy $U\cap\{a,b\}\neq\varnothing$. The condition is membership in the pair, not the prior selection of one endpoint. A deficient vertex $v$ is the case $U\cap\{v\}\neq\varnothing$. When $H$ already satisfies both local conditions, the search compares it with $H_{3,2}$. If $H$ is a proper induced subgraph of a connected graph satisfying the hypotheses, some vertex outside $H$ has a neighbour in $H$, and the node is unrestricted. For a fixed embedding into the target graph, the old neighbourhood of a required new vertex is one of the sets the node enumerates, and the child is kept. An embedded proper prefix therefore extends. Every potential counterexample continues along some branch.
 
 \begin{center}
 \begin{tabular}{@{}lrrrrrrrr@{}}
@@ -448,50 +598,6 @@ Joining path of length three & $8$ & $5$ & $10$\\
 \end{center}
 
 These searches visit $118$ nodes in all, and every branch closes. An induced embedding into a graph with $L\ge 4$ at every vertex would continue at every node, which is the local conclusion of Lemma~\ref{lem:twotri}.
-
-\section{A conditional reduction for \texorpdfstring{$\GEN_3$}{GEN3}}\label{app:gen3}
-
-Theorem~\ref{thm:gen3} is the bound $S\le 3n$ for every connected strong $C_4$-free $P_7$-free graph, with equality only for the Petersen graph. Its proof is the triangle-free case, Theorem~\ref{thm:tf}, together with Lemma~\ref{lem:finite}. The argument below is not used in that proof. It records the shape a minimum counterexample would have had, and the three local suppositions which would also have implied the bound. Those suppositions are not needed. Proposition~\ref{prop:intermediate} is the intermediate edge-deficit estimate $3<\lr\le 4-16/n$ on the cell $r=3$, $\pp=6$, $T\ge 2$ and $n\ge 17$. Theorem~\ref{thm:gen3} shows that the cell is empty, and Corollary~\ref{cor:real133} is REAL-133 for every connected graph with $\lr\le 4$.
-
-\begin{theorem}\label{thm:red}
-Let $G$ be a counterexample to $\GEN_3$ of minimum order: $G$ is connected and strong $C_4$-free, $\pp(G)\le 6$, $S(G)\ge 3n+1$, and $n$ is minimum. Then $G$ is $2$-connected; $S(G)-S(G-U)\ge 3|U|+1$ for every nonempty proper $U\subset V(G)$; $2\lambda(v)-t(v)\ge 4$ for every $v$, so $\lambda(v)\ge 2$; and every vertex with $\lambda(v)=2$ has degree $2$ and nonadjacent neighbours, and no two vertices of degree $2$ are adjacent.
-\end{theorem}
-
-\begin{proof}
-Since $S\le 2<3n$ for $n\le 2$, one has $n\ge 3$. Let $v$ be a cut vertex. For each component $C$ of $G-v$ let $\rho_C$ be the largest order of an induced path in $G[C\cup\{v\}]$ with end $v$. Two such paths from different components form an induced path on $\rho_C+\rho_{C'}-1\le 6$ vertices, so some component $C_1$ has $\rho_{C_1}\le 3$. Put $G_1=G[C_1\cup\{v\}]$ and $G_2=G-C_1$, with $n_i=|G_i|$, so $n=n_1+n_2-1$ and $n_1\ge 2$. Both graphs are connected, smaller than $G$, and $P_7$-free. Lemma~\ref{lem:rootedp4} gives $S(G_1)\le 2(n_1-1)$, and minimality gives $S(G_2)\le 3n_2$. By Lemma~\ref{lem:cut}, $S(G)\le 2(n_1-1)+3n_2=3n-(n_1-1)<3n$.
-
-Every component $H$ of $G-U$, for $U$ nonempty and proper, is connected, smaller, and $P_7$-free, so $S(H)\le 3|H|$. Summing, $S(G-U)\le 3(n-|U|)$, and $S(G)\ge 3n+1$ gives the deletion bound. The case $U=\{v\}$ and Lemma~\ref{lem:loss} give $2\lambda(v)-t(v)\ge 4$. If $\lambda(v)=2$, then $t(v)=0$, so $d(v)=2$ and the neighbours are nonadjacent. Every degree-$2$ vertex has $\lambda=2$ and hence lies in no triangle. If $u\sim w$ both have degree $2$, with other neighbours $x$ and $y$, then $x\ne y$ because $t(u)=0$. The set $\{u\}$ is a unit of $x$ and $\{w\}$ is a unit of $y$, so Lemma~\ref{lem:loss} with $U=\{u,w\}$ gives loss $2+2+1+1=6<7$.
-\end{proof}
-
-The same mass bound for a disconnected graph is the sum of the bounds on its components. An isolated vertex has $S=0$. Call a graph \emph{admissible} if it is strong $C_4$-free and $P_7$-free, $L(v)\ge 4$ for every vertex, and no two adjacent vertices have degree~$2$. A minimum counterexample is admissible. In an admissible graph, $\lambda(v)=2$ forces $t(v)=0$ and $d(v)=2$. Write $B$ for the vertices of degree at least~$3$, the \emph{branch vertices}, and $Z$ for the degree-$2$ vertices, the \emph{ears}. Put $D=G[B]$, $d_D(v)=|N(v)\cap B|$ and $q(v)=|N(v)\cap Z|$. All triangles lie in $D$.
-
-\begin{lemma}\label{lem:ears}
-In an admissible graph, $q(v)\le 4$ for every vertex $v$.
-\end{lemma}
-
-\begin{proof}
-Let $u_i$ be ears at $v$ with other neighbours $a_i$. The $a_i$ are distinct, nonadjacent to $v$, and of degree at least~$3$. Put $E_i=N(a_i)\setminus\{u_i\}$. Then $|E_i|\ge 2$ and $E_i\cap N[v]=\emptyset$.
-
-If $a_i\not\sim a_j$, then $E_i=\{w,p\}$ and $E_j=\{w,q\}$ with $pq\in E$, $w\not\sim p$ and $w\not\sim q$. Indeed two common neighbours of $a_i$ and $a_j$ are forbidden, so $|E_i\cap E_j|\le 1$. Since $|E_i|\ge 2$, the private part $E_i\setminus E_j$ is nonempty, and likewise $E_j\setminus E_i$. If $p$ lies in the first private part and $q$ in the second with $p\not\sim q$, the path $pa_iu_ivu_ja_jq$ is induced. Thus the private parts are complete to each other. If one of them contained two vertices, those two vertices and one vertex of the other private part would form a $4$-cycle with the corresponding $a$-vertex. Both private parts therefore have size one, and $|E_i\cap E_j|=1$. An edge from the common vertex to a private vertex is another $4$-cycle. In particular $a_i$ and $a_j$ have degree~$3$ and lie in no triangle.
-
-No three of the vertices $a_i$ are pairwise nonadjacent. Otherwise the sets $E_i$ meet pairwise in a single vertex. If the three intersections are the three pairs of a triple, the claim forces a triangle on that triple, and one $a_i$ together with two vertices of the triple forms a $4$-cycle. Otherwise $E_i=\{w,p_i\}$ with $p_1p_2p_3$ a triangle and $w$ nonadjacent to each $p_i$, and $vu_1a_1wa_2p_2p_3$ is an induced $P_7$.
-
-Five ears are impossible. The graph $F$ they determine on $\{a_1,\dots,a_5\}$ has independence number at most two. If some vertex $a$ of $F$ is adjacent to the other four, those four induce a matching. The independence number forces that matching to be perfect, say $\{b_1b_2,c_1c_2\}$. Then $b_1\not\sim c_1$, so the preceding paragraph says that $b_1$ lies in no triangle, but $ab_1b_2$ is a triangle. Otherwise every vertex of $F$ has a non-neighbour, hence has degree~$3$ in $G$ and lies in no triangle. One neighbour of each such vertex is its ear, so $F$ has maximum degree at most two. It is triangle-free and has no $4$-cycle, and its independence number is at most two, so $F$ is a $5$-cycle. Label that cycle $a_1a_2a_3a_4a_5a_1$, and write $u_i$ for the ear joining $v$ to $a_i$. The seven vertices $u_5,v,u_1,a_1,a_2,a_3,a_4$, in that order, induce a $P_7$: each $u_i$ has neighbours $v$ and $a_i$ only, $v$ is nonadjacent to every $a_j$, and the only edges of the cycle among $a_1,a_2,a_3,a_4$ are the three path edges.
-\end{proof}
-
-\begin{proposition}\label{prop:adm}
-Let $G$ be admissible, with $B$, $Z$, $D$, $d_D$ and $q$ as above. Suppose that $d_D(v)\le 3$ for every $v$, that $d_D(v)=3$ implies $q(v)=0$, and that $d_D(v)=2$ with the two neighbours in $B$ nonadjacent implies $q(v)\le 2$. Then $S(G)\le 3n$.
-\end{proposition}
-
-\begin{proof}
-Ears have nonadjacent neighbours and $Z$ is an independent set, so $S(G)=S(D)+4|Z|$. Since $|Z|=\frac12\sum_{v\in B}q(v)$ and $n=|B|+|Z|$,
-\[
-S-3n=\sum_{v\in B}\Bigl(d_D(v)-t_D(v)-3+\tfrac12 q(v)\Bigr).
-\]
-Lemma~\ref{lem:ears} gives $q(v)\le 4$. If $d_D(v)=2$ and $t_D(v)=0$, the two neighbours in $B$ are nonadjacent, for an edge between them would be a triangle. The three suppositions and the ear bound make every summand nonpositive: the summand is at most $-1$ when $(d_D,t_D)=(0,0)$, at most $0$ when $(d_D,t_D)=(1,0)$, at most $0$ when $(d_D,t_D)=(2,0)$, at most $0$ when $(d_D,t_D)=(2,1)$, and equal to $-t_D(v)\le 0$ when $d_D(v)=3$. The suppositions exclude $d_D(v)\ge 4$.
-\end{proof}
-
-The three suppositions in Proposition~\ref{prop:adm} are not proved in this paper, and they are not used for Theorem~\ref{thm:gen3}. Theorem~\ref{thm:red} shows that a minimum counterexample to $\GEN_3$, if one existed, would be admissible, so those suppositions would also have implied the bound. The proof in the article does not pass through them.
 
 \section*{Acknowledgments}
 The authors are solely responsible for the content of this article. Language-model tools were used in the preparation of drafts of the manuscript.
