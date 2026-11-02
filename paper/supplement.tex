@@ -50,12 +50,12 @@
 \maketitle
 
 \begin{abstract}
-This supplement contains the rooted bounds, the endpoint obstructions, the high-radius constructions, the candidate pairs in the ranges $4<\lr\le 5$ and $5<\lr\le 6$, and the conditional reduction for $\GEN_3$ removed from the article. Numbered statements in this file carry an S prefix. Numbered references to results proved in the article point to that file. The article's Theorems on $M(n)$, radius four, the exact triangle-free function $f(n)$, and graphs with at most one triangle do not depend on these arguments.
+This supplement contains the rooted bounds, the endpoint obstructions, the high-radius constructions, the candidate pairs in the ranges $4<\lr\le 5$ and $5<\lr\le 6$, the finite-search certificate for the one-triangle lemma, and a conditional reduction for $\GEN_3$ that the article no longer uses. Numbered statements in this file carry an S prefix. Numbered references to results proved in the article point to that file. The article's Theorems on $M(n)$, radius four, and the exact triangle-free function $f(n)$ do not depend on these arguments. Theorem~\ref{thm:gen3} uses the certificate in Section~\ref{sec:certificate}, checked by \texttt{certificates/gen3/verify\_gen3.py}.
 \end{abstract}
 
 \section{Rooted bounds of orders three and four}\label{sec:root3}
 
-The arguments of this section and of Sections~\ref{sec:blocks} and~\ref{sec:neg} are not used for Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf}, \ref{thm:fn} and~\ref{thm:onetri} or for Corollary~\ref{cor:cellsharp}. The rooted bound that bears on the next open band is Theorem~\ref{thm:root4}: it is the estimate which shows that a minimum counterexample to $\GEN_4$ is $2$-connected. The distance-layer form of the same estimate is omitted. The block-class bound and the Moore observation are kept because they delimit $\GEN_K$, and Example~\ref{ex:ep} is kept because it is the explicit failure of the endpoint inequalities at order nine.
+The arguments of this section and of Sections~\ref{sec:blocks} and~\ref{sec:neg} are not used for Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf}, \ref{thm:fn}, \ref{thm:onetri} and~\ref{thm:gen3} or for Corollary~\ref{cor:real133}. The rooted bound that bears on the next open band is Theorem~\ref{thm:root4}: it is the estimate which shows that a minimum counterexample to $\GEN_4$ is $2$-connected. The distance-layer form of the same estimate is omitted. The block-class bound and the Moore observation are kept because they delimit $\GEN_K$, and Example~\ref{ex:ep} is kept because it is the explicit failure of the endpoint inequalities at order nine.
 
 For a vertex $s$ of a connected graph $F$ let $\pp_s(F)$ be the largest order of an induced path starting at $s$. Write $D=d_F(s)$ and $m=e(F[N(s)])$.
 
@@ -410,9 +410,48 @@ Example~\ref{ex:cb} shows that the budget without a restriction on $\lr$ is fals
 
 \appendix
 
+\section{The finite certificate}\label{sec:certificate}
+
+Lemma~\ref{lem:finite} and Lemma~\ref{lem:twotri} are proved by finite searches whose completeness arguments are in the article. This section records the audit. The decision array is not printed here, and it is not reconstructed in the text. The companion program \texttt{certificates/gen3/verify\_gen3.py} is formal submission material. It uses only the Python standard library, requires Python~3.10 or later, and embeds the certificate. From that directory the command is \texttt{python3 verify\_gen3.py}. The counts below are the output of that program.
+
+The checker labels each new vertex by the current order. It checks that the selected vertex or pair is deficient, visits every child neighbourhood in increasing integer-mask order, and consumes the supplied choices in preorder. A new $4$-cycle exists exactly when two members of the new neighbourhood have a common neighbour in the graph already built. For a new induced $P_7$, the checker tests six old vertices together with the new vertex and reads their induced edges. At an unrestricted node it compares the labelled graph with $H_{3,2}$ and continues to explore the extensions. A missing choice, or an unused choice, makes the verification fail. The verifier imposes no order cutoff and performs no isomorphism pruning.
+
+The reason a finite tree covers every order is the one given in the proof of Lemma~\ref{lem:finite}. If the current induced subgraph $H$ has a vertex $v$ with $L_H(v)<4$ and $v$ has no neighbour outside $H$, the degree and the triangle count of $v$ are already final, which contradicts $L\ge 4$ in the finished graph. If two adjacent vertices have degree two in $H$, at least one has a neighbour outside $H$. The deficient vertex, or one vertex of that pair, is a set that some new vertex must meet. When $H$ already satisfies both local conditions, the search compares it with $H_{3,2}$. If $H$ is a proper induced subgraph of a connected graph satisfying the hypotheses, some vertex outside $H$ has a neighbour in $H$, and the node is unrestricted. For a fixed embedding into the target graph, the old neighbourhood of a required new vertex is one of the sets the node enumerates, and the child is kept. An embedded proper prefix therefore extends. Every potential counterexample continues along some branch.
+
+\begin{center}
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+Order & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$\\
+Visited nodes & $1$ & $1$ & $1$ & $1$ & $2$ & $3$ & $5$ & $14$\\
+\midrule
+Order & $11$ & $12$ & $13$ & $14$ & $15$ & $16$ & $17$\\
+Visited nodes & $23$ & $24$ & $23$ & $19$ & $24$ & $20$ & $8$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The full one-triangle tree has $169$ labelled nodes and $52$ leaves. Four unrestricted nodes occur, all at order $11$, and all four represent $H_{3,2}$. The largest order reached is $17$. That value is an output of the search.
+
+The second certificate is the search in the proof of Lemma~\ref{lem:twotri}. It uses different initial graphs and different decisions. At each node the verifier checks a single vertex of current deletion loss less than $4$ and explores every legal extension that meets that vertex. The four rows are the shared-vertex configuration, the single joining edge, and the joining paths of lengths two and three.
+
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Initial configuration & Initial order & Visited nodes & Largest order\\
+\midrule
+Shared vertex & $5$ & $36$ & $17$\\
+One joining edge & $6$ & $31$ & $15$\\
+Joining path of length two & $7$ & $46$ & $11$\\
+Joining path of length three & $8$ & $5$ & $10$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+These searches visit $118$ nodes in all, and every branch closes. An induced embedding into a graph with $L\ge 4$ at every vertex would continue at every node, which is the local conclusion of Lemma~\ref{lem:twotri}.
+
 \section{A conditional reduction for \texorpdfstring{$\GEN_3$}{GEN3}}\label{app:gen3}
 
-Theorem~\ref{thm:tf} is the triangle-free case of $\GEN_3$. The three local statements named at the end of this appendix are not proved for graphs that contain triangles. With them, the hand arguments below would give $\GEN_3$ in general. Without them, that case remains open. The cell $r=3$, $\pp=6$, $T\ge 2$, $n\ge 17$ and $3<\lr\le 4-16/n$ remains open as well. By Corollary~\ref{cor:cellsharp} one has $\lr\ne 4$, and graphs with at most one triangle are excluded by Theorems~\ref{thm:tf} and~\ref{thm:onetri}.
+Theorem~\ref{thm:gen3} is the bound $S\le 3n$ for every connected strong $C_4$-free $P_7$-free graph, with equality only for the Petersen graph. Its proof is the triangle-free case, Theorem~\ref{thm:tf}, together with Lemma~\ref{lem:finite}. The argument below is not used in that proof. It records the shape a minimum counterexample would have had, and the three local suppositions which would also have implied the bound. Those suppositions are not needed. Proposition~\ref{prop:intermediate} is the intermediate edge-deficit estimate $3<\lr\le 4-16/n$ on the cell $r=3$, $\pp=6$, $T\ge 2$ and $n\ge 17$. Theorem~\ref{thm:gen3} shows that the cell is empty, and Corollary~\ref{cor:real133} is REAL-133 for every connected graph with $\lr\le 4$.
 
 \begin{theorem}\label{thm:red}
 Let $G$ be a counterexample to $\GEN_3$ of minimum order: $G$ is connected and strong $C_4$-free, $\pp(G)\le 6$, $S(G)\ge 3n+1$, and $n$ is minimum. Then $G$ is $2$-connected; $S(G)-S(G-U)\ge 3|U|+1$ for every nonempty proper $U\subset V(G)$; $2\lambda(v)-t(v)\ge 4$ for every $v$, so $\lambda(v)\ge 2$; and every vertex with $\lambda(v)=2$ has degree $2$ and nonadjacent neighbours, and no two vertices of degree $2$ are adjacent.
@@ -452,7 +491,7 @@ S-3n=\sum_{v\in B}\Bigl(d_D(v)-t_D(v)-3+\tfrac12 q(v)\Bigr).
 Lemma~\ref{lem:ears} gives $q(v)\le 4$. If $d_D(v)=2$ and $t_D(v)=0$, the two neighbours in $B$ are nonadjacent, for an edge between them would be a triangle. The three suppositions and the ear bound make every summand nonpositive: the summand is at most $-1$ when $(d_D,t_D)=(0,0)$, at most $0$ when $(d_D,t_D)=(1,0)$, at most $0$ when $(d_D,t_D)=(2,0)$, at most $0$ when $(d_D,t_D)=(2,1)$, and equal to $-t_D(v)\le 0$ when $d_D(v)=3$. The suppositions exclude $d_D(v)\ge 4$.
 \end{proof}
 
-The three suppositions in Proposition~\ref{prop:adm} are not proved in this paper. Theorem~\ref{thm:red} shows that a minimum counterexample to $\GEN_3$ is admissible, so those suppositions would imply $\GEN_3$. They do not, by themselves, make $\GEN_3$ a theorem.
+The three suppositions in Proposition~\ref{prop:adm} are not proved in this paper, and they are not used for Theorem~\ref{thm:gen3}. Theorem~\ref{thm:red} shows that a minimum counterexample to $\GEN_3$, if one existed, would be admissible, so those suppositions would also have implied the bound. The proof in the article does not pass through them.
 
 \section*{Acknowledgments}
 The authors are solely responsible for the content of this article. Language-model tools were used in the preparation of drafts of the manuscript.
