@@ -98,4 +98,4 @@ No license file is published in this snapshot (upstream repo had none at packagi
 
 ## Citation / contact
 
-Authors: Xingchen Wang and Xincao Xu. Corresponding author: Xincao Xu, Shenzhen Institute for Advanced Study, University of Electronic Science and Technology of China, xc.xu@uestc.edu.cn. Please open a GitHub issue for questions about certificates or reproduction requests.
+Authors: Xingchen Wang (Independent Researcher) and Xincao Xu. Corresponding author: Xincao Xu, Shenzhen Institute for Advanced Study, University of Electronic Science and Technology of China, xc.xu@uestc.edu.cn. Please open a GitHub issue for questions about certificates or reproduction requests.

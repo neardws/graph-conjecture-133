@@ -130,8 +130,8 @@
 \let\evenfoot@titlepage@info\oddfoot@titlepage@info
 % Even-page footers are ``Journal, year''. No issue year is assigned.
 \def\evenhead@headings@info{\head@headings@def{\evenpage@headings@def\hfill{\pagenumfont{\itshape\@journal}}}}%
-% One affiliation. The class appends a bar unless the affiliation
-% count equals a hardcoded 4, so a single address would end with `` | ''.
+% Affiliations are printed on separate lines. The class appends a bar
+% unless the affiliation count equals a hardcoded 4.
 \renewcommand{\@@address}[2][]{%
   \g@addto@macro\jmkaddress{%
     \hsize=\textwidth
@@ -166,9 +166,10 @@
 \title{Induced Paths, Radius, and Extremal Neighborhood Independence in Graphs without 4-Cycles}
 \titlemark{Induced paths, radius, and extremal neighbourhood independence}
 
-\author{Xingchen Wang}
-\author[1]{Xincao Xu$^*$}
-\address[1]{Shenzhen Institute for Advanced Study, University of Electronic Science and Technology of China}
+\author[1]{Xingchen Wang}
+\author[2]{Xincao Xu$^*$}
+\address[1]{Independent Researcher}
+\address[2]{Shenzhen Institute for Advanced Study, University of Electronic Science and Technology of China}
 \authormark{WANG AND XU}
 \corres{$^*$Corresponding author: Xincao Xu, \email{xc.xu@uestc.edu.cn}. Xingchen Wang, \email{lovestarsni@gmail.com}.}
 
