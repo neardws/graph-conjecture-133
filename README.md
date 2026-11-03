@@ -1,54 +1,79 @@
-# Graph Conjecture 133
+# Induced Paths, Radius, and Extremal Neighbourhood Independence in Graphs without 4-Cycles
 
-Research on **Conjecture 133** of *Written on the Wall II* (Graffiti.pc / REAL-133): for every connected graph \(G\) on at least two vertices with no \(C_4\) subgraph,
+Xingchen Wang (Independent Researcher, skywalkerwang98@gmail.com) and Xincao Xu (corresponding author; Shenzhen Institute for Advanced Study, University of Electronic Science and Technology of China, xc.xu@uestc.edu.cn). Credit for technical checking and for drafting assistance is in the Acknowledgments of the preprint.
+
+This repository is the website preprint of that paper, set in the Journal of Graph Theory layout (Wiley USG class). The deliverables are [`paper/main.pdf`](paper/main.pdf) (20 pages) and [`paper/supplement.pdf`](paper/supplement.pdf) (15 pages), the files built on `main` at `82cc8377` (JGT R12–R14).
+
+For a graph \(G\) on \(n\ge 2\) vertices, \(p(G)\) is the largest order of an induced path, \(r(G)\) is the radius, and
 \[
-p(G)\ge r(G)+\ell(G),
+\ell(G)=\frac1n\sum_{v\in V(G)}\alpha\bigl(G[N(v)]\bigr),
 \]
-where \(p(G)\) is the largest order of an induced path, \(r(G)\) is the radius, and \(\ell(G)=S(G)/n\) is the average over vertices \(v\) of \(\alpha(G[N(v)])\).
+where \(S(G)\) is the sum in the numerator. Write \(P_k\) for the path on \(k\) vertices. A graph is *strong \(C_4\)-free* when it contains no 4-cycle as a subgraph. Conjecture 133 of *Written on the Wall II* (Graffiti.pc), in the real-valued form called REAL-133, says that every connected graph on at least two vertices satisfies \(p(G)\ge r(G)+\ell(G)^{c_{C_4}(G)}\). The formal statement is the Formal Conjectures file at commit `5faef0c4dc3d226f8f9a9fc8f581b6221283eb6e`, the merge of pull request [#5727](https://github.com/google-deepmind/formal-conjectures/pull/5727), which removed the floor function.
 
-This repository is a **public snapshot** of accepted computer-assisted results and a paper draft. It is not a claim that REAL-133 is proved.
+Every connected strong \(C_4\)-free graph with no induced path on seven vertices satisfies \(S\le 3n\), with equality only for the Petersen graph. Every connected graph with \(\ell\le 4\) therefore satisfies REAL-133, at every radius; when the graph contains a triangle the argument uses the finite certificate below. The same arguments determine the maximum of \(\ell\) over connected strong \(C_4\)-free graphs with no induced path on six vertices, with a unique extremal graph for every order \(n\ge 7\); classify the connected strong \(C_4\)-free graphs of radius 4 and induced-path order 7; and determine, for every \(n\ge 10\), the maximum number of edges in a connected triangle-free strong \(C_4\)-free graph with no induced path on seven vertices, together with all extremal graphs. REAL-133 remains open for \(\ell>4\). No structural classification for radius \(r\ge 5\) is proved.
 
-## Status (as of 2026-11-01 Asia/Shanghai)
+## Results
 
-Continuous proving is stopped. This snapshot is not a claim that REAL-133 is proved.
+The boundary in the preprint is Table 3 of `paper/main.pdf` (Section 7).
 
-| Result | Status |
-|--------|--------|
-| Exact \(M(n)\) for connected strong-\(C_4\)-free \(P_6\)-free graphs | Proved in `paper/main.tex`. Values \(16/7\), \(5/2\), \(8/3\), \(3\), and \(2+2/n\) for \(n\ge 11\), with the extremal graphs unique |
-| Structure at \(r=4\), \(p=7\) | Proved: \(C_8\) or the \(C_6\)-extension in the structure theorem; \(S=2n-b-m\), with equality for \(C_8\) and the leafed \(C_6\) |
-| Triangle-free \(\mathrm{GEN}_3\), and exactly one triangle | Proved: \(2e\le 3n\), equality only for the Petersen graph. For \(n\ge 10\) the maximum of \(2e\) is \(f(n)=3n-\min\{n-10,\,5+\mathbf{1}_{n\text{ even}}\}\). A graph in the same class with exactly one triangle still satisfies \(S\le 3n\). \(\mathrm{GEN}_3\) with two or more triangles is open |
-| REAL-133 for \(\ell\le 3\); for \(r\le 2\) and \(\ell\le 4\); for \(r=4\) and \(\ell\le 4\); for \(r\ge 5\) and \(\ell\le 4\) | Proved (Theorem A). The case \(r=4\), \(p=7\) gives \(\ell\le 2\) |
-| The cell \(r=3\), \(p=6\), \(T\ge 2\), \(n\ge 17\), \(3<\ell\le 4-16/n\) | Open. Any counterexample of REAL-133 with \(\ell\le 4\) falls in this cell |
-| \(\mathrm{GEN}_4\), \(\mathrm{ROOT}(q)\) for \(q\ge 5\) outside the block class, \(\mathrm{RAD}(r)\) for \(r\ge 5\), unrestricted \(\mathrm{GEN}_6\) | Not theorems of the manuscript. A minimum counterexample to \(\mathrm{GEN}_4\), if one exists, is 2-connected. Certificate JSON is not a checker archive |
-| \(\mathrm{ROOT}(3)\), \(\mathrm{ROOT}(4)\), and \(\mathrm{ROOT}(q)\) for every \(q\) when every block is bipartite or a cycle | Proved in `paper/supplement.tex` |
-| Continuous window **R35–R40** partial mass theorems toward \(\mathrm{EB}_6\) / triangle-free \(\mathrm{GEN}_6\) | **Accepted** only as referee CORRECT / CORRECT_WITH_FIXES. Not a theorem of the article |
-| Rounds **R46–R53** | Sealed certificates under `certificates/`. Partial CORRECT_WITH_FIXES scaffolding only. Not a proof of the six gates. Summary: `notes/RESULTS_TO_2026-11-01.md` |
-| Last sealed round | **R53** (`b90cc797e755cb8cf849937c20ad1576ea551a7b0ec3b780676c3e84d81b6ecd`): 5/6 CORRECT_WITH_FIXES; STAR **INCORRECT**. No R54 certificate |
-| Six universal gates: EB6/A38, unrestricted TF GEN6, TF-STAR-PRODUCTION6, universal T6, GEN_K/HYBRID, funded RAD → unconditional REAL-133 | **Open**. R49–R53 did not shrink this list |
-| **REAL-133** | **Open** (research-open). Non-theorem note: `notes/DISTANCE_ASSESS_R54.md` |
+| Statement | Reference | Status |
+|-----------|-----------|--------|
+| Exact \(M(n)\) and a unique extremal graph for every connected strong \(C_4\)-free \(P_6\)-free graph of order \(n\ge 7\) | Theorem 3.6 | Proved |
+| Structure of connected strong \(C_4\)-free graphs with radius 4 and induced-path order 7; the formula \(S=2n-b-m\); the equality cases | Theorem 4.3, Corollaries 4.5 and 4.6 | Proved |
+| \(2e\le 3n\) for connected triangle-free strong \(C_4\)-free \(P_7\)-free graphs, with equality only for the Petersen graph | Theorem 5.5 | Proved |
+| Exact maximum of \(2e\), and all extremal graphs, in that triangle-free class, for every \(n\ge 10\) | Theorem 5.6 | Proved |
+| \(S\le 3n\) for every connected strong \(C_4\)-free \(P_7\)-free graph, with equality only for the Petersen graph. The triangle case is the finite identification in Lemma 5.7 | Lemma 5.7, Theorem 5.8 | Proved |
+| Induced-path order 6 forces \(S\le 3n-1\) and \(\ell<3\). On each of \((r,p)=(2,6)\) and \((3,6)\) the supremum of \(\ell\) is 3 and is unattained | Corollary 6.3 | Proved |
+| REAL-133 for every connected graph with \(\ell\le 4\), at every radius. The floor form holds for every connected graph with \(\ell<5\) | Theorem 5.9, Remark 5.10 | Proved |
+| Real-valued REAL-133 for \(\ell>4\), and REAL-133 with no restriction on \(\ell\). No structural classification for radius \(r\ge 5\) | Section 7 | Open |
 
-Window protocol: Astra prover → separate fresh Astra referee; certificates under `certificates/`. UNVERIFIED claims are **not** theorems. An INCORRECT session is not a theorem. Do not auto-chain a further round from this snapshot. If work resumes later, the distance note says to attack A38/EB6 class-forcing first.
+**Theorem 3.6.** For connected strong \(C_4\)-free \(P_6\)-free graphs,
+\[
+M(n)=\begin{cases}
+16/7 & \text{if }n=7,\\
+5/2 & \text{if }n=8,\\
+8/3 & \text{if }n=9,\\
+3 & \text{if }n=10,\\
+2+2/n & \text{if }n\ge 11.
+\end{cases}
+\]
+The extremal graph is unique for every \(n\ge 7\): the Petersen graph \(P\) when \(n=10\), \(P-v\) when \(n=9\), the graph \(H_8\) when \(n=8\), and the graph \(\Gamma_{n-7}\) when \(n=7\) and when \(n\ge 11\) (a 6-cycle, a vertex adjacent to exactly one antipodal pair, and \(n-7\) leaves at that vertex). The same theorem gives \(S\le 3n\) for every connected strong \(C_4\)-free \(P_6\)-free graph of order \(n\ge 2\), with equality only for the Petersen graph.
+
+**Theorem 4.3 and Corollaries 4.5–4.6.** A connected strong \(C_4\)-free graph with radius 4 and induced-path order 7 is \(C_8\), or it is built from a 6-cycle by the extension in Theorem 4.3 and by no further vertices or edges. If \(b\) is the number of vertices added on edges of that 6-cycle and \(m\) is the number of matching edges in the sets \(C_i\), then \(S=2n-b-m\). In particular \(S\le 2n\) and \(\ell\le 2\). Equality \(S=2n\) holds exactly for \(C_8\) and for the 6-cycle with at least one leaf at each cycle vertex.
+
+**Theorem 5.6.** Over connected triangle-free strong \(C_4\)-free \(P_7\)-free graphs of order \(n\ge 10\),
+\[
+f(n)=3n-\min\bigl\{n-10,\ 5+\mathbf{1}_{\{n\text{ even}\}}\bigr\}
+\]
+is the maximum of \(2e\). For \(10\le n\le 14\) the extremal graphs are the isomorphism classes obtained from the Petersen graph by placing \(n-10\) leaves on a single vertex or on the two endpoints of a single edge. For \(n=15\) those classes are joined by \(F_2\) (four classes in all). For \(n=16\) they are joined by \(F'_0\) and by the two graphs obtained from the order-15 graph \(F_2\) by adding a leaf at a hub or at the midpoint of its unique 2-edge branch (seven classes in all). For odd \(n\ge 17\) the unique extremal graph is \(F_2\). For even \(n\ge 18\) there are exactly three: \(F'_0\) and the same two one-leaf extensions of the order-\((n-1)\) graph \(F_2\).
+
+**Lemma 5.7 and Theorem 5.8.** Theorem 5.5 is the triangle-free case of \(S\le 3n\), since then \(S=2e\), with equality only for the Petersen graph. Lemma 5.7 identifies the only connected strong \(C_4\)-free \(P_7\)-free graph that contains a triangle, meets the deletion-loss lower bound \(L(v)\ge 4\) at every vertex, and has no two adjacent vertices of degree two: the graph \(H_{3,2}\), with \((n,e,T,S)=(11,16,1,29)\). Theorem 5.8 extends \(S\le 3n\), equality only for the Petersen graph, to every connected strong \(C_4\)-free \(P_7\)-free graph. The search in Lemma 5.7 is the certificate checked by `certificates/gen3/verify_gen3.py`.
+
+**Theorem 5.9.** Every connected graph on at least two vertices with \(\ell\le 4\) satisfies REAL-133. The proof covers every radius, including \(r\ge 5\), where the Erdős–Saks–Sós bound \(p\ge 2r-1\) is already at least \(r+4\). Remark 5.10 records the floor form for every connected graph with \(\ell<5\). The real-valued statement for \(\ell>4\) stays open.
+
+Section 7 records the next reduction. A counterexample of REAL-133 has \(\ell>4\) and, by Corollary 6.1, violates \(\mathrm{GEN}_K\) for some \(K\ge 4\) or \(\mathrm{RAD}(r)\) for some \(r\ge 5\). The supplement’s dependency note is the list of which supplement arguments the article uses. Candidate pairs in the bands \(4<\ell\le 5\) and \(5<\ell\le 6\) are necessary conditions recorded there.
+
+Continuous proving has stopped. Earlier round write-ups live in [`notes/`](notes/).
 
 ## Layout
 
 ```
-paper/           main.tex + main.pdf; supplement.tex + supplement.pdf
-                 (JGT/Wiley layout, website preprint)
-certificates/    ROUND_BRANCH_R1 … R40 and R46 … R53 JSON + SHA-256 sidecars
-notes/           RESULTS_TO_2026-10-24.md (unchanged); RESULTS_TO_2026-11-01.md;
-                 DISTANCE_ASSESS_R54.md (non-theorem); excerpted PROGRESS / PROOF_NOTES
-data/            pointer README only (full computational supplement not shipped)
-PUBLISH_MANIFEST.md
+paper/main.pdf            website preprint, 20 pages (JGT/Wiley layout)
+paper/supplement.pdf      supplement, 15 pages (same layout)
+paper/main.tex            article source
+paper/supplement.tex      supplement source
+certificates/             archival round JSON (R1–R40 and R46–R53) with SHA-256 sidecars
+certificates/gen3/        pinned checker verify_gen3.py
+notes/                    historical round notes
+data/                     pointer only; the full computational supplement is not shipped
 ```
 
 ## Paper
 
-Revised against the external referee reports of 1 November 2026, including the major restructuring of the extremal function \(M(n)\), the radius-four structure theorem, the exact triangle-free function \(f(n)\), and the one-triangle bound. The title is *Induced Paths, Radius, and Extremal Neighborhood Independence in Graphs without 4-Cycles*. Rooted bounds, endpoint obstructions, high-radius constructions, and the conditional \(\mathrm{GEN}_3\) reduction are in the supplement. REAL-133, \(\mathrm{GEN}_3\) for graphs with two or more triangles, and unrestricted \(\mathrm{GEN}_6\) stay open.
+- Article: [`paper/main.pdf`](paper/main.pdf), source [`paper/main.tex`](paper/main.tex)
+- Supplement: [`paper/supplement.pdf`](paper/supplement.pdf), source [`paper/supplement.tex`](paper/supplement.tex)
 
-- Article: [`paper/main.tex`](paper/main.tex), [`paper/main.pdf`](paper/main.pdf)
-- Supplement: [`paper/supplement.tex`](paper/supplement.tex), [`paper/supplement.pdf`](paper/supplement.pdf)
-
-Both files use the Wiley USG class (Journal of Graph Theory layout) as a website preprint. There is no separate `wiley-jgt` deliverable. The article and the supplement cite each other, so build the article, then the supplement, then the article again:
+Both PDFs are the website preprint. The article and the supplement cite each other, so build the article, then the supplement, then the article again:
 
 ```bash
 cd paper
@@ -58,44 +83,47 @@ tectonic -X compile --keep-intermediates "${SP[@]}" supplement.tex
 tectonic -X compile --keep-intermediates "${SP[@]}" main.tex
 ```
 
-## Referee protocol (high level)
+The PDF digests of this preprint are:
 
-1. A prover session writes claims + finite certificates / reports.
-2. A **fresh** referee session (separate Astra/Codex lane) recomputes or audits and emits `verdict.json` with per-claim statuses.
-3. Round certificates (`ROUND_BRANCH_R*_CERTIFICATE.json`) are built **only** from referee verdicts.
-4. The paper and this archive treat a claim as accepted iff the referee mark is `CORRECT` or `CORRECT_WITH_FIXES`.
+```text
+99410a00e7533010d7483c94ef98dcc790820637b4f291705dd514cf4e9759b5  paper/main.pdf
+1837a71a7cfbaab42f8e1e96f36e335568968c477210ddf4cf86509cb9ade770  paper/supplement.pdf
+```
 
-To check integrity of a certificate file:
+## How to verify the GEN3 certificate
+
+Lemma 5.7 and Theorem 5.8 use `certificates/gen3/verify_gen3.py` at commit `dd555d305b4a69076cafb845087f00b4144f07cc`. That blob has SHA-256 `6be3852172aa401387b498c7e5a8a0efbbdde72aabb1e7fad0db9085b89eb86c`. The file in this tree has the same digest. It is a Python 3.10+ program, uses only the standard library, embeds the decision certificate, and takes no arguments. From the repository root:
+
+```bash
+sha256sum -c <<'EOF'
+99410a00e7533010d7483c94ef98dcc790820637b4f291705dd514cf4e9759b5  paper/main.pdf
+1837a71a7cfbaab42f8e1e96f36e335568968c477210ddf4cf86509cb9ade770  paper/supplement.pdf
+6be3852172aa401387b498c7e5a8a0efbbdde72aabb1e7fad0db9085b89eb86c  certificates/gen3/verify_gen3.py
+EOF
+python3 certificates/gen3/verify_gen3.py
+```
+
+A successful run ends with `PASS. All branches and all decision entries verified.` The one-triangle line used by Lemma 5.7 is `nodes=169`, maximum order 17, `leaves=52`, `unrestricted=4`. Appendix A of the supplement records an independent execution of the same command. The same run also checks the embedded distance certificates.
+
+Round JSON under `certificates/` is an archive of earlier referee rounds, through R53. Each `ROUND_BRANCH_R*_CERTIFICATE.sha256` sidecar checks the matching JSON file:
 
 ```bash
 cd certificates
-sha256sum -c ROUND_BRANCH_R40_CERTIFICATE.sha256
 sha256sum -c ROUND_BRANCH_R53_CERTIFICATE.sha256
 ```
 
-R40 certificate (end of the 2026-10-24 window):
+The R53 digest is `b90cc797e755cb8cf849937c20ad1576ea551a7b0ec3b780676c3e84d81b6ecd`. Those files, and the summaries in `notes/`, are the record of the stopped rounds. The theorems of this preprint are the rows in the table above. [`PUBLISH_MANIFEST.md`](PUBLISH_MANIFEST.md) is the 2026-11-01 packaging record of that archive.
 
-- SHA-256: `71819fcdd5681a6cb5413a6ff326d1d6d651ebd5f2e316886d8f4abc0de9e4f7`
-- Sessions: `r40_a38_empty` (29C+1CWF+3U), `r40_tf_dfree` (22C+5CWF+4U); overall CWF
-- See `notes/RESULTS_TO_2026-10-24.md` for the R35–R40 bilingual summary
+## Left out of this snapshot
 
-Last sealed certificate (R53, 2026-11-01 snapshot):
-
-- SHA-256: `b90cc797e755cb8cf849937c20ad1576ea551a7b0ec3b780676c3e84d81b6ecd`
-- Five sessions CORRECT_WITH_FIXES; STAR INCORRECT. The six universal gates stay open
-- R46–R53 hashes and the scaffolding-versus-open split: `notes/RESULTS_TO_2026-11-01.md`
-- Strategy note, not a theorem: `notes/DISTANCE_ASSESS_R54.md` (`ce156ef7fe942b391cd41fd88e29db404cc660a6b7cd2070968acce4f69f4dde`)
-
-## Intentionally excluded
-
-- Astra/Codex session logs, huge context dumps, lane `scratch/` trees
-- Private session logs and earlier draft addresses that are not the correspondence line of the preprint
-- Full `data/` computational supplement (Lean build, nauty censuses, lane reports) — see `data/README.md`
+- Astra session logs, context dumps, and lane scratch trees
+- The full `data/` computational supplement (see `data/README.md`)
+- Round files R41–R45, and any round after R53
 
 ## License
 
-No license file is published in this snapshot (upstream repo had none at packaging time). All rights reserved by the authors unless a license is added later.
+No license file is published in this snapshot. All rights reserved by the authors unless a license is added later.
 
-## Citation / contact
+## Citation
 
-Authors: Xingchen Wang (Independent Researcher) and Xincao Xu. Corresponding author: Xincao Xu, Shenzhen Institute for Advanced Study, University of Electronic Science and Technology of China, xc.xu@uestc.edu.cn. Please open a GitHub issue for questions about certificates or reproduction requests.
+Xingchen Wang and Xincao Xu, *Induced Paths, Radius, and Extremal Neighbourhood Independence in Graphs without 4-Cycles*, website preprint. Corresponding author: Xincao Xu, xc.xu@uestc.edu.cn. Questions about the certificate or about reproduction can be opened as a GitHub issue.
