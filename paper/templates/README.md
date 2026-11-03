@@ -1,6 +1,6 @@
 # Journal templates
 
-The working manuscript stays `paper/main.tex`, in `amsart`. These notes record four publisher classes for a later submission copy. They do not change the article. The Journal of Graph Theory is the target. Neil’s Wiley pack is in `wiley-njd/`. The other three classes are not stored here: download the current bundle from the link below.
+The article `paper/main.tex` and the supplement `paper/supplement.tex` are website preprints set in the Wiley USG class from `wiley-njd/`. These notes also record three other publisher classes. Those classes are not stored here: download the current bundle from the link below.
 
 | Journal | Class | Bundle |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ SIDMA uses the standard SIAM journal macros, not the online-only class `siamonli
 
 ## Wiley, Journal of Graph Theory
 
-The target journal is the Journal of Graph Theory. The class Neil supplied is `USG.cls` (Wiley, 2024/05/07, v6.0), kept with its sample and the author-guidelines PDF in [`wiley-njd/`](wiley-njd/README.md). That directory is the pack to use for a later JGT copy. The journal accepts a free-format submission, and a PDF can be sent first, so `paper/main.tex` stays in `amsart` until a production file is required.
+The article and the supplement use `USG.cls` (Wiley, 2024/05/07, v6.0), kept with its sample and the author-guidelines PDF in [`wiley-njd/`](wiley-njd/README.md). The journal line of both files reads Preprint, and the title page omits the Wiley logo.
 
 ## Springer Nature, Combinatorica
 
@@ -35,4 +35,4 @@ Combinatorica’s instructions ask for a manuscript of at most 30 pages in 11-po
 
 ## What this directory does not do
 
-`paper/main.tex` is not converted to any of these classes. A submission copy should be a separate file, started from the publisher’s sample and filled from the present source, so that the portable article and its proofs stay in `amsart`.
+`paper/main.tex` and `paper/supplement.tex` are the USG preprints. They are not converted to the Elsevier, SIAM, or Springer classes listed above.

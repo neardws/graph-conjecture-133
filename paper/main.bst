@@ -1,4 +1,4 @@
-% Numerical bibliography for paper/wiley-jgt.tex (USG option ASNA).
+% Numerical bibliography for paper/main.tex and paper/supplement.tex (USG option ASNA).
 %
 % USG v6.0 selects wileyNJD-Chicago.bst under ASNA. That file calls an
 % undefined function Volume on article entries, then defines calc.label
