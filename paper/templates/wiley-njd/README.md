@@ -1,6 +1,6 @@
 # Wiley pack for the Journal of Graph Theory
 
-The target layout is the Journal of Graph Theory class. This directory is the Wiley pack, kept as a cleaned subset. `paper/main.tex` and `paper/supplement.tex` use `USG.cls` from this directory. Compile them with this directory and `images/` on the TeX search path.
+The target layout is the Journal of Graph Theory class. This directory is the Wiley pack, kept as a cleaned subset. `paper/main.tex` uses `USG.cls` from this directory. Compile it with this directory and `images/` on the TeX search path.
 
 The class is `USG.cls`, Wiley’s file of 2024/05/07 (v6.0). The author-guidelines PDF in this directory is the guide shipped with that pack. The preprint uses the class for layout and leaves the journal line as Preprint.
 
@@ -24,4 +24,4 @@ Build products (`aux`, `log`, `bbl`, `blg`, `synctex`) and the compiled sample P
 
 ## No wrapper for the article
 
-`paper/main.tex` and `paper/supplement.tex` are complete USG documents. They do not input each other’s source. `Optimal-Design-layout.tex` remains the sample shipped with the pack.
+`paper/main.tex` is a complete USG document. `Optimal-Design-layout.tex` remains the sample shipped with the pack.
