@@ -203,7 +203,7 @@ The conjecture is number~133 in E.~DeLaVina's list \emph{Written on the Wall II}
 
 Four arguments organise the theorems. The first is the two-layer analysis of an induced $6$-cycle. Theorem~\ref{thm:petersen} determines $M(n)$, the maximum of $\lr$ over connected strong $C_4$-free $P_6$-free graphs, and proves that the extremal graph is unique for every $n\ge 7$. The same theorem gives $S\le 3n$ for every $n\ge 2$, with equality only for the Petersen graph $P$. The jump from order~$10$ to order~$11$ is the change from three occupied antipodal pairs to a single such pair. The second is the radius-$4$ classification. Theorem~\ref{thm:r4} shows that a connected strong $C_4$-free graph of radius~$4$ and induced-path order~$7$ is $C_8$ or the $6$-cycle extension in the statement, with $S=2n-b-m$, and in particular $\lr\le 2$. The third passes from deletion loss to one graph: Lemma~\ref{lem:finite} identifies $H_{3,2}$ as the only triangle-containing graph that meets $L(v)\ge 4$ at every vertex and has no two adjacent vertices of degree two, and Theorem~\ref{thm:gen3} extends $S\le 3n$, with equality only for $P$, from the triangle-free case of Theorem~\ref{thm:tf} to every connected strong $C_4$-free $P_7$-free graph. The fourth is Theorem~\ref{thm:fn}, which determines the maximum of $2e$ on the triangle-free class for every $n\ge 10$. The cores come from Chen and Xu. What is new is the attachment of trees, the comparison of deficits, and the equality classification. The extremal family changes at orders~$15$ and~$16$.
 
-Theorem~\ref{thm:A} is REAL-133 for every connected graph with $\lr\le 4$. The range $\lr>4$, and the graphs of radius $r\ge 5$, stay outside these arguments. Table~\ref{tab:status} and Section~\ref{sec:status} are the boundary.
+Theorem~\ref{thm:A} is REAL-133 for every connected graph with $\lr\le 4$. The range $\lr>4$ remains open, and no structural classification for radius $r\ge 5$ is proved here. Table~\ref{tab:status} and Section~\ref{sec:status} are the boundary.
 
 \begin{table}[ht]
 \centering\footnotesize
@@ -215,7 +215,7 @@ Lemma~2.1. In a $C_4$-free graph every neighbourhood is a matching plus isolated
 \addlinespace
 Lemmas~7.18 and Corollary~7.20. On an induced $6$-cycle in a $C_4$-free graph with no induced $P_6$, an outside vertex has $0$ or $2$ neighbours on the cycle, and if two they are antipodal. The class $\mathrm{RES}$ of Definition~7.2 is not a hypothesis. & The trace is kept. & Theorem~\ref{thm:petersen} adds the second-layer rule, the function $M(n)$, and uniqueness for every $n\ge 7$.\\
 \addlinespace
-Lemma~7.22, under $\mathrm{RES}\wedge(C_6)$: radius~$2$, diameter~$3$, $\lr>3$, condition~(R3b), and no induced $P_6$. The lemma restricts the second layer. & Those hypotheses are dropped. & The second-layer rule holds for every connected strong $C_4$-free $P_6$-free graph.\\
+Lemma~7.22, under $\mathrm{RES}\wedge(C_6)$: radius~$2$, diameter~$3$, $\lr>3$, condition~(R3b), and no induced $P_6$. The lemma restricts the second layer. & The $\mathrm{RES}$ hypotheses are dropped; $P_6$-freeness is retained. & The second-layer rule holds for every connected strong $C_4$-free $P_6$-free graph.\\
 \addlinespace
 Remark~7.24, p.~23. Five admissible frames, of orders $6,7,8,9$ and densities $2$, $16/7$, $5/2$ and $8/3$, with maximum $8/3<3$, from the frame enumeration in that radius-$2$, diameter-$3$, (R3b) analysis. & The frames are not an unrestricted classification. Orders $10$ and $n\ge 11$ are absent. & Unique extremal graphs at those orders as well: $P$ at order~$10$, and $\Gamma_{n-7}$ for every $n\ge 11$.\\
 \addlinespace
@@ -362,7 +362,7 @@ Let $G$ be connected, strong $C_4$-free and $P_6$-free with a dominating induced
 Indices are modulo $6$. Let $w\in W$; it has a neighbour on $C$. If $w$ has exactly one neighbour $v_i$, then $wv_iv_{i+1}v_{i+2}v_{i+3}v_{i+4}$ is an induced $P_6$. If $N(w)\cap C=\{v_i,v_{i+1}\}$, then $wv_{i+1}v_{i+2}v_{i+3}v_{i+4}v_{i+5}$ is an induced $P_6$. Two neighbours at distance $2$ on $C$ give a $4$-cycle. A set of at least three vertices of $C_6$ contains two vertices at distance $2$. So $N(w)\cap C$ is an antipodal pair. Two vertices of $W$ with the same pair give two common neighbours. If $w\sim w'$ with distinct pairs, some $v_i\in N(w)$ and $v_j\in N(w')$ are adjacent on $C$, and $wv_iv_jw'$ is a $4$-cycle. There are no triangles, $e(G)=6+2|W|$, and Lemma~\ref{lem:basic}(3) gives $S=12+4|W|$. Finally, if $w$ uses $\{v_i,v_{i+3}\}$, then every vertex of $C$ is within distance $2$ of $v_i$ (the vertex $v_{i+3}$ through $w$), and each $w'\in W$ has a neighbour in $\{v_{i-1},v_i,v_{i+1}\}$, because each of the three antipodal pairs meets this set. So $v_i$ has eccentricity $2$.
 \end{proof}
 
-The same trace analysis applies to any vertex adjacent to an induced $6$-cycle in a connected strong $C_4$-free $P_6$-free graph, whether or not the cycle dominates. Theorem~\ref{thm:petersen} uses that form.
+The same trace analysis applies to any vertex adjacent to an induced $6$-cycle in a connected strong $C_4$-free $P_6$-free graph, whether or not the cycle dominates. Theorem~\ref{thm:petersen} uses that form. Karthick and Maffray~\cite[Theorem~3.3]{km} classify the external neighbourhood of an induced $C_6$ in a $(P_6,C_4)$-free graph. When the graph has no $4$-cycle subgraph, only the empty trace and the antipodal-pair traces remain. The new content here is the second-layer constraint, the resulting order bound, the exact value of $M(n)$, and uniqueness.
 
 \begin{lemma}\label{lem:ecc2}
 Let $G$ be connected, strong $C_4$-free and $P_6$-free. Then either $G$ has a vertex of eccentricity at most $2$, or $G=C_6$.
@@ -452,17 +452,11 @@ For every $n\ge 7$ the extremal graph is unique up to isomorphism. For $n=10$ it
       \node[pan] at (0.4,-2.55) {(d) $\Gamma_h$};
     \end{scope}
   \end{tikzpicture}
-  \caption{Extremal graphs for $M(n)$. Filled vertices are the $6$-cycle.
-    Each open square is the common neighbour of one antipodal pair, and the two
-    pairs in~(a) have distinct squares.
+  \caption{Extremal graphs for $M(n)$. Filled vertices are the $6$-cycle, and each open square meets one antipodal pair.
     (a)~$H_8$, order~$8$, $\lr=5/2$.
-    (b)~The third antipodal pair is occupied: $P-z$, order~$9$, $\lr=8/3$.
-    (c)~The vertex $z$ is joined to the three squares: the Petersen graph, order~$10$, $\lr=3$.
-    The three graphs are triangle-free, so $S=2e$.
-    (d)~$\Gamma_h$: the square $a$ meets one antipodal pair, and every further vertex is a leaf at $a$.
-    The drawing shows three leaves; any number, including none, is allowed.
-    The case $h=0$ is $\Gamma_0$, the unique graph of order~$7$ with $\lr=16/7$.
-    For every $n\ge 11$ the unique extremal graph is $\Gamma_{n-7}$, with $S=2n+2$.}
+    (b)~$P-z$, order~$9$, $\lr=8/3$.
+    (c)~The Petersen graph, order~$10$, $\lr=3$. These three graphs are triangle-free, so $S=2e$.
+    (d)~$\Gamma_h$: any number of leaves at the square $a$, including none. The case $h=0$ is the unique graph of order~$7$ with $\lr=16/7$. For every $n\ge 11$ the extremal graph is $\Gamma_{n-7}$, with $S=2n+2$.}
   \label{fig:petersen-extremal}
 \end{figure}
 
@@ -487,10 +481,9 @@ For every $n\ge 7$ the extremal graph is unique up to isomorphism. For $n=10$ it
     \node[lab] at (0,-3.15) {first layer $a_i$\quad second layer $x$};
   \end{tikzpicture}
   \caption{Distance layers of an induced $6$-cycle in Case~1 of Theorem~\ref{thm:petersen}.
-    Each vertex $a_i$ of the first layer meets the cycle in one antipodal pair, the three pairs are distinct, and the first layer is an independent set, so its size is $k\le 3$.
-    A vertex $x$ of the second layer is adjacent to every vertex of the first layer and to no vertex of the cycle.
-    If $k\in\{2,3\}$, a second vertex of the second layer would have two common neighbours in the first layer, so that layer has size at most one and the order is at most~$10$.
-    There is no third layer.}
+    Each $a_i$ meets one antipodal pair, the pairs are distinct, and the first layer is independent, so $k\le 3$.
+    A vertex $x$ of the second layer meets every vertex of the first layer and none of the cycle.
+    If $k\in\{2,3\}$ that layer has size at most one, and the order is at most~$10$. There is no third layer.}
   \label{fig:layers}
 \end{figure}
 
@@ -639,16 +632,9 @@ A connected graph $G$ is strong $C_4$-free and satisfies $r(G)=4$ and $\pp(G)=7$
     \end{scope}
   \end{tikzpicture}
   \caption{The radius-four case of Theorem~\ref{thm:r4}.
-    (a)~The heavy path is the induced $P_8$ used in the proof, $w_5,v_5,v_0,x,y,v_2,v_3,w_3$. The vertices $x$ and $y$
-    have singleton traces $\{v_0\}$ and $\{v_2\}$, and $w_5$ and $w_3$ are the
-    distance-four witnesses. The edge $xy$ curves outside the cycle, clear of $v_1$ and of every other cycle vertex.
-    The path is induced because the $6$-cycle is induced, each off-cycle vertex meets only its designated cycle vertex, and the neighbourhoods of the two witnesses are constrained.
-    (b)~One leaf at each cycle vertex gives $S=2n$. The heavy path has seven vertices.
-    (c)~On the same cycle, only the local contributions to $b$ and $m$ are drawn;
-    the other attachments are omitted. The figure shows an isolated leaf, a matching
-    edge inside one set $C_i$, and a vertex glued to a cycle edge. The leaf does not
-    contribute to $b+m$. The matching edge and the glued vertex each increase
-    $2n-S=b+m$ by~$1$.}
+    (a)~The induced $P_8$ is $w_5,v_5,v_0,x,y,v_2,v_3,w_3$, with singleton traces $\{v_0\}$ and $\{v_2\}$ at $x$ and $y$, and with $w_5$, $w_3$ the distance-four witnesses.
+    (b)~One leaf at each cycle vertex gives $S=2n$.
+    (c)~An isolated leaf does not contribute to $b+m$. A matching edge in some $C_i$, and a vertex glued to a cycle edge, each increase $2n-S=b+m$ by~$1$.}
   \label{fig:radius-four}
 \end{figure}
 
@@ -904,14 +890,11 @@ Write $\mathcal P(n)$ for the isomorphism classes of graphs obtained from the Pe
     \bottomrule
   \end{tabular}}
   \caption{Equality families of Theorem~\ref{thm:fn}.
-    (a)~The Petersen graph with the leaves of $\mathcal P(n)$ at one vertex, drawn with a single leaf.
-    (b)~Leaves at both ends of one edge.
-    Both have deficit $n-10$.
-    (c)~$F_2$: the paths of length~$3$ lie on distinct arcs between the hubs, and one path of length~$2$ passes through $v_2$. The deficit is~$5$.
-    (d)~$F'_0$: every path between the hubs has length~$3$ and lies on its own arc. The deficit is~$6$.
-    (e) and (f)~The allowed leaf sites on $F_2$, a hub and the midpoint of the short branch, each marked by a ring. Panel~(c) rings both hubs and the midpoint. Each equality graph uses one site.
-    The formula for $f(n)$ subtracts the smaller of $n-10$ and $5+\mathbf{1}_{\{n\text{ even}\}}$ from $3n$.
-    The table lists the four classes at order~$15$ and the seven classes at order~$16$, the orders at which the two deficits are equal.}
+    (a) and (b)~Leaves of $\mathcal P(n)$ at one vertex, or at both ends of one edge. Both have deficit $n-10$.
+    (c)~$F_2$: length-$3$ paths on distinct arcs, and one length-$2$ path through $v_2$. Deficit~$5$. Rings mark both hubs and the midpoint.
+    (d)~$F'_0$: every hub-to-hub path has length~$3$, on its own arc. Deficit~$6$.
+    (e) and (f)~The allowed leaf sites, a hub and the short-branch midpoint.
+    The table lists the four classes at order~$15$ and the seven at order~$16$.}
   \label{fig:fn}
 \end{figure}
 
@@ -1032,9 +1015,8 @@ Let $G$ be a connected strong $C_4$-free $P_7$-free graph that contains a triang
     \node[v,label=left:{$z_{31}$}] at (q31) {};
   \end{tikzpicture}
   \caption{The graph $H_{3,2}$ of Lemma~\ref{lem:finite}.
-    The part $\{a_1,a_2,a_3\}$ spans the unique triangle, and the part $\{b_1,b_2\}$ spans the remaining edge of $K_5$.
-    The vertex $z_{ij}$ subdivides the edge $a_ib_j$.
-    A white gap marks each place where two edges cross in the drawing and do not share a vertex.
+    The part $\{a_1,a_2,a_3\}$ is the unique triangle, and $\{b_1,b_2\}$ is the remaining edge of $K_5$.
+    The vertex $z_{ij}$ subdivides $a_ib_j$. A white gap is a crossing with no shared vertex.
     The curved paths are $a_2z_{22}b_2$ and $a_3z_{31}b_1$.}
   \label{fig:h32}
 \end{figure}
@@ -1056,7 +1038,7 @@ The search tree is finite. Appendix~A of the supplement, Section~\ref{sec:certif
 \[
 1,1,1,1,2,3,5,14,23,24,23,19,24,20,8.
 \]
-Four nodes are unrestricted. All four have order $11$, and each is the graph $H_{3,2}$. The search continues to expand $H_{3,2}$ from those nodes. At an unrestricted node every nonempty neighbourhood is admitted, and a child is kept when it creates neither a $4$-cycle subgraph nor an induced $P_7$. A later node at which a local condition fails is kept in the tree. Expansion continues, and every new neighbourhood is required to meet the deficient vertex or the adjacent pair of degree-two vertices. Every branch terminates. The largest order reached is $17$. That order is the height of the search tree: the verifier imposes no order cutoff and performs no isomorphism pruning. No node other than the four copies of $H_{3,2}$ satisfies both local conditions. Therefore $G\cong H_{3,2}$.
+Four nodes are unrestricted. All four have order $11$, and each is the graph $H_{3,2}$. The search continues to expand $H_{3,2}$ from those nodes. At an unrestricted node every nonempty neighbourhood is admitted, and a child is kept when it creates neither a $4$-cycle subgraph nor an induced $P_7$. A later node at which a local condition fails is kept in the tree. Expansion continues, and every new neighbourhood is required to meet the deficient vertex or the adjacent pair of degree-two vertices. Every branch terminates. The largest graph order reached by the search is $17$. The verifier imposes no order cutoff and performs no isomorphism pruning. No node other than the four copies of $H_{3,2}$ satisfies both local conditions. Therefore $G\cong H_{3,2}$.
 \end{proof}
 
 \begin{theorem}\label{thm:gen3}

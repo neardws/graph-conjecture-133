@@ -183,16 +183,16 @@ This supplement contains the rooted bounds, the endpoint obstructions, the high-
 
 \section*{Dependency on the article}
 
-Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf} and~\ref{thm:fn} of the article do not use this file. Theorem~\ref{thm:gen3} uses only Section~\ref{sec:certificate}, through Lemma~\ref{lem:finite}, together with Lemma~\ref{lem:rootedp4} proved in the article. Theorem~\ref{thm:A} uses Theorem~\ref{thm:gen3}. The rows below separate that certificate from the material that is not a hypothesis of those statements.
+Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf} and~\ref{thm:fn} of the article do not use this file. Theorem~\ref{thm:gen3} uses only Appendix~A (Section~\ref{sec:certificate}), through Lemma~\ref{lem:finite}, together with Lemma~\ref{lem:rootedp4} proved in the article. Theorem~\ref{thm:A} uses Theorem~\ref{thm:gen3}. The rows below separate that certificate from the material that is not a hypothesis of those statements.
 
-Sections~\ref{sec:blocks}--\ref{sec:edges} keep the class restrictions of the statements they prove. Outside those statements, the following are open and are not hypotheses of the article: $\ROOT(q)$ for $q\ge 5$ on an arbitrary strong $C_4$-free graph, $\GEN_K$ for $K\ge 4$, $\RAD(r)$ for $r\ge 5$, and a structure theorem for radius $r\ge 5$ and path order $2r-1$. The candidate pairs in Section~\ref{sec:high} are necessary conditions only. The conjectures there are not proofs of REAL-133. Example~\ref{ex:cb} does not fix a density cutoff or count eligible cores, and Example~\ref{ex:heawood} is a scalar system that does not imply the conjecture. The graph $K_{2,3}$ contains a $4$-cycle, so it does not test the block restriction inside the strong $C_4$-free class.
+Sections~\ref{sec:blocks}--\ref{sec:edges} keep the class restrictions of the statements they prove. Outside those statements, the following are open and are not hypotheses of the article: $\ROOT(q)$ for $q\ge 5$ on an arbitrary strong $C_4$-free graph, $\GEN_K$ for $K\ge 4$, $\RAD(r)$ for $r\ge 5$, and a structure theorem for radius $r\ge 5$ and path order $2r-1$. The candidate pairs in Section~\ref{sec:high} are necessary conditions only. The conjectures there are not proofs of REAL-133. Example~\ref{ex:cb} records that the Petersen graph has exactly ten eligible cores, the closed neighbourhoods $N[v]$. It does not fix a density cutoff, and it is not a counting theorem for eligible cores of an arbitrary graph. Example~\ref{ex:heawood} is a scalar system that does not imply the conjecture. The graph $K_{2,3}$ contains a $4$-cycle, so it does not test the block restriction inside the strong $C_4$-free class.
 
 \begin{center}
 \begin{tabular}{@{}p{7.4cm}p{6.6cm}@{}}
 \toprule
 Material & Role\\
 \midrule
-Section~\ref{sec:certificate} & used by Lemma~\ref{lem:finite} and Theorem~\ref{thm:gen3}\\
+Appendix~A, Section~\ref{sec:certificate} & used by Lemma~\ref{lem:finite} and Theorem~\ref{thm:gen3}\\
 Sections~\ref{sec:root3}, \ref{sec:blocks}, \ref{sec:neg} and~\ref{sec:high} & not used by the article\\
 Theorem~\ref{thm:onetri} and Lemmas~\ref{lem:connect}, \ref{lem:twotri} & alternate route for one and two triangles; not used by Theorem~\ref{thm:gen3}\\
 Lemmas~\ref{lem:deficit}, \ref{lem:e2n} and~\ref{lem:delta2} & edge-deficit estimates; not used by Theorem~\ref{thm:gen3}\\
@@ -783,7 +783,7 @@ Visited nodes & $23$ & $24$ & $23$ & $19$ & $24$ & $20$ & $8$\\
 \end{tabular}
 \end{center}
 
-The full one-triangle tree has $169$ labelled nodes and $52$ leaves. Four unrestricted nodes occur, all at order $11$, and all four represent $H_{3,2}$. The search continues to expand each of those copies. The largest order reached is $17$. That value is the height of the search tree: the verifier imposes no order cutoff.
+The full one-triangle tree has $169$ labelled nodes and $52$ leaves. Four unrestricted nodes occur, all at order $11$, and all four represent $H_{3,2}$. The search continues to expand each of those copies. The largest graph order reached by the search is $17$. The verifier imposes no order cutoff.
 
 The second certificate is the search in the proof of Lemma~\ref{lem:twotri}. It uses different initial graphs and different decisions. At each node the verifier checks a single vertex of current deletion loss less than $4$ and explores every legal extension that meets that vertex. The four rows are the shared-vertex configuration, the single joining edge, and the joining paths of lengths two and three.
 
