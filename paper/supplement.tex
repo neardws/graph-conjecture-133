@@ -176,23 +176,23 @@
 \keywords{induced path, radius, neighbourhood independence, $4$-cycle, WOWII Conjecture 133}
 
 \abstract[Abstract]{
-This supplement contains the rooted bounds, the endpoint obstructions, the high-radius constructions, the candidate pairs in the ranges $4<\lr\le 5$ and $5<\lr\le 6$, the one-triangle bound, the edge-deficit estimates, and the finite-search certificate for Lemma~\ref{lem:finite}. Numbered statements carry an S prefix. The dependency note below is the only list of which arguments are hypotheses of the article. The certificate used by Theorem~\ref{thm:gen3} is the file \texttt{certificates/gen3/verify\_gen3.py} at commit \texttt{dd555d305b4a69076cafb845087f00b4144f07cc}, run from the repository root by \texttt{python3 certificates/gen3/verify\_gen3.py}. Section~\ref{sec:certificate} records an independent execution of that command.
+This supplement contains the rooted bounds, the endpoint obstructions, the high-radius constructions, the candidate pairs in the ranges $4<\lr\le 5$ and $5<\lr\le 6$, the one-triangle bound, the edge-deficit estimates, and the finite-search certificate for Lemma~\ref{lem:finite}. Numbered statements carry an S prefix. The dependency note below is the only list of which arguments are hypotheses of the article. The certificate used by Theorem~\ref{thm:gen3} is the file \texttt{certificates/gen3/verify\_gen3.py} at commit \texttt{dd555d305b4a69076cafb845087f00b4144f07cc}, run from the repository root by \texttt{python3 certificates/gen3/verify\_gen3.py}. Appendix~A (Section~\ref{sec:certificate}) records an independent execution of that command.
 }
 
 \maketitle
 
 \section*{Dependency on the article}
 
-Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf} and~\ref{thm:fn} of the article do not use this file. Theorem~\ref{thm:gen3} uses only Section~\ref{sec:certificate}, through Lemma~\ref{lem:finite}, together with Lemma~\ref{lem:rootedp4} proved in the article. Theorem~\ref{thm:A} uses Theorem~\ref{thm:gen3}. The rows below separate that certificate from the material that is not a hypothesis of those statements.
+Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf} and~\ref{thm:fn} of the article do not use this file. Theorem~\ref{thm:gen3} uses only Appendix~A (Section~\ref{sec:certificate}), through Lemma~\ref{lem:finite}, together with Lemma~\ref{lem:rootedp4} proved in the article. Theorem~\ref{thm:A} uses Theorem~\ref{thm:gen3}. The rows below separate that certificate from the material that is not a hypothesis of those statements.
 
-Sections~\ref{sec:blocks}--\ref{sec:edges} keep the class restrictions of the statements they prove. Outside those statements, the following are open and are not hypotheses of the article: $\ROOT(q)$ for $q\ge 5$ on an arbitrary strong $C_4$-free graph, $\GEN_K$ for $K\ge 4$, $\RAD(r)$ for $r\ge 5$, and a structure theorem for radius $r\ge 5$ and path order $2r-1$. The candidate pairs in Section~\ref{sec:high} are necessary conditions only. The conjectures there are not proofs of REAL-133. Example~\ref{ex:cb} does not fix a density cutoff or count eligible cores, and Example~\ref{ex:heawood} is a scalar system that does not imply the conjecture. The graph $K_{2,3}$ contains a $4$-cycle, so it does not test the block restriction inside the strong $C_4$-free class.
+Sections~\ref{sec:blocks}--\ref{sec:edges} keep the class restrictions of the statements they prove. Outside those statements, the following are open and are not hypotheses of the article: $\ROOT(q)$ for $q\ge 5$ on an arbitrary strong $C_4$-free graph, $\GEN_K$ for $K\ge 4$, $\RAD(r)$ for $r\ge 5$, and a structure theorem for radius $r\ge 5$ and path order $2r-1$. The candidate pairs in Section~\ref{sec:high} are necessary conditions only. The conjectures there are not proofs of REAL-133. Example~\ref{ex:cb} records that the Petersen graph has exactly ten eligible cores, the closed neighbourhoods $N[v]$. It does not fix a density cutoff, and it is not a counting theorem for eligible cores of an arbitrary graph. Example~\ref{ex:heawood} is a scalar system that does not imply the conjecture. The graph $K_{2,3}$ contains a $4$-cycle, so it does not test the block restriction inside the strong $C_4$-free class.
 
 \begin{center}
 \begin{tabular}{@{}p{7.4cm}p{6.6cm}@{}}
 \toprule
 Material & Role\\
 \midrule
-Section~\ref{sec:certificate} & used by Lemma~\ref{lem:finite} and Theorem~\ref{thm:gen3}\\
+Appendix~A, Section~\ref{sec:certificate} & used by Lemma~\ref{lem:finite} and Theorem~\ref{thm:gen3}\\
 Sections~\ref{sec:root3}, \ref{sec:blocks}, \ref{sec:neg} and~\ref{sec:high} & not used by the article\\
 Theorem~\ref{thm:onetri} and Lemmas~\ref{lem:connect}, \ref{lem:twotri} & alternate route for one and two triangles; not used by Theorem~\ref{thm:gen3}\\
 Lemmas~\ref{lem:deficit}, \ref{lem:e2n} and~\ref{lem:delta2} & edge-deficit estimates; not used by Theorem~\ref{thm:gen3}\\
@@ -291,11 +291,11 @@ A neighbour of $x$ in a component of $G-x$ that does not contain $s$ would exten
 
 Since the block-cut tree is a tree, $P$ enters $B$ only once. The intersection of $P$ with $B$ is a single subpath $Q=z_0,\dots,z_{\ell-1}$ with $z_{\ell-1}=x$. If $s$ lies in $B$, then $Q=P$. If $s$ lies outside $B$, the vertices of $P$ that precede $z_0$ lie outside $B$, and $z_0$ is their only neighbour in $B$: any other edge from that prefix into $B$ would be a second entry. A vertex of $B\setminus\{z_0\}$ is therefore adjacent to no vertex of the prefix. An extension of $P$ at $x$ through a vertex of $B$ can fail only by a chord into $Q$.
 
-Let $y$ be a neighbour of $x$ other than $z_{\ell-2}$. Then $y$ lies in $B$, and $y$ does not lie on $Q$, because $Q$ is induced. The vertex $y$ is not adjacent to the prefix. If $y$ had no neighbour on $Q$, the path $P$ followed by $y$ would be induced. Thus $y$ has a neighbour $z_i$ on $Q$. This neighbour is not $x$. It is not $z_{\ell-2}$, for $yxz_{\ell-2}$ would be a triangle, and it is not $z_{\ell-3}$, for $z_{\ell-3}z_{\ell-2}xy$ would be a $4$-cycle. Since $B$ is bipartite, $z_i$ has the colour of $x$, so $i\equiv\ell-1\pmod 2$ and $i\le\ell-5$.
+Let $y$ be a neighbour of $x$ other than $z_{\ell-2}$. Then $y$ lies in $B$, and $y$ does not lie on $Q$, because $Q$ is induced. The vertex $y$ is not adjacent to the prefix. If $y$ had no neighbour on $Q\setminus\{x\}$, the path $P$ followed by $y$ would be induced. Thus $y$ has a neighbour $z_i$ on $Q\setminus\{x\}$. That neighbour is not $z_{\ell-2}$, for $yxz_{\ell-2}$ would be a triangle, and it is not $z_{\ell-3}$, for $z_{\ell-3}z_{\ell-2}xy$ would be a $4$-cycle. Since $B$ is bipartite, $z_i$ has the colour of $x$, so $i\equiv\ell-1\pmod 2$ and $i\le\ell-5$.
 
 If $\ell=2$, then $Q$ is a single edge and there is no admissible index, so $d(x)=1$. If $\ell\ge 3$, the number of admissible indices is $\lfloor(\ell-1)/2\rfloor-1$. Two neighbours of $x$ are nonadjacent and cannot share a blocker, for a common blocker would form a $4$-cycle with them and with $x$. Hence $d(x)\le\lfloor(\ell-1)/2\rfloor$. In every case $\ell\le q$. For $q\ge 5$ one has $d(x)\le\lfloor(q-1)/2\rfloor$, and $L(x)=2d(x)\le c_q$.
 
-The same count applies inside $B$. Let $z$ be the cut vertex of $G$ belonging to $B$ and lying on every path from a fixed root to $B$, or the root itself if the root lies in $B$, and let $Q$ be a longest induced path of $B$ starting at $z$, with other end $x$ and with $\ell=|Q|$. A neighbour of $x$ in $B$ that had no neighbour on $Q$ would extend $Q$ inside $B$. If the root lies outside $B$, no vertex of $B\setminus\{z\}$ meets the component of the root at $z$, so that component contributes no further blocker. Thus $d_B(x)\le 1$ if $\ell=2$, and $d_B(x)\le\lfloor(\ell-1)/2\rfloor$ if $\ell\ge 3$.
+The same count applies inside $B$. Let $z$ be the cut vertex of $G$ belonging to $B$ and lying on every path from a fixed root to $B$, or the root itself if the root lies in $B$, and let $Q$ be a longest induced path of $B$ starting at $z$, with other end $x$ and with $\ell=|Q|$. A neighbour of $x$ in $B$ that had no neighbour on $Q\setminus\{x\}$ would extend $Q$ inside $B$. If the root lies outside $B$, no vertex of $B\setminus\{z\}$ meets the component of the root at $z$, so that component contributes no further blocker. Thus $d_B(x)\le 1$ if $\ell=2$, and $d_B(x)\le\lfloor(\ell-1)/2\rfloor$ if $\ell\ge 3$.
 \end{proof}
 
 \begin{theorem}\label{thm:blocks}
@@ -442,7 +442,7 @@ Let $k=\pp-r$. Call an induced subgraph $H$ of $G$ an \emph{eligible core} if it
 \[
 S(G)-S(H)\le k\bigl(n-|H|\bigr)+|H|.
 \]
-Together with REAL-133 for $H$ and an induction on the order, the budget would imply REAL-133. The Petersen graph has $S=30$, $\pp=5$, $r=2$ and $k=3$, hence $\lr=3$. An eligible core has $\pp(H)\le 3$. A connected triangle-free strong $C_4$-free $P_4$-free graph is a star, by Lemma~\ref{lem:join} and the absence of triangles. In the Petersen graph a star with $k\le 3$ leaves has centre of degree~$3$. The vertices it dominates are the centre, its three neighbours, and at most two further neighbours of each leaf, at most $4+2k$ vertices in all. This is $10$ only for $k=3$, so the eligible cores are exactly the ten closed neighbourhoods $N[v]$. Each has $S(H)=6$, and $S(G)-S(H)=24>3\cdot 6+4=22$.
+Together with REAL-133 for $H$ and an induction on the order, the budget would imply REAL-133. The Petersen graph has $S=30$, $\pp=5$, $r=2$ and $k=3$, hence $\lr=3$. An eligible core has $\pp(H)\le 3$. A connected triangle-free strong $C_4$-free $P_4$-free graph is a star, by Lemma~\ref{lem:join} and the absence of triangles. In the Petersen graph a star with $a\le 3$ leaves has centre of degree~$3$. The vertices it dominates are the centre, its three neighbours, and at most two further neighbours of each leaf, at most $4+2a$ vertices in all. This is $10$ only for $a=3$, so the eligible cores are exactly the ten closed neighbourhoods $N[v]$. Each has $S(H)=6$, and $S(G)-S(H)=24>3\cdot 6+4=22$.
 
 The unrestricted budget therefore fails. The example has $\lr=3$.
 \end{example}
@@ -469,7 +469,7 @@ Let $G$ be connected, bipartite and strong $C_4$-free, with $r(G)=2$. Then $G$ i
 \end{lemma}
 
 \begin{proof}
-Let $s$ be a centre, and let $A$ be the colour class of $s$ and $B$ the other class. Every vertex of $B$ lies at odd distance from $s$, hence at distance~$1$, so $B\subseteq N(s)$. Every vertex $x\in A\setminus\{s\}$ lies at distance~$2$ from $s$, so $x$ has a neighbour in $B$. Two such neighbours would form a $4$-cycle with $s$. Thus $x$ has exactly one neighbour. There is no edge inside $A$ or inside $B$, and the number of edges is $|B|+|A|-1=n-1$. A connected graph with $n-1$ edges is a tree. There are no triangles, so $S=2e=2n-2$ and $\lr=2-2/n$. Every vertex of $A\setminus\{s\}$ is a leaf. An induced path contains at most two leaves, and the unique path between them has the form leaf, neighbour in $B$, $s$, neighbour in $B$, leaf. Hence $\pp(G)\le 5$.
+Let $s$ be a centre, and let $A$ be the colour class of $s$ and $B$ the other class. Every vertex of $B$ lies at odd distance from $s$, hence at distance~$1$, so $B\subseteq N(s)$. Every vertex $x\in A\setminus\{s\}$ lies at distance~$2$ from $s$, so $x$ has a neighbour in $B$. Two such neighbours would form a $4$-cycle with $s$. Thus $x$ has exactly one neighbour. There is no edge inside $A$ or inside $B$, and the number of edges is $|B|+|A|-1=n-1$. A connected graph with $n-1$ edges is a tree. There are no triangles, so $S=2e=2n-2$ and $\lr=2-2/n$. Since $G$ is a tree of radius~$2$, every induced path is a geodesic, and $\pp(G)=\operatorname{diam}(G)+1\le 2r(G)+1=5$.
 \end{proof}
 
 \begin{lemma}\label{lem:bip8}
@@ -707,7 +707,7 @@ Let $G$ be a connected strong $C_4$-free $P_7$-free graph.
 \begin{proof}
 If $T\ge 2$ and $n\ge 4$, Lemma~\ref{lem:e2n} gives $e\le 2n-4$, hence $S=2e-3T\le 2(2n-4)-6=4n-14$. This is (2). Once (1) is known, $T=1$ gives $S=2e-3\le 4n-13$, and (2) is at least as strong, so (3) follows. It remains to prove $\Delta\ge 2$ when $n\ge 5$ and $T\le 1$.
 
-The proof is by induction on $n$. Let $n=5$. A chordless cycle in a strong $C_4$-free graph has length at least~$5$, so the only possible hole on five vertices is a $5$-cycle. A chord of $C_5$ produces a $4$-cycle, and there is no room for a further vertex, so $G\cong C_5$. Then $e=5$, $T=0$ and $\Delta=2$. If $G$ has no hole, then $G$ is chordal. A simplicial vertex of a connected chordal graph on at least two vertices is not a cut vertex, and its neighbourhood is a clique. That clique has order at most two: a simplicial vertex of degree three or more, together with three neighbours, contains a $K_4$ and therefore a $4$-cycle. Deleting a simplicial vertex of degree one removes one edge and no triangle. Deleting a simplicial vertex of degree two removes two edges and exactly one triangle. Repeating until a single vertex remains gives $e=n-1+T$. Here $T\le 1$, so $e\le 5$ and $\Delta=7-e\ge 2$.
+The proof is by induction on $n$. Let $n=5$. A hole is a chordless cycle of length at least four. In a strong $C_4$-free graph every hole has length at least~$5$. The only possible hole on five vertices is a $5$-cycle. A chord of $C_5$ produces a $4$-cycle, and there is no room for a further vertex, so $G\cong C_5$. Then $e=5$, $T=0$ and $\Delta=2$. If $G$ has no hole, then $G$ is chordal. A simplicial vertex of a connected chordal graph on at least two vertices is not a cut vertex, and its neighbourhood is a clique. That clique has order at most two: a simplicial vertex of degree three or more, together with three neighbours, contains a $K_4$ and therefore a $4$-cycle. Deleting a simplicial vertex of degree one removes one edge and no triangle. Deleting a simplicial vertex of degree two removes two edges and exactly one triangle. Repeating until a single vertex remains gives $e=n-1+T$. Here $T\le 1$, so $e\le 5$ and $\Delta=7-e\ge 2$.
 
 Now let $n\ge 6$, with $T(G)\le 1$, and assume the deficit claim for every smaller graph in the class that has at most one triangle. By Lemma~\ref{lem:e2n} every graph in the class of order at least~$2$ has nonnegative deficit, and every graph of order at least~$4$ has deficit at least~$1$.
 
@@ -734,7 +734,7 @@ Lemmas~\ref{lem:e2n} and~\ref{lem:delta2} are the deficit estimates that follow 
 
 \section{The finite certificate}\label{sec:certificate}
 
-Lemma~\ref{lem:finite} is proved by a finite search whose completeness argument is in the article. The completeness argument for Lemma~\ref{lem:twotri} is in Section~\ref{sec:edges}. This section records the audit. The decision arrays are not printed here, and they are not reconstructed in the text.
+This appendix is the certificate cited in the proof of Lemma~\ref{lem:finite}. Lemma~\ref{lem:finite} is proved by a finite search whose completeness argument is in the article. The completeness argument for Lemma~\ref{lem:twotri} is in Section~\ref{sec:edges}. This section records the audit. The decision arrays are not printed here, and they are not reconstructed in the text.
 
 The program is submitted with the manuscript as a separate file. In the repository \url{https://github.com/neardws/graph-conjecture-133} it is \texttt{certificates/gen3/verify\_gen3.py} at commit \texttt{dd555d305b4a69076cafb845087f00b4144f07cc}. The SHA-256 digest of that file is \texttt{6be3852172aa401387b498c7e5a8a0efbbdde72aabb1e7fad0db9085b89eb86c}. The present revision does not alter the file. The program uses only the Python standard library, requires Python~3.10 or later, embeds the decision certificate, and takes no arguments. From the repository root the command is \texttt{python3 certificates/gen3/verify\_gen3.py}.
 
@@ -749,17 +749,21 @@ PASS. All branches and all decision entries verified.
 \end{verbatim}
 The counts in the tables below are these five rows. No certificate array was rewritten for the run.
 
-The induced-$P_7$ rejection is equivalent to a condition on ends of paths. Let $S$ be a set of six vertices of the graph already built, and let $z$ be the new vertex. Deleting one vertex from an induced $P_7$ leaves either a path on six vertices or two path components. In the first case the deleted vertex was an end, so it is adjacent to exactly one end of the remaining path. In the second case it was internal, so it is adjacent to exactly one end of each component and to no other vertex of $S$. An isolated vertex is a path of order one and is its own end. Conversely, if $G[S]$ is a disjoint union of one or two paths and the neighbourhood of $z$ on $S$ picks exactly one end from each, then $S\cup\{z\}$ induces a $P_7$. A component that is not a path has either a vertex of degree greater than two or no end, and a set with any other number of edges is not one of these two graphs. The checker forbids precisely those neighbourhoods:
+The induced-$P_7$ rejection is equivalent to a condition on ends of paths. Let $S$ be a set of six vertices of the graph already built, and let $z$ be the new vertex. Deleting one vertex from an induced $P_7$ leaves either a path on six vertices or two path components. In the first case the deleted vertex was an end, so it is adjacent to exactly one end of the remaining path. In the second case it was internal, so it is adjacent to exactly one end of each component and to no other vertex of $S$. An isolated vertex is a path of order one and is its own end. Conversely, if $G[S]$ is a disjoint union of one or two paths and the neighbourhood of $z$ on $S$ consists of exactly one endpoint of each path component and of no other vertex of $S$, then $S\cup\{z\}$ induces a $P_7$. A component that is not a path has either a vertex of degree greater than two or no end, and a set with any other number of edges is not one of these two graphs. The checker forbids precisely those neighbourhoods:
 
 \begin{verbatim}
 for each 6-set S:
-    if some vertex of S has two or more neighbours in S: skip
+    if some vertex of S has more than two neighbours in S: skip
     if the number of edges induced by S is not 4 or 5: skip
     split S into its components
     if a component has no end, or the number of components
         is not 6 minus the number of edges: skip
-    reject each neighbourhood that picks one end from each component
+    reject each neighbourhood N for which N cap S consists
+        of exactly one endpoint of each path component
+        of H[S], and of no other vertex of S
 \end{verbatim}
+
+The skip rejects a vertex of $S$ only when it has more than two neighbours in $S$. The program named above implements that test by \texttt{max(degrees.values()) > 2}. The pseudocode is aligned with the pinned file, and the file is unchanged.
 
 The checker labels each new vertex by the current order. A decision is an integer, a pair, or an unrestricted node. An integer names a vertex whose current deletion loss is less than~$4$, and every neighbourhood explored at that node contains the vertex. A pair $(a,b)$ names two adjacent vertices of degree two. The neighbourhood $U$ explored at that node is required only to satisfy $U\cap\{a,b\}\neq\varnothing$. The verifier does not replace the pair by one predetermined endpoint: fixing a single endpoint in advance would drop every branch that meets only the other endpoint. The checker visits every legal child neighbourhood in increasing integer-mask order and consumes the supplied choices in preorder. A new $4$-cycle exists exactly when two members of the new neighbourhood have a common neighbour in the graph already built. For a new induced $P_7$, the checker tests six old vertices together with the new vertex and reads their induced edges. At an unrestricted node it compares the labelled graph with $H_{3,2}$ and continues to explore the extensions. A missing choice, or an unused choice, makes the verification fail. The verifier imposes no order cutoff and performs no isomorphism pruning.
 
@@ -779,7 +783,7 @@ Visited nodes & $23$ & $24$ & $23$ & $19$ & $24$ & $20$ & $8$\\
 \end{tabular}
 \end{center}
 
-The full one-triangle tree has $169$ labelled nodes and $52$ leaves. Four unrestricted nodes occur, all at order $11$, and all four represent $H_{3,2}$. The largest order reached is $17$. That value is an output of the search.
+The full one-triangle tree has $169$ labelled nodes and $52$ leaves. Four unrestricted nodes occur, all at order $11$, and all four represent $H_{3,2}$. The search continues to expand each of those copies. The largest graph order reached by the search is $17$. The verifier imposes no order cutoff.
 
 The second certificate is the search in the proof of Lemma~\ref{lem:twotri}. It uses different initial graphs and different decisions. At each node the verifier checks a single vertex of current deletion loss less than $4$ and explores every legal extension that meets that vertex. The four rows are the shared-vertex configuration, the single joining edge, and the joining paths of lengths two and three.
 
