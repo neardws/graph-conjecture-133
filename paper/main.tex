@@ -175,7 +175,7 @@
 \keywords{induced path, radius, neighbourhood independence, $4$-cycle, WOWII Conjecture 133}
 
 \abstract[Abstract]{
-Every connected graph with no $4$-cycle subgraph and no induced path on seven vertices satisfies $S\le 3n$, where $S$ is the sum of the independence numbers of the open neighbourhoods, with equality only for the Petersen graph. Every connected graph with $\lr\le 4$ therefore satisfies Conjecture~133 of \emph{Written on the Wall II}; the case that contains a triangle uses a computer-assisted finite certificate. The same arguments determine the maximum of $\lr$ over connected graphs with no $4$-cycle subgraph and no induced path on six vertices, with a unique extremal graph for every order $n\ge 7$, classify the connected graphs with no $4$-cycle subgraph of radius~$4$ and induced-path order~$7$, and determine the maximum of $2e$ on the triangle-free class for every $n\ge 10$. The conjecture remains open for $\lr>4$.
+Every connected graph with no $4$-cycle subgraph and no induced path on seven vertices satisfies $S\le 3n$, where $S$ is the sum of the independence numbers of the open neighbourhoods, with equality only for the Petersen graph. Every connected graph with $\lr\le 4$ therefore satisfies Conjecture~133 of \emph{Written on the Wall II}; the case that contains a triangle uses a computer-assisted finite certificate. The same arguments determine the maximum of $\lr$ over connected graphs with no $4$-cycle subgraph and no induced path on six vertices, with a unique extremal graph for every order $n\ge 7$, classify the connected graphs with no $4$-cycle subgraph of radius~$4$ and induced-path order~$7$, and determine, for every $n\ge 10$, the maximum number of edges in a connected triangle-free graph with no $4$-cycle subgraph and no induced path on seven vertices, together with all extremal graphs. The conjecture remains open for $\lr>4$.
 }
 
 
@@ -201,7 +201,7 @@ The conjecture is number~133 in E.~DeLaVina's list \emph{Written on the Wall II}
 \pp(G)-r(G)\ \ge\ \lceil \lr(G)\rceil .
 \end{equation}
 
-Four arguments organise the theorems. The first is the two-layer analysis of an induced $6$-cycle. Theorem~\ref{thm:petersen} determines $M(n)$, the maximum of $\lr$ over connected strong $C_4$-free $P_6$-free graphs, and proves that the extremal graph is unique for every $n\ge 7$. The same theorem gives $S\le 3n$ for every $n\ge 2$, with equality only for the Petersen graph $P$. The jump from order~$10$ to order~$11$ is the change from three occupied antipodal pairs to a single such pair. The second is the radius-$4$ classification. Theorem~\ref{thm:r4} shows that a connected strong $C_4$-free graph of radius~$4$ and induced-path order~$7$ is $C_8$ or the $6$-cycle extension in the statement, with $S=2n-b-m$, and in particular $\lr\le 2$. The third passes from deletion loss to one graph: Lemma~\ref{lem:finite} identifies $H_{3,2}$ as the only triangle-containing graph that meets $L(v)\ge 4$ at every vertex and has no two adjacent vertices of degree two, and Theorem~\ref{thm:gen3} extends $S\le 3n$, with equality only for $P$, from the triangle-free case of Theorem~\ref{thm:tf} to every connected strong $C_4$-free $P_7$-free graph. The fourth is Theorem~\ref{thm:fn}, which determines the maximum of $2e$ on the triangle-free class for every $n\ge 10$. The cores come from Chen and Xu. What is new is the attachment of trees, the comparison of deficits, and the equality classification. The extremal family changes at orders~$15$ and~$16$.
+Four arguments organise the theorems. The first is the two-layer analysis of an induced $6$-cycle. Theorem~\ref{thm:petersen} determines $M(n)$, the maximum of $\lr$ over connected strong $C_4$-free $P_6$-free graphs, and proves that the extremal graph is unique for every $n\ge 7$. The same theorem gives $S\le 3n$ for every $n\ge 2$, with equality only for the Petersen graph $P$. The jump from order~$10$ to order~$11$ is the change from three occupied antipodal pairs to a single such pair. The second is the radius-$4$ classification. Theorem~\ref{thm:r4} shows that a connected strong $C_4$-free graph of radius~$4$ and induced-path order~$7$ is $C_8$ or the $6$-cycle extension in the statement, with $S=2n-b-m$, and in particular $\lr\le 2$. The third passes from deletion loss to one graph: Lemma~\ref{lem:finite} identifies $H_{3,2}$ as the only connected strong $C_4$-free $P_7$-free graph that contains a triangle, meets $L(v)\ge 4$ at every vertex and has no two adjacent vertices of degree two, and Theorem~\ref{thm:gen3} extends $S\le 3n$, with equality only for $P$, from the triangle-free case of Theorem~\ref{thm:tf} to every connected strong $C_4$-free $P_7$-free graph. The fourth is Theorem~\ref{thm:fn}, which determines the maximum number of edges, and all extremal graphs, over connected triangle-free strong $C_4$-free $P_7$-free graphs of every order $n\ge 10$. The cores come from Chen and Xu. What is new is the attachment of trees, the comparison of deficits, and the equality classification. The extremal family changes at orders~$15$ and~$16$.
 
 Theorem~\ref{thm:A} is REAL-133 for every connected graph with $\lr\le 4$. The range $\lr>4$ remains open, and no structural classification for radius $r\ge 5$ is proved here. Table~\ref{tab:status} and Section~\ref{sec:status} are the boundary.
 
@@ -452,7 +452,7 @@ For every $n\ge 7$ the extremal graph is unique up to isomorphism. For $n=10$ it
       \node[pan] at (0.4,-2.55) {(d) $\Gamma_h$};
     \end{scope}
   \end{tikzpicture}
-  \caption{Extremal graphs for $M(n)$. Filled vertices are the $6$-cycle, and each open square meets one antipodal pair.
+  \caption{Extremal graphs for $M(n)$. The six central filled vertices form the cycle, and each open square meets one antipodal pair.
     (a)~$H_8$, order~$8$, $\lr=5/2$.
     (b)~$P-z$, order~$9$, $\lr=8/3$.
     (c)~The Petersen graph, order~$10$, $\lr=3$. These three graphs are triangle-free, so $S=2e$.
@@ -634,7 +634,7 @@ A connected graph $G$ is strong $C_4$-free and satisfies $r(G)=4$ and $\pp(G)=7$
   \caption{The radius-four case of Theorem~\ref{thm:r4}.
     (a)~The induced $P_8$ is $w_5,v_5,v_0,x,y,v_2,v_3,w_3$, with singleton traces $\{v_0\}$ and $\{v_2\}$ at $x$ and $y$, and with $w_5$, $w_3$ the distance-four witnesses.
     (b)~One leaf at each cycle vertex gives $S=2n$.
-    (c)~An isolated leaf does not contribute to $b+m$. A matching edge in some $C_i$, and a vertex glued to a cycle edge, each increase $2n-S=b+m$ by~$1$.}
+    (c)~Only local attachments are shown; the remaining nonempty attachment classes are omitted. An isolated leaf does not contribute to $b+m$. A matching edge in some $C_i$, and a vertex glued to a cycle edge, each increase $2n-S=b+m$ by~$1$.}
   \label{fig:radius-four}
 \end{figure}
 
@@ -974,6 +974,9 @@ Let $G$ be a connected strong $C_4$-free $P_7$-free graph that contains a triang
 \]
 \end{lemma}
 
+\begin{proof}
+Let $A$ be the part of size three, let $B$ be the part of size two, and let $Z$ be the set of six subdivision vertices. The construction puts a triangle on $A$, an edge on $B$, no edge between $A$ and $B$, and exactly one vertex of $Z$ on each pair with one end in $A$ and one end in $B$. Thus $n=11$ and $e=3+1+12=16$. A vertex of $Z$ is adjacent to one vertex of $A$ and one vertex of $B$, which are nonadjacent, and no vertex of $Z$ lies in a triangle with an edge of $A$ or with the edge of $B$. The only triangle is the triangle on $A$, so $T=1$ and $S=2e-3T=29$. Each vertex of $A$ has degree four and lies in one triangle, so its deletion loss is $5$. Each vertex of $B$ has degree four and lies in no triangle, so its deletion loss is $8$. Each vertex of $Z$ has degree two, with nonadjacent neighbours, so its deletion loss is $4$. No two vertices of $Z$ are adjacent. Figure~\ref{fig:h32} draws the graph.
+
 \begin{figure}[htbp]
   \centering
   \begin{tikzpicture}[
@@ -1020,9 +1023,6 @@ Let $G$ be a connected strong $C_4$-free $P_7$-free graph that contains a triang
     The curved paths are $a_2z_{22}b_2$ and $a_3z_{31}b_1$.}
   \label{fig:h32}
 \end{figure}
-
-\begin{proof}
-Let $A$ be the part of size three, let $B$ be the part of size two, and let $Z$ be the set of six subdivision vertices. The construction puts a triangle on $A$, an edge on $B$, no edge between $A$ and $B$, and exactly one vertex of $Z$ on each pair with one end in $A$ and one end in $B$. Thus $n=11$ and $e=3+1+12=16$. A vertex of $Z$ is adjacent to one vertex of $A$ and one vertex of $B$, which are nonadjacent, and no vertex of $Z$ lies in a triangle with an edge of $A$ or with the edge of $B$. The only triangle is the triangle on $A$, so $T=1$ and $S=2e-3T=29$. Each vertex of $A$ has degree four and lies in one triangle, so its deletion loss is $5$. Each vertex of $B$ has degree four and lies in no triangle, so its deletion loss is $8$. Each vertex of $Z$ has degree two, with nonadjacent neighbours, so its deletion loss is $4$. No two vertices of $Z$ are adjacent. Figure~\ref{fig:h32} draws the graph.
 
 There is no $4$-cycle. The subgraph induced by $A\cup B$ is a triangle together with a disjoint edge. A cycle through a vertex $s\in Z$ uses both edges at $s$, so it contains the path from its neighbour in $A$ to its neighbour in $B$. Those two vertices have no common neighbour other than $s$.
 

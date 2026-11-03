@@ -442,7 +442,7 @@ Let $k=\pp-r$. Call an induced subgraph $H$ of $G$ an \emph{eligible core} if it
 \[
 S(G)-S(H)\le k\bigl(n-|H|\bigr)+|H|.
 \]
-Together with REAL-133 for $H$ and an induction on the order, the budget would imply REAL-133. The Petersen graph has $S=30$, $\pp=5$, $r=2$ and $k=3$, hence $\lr=3$. An eligible core has $\pp(H)\le 3$. A connected triangle-free strong $C_4$-free $P_4$-free graph is a star, by Lemma~\ref{lem:join} and the absence of triangles. In the Petersen graph a star with $k\le 3$ leaves has centre of degree~$3$. The vertices it dominates are the centre, its three neighbours, and at most two further neighbours of each leaf, at most $4+2k$ vertices in all. This is $10$ only for $k=3$, so the eligible cores are exactly the ten closed neighbourhoods $N[v]$. Each has $S(H)=6$, and $S(G)-S(H)=24>3\cdot 6+4=22$.
+Together with REAL-133 for $H$ and an induction on the order, the budget would imply REAL-133. The Petersen graph has $S=30$, $\pp=5$, $r=2$ and $k=3$, hence $\lr=3$. An eligible core has $\pp(H)\le 3$. A connected triangle-free strong $C_4$-free $P_4$-free graph is a star, by Lemma~\ref{lem:join} and the absence of triangles. In the Petersen graph a star with $a\le 3$ leaves has centre of degree~$3$. The vertices it dominates are the centre, its three neighbours, and at most two further neighbours of each leaf, at most $4+2a$ vertices in all. This is $10$ only for $a=3$, so the eligible cores are exactly the ten closed neighbourhoods $N[v]$. Each has $S(H)=6$, and $S(G)-S(H)=24>3\cdot 6+4=22$.
 
 The unrestricted budget therefore fails. The example has $\lr=3$.
 \end{example}
@@ -469,7 +469,7 @@ Let $G$ be connected, bipartite and strong $C_4$-free, with $r(G)=2$. Then $G$ i
 \end{lemma}
 
 \begin{proof}
-Let $s$ be a centre, and let $A$ be the colour class of $s$ and $B$ the other class. Every vertex of $B$ lies at odd distance from $s$, hence at distance~$1$, so $B\subseteq N(s)$. Every vertex $x\in A\setminus\{s\}$ lies at distance~$2$ from $s$, so $x$ has a neighbour in $B$. Two such neighbours would form a $4$-cycle with $s$. Thus $x$ has exactly one neighbour. There is no edge inside $A$ or inside $B$, and the number of edges is $|B|+|A|-1=n-1$. A connected graph with $n-1$ edges is a tree. There are no triangles, so $S=2e=2n-2$ and $\lr=2-2/n$. Every vertex of $A\setminus\{s\}$ is a leaf. An induced path contains at most two leaves, and the unique path between them has the form leaf, neighbour in $B$, $s$, neighbour in $B$, leaf. Hence $\pp(G)\le 5$.
+Let $s$ be a centre, and let $A$ be the colour class of $s$ and $B$ the other class. Every vertex of $B$ lies at odd distance from $s$, hence at distance~$1$, so $B\subseteq N(s)$. Every vertex $x\in A\setminus\{s\}$ lies at distance~$2$ from $s$, so $x$ has a neighbour in $B$. Two such neighbours would form a $4$-cycle with $s$. Thus $x$ has exactly one neighbour. There is no edge inside $A$ or inside $B$, and the number of edges is $|B|+|A|-1=n-1$. A connected graph with $n-1$ edges is a tree. There are no triangles, so $S=2e=2n-2$ and $\lr=2-2/n$. Since $G$ is a tree of radius~$2$, every induced path is a geodesic, and $\pp(G)=\operatorname{diam}(G)+1\le 2r(G)+1=5$.
 \end{proof}
 
 \begin{lemma}\label{lem:bip8}
