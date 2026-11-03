@@ -157,7 +157,7 @@ Let $G$ be connected and strong $C_4$-free, and let $P$ be a longest induced pat
 \end{lemma}
 
 \begin{proof}
-A neighbour of $x$ in a component of $G-x$ that does not contain $s$ would extend $P$, so $x$ is not a cut vertex. Every edge with one end in $B$ and one end outside $B$ is incident with a cut vertex of $B$. Therefore every neighbour of $x$ lies in $B$. The block is bipartite, so $x$ lies in no triangle.
+A neighbour of $x$ in a component of $G-x$ that does not contain $s$ would extend $P$, so $x$ is not a cut vertex. Every edge with one end in $B$ and one end outside $B$ is incident with a cut vertex of $G$ belonging to $B$. Therefore every neighbour of $x$ lies in $B$. The block is bipartite, so $x$ lies in no triangle.
 
 Since the block-cut tree is a tree, $P$ enters $B$ only once. The intersection of $P$ with $B$ is a single subpath $Q=z_0,\dots,z_{\ell-1}$ with $z_{\ell-1}=x$. If $s$ lies in $B$, then $Q=P$. If $s$ lies outside $B$, the vertices of $P$ that precede $z_0$ lie outside $B$, and $z_0$ is their only neighbour in $B$: any other edge from that prefix into $B$ would be a second entry. A vertex of $B\setminus\{z_0\}$ is therefore adjacent to no vertex of the prefix. An extension of $P$ at $x$ through a vertex of $B$ can fail only by a chord into $Q$.
 
@@ -165,7 +165,7 @@ Let $y$ be a neighbour of $x$ other than $z_{\ell-2}$. Then $y$ lies in $B$, and
 
 If $\ell=2$, then $Q$ is a single edge and there is no admissible index, so $d(x)=1$. If $\ell\ge 3$, the number of admissible indices is $\lfloor(\ell-1)/2\rfloor-1$. Two neighbours of $x$ are nonadjacent and cannot share a blocker, for a common blocker would form a $4$-cycle with them and with $x$. Hence $d(x)\le\lfloor(\ell-1)/2\rfloor$. In every case $\ell\le q$. For $q\ge 5$ one has $d(x)\le\lfloor(q-1)/2\rfloor$, and $L(x)=2d(x)\le c_q$.
 
-The same count applies inside $B$. Let $z$ be the cut vertex of $B$ lying on every path from a fixed root to $B$, or the root itself if the root lies in $B$, and let $Q$ be a longest induced path of $B$ starting at $z$, with other end $x$ and with $\ell=|Q|$. A neighbour of $x$ in $B$ that had no neighbour on $Q$ would extend $Q$ inside $B$. If the root lies outside $B$, no vertex of $B\setminus\{z\}$ meets the component of the root at $z$, so that component contributes no further blocker. Thus $d_B(x)\le 1$ if $\ell=2$, and $d_B(x)\le\lfloor(\ell-1)/2\rfloor$ if $\ell\ge 3$.
+The same count applies inside $B$. Let $z$ be the cut vertex of $G$ belonging to $B$ and lying on every path from a fixed root to $B$, or the root itself if the root lies in $B$, and let $Q$ be a longest induced path of $B$ starting at $z$, with other end $x$ and with $\ell=|Q|$. A neighbour of $x$ in $B$ that had no neighbour on $Q$ would extend $Q$ inside $B$. If the root lies outside $B$, no vertex of $B\setminus\{z\}$ meets the component of the root at $z$, so that component contributes no further blocker. Thus $d_B(x)\le 1$ if $\ell=2$, and $d_B(x)\le\lfloor(\ell-1)/2\rfloor$ if $\ell\ge 3$.
 \end{proof}
 
 \begin{theorem}\label{thm:blocks}
@@ -184,7 +184,7 @@ In particular $\ROOT(q)$ holds in $\mathcal B$ for every $q\ge 3$. If every bloc
 
 \emph{Endpoint losses.} Let $x$ be the endpoint of a longest rooted path of order $q$. It lies in a single block. If that block is a triangle the loss $L(x)$ is $1$, if an edge $2$, and if a cycle of length at least $5$ it is $4$. If the block is bipartite, Lemma~\ref{lem:blockdeg} gives $L(x)\le c_q$ for $q\ge 5$.
 
-\emph{No nontrivial bipartite block when $q\le 4$.} Let $B$ be a nontrivial bipartite block, and let $z$ be the cut vertex of $B$ that lies on every path from $s$ to $B$, or let $z=s$ if $s\in B$. Let $Q$ be a longest induced path of $B$ starting at $z$, and let $x$ be its other end. Every vertex of a nontrivial block has degree at least two in the block, so $d_B(x)\ge 2$. The last paragraph of Lemma~\ref{lem:blockdeg} gives $d_B(x)\le 1$ if $|Q|\le 4$ and $d_B(x)\le\lfloor(|Q|-1)/2\rfloor$ in any case with $|Q|\ge 3$. The inequality $d_B(x)\ge 2$ therefore forces $|Q|\ge 5$. An induced $s$--$z$ path meets $B$ only at $z$. Concatenating it with $Q$ yields an induced path that starts at $s$. The order of this path is $|Q|$ if $s\in B$, and at least $|Q|+1$ if $s\notin B$. In either case $\pp_s(G)\ge 5$. A terminal instance with $q\le 4$ therefore has no nontrivial bipartite block. Every block is an edge, a triangle, or a cycle of length at least five, so the graph is a cactus.
+\emph{No nontrivial bipartite block when $q\le 4$.} Let $B$ be a nontrivial bipartite block, and let $z$ be the cut vertex of $G$ belonging to $B$ that lies on every path from $s$ to $B$, or let $z=s$ if $s\in B$. Let $Q$ be a longest induced path of $B$ starting at $z$, and let $x$ be its other end. Every vertex of a nontrivial block has degree at least two in the block, so $d_B(x)\ge 2$. The last paragraph of Lemma~\ref{lem:blockdeg} gives $d_B(x)\le 1$ if $|Q|\le 4$ and $d_B(x)\le\lfloor(|Q|-1)/2\rfloor$ in any case with $|Q|\ge 3$. The inequality $d_B(x)\ge 2$ therefore forces $|Q|\ge 5$. An induced $s$--$z$ path meets $B$ only at $z$. Concatenating it with $Q$ yields an induced path that starts at $s$. The order of this path is $|Q|$ if $s\in B$, and at least $|Q|+1$ if $s\notin B$. In either case $\pp_s(G)\ge 5$. A terminal instance with $q\le 4$ therefore has no nontrivial bipartite block. Every block is an edge, a triangle, or a cycle of length at least five, so the graph is a cactus.
 
 \emph{Bases.} For $q\le 4$ the preceding paragraph leaves only cacti. For a $C_4$-free cactus with $c_3$ triangle blocks and $c_L$ longer cycle blocks, $S=2(n-1)+2c_L-c_3$ and $m\le c_3$. For $q=3$ no longer cycle occurs, and (1) follows. For $q=4$ every longer cycle is a $C_5$ through $s$. A chosen length-$3$ geodesic uses at most one edge of each such $C_5$: if it used two edges and then left the cycle, replacing that two-edge arc by the other three-edge arc would give an induced rooted path of order $5$. So each $C_5$ contributes two vertices to $R$, $R\ge 2c_L$, and $[2(D+2)-m+3R]-S=R-2c_L+c_3-m\ge 0$. For $q=2$ the root is universal and $S=2D-m$.
 
@@ -368,7 +368,7 @@ Let $P$ be the Petersen graph, and let $u$ and $v$ be the ends of an induced $P_
 The graph $P$ has $15$ edges. The two new edges create no cycle, so $G$ is triangle-free and strong $C_4$-free, $n=12$, $e=17$ and $S=2e=34$. Thus $\lr=17/6$. The graph $P$ is $P_6$-free, because it is the extremal graph of order~$10$ in Theorem~\ref{thm:petersen}. A leaf has degree one, so it is an end of every induced path that contains it. Deleting the leaves that lie on an induced path of $G$ leaves an induced path of $P$, of order at most~$5$. The path formed by the two leaves and the chosen $P_5$ is induced, because each leaf is adjacent only to its endpoint. Hence $\pp(G)=7$. The radius is~$2$. The proof of Theorem~\ref{thm:petersen} records that the diameter of $P$ is~$2$, so $u$ and $v$ have a common neighbour $w$. Every vertex of $P$ is at distance at most~$2$ from $w$, and each new leaf is at distance~$2$ from $w$. Thus the eccentricity of $w$ is~$2$.
 \end{example}
 
-Suppose $4<\lr\le 5$ and $G$ violates REAL-133. Then $\lceil\lr\rceil=5$, so Corollary~\ref{cor:reduction} with $K=4$ gives either $r\le 4$ and $2r-1\le\pp\le r+4$, or $r=5$ and $\pp=9$. Theorem~\ref{thm:gen3} forces $\lr\le 3$ whenever $\pp\le 6$, so $\pp\ge 7$. Corollary~\ref{cor:r4mass} forces $\lr\le 2$ when $(r,\pp)=(4,7)$. The pairs that remain are $(3,7)$, $(4,8)$ and $(5,9)$.
+Suppose $4<\lr\le 5$ and $G$ violates REAL-133. Then $\lceil\lr\rceil=5$, so Corollary~\ref{cor:reduction} with $K=4$ gives either $r\le 4$ and $2r-1\le\pp\le r+4$, or $r=5$ and $\pp=9$. Theorem~\ref{thm:gen3} forces $\lr\le 3$ whenever $\pp\le 6$, so $\pp\ge 7$. Corollary~\ref{cor:r4mass} forces $\lr\le 2$ when $(r,\pp)=(4,7)$. The pairs that remain are $(3,7)$, $(4,8)$ and $(5,9)$. The candidate $(3,7)$ must contain a triangle: Lemma~\ref{lem:bip8} gives $\lr<4$ for every connected triangle-free strong $C_4$-free graph of induced-path order~$7$.
 
 For $5<\lr\le 6$, Corollary~\ref{cor:reduction} gives $2r-1\le\pp\le r+5$ and $r\le 6$. Lemma~\ref{lem:r1} excludes radius~$1$, Theorem~\ref{thm:petersen} excludes $\pp\le 5$, and Corollary~\ref{cor:r4mass} excludes $(4,7)$. Corollary~\ref{cor:sharp} excludes $(2,6)$ and $(3,6)$ from $\lr\ge 3$. Lemma~\ref{lem:bip8} uses the triangle-free hypothesis: if $\pp=7$ and $\lr\ge 4$, then $G$ contains a triangle, so $(2,7)$ and $(3,7)$ occur in this range only for graphs that contain a triangle. The pairs that remain are necessary conditions for a counterexample. The table does not assert that any of them occurs.
 
@@ -384,14 +384,14 @@ $\ROOT(3)$ and $\ROOT(4)$; the terminal strengthening of Proposition~\ref{prop:r
 $\ROOT(q)$ for every $q$, in the class $\mathcal B$ & proved, Theorem~\ref{thm:blocks}\\
 a minimum counterexample to $\GEN_4$ is $2$-connected & proved, Proposition~\ref{prop:gen4cut}; $\GEN_4$ is open\\
 $\GEN_K$ for $K\ge 4$, unrestricted $\GEN_6$, $\RAD(r)$ for $r\ge 5$, and $\ROOT(q)$ for $q\ge 5$ outside $\mathcal B$ & open\\
-pairs $(r,\pp)$ still necessary for $4<\lr\le 5$ & $(3,7)$, $(4,8)$, $(5,9)$\\
+pairs $(r,\pp)$ still necessary for $4<\lr\le 5$ & $(3,7)$, $(4,8)$, $(5,9)$; the candidate $(3,7)$ contains a triangle, by Lemma~\ref{lem:bip8}\\
 pairs $(r,\pp)$ still necessary for $5<\lr\le 6$ & $(2,7)$, $(3,7)$, $(3,8)$, $(4,8)$, $(4,9)$, $(5,9)$, $(5,10)$, $(6,11)$\\
 $(2,6)$ and $(3,6)$ & $\lr<3$, and $3$ is a sharp unattained supremum: $F_2$ with $t\ge 2$ gives $3-5/n$ at radius~$2$, and $\theta_k$ gives $3-6/n$ at radius~$3$, Corollary~\ref{cor:sharp}\\
 $(2,7)$ and $(3,7)$ in the range $5<\lr\le 6$ & each such graph contains a triangle; the bound $\lr<4$ of Lemma~\ref{lem:bip8} uses the triangle-free hypothesis\\
 $(r,\pp)=(2,7)$ in a triangle-free graph & possible with $\lr<4$; Example~\ref{ex:p5leaves}\\
 \bottomrule
 \end{tabular}
-\caption{Rooted bounds and the candidate pairs above density four. The rows for $4<\lr\le 5$ and for $5<\lr\le 6$ record necessary pairs only.}\label{tab:high}
+\caption{Rooted bounds and the candidate pairs above density four. The rows for $4<\lr\le 5$ and for $5<\lr\le 6$ record necessary pairs only. For $4<\lr\le 5$ the candidate $(3,7)$ contains a triangle, by Lemma~\ref{lem:bip8}.}\label{tab:high}
 \end{table}
 
 The three conjectures that follow are not hypotheses of any theorem in the article or in this supplement.
