@@ -50,12 +50,30 @@
 \maketitle
 
 \begin{abstract}
-This supplement contains the rooted bounds, the endpoint obstructions, the high-radius constructions, the candidate pairs in the ranges $4<\lr\le 5$ and $5<\lr\le 6$, the one-triangle bound, the edge-deficit estimates, and the finite-search certificate for Lemma~\ref{lem:finite}. Numbered statements in this file carry an S prefix. Numbered references to results proved in the article point to that file. The article's Theorems on $M(n)$, radius four, and the exact triangle-free function $f(n)$ do not depend on these arguments. Theorem~\ref{thm:gen3} uses the certificate in Section~\ref{sec:certificate} and does not use the other arguments of this supplement. The program is the file \texttt{certificates/gen3/verify\_gen3.py} at commit \texttt{dd555d305b4a69076cafb845087f00b4144f07cc}, run from the repository root by \texttt{python3 certificates/gen3/verify\_gen3.py}.
+This supplement contains the rooted bounds, the endpoint obstructions, the high-radius constructions, the candidate pairs in the ranges $4<\lr\le 5$ and $5<\lr\le 6$, the one-triangle bound, the edge-deficit estimates, and the finite-search certificate for Lemma~\ref{lem:finite}. Numbered statements in this file carry an S prefix. Numbered references to results proved in the article point to that file. The article's Theorems on $M(n)$, radius four, and the exact triangle-free function $f(n)$ do not depend on these arguments. Theorem~\ref{thm:gen3} uses the certificate in Section~\ref{sec:certificate} and does not use the other arguments of this supplement. The program is the file \texttt{certificates/gen3/verify\_gen3.py} at commit \texttt{dd555d305b4a69076cafb845087f00b4144f07cc}, run from the repository root by \texttt{python3 certificates/gen3/verify\_gen3.py}. Section~\ref{sec:certificate} records an independent execution of that command.
 \end{abstract}
+
+\section*{Dependency on the article}
+
+Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf} and~\ref{thm:fn} of the article do not use this file. Theorem~\ref{thm:gen3} uses only Section~\ref{sec:certificate}, through Lemma~\ref{lem:finite}, together with Lemma~\ref{lem:rootedp4} proved in the article. Corollary~\ref{cor:real133} uses Theorems~\ref{thm:A} and~\ref{thm:gen3}. The rows below separate that certificate from the material that is not a hypothesis of those statements.
+
+\begin{center}
+\begin{tabular}{@{}p{7.4cm}p{6.6cm}@{}}
+\toprule
+Material & Role\\
+\midrule
+Section~\ref{sec:certificate} & used by Lemma~\ref{lem:finite} and Theorem~\ref{thm:gen3}\\
+Sections~\ref{sec:root3}, \ref{sec:blocks}, \ref{sec:neg} and~\ref{sec:high} & not used by the article\\
+Theorem~\ref{thm:onetri} and Lemmas~\ref{lem:connect}, \ref{lem:twotri} & alternate route for one and two triangles; not used by Theorem~\ref{thm:gen3}\\
+Lemmas~\ref{lem:deficit}, \ref{lem:e2n} and~\ref{lem:delta2} & edge-deficit estimates; not used by Theorem~\ref{thm:gen3}\\
+Conjectures~\ref{conj:uniform}, \ref{conj:td} and~\ref{conj:cbhigh} & open, and not hypotheses of any proved statement\\
+\bottomrule
+\end{tabular}
+\end{center}
 
 \section{Rooted bounds of orders three and four}\label{sec:root3}
 
-The arguments of this section and of Sections~\ref{sec:blocks} and~\ref{sec:neg} are not used for Theorems~\ref{thm:petersen}, \ref{thm:r4}, \ref{thm:tf}, \ref{thm:fn} and~\ref{thm:gen3} or for Corollary~\ref{cor:real133}. Theorem~\ref{thm:onetri} uses Lemma~\ref{lem:rootedp4}. The rooted bound that bears on the next open band is Theorem~\ref{thm:root4}: it is the estimate which shows that a minimum counterexample to $\GEN_4$ is $2$-connected. The distance-layer form of the same estimate is omitted. The block-class bound and the Moore observation are kept because they delimit $\GEN_K$, and Example~\ref{ex:ep} is kept because it is the explicit failure of the endpoint inequalities at order nine.
+This section, and Sections~\ref{sec:blocks} and~\ref{sec:neg}, are the rows marked as unused in the dependency note above. Theorem~\ref{thm:onetri} uses Lemma~\ref{lem:rootedp4} from the article. The rooted bound that bears on the next open band is Theorem~\ref{thm:root4}: it is the estimate which shows that a minimum counterexample to $\GEN_4$ is $2$-connected. The distance-layer form of the same estimate is omitted. The block-class bound and the Moore observation are kept because they delimit $\GEN_K$, and Example~\ref{ex:ep} is kept because it is the explicit failure of the endpoint inequalities at order nine.
 
 For a vertex $s$ of a connected graph $F$ let $\pp_s(F)$ be the largest order of an induced path starting at $s$. Write $D=d_F(s)$ and $m=e(F[N(s)])$.
 
@@ -376,6 +394,8 @@ $(r,\pp)=(2,7)$ in a triangle-free graph & possible with $\lr<4$; Example~\ref{e
 \caption{Rooted bounds and the candidate pairs above density four. The rows for $4<\lr\le 5$ and for $5<\lr\le 6$ record necessary pairs only.}\label{tab:high}
 \end{table}
 
+The three conjectures that follow are not hypotheses of any theorem in the article or in this supplement.
+
 \begin{conjecture}\label{conj:uniform}
 $\ROOT(q)$ holds for every $q\ge 3$. For every $r\ge 5$, every connected strong $C_4$-free graph of radius $r$ and path order $2r-1$ satisfies $S\le(r-1)n-2r(r-3)$, with equality only for $C_{2r}$.
 \end{conjecture}
@@ -408,11 +428,11 @@ S(G)-S(H)\le(\pp-r)\bigl(n-|H|\bigr)+|H|.
 \]
 \end{conjecture}
 
-Example~\ref{ex:cb} shows that the budget without a restriction on $\lr$ is false, and that the Petersen graph is a counterexample with $\lr=3$. The example does not show that $5$ is the correct cutoff, and it does not count eligible cores. A reported count of cores of order at most~$12$ is not a result of this paper. If the conjecture, the range $\lr\le 5$, and an induction on the order were all available, REAL-133 would follow. The range $\lr\le 5$ is not a theorem, so this route is not a proof of REAL-133. Example~\ref{ex:heawood} shows that a proof cannot rely only on the scalar constraints listed there.
+Example~\ref{ex:cb} shows that the budget without a restriction on $\lr$ is false, and that the Petersen graph is a counterexample with $\lr=3$. The example does not show that $5$ is the correct cutoff, and it does not count eligible cores. A reported count of cores of order at most~$12$ is not a result of this paper. Conjecture~\ref{conj:cbhigh} is not a proof of REAL-133: the conjecture is open, and the range $\lr\le 5$ is not a theorem. Example~\ref{ex:heawood} shows that a proof cannot rely only on the scalar constraints listed there.
 
 \section{One triangle and the edge deficit}\label{sec:edges}
 
-The arguments of this section are not used for Theorem~\ref{thm:gen3} or for Corollary~\ref{cor:real133}. Theorem~\ref{thm:onetri} is the hand proof for a graph with at most one triangle. Lemma~\ref{lem:twotri} is the companion finite search. Lemmas~\ref{lem:deficit}, \ref{lem:e2n} and~\ref{lem:delta2} bound the number of edges. They are recorded because those bounds do not pass through the identity $S=2e-3T$.
+The arguments of this section are not used for Theorem~\ref{thm:gen3} or for Corollary~\ref{cor:real133}. Theorem~\ref{thm:onetri} is the hand proof for a graph with at most one triangle. Lemma~\ref{lem:connect} classifies the ways two triangles can meet, and Lemma~\ref{lem:twotri} is the companion finite search. Lemmas~\ref{lem:deficit}, \ref{lem:e2n} and~\ref{lem:delta2} bound the number of edges. They are recorded because those bounds do not pass through the identity $S=2e-3T$.
 
 \begin{theorem}\label{thm:onetri}
 Let $G$ be a connected strong $C_4$-free $P_7$-free graph with at most one triangle. Then $S(G)\le 3n$. In particular the same bound holds for a graph with exactly one triangle.
@@ -448,14 +468,42 @@ d\le 1+c+\min\{d_Q(u),d_Q(w)\}.
 Substituting in~\eqref{eq:onetri} and applying~\eqref{eq:core} to the edge $uw$ again yields $S(G)\le 3n$.
 \end{proof}
 
+\begin{lemma}\label{lem:connect}
+Let $G$ be strong $C_4$-free, and let $T_1$ and $T_2$ be triangles of $G$.
+\begin{enumerate}
+\item Suppose $T_1$ and $T_2$ share a vertex $u$, and write $T_1=\{u,a,b\}$ and $T_2=\{u,c,d\}$. If $ac$ is an edge, then $a\,c\,d\,u$ is a $4$-cycle. The same holds for each of the other three edges with one end in $\{a,b\}$ and one end in $\{c,d\}$.
+\item Suppose $T_1$ and $T_2$ are disjoint, and let $xy$ and $x'y'$ be distinct edges with $x,x'\in T_1$ and $y,y'\in T_2$. If the two edges share an endpoint in $T_1$, say $x=x'$ and $y\neq y'$, and if $t$ is the third vertex of $T_2$, then $x\,y\,t\,y'$ is a $4$-cycle. If they share an endpoint in $T_2$, the same construction with the roles of $T_1$ and $T_2$ exchanged is a $4$-cycle. If they share no endpoint, then $x\neq x'$ and $y\neq y'$, both pairs are edges of their triangles, and $x\,y\,y'\,x'$ is a $4$-cycle. In particular there is at most one edge with one end in $T_1$ and one end in $T_2$.
+\item Suppose $T_1$ and $T_2$ are disjoint and lie in the same component. Let $d$ be the distance between their vertex sets, and let $P:u=p_0,p_1,\ldots,p_d=v$ be a path of length $d$ with $u\in T_1$ and $v\in T_2$. The internal vertices of $P$ lie outside $T_1\cup T_2$, and the subgraph induced by $V(T_1)\cup V(T_2)\cup V(P)$ consists of the edges of $T_1$, the edges of $T_2$ and the edges of $P$.
+\item In the notation of~(3), if $x\in T_1\setminus\{u\}$ and $z\in T_2\setminus\{v\}$, then $x,u,p_1,\ldots,p_{d-1},v,z$ is an induced path on $d+3$ vertices.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) The vertices $a$, $c$, $d$ and $u$ are distinct: $T_1$ and $T_2$ share only $u$, so $a\notin T_2$. The edges $ac$, $cd$, $du$ and $ua$ are present, the last three because $cd$ and $du$ lie in $T_2$ and $ua$ lies in $T_1$. This is the $4$-cycle $a\,c\,d\,u$. Each of the other three cross edges is the same configuration after renaming.
+
+(2) First suppose $x=x'$ and $y\neq y'$. Then $y$ and $y'$ are distinct vertices of the triangle $T_2$, so both are adjacent to the third vertex $t$ of $T_2$. The vertices $x,y,t,y'$ are distinct because $x\notin T_2$. The edges $xy$, $yt$, $ty'$ and $y'x$ are present, and $x\,y\,t\,y'$ is a $4$-cycle. The case of a shared endpoint in $T_2$ is the same argument with the triangles exchanged.
+
+Now suppose the four endpoints are distinct. Any two vertices of a triangle are adjacent, so $xx'$ and $yy'$ are edges. The vertices $x,y,y',x'$ are distinct because the triangles are disjoint. The edges $xy$, $yy'$, $y'x'$ and $x'x$ are present, and $x\,y\,y'\,x'$ is a $4$-cycle. A second edge between $T_1$ and $T_2$ falls under one of these two cases, so a strong $C_4$-free graph has at most one such edge.
+
+(3) A shortest path between the two sets meets each set only at an endpoint, so every internal vertex lies outside $T_1\cup T_2$. A chord of $P$ would give a shorter $u$--$v$ path.
+
+Let $x\in T_1\setminus\{u\}$, and let $y$ be the third vertex of $T_1$, so $\{u,x,y\}$ is a triangle. Suppose $x$ is adjacent to $p_i$ for some $i\in\{1,\ldots,d\}$. If $i=1$, the vertices $y,u,p_1,x$ are distinct and the edges $yu$, $up_1$, $p_1x$ and $xy$ are present, so $y\,u\,p_1\,x$ is a $4$-cycle. If $i\ge 2$, the walk $x,p_i,p_{i+1},\ldots,p_d$ has length $d-i+1\le d-1$ and joins $T_1$ to $T_2$, contradicting the definition of $d$. Thus $x$ has no neighbour on $P$ except $u$. The same argument, using the third vertex of $T_2$, shows that no vertex of $T_2\setminus\{v\}$ has a neighbour on $P$ except $v$. In particular, adjacency to $p_{d-1}$ produces a $4$-cycle, and adjacency to an earlier vertex of $P$ shortens the distance.
+
+It remains to rule out an edge with one end in $T_1$ and one end in $T_2$, other than the edge $uv$ in the case $d=1$. If $d\ge 2$, any such edge would be a path of length~$1$ between the two sets. If $d=1$, the path $P$ is the edge $uv$, and a second edge is a $4$-cycle by~(2).
+
+No other pair of vertices in $V(T_1)\cup V(T_2)\cup V(P)$ remains. The induced subgraph is therefore the two triangles joined by $P$.
+
+(4) The named walk has $d+3$ vertices and uses edges of $T_1$, of $P$ and of $T_2$. A chord incident with $x$ would be an edge from $x$ to a vertex of the walk other than $u$. Part~(3) forbids every such edge, including an edge from $x$ to $z$. A chord incident with $z$ is forbidden in the same way. A chord that avoids $x$ and $z$ is a chord of $P$ or an edge forbidden by~(3). The walk is an induced path.
+\end{proof}
+
 \begin{lemma}\label{lem:twotri}
 Every connected strong $C_4$-free $P_7$-free graph with at least two triangles has a vertex $v$ with $L(v)\le 3$.
 \end{lemma}
 
 \begin{proof}
-Let $G$ be connected, strong $C_4$-free and $P_7$-free, and suppose $G$ has at least two triangles. Two triangles do not share an edge. If they did, their four or three vertices would contain a $4$-cycle: the two vertices opposite a shared edge, together with the ends of that edge, span a $4$-cycle when the opposite vertices are nonadjacent, and a shared edge whose opposite vertices are adjacent still leaves a $4$-cycle through one opposite vertex and the third vertex of either triangle. Thus two triangles share at most one vertex.
+Let $G$ be connected, strong $C_4$-free and $P_7$-free, and suppose $G$ has at least two triangles. Two triangles do not share an edge. Suppose they share the edge $uv$, and let $x$ and $y$ be the third vertices. The vertices $x,u,y,v$ are distinct, and the edges $xu$, $uy$, $yv$ and $vx$ are present, because each of $x$ and $y$ is adjacent to both ends of $uv$. The cycle $x\,u\,y\,v$ is a $4$-cycle. Thus two triangles share at most one vertex.
 
-If two triangles share a vertex, an extra edge between their unshared vertices creates a $4$-cycle with an edge of one triangle. The union of the two triangles is therefore an induced subgraph, on five vertices. If two triangles are disjoint, let $d$ be the length of a shortest path joining their vertex sets. A second edge between the two triangles creates a $4$-cycle, whether or not the two edges share an end. For $d\ge 2$, no interior vertex of the path is adjacent to a second vertex of either triangle: such an adjacency would be a chord of the shortest path, or else it would meet two vertices of one triangle and form a $4$-cycle with the third. The two triangles and the path therefore induce the graph consisting of the two triangles joined by that path. Extending the path by one further vertex of each triangle produces an induced path on $d+3$ vertices. Since $\pp(G)\le 6$, one has $d\le 3$.
+If two triangles share a vertex, Lemma~\ref{lem:connect}(1) forbids an edge between their unshared vertices. Their union is an induced subgraph on five vertices. If the triangles are disjoint, let $d$ be the distance between their vertex sets. Lemma~\ref{lem:connect}(3) identifies the induced subgraph formed by the two triangles and a shortest connecting path, and Lemma~\ref{lem:connect}(4) supplies an induced path on $d+3$ vertices. Since $\pp(G)\le 6$, one has $d\le 3$.
 
 Four induced subgraphs therefore exhaust the configurations. Two triangles may share a vertex, or they may be joined by a path of length $1$, $2$ or $3$. These graphs have orders $5$, $6$, $7$ and $8$ respectively. From each of them, grow a labelled induced subgraph by the rule of Lemma~\ref{lem:finite}, with one change: at every node select a single vertex whose current deletion loss is strictly less than $4$, and admit only those neighbourhoods that meet the corresponding one-vertex set. Section~\ref{sec:certificate} records the four searches. They visit $36$, $31$, $46$ and $5$ nodes, and the largest orders they reach are $17$, $15$, $11$ and $10$. Every branch closes. An induced copy of any of the four graphs inside a graph with $L\ge 4$ at every vertex would extend at every node. Therefore no graph with at least two triangles has $L\ge 4$ at every vertex.
 \end{proof}
@@ -562,9 +610,22 @@ The degree bound in Theorem~1.1 of Chen, Wu and Xu does not by itself yield $S\l
 
 Lemma~\ref{lem:finite} is proved by a finite search whose completeness argument is in the article. The completeness argument for Lemma~\ref{lem:twotri} is in Section~\ref{sec:edges}. This section records the audit. The decision arrays are not printed here, and they are not reconstructed in the text.
 
-The program is submitted with the manuscript as a separate file. In the repository \url{https://github.com/neardws/graph-conjecture-133} it is \texttt{certificates/gen3/verify\_gen3.py} at commit \texttt{dd555d305b4a69076cafb845087f00b4144f07cc}. The SHA-256 digest of that file is \texttt{6be3852172aa401387b498c7e5a8a0efbbdde72aabb1e7fad0db9085b89eb86c}. The present revision does not alter the file. The program uses only the Python standard library, requires Python~3.10 or later, embeds the decision certificate, and takes no arguments. From the repository root the command is \texttt{python3 certificates/gen3/verify\_gen3.py}. A passing run prints the node counts and the line \texttt{PASS. All branches and all decision entries verified.} The counts below are the output of that program.
+The program is submitted with the manuscript as a separate file. In the repository \url{https://github.com/neardws/graph-conjecture-133} it is \texttt{certificates/gen3/verify\_gen3.py} at commit \texttt{dd555d305b4a69076cafb845087f00b4144f07cc}. The SHA-256 digest of that file is \texttt{6be3852172aa401387b498c7e5a8a0efbbdde72aabb1e7fad0db9085b89eb86c}. The present revision does not alter the file. The program uses only the Python standard library, requires Python~3.10 or later, embeds the decision certificate, and takes no arguments. From the repository root the command is \texttt{python3 certificates/gen3/verify\_gen3.py}.
+
+That command was executed independently for this revision, with the standard-library interpreter \texttt{python3}, from the repository root, and without modifying \texttt{verify\_gen3.py}. The run printed the five branch rows and the passing line below. The first row is the one-triangle tree of Lemma~\ref{lem:finite}. The other four rows are the initial configurations of Lemma~\ref{lem:twotri}, in the order shared vertex, one joining edge, and joining paths of lengths two and three.
+\begin{verbatim}
+one triangle           nodes=169  maximum order=17  leaves=52  unrestricted=4
+triangle distance 0    nodes= 36  maximum order=17  leaves= 7  unrestricted=0
+triangle distance 1    nodes= 31  maximum order=15  leaves= 6  unrestricted=0
+triangle distance 2    nodes= 46  maximum order=11  leaves=21  unrestricted=0
+triangle distance 3    nodes=  5  maximum order=10  leaves= 3  unrestricted=0
+PASS. All branches and all decision entries verified.
+\end{verbatim}
+The counts in the tables below are these five rows. No certificate array was rewritten for the run.
 
 The checker labels each new vertex by the current order. A decision is an integer, a pair, or an unrestricted node. An integer names a vertex whose current deletion loss is less than~$4$, and every neighbourhood explored at that node contains the vertex. A pair $(a,b)$ names two adjacent vertices of degree two. The neighbourhood $U$ explored at that node is required only to satisfy $U\cap\{a,b\}\neq\varnothing$. The verifier does not replace the pair by one predetermined endpoint: fixing a single endpoint in advance would drop every branch that meets only the other endpoint. The checker visits every legal child neighbourhood in increasing integer-mask order and consumes the supplied choices in preorder. A new $4$-cycle exists exactly when two members of the new neighbourhood have a common neighbour in the graph already built. For a new induced $P_7$, the checker tests six old vertices together with the new vertex and reads their induced edges. At an unrestricted node it compares the labelled graph with $H_{3,2}$ and continues to explore the extensions. A missing choice, or an unused choice, makes the verification fail. The verifier imposes no order cutoff and performs no isomorphism pruning.
+
+The same three tests are the audit of the run quoted above. A child is rejected when two vertices of the new neighbourhood have a common neighbour in the graph already built; that is the $4$-cycle test, and it does not use an external list of cycles. A child is rejected when the new vertex and six existing vertices induce a $P_7$; the checker reads those induced edges and does not truncate the order. At an unrestricted node every nonempty neighbourhood is admitted, the labelled graph is compared with $H_{3,2}$, and the search continues. The one-triangle tree has four unrestricted nodes, all equal to $H_{3,2}$, and each of the four two-triangle trees has unrestricted count~$0$. A leaf is a node with no legal child. The expansion rule at a pair of adjacent degree-two vertices remains membership $U\cap\{a,b\}\neq\varnothing$, with neither endpoint fixed in advance.
 
 The reason a finite tree covers every order is the one given in the proof of Lemma~\ref{lem:finite}. If the current induced subgraph $H$ has a vertex $v$ with $L_H(v)<4$ and $v$ has no neighbour outside $H$, the degree and the triangle count of $v$ are already final, which contradicts $L\ge 4$ in the finished graph. If $a$ and $b$ are adjacent vertices of degree two in $H$, at least one has a neighbour outside $H$. The new neighbourhood $U$ is required to satisfy $U\cap\{a,b\}\neq\varnothing$. The condition is membership in the pair, not the prior selection of one endpoint. A deficient vertex $v$ is the case $U\cap\{v\}\neq\varnothing$. When $H$ already satisfies both local conditions, the search compares it with $H_{3,2}$. If $H$ is a proper induced subgraph of a connected graph satisfying the hypotheses, some vertex outside $H$ has a neighbour in $H$, and the node is unrestricted. For a fixed embedding into the target graph, the old neighbourhood of a required new vertex is one of the sets the node enumerates, and the child is kept. An embedded proper prefix therefore extends. Every potential counterexample continues along some branch.
 
@@ -585,19 +646,19 @@ The full one-triangle tree has $169$ labelled nodes and $52$ leaves. Four unrest
 The second certificate is the search in the proof of Lemma~\ref{lem:twotri}. It uses different initial graphs and different decisions. At each node the verifier checks a single vertex of current deletion loss less than $4$ and explores every legal extension that meets that vertex. The four rows are the shared-vertex configuration, the single joining edge, and the joining paths of lengths two and three.
 
 \begin{center}
-\begin{tabular}{@{}lrrr@{}}
+\begin{tabular}{@{}lrrrrr@{}}
 \toprule
-Initial configuration & Initial order & Visited nodes & Largest order\\
+Initial configuration & Order & Nodes & Largest order & Leaves & Unrestricted\\
 \midrule
-Shared vertex & $5$ & $36$ & $17$\\
-One joining edge & $6$ & $31$ & $15$\\
-Joining path of length two & $7$ & $46$ & $11$\\
-Joining path of length three & $8$ & $5$ & $10$\\
+Shared vertex & $5$ & $36$ & $17$ & $7$ & $0$\\
+One joining edge & $6$ & $31$ & $15$ & $6$ & $0$\\
+Joining path of length two & $7$ & $46$ & $11$ & $21$ & $0$\\
+Joining path of length three & $8$ & $5$ & $10$ & $3$ & $0$\\
 \bottomrule
 \end{tabular}
 \end{center}
 
-These searches visit $118$ nodes in all, and every branch closes. An induced embedding into a graph with $L\ge 4$ at every vertex would continue at every node, which is the local conclusion of Lemma~\ref{lem:twotri}.
+These searches visit $118$ nodes in all, with $37$ leaves and no unrestricted node, and every branch closes. An induced embedding into a graph with $L\ge 4$ at every vertex would continue at every node, which is the local conclusion of Lemma~\ref{lem:twotri}.
 
 \section*{Acknowledgments}
 The authors are solely responsible for the content of this article. Language-model tools were used in the preparation of drafts of the manuscript.
