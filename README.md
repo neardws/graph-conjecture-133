@@ -32,8 +32,8 @@ Window protocol: Astra prover → separate fresh Astra referee; certificates und
 ## Layout
 
 ```
-paper/           main.tex + main.pdf; wiley-jgt.tex + wiley-jgt.pdf; supplement.tex
-                 (draft; Neil Xu email REDACTED; Xingchen Wang name only)
+paper/           main.tex + main.pdf; supplement.tex + supplement.pdf
+                 (JGT/Wiley layout, website preprint)
 certificates/    ROUND_BRANCH_R1 … R40 and R46 … R53 JSON + SHA-256 sidecars
 notes/           RESULTS_TO_2026-10-24.md (unchanged); RESULTS_TO_2026-11-01.md;
                  DISTANCE_ASSESS_R54.md (non-theorem); excerpted PROGRESS / PROOF_NOTES
@@ -46,20 +46,16 @@ PUBLISH_MANIFEST.md
 Revised against the external referee reports of 1 November 2026, including the major restructuring of the extremal function \(M(n)\), the radius-four structure theorem, the exact triangle-free function \(f(n)\), and the one-triangle bound. The title is *Induced Paths, Radius, and Extremal Neighborhood Independence in Graphs without 4-Cycles*. Rooted bounds, endpoint obstructions, high-radius constructions, and the conditional \(\mathrm{GEN}_3\) reduction are in the supplement. REAL-133, \(\mathrm{GEN}_3\) for graphs with two or more triangles, and unrestricted \(\mathrm{GEN}_6\) stay open.
 
 - Article: [`paper/main.tex`](paper/main.tex), [`paper/main.pdf`](paper/main.pdf)
-- Journal of Graph Theory copy: [`paper/wiley-jgt.tex`](paper/wiley-jgt.tex), [`paper/wiley-jgt.pdf`](paper/wiley-jgt.pdf)
 - Supplement: [`paper/supplement.tex`](paper/supplement.tex), [`paper/supplement.pdf`](paper/supplement.pdf)
 
-Compile (needs a TeX engine that can fetch AMS packages). The article and the supplement cite each other, so build the article, then the supplement, then the article again:
+Both files use the Wiley USG class (Journal of Graph Theory layout) as a website preprint. There is no separate `wiley-jgt` deliverable. The article and the supplement cite each other, so build the article, then the supplement, then the article again:
 
 ```bash
-cd paper && tectonic -X compile --keep-intermediates main.tex
-tectonic -X compile --keep-intermediates supplement.tex
-tectonic -X compile --keep-intermediates main.tex
-tectonic -X compile --keep-intermediates \
-  -Z search-path=templates/wiley-njd \
-  -Z search-path=templates/wiley-njd/images \
-  wiley-jgt.tex
-# or: latexmk -pdf main.tex
+cd paper
+SP=(-Z search-path=templates/wiley-njd -Z search-path=templates/wiley-njd/images)
+tectonic -X compile --keep-intermediates "${SP[@]}" main.tex
+tectonic -X compile --keep-intermediates "${SP[@]}" supplement.tex
+tectonic -X compile --keep-intermediates "${SP[@]}" main.tex
 ```
 
 ## Referee protocol (high level)
@@ -93,7 +89,7 @@ Last sealed certificate (R53, 2026-11-01 snapshot):
 ## Intentionally excluded
 
 - Astra/Codex session logs, huge context dumps, lane `scratch/` trees
-- Private email addresses (kept as `[REDACTED]` in the public draft)
+- Private session logs and earlier draft addresses that are not the correspondence line of the preprint
 - Full `data/` computational supplement (Lean build, nauty censuses, lane reports) — see `data/README.md`
 
 ## License
@@ -102,4 +98,4 @@ No license file is published in this snapshot (upstream repo had none at packagi
 
 ## Citation / contact
 
-Authors: Xingchen Wang (first; name only), Neil Xu (second; email redacted in the public draft). Please open a GitHub issue for questions about certificates or reproduction requests.
+Authors: Xingchen Wang and Xincao Xu. Corresponding author: Xincao Xu, Shenzhen Institute for Advanced Study, University of Electronic Science and Technology of China, xc.xu@uestc.edu.cn. Please open a GitHub issue for questions about certificates or reproduction requests.

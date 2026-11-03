@@ -1,8 +1,8 @@
 # Wiley pack for the Journal of Graph Theory
 
-The target journal is the Journal of Graph Theory. This directory is the Wiley pack Neil supplied, kept as a cleaned subset. It is not wired to the article. `paper/main.tex` remains an `amsart` file, and this directory is not read when that file is compiled.
+The target layout is the Journal of Graph Theory class. This directory is the Wiley pack, kept as a cleaned subset. `paper/main.tex` and `paper/supplement.tex` use `USG.cls` from this directory. Compile them with this directory and `images/` on the TeX search path.
 
-The class is `USG.cls`, Wiley’s file of 2024/05/07 (v6.0). The author-guidelines PDF in this directory is the guide shipped with that pack. Journal of Graph Theory accepts a free-format submission, so the manuscript can go in as a PDF first. Convert to this class only when a production file is required.
+The class is `USG.cls`, Wiley’s file of 2024/05/07 (v6.0). The author-guidelines PDF in this directory is the guide shipped with that pack. The preprint uses the class for layout and leaves the journal line as Preprint.
 
 ## What is here
 
@@ -24,4 +24,4 @@ Build products (`aux`, `log`, `bbl`, `blg`, `synctex`) and the compiled sample P
 
 ## No wrapper for the article
 
-There is no `wiley-main.tex` that inputs `paper/main.tex`. That file is a complete document, with its own `\documentclass`. Feeding it to `USG` would nest the two classes. A Journal of Graph Theory copy, when one is wanted, should be a separate file started from `Optimal-Design-layout.tex`.
+`paper/main.tex` and `paper/supplement.tex` are complete USG documents. They do not input each other’s source. `Optimal-Design-layout.tex` remains the sample shipped with the pack.
