@@ -7,3 +7,5 @@ rootq
 unrestricted.g6
 lev/
 res/
+__pycache__/
+*.pyc
