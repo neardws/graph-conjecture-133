@@ -24,7 +24,7 @@ From this directory, with [elan](https://github.com/leanprover/elan) on `PATH`:
 lake build
 ```
 
-`lake build` elaborates every declaration and runs the native finite checks, including `four_seed_replay`. Follow it with `lake env lean Phase6Audit.lean` and `lake env lean Phase7Audit.lean` to inspect the completed targets' actual axiom dependencies.
+`lake build` elaborates every declaration and runs the native finite checks, including `four_seed_replay`. Follow it with `lake env lean Phase6Audit.lean` and `lake env lean Phase7Audit.lean` to inspect the completed targets' actual axiom dependencies. The stdout of those two commands on this tree is [`AXIOM_AUDIT.txt`](AXIOM_AUDIT.txt). That file is a record of dependencies, not a claim that the paper is verified from an empty axiom set.
 
 The package is `inducedPaths`. Modules live under `InducedPaths/`.
 
