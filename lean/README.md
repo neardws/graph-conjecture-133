@@ -1,6 +1,6 @@
 # Lean formalization
 
-This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It is **not** a verification of the paper. Twenty-one proofs are still `sorry`. Five external citations are axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2 and 3 added no axioms. `GenK` and `Rad` stay open definitions.
+This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It is **not** a verification of the paper. Seventeen proofs are still `sorry`. Five external citations are axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2, 3, and 4 added no axioms. `GenK` and `Rad` stay open definitions.
 
 ## Build
 
@@ -58,13 +58,17 @@ Several of these still depend on a `sorry` or on an axiom; that is noted in the 
 | Lemma 2.3, cut formula | `lemma_2_3` | proved; no `C₄`-free hypothesis |
 | Lemma 2.7 | `lemma_2_7` | proved from the axiom `seinsche` |
 | Lemma 2.8 | `lemma_2_8` | proved from the axiom `camby_schaudt` |
+| Lemma 2.10 | `lemma_2_10` | proved; a 2-clique cutset produces an induced `P₇` |
 | Geodesic `p ≥ r + 1` | `inducedPathOrder_ge_radius_succ` | proved |
 | Lemma 3.1 | `lemma_3_1` | proved |
 | Lemma 3.2 | `lemma_3_2` | proved from Lemma 2.7, hence from `seinsche` |
 | Remark 4.6 | `remark_4_6` | proved (arithmetic) |
 | Corollary 4.4, `S ≤ 2n` and `ℓ ≤ 2` | `corollary_4_4` | proved from `corollary_4_4_mass`, which is `sorry` |
+| Lemma 4.3 | `lemma_4_3` | proved; an off-cycle vertex of an induced path is an endpoint |
+| Lemma 5.3 | `lemma_5_3` | proved from the distance layers at a vertex that starts no induced `P₄` |
 | Lemma 5.8(1) | `lemma_5_8_share` | proved; the statement assumes `a ≠ d` |
 | Lemma 5.8(2) | `lemma_5_8_disjoint` | proved; at most one cross edge between disjoint triangles |
+| Lemma 5.8(4) | `lemma_5_8_path` | proved; two disjoint triangles at set-distance `d` give an induced path of order `d + 3` |
 | Petersen induced-path order | `petersen_inducedPathOrder` | proved; explicit induced `P₅`, and no induced `P₆` by a `Bool` search |
 | Remark 5.12 | `remark_5_12` | the case `c_{C₄} = 0` uses the proved geodesic; the case `c_{C₄} = 1` uses Theorems 5.11 and 5.10, Corollary 4.4, and `erdos_saks_sos` |
 | Proposition 6.2, closed form and limit | `theta_closed_form`, `theta_gap_tendsto` | proved |
@@ -78,15 +82,27 @@ Several of these still depend on a `sorry` or on an axiom; that is noted in the 
 
 ## Still `sorry`
 
-There are **21** declarations whose proof is `sorry`. Each one has a one-line comment naming the missing step.
+There are **17** declarations whose proof is `sorry`. Each one has a one-line comment naming the missing step.
 
-- `lemma_2_10`
-- `lemma_3_3`, `lemma_3_4`, `lemma_3_5`, `theorem_3_6`
-- `lemma_4_1`, `theorem_4_2`, `lemma_4_3`, `corollary_4_4_mass`, `corollary_4_5`
-- `lemma_5_2`, `lemma_5_3`, `lemma_5_4`, `theorem_5_5`, `theorem_5_6_noniso`, `theorem_5_6`, `theorem_5_7`
-- `lemma_5_8_path`, `lemma_5_9`, `theorem_5_10`, `theorem_5_11`
+- `lemma_3_3`: the count of vertices with `λ ≥ 3` in a `P₅`-free neighbourhood
+- `lemma_3_4`: the trace of each vertex off a dominating induced `C₆`
+- `lemma_3_5`: Lemma 3.4 when the Camby–Schaudt set is an induced `C₆`
+- `theorem_3_6`: the extremal case analysis for `P₆`-free strong `C₄`-free graphs
+- `lemma_4_1`: an off-cycle vertex of a dominating induced `C₈` drops the radius below 4
+- `theorem_4_2`: Lemma 4.1 and the classification of radius-4 extensions
+- `corollary_4_4_mass`: Theorem 4.2
+- `corollary_4_5`: the mass formula in Corollary 4.4
+- `lemma_5_2`: the edge count of each member of the Chen–Xu family
+- `lemma_5_4`: deleting degree-1 vertices down to a `K₁`, `K₂`, or Chen–Xu core
+- `theorem_5_5`: Lemmas 5.2 and 5.4; `GEN₃` and the bipartite clause stay open
+- `theorem_5_6_noniso`: isomorphism invariants separating the leaf placements
+- `theorem_5_6`: Theorem 5.5 and the extremal graphs of order at least 10
+- `theorem_5_7`: at most one triangle, then the deletion-loss bound
+- `lemma_5_9`: embed each induced pair of triangles as `seed d` (`d ≤ 3` by Lemma 5.8(4)) and show a closed mask replay yields `deletionLoss ≤ 3`
+- `theorem_5_10`: Theorems 5.6 and 5.7
+- `theorem_5_11`: the case split on `c_{C₄}` using Theorems 3.6, 4.2 and 5.10
 
-`lemma_5_8_path` is not Lemma 5.8(4). Its hypotheses omit both triangles and a geodesic between their vertex sets, and the stated bound is false for `K₂`. The missing step is those two triangles and a shortest path. Lemma 5.9 is still open: a closed replay of the four seeds does not embed them or compare mask-loss with `L(v)`.
+Lemma 5.9 is still open. `four_seed_replay` does not embed the four seeds or compare mask-loss with `L(v)`. Lemma 5.8(4) supplies the distance bound `d ≤ 3` for that embedding. `GenK` and `Rad` remain open definitions, not theorems.
 
 The five axioms in [`AXIOMS.md`](AXIOMS.md) are not included in that count.
 

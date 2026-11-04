@@ -57,9 +57,9 @@ Continuous proving has stopped. Earlier round write-ups live in [`notes/`](notes
 
 ## Formalization status
 
-The mathematical status in the table above is unchanged. Separately, `lean/` is a Lean 4 development of those statements. It is **not** a Lean verification of the paper: **21** proofs are still `sorry`, and the same five cited theorems are axioms listed in [`lean/AXIOMS.md`](lean/AXIOMS.md). Phases 2 and 3 added no axioms.
+The mathematical status in the table above is unchanged. Separately, `lean/` is a Lean 4 development of those statements. It is **not** a Lean verification of the paper: **17** proofs are still `sorry`, and the same five cited theorems are axioms listed in [`lean/AXIOMS.md`](lean/AXIOMS.md). Phases 2, 3, and 4 added no axioms.
 
-Phase 2 closed the component-count sentence of Lemma 2.1, Lemma 2.2, Lemma 2.7 (from Seinsche), the geodesic `p ≥ r + 1`, Lemmas 3.1 and 3.2, and Lemma 5.8(1). Phase 3 closed Lemma 2.3, Lemma 5.8(2), the induced-path order of the Petersen graph, and the numerical claims for `θₖ` in Proposition 6.2. `four_seed_replay` is `native_decide`: the four Appendix A rows close with the recorded node counts. That replay does not prove Lemma 5.9. `cd lean && lake build` typechecks the package on Lean 4.35.0 with Mathlib v4.35.0. The inventory is in [`lean/README.md`](lean/README.md).
+Phase 2 closed the component-count sentence of Lemma 2.1, Lemma 2.2, Lemma 2.7 (from Seinsche), the geodesic `p ≥ r + 1`, Lemmas 3.1 and 3.2, and Lemma 5.8(1). Phase 3 closed Lemma 2.3, Lemma 5.8(2), the induced-path order of the Petersen graph, and the numerical claims for `θₖ` in Proposition 6.2. Phase 4 closed Lemma 2.10, Lemma 4.3, Lemma 5.3, and Lemma 5.8(4). `four_seed_replay` is `native_decide`: the four Appendix A rows close with the recorded node counts. That replay does not prove Lemma 5.9. `cd lean && lake build` typechecks the package on Lean 4.35.0 with Mathlib v4.35.0. The inventory is in [`lean/README.md`](lean/README.md).
 
 ## Layout
 
