@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: leanprover/lean-action@v1
         with:
-          build-dir: lean
+          lake-package-directory: lean
