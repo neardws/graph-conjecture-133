@@ -57,9 +57,9 @@ Continuous proving has stopped. Earlier round write-ups live in [`notes/`](notes
 
 ## Formalization status
 
-The mathematical status in the table above is unchanged. Separately, `lean/` is a Phase 1 Lean 4 scaffold for those statements. It is **not** a Lean verification of the paper: most proofs are `sorry`, and five cited theorems are axioms listed in [`lean/AXIOMS.md`](lean/AXIOMS.md).
+The mathematical status in the table above is unchanged. Separately, `lean/` is a Lean 4 development of those statements. It is **not** a Lean verification of the paper: **25** proofs are still `sorry`, and the same five cited theorems are axioms listed in [`lean/AXIOMS.md`](lean/AXIOMS.md). Phase 2 added no axioms.
 
-What Phase 1 contains is the definitions (`S`, `ℓ`, `c_{C₄}`, induced-path order, radius, triangles, deletion loss), a Lean statement for each named result through Section 6 and Appendix A, proofs of the strong `C₄`-free counting identities in Lemma 2.1 (except the component-count sentence), and a total checker interface for the four-seed search. `lake build` in `lean/` typechecks the scaffold. The toolchain is Lean 4.35.0 with Mathlib v4.35.0. Details, the `sorry` list, and the build command are in [`lean/README.md`](lean/README.md).
+Phase 2 closed the component-count sentence of Lemma 2.1, Lemma 2.2, Lemma 2.7 (from Seinsche), the geodesic `p ≥ r + 1`, Lemmas 3.1 and 3.2, and Lemma 5.8(1). `four_seed_replay` is `native_decide`: the four Appendix A rows close with the recorded node counts. That replay does not prove Lemma 5.9. `cd lean && lake build` typechecks the package on Lean 4.35.0 with Mathlib v4.35.0. The inventory is in [`lean/README.md`](lean/README.md).
 
 ## Layout
 
@@ -68,7 +68,7 @@ paper/main.pdf            website preprint, 22 pages (JGT/Wiley layout)
 paper/main.tex            article source
 certificates/             archival round JSON (R1–R40 and R46–R53) with SHA-256 sidecars
 certificates/gen3/        pinned checker verify_gen3.py
-lean/                     Phase 1 Lean scaffold (not a verification; see lean/README.md)
+lean/                     Lean development (not a verification; see lean/README.md)
 notes/                    historical round notes
 data/                     pointer only; the full computational supplement is not shipped
 ```

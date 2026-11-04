@@ -18,8 +18,9 @@ namespace InducedPaths
 
 variable {V : Type*} {G : SimpleGraph V}
 
-/-- Remark 5.12. Proved from the geodesic `p ≥ r + 1`, Theorem 5.11, Erdős–Saks–Sós,
-Theorem 5.10 and Corollary 4.4. Those dependencies still contain `sorry` or an axiom. -/
+/-- Remark 5.12. The case `c_{C₄} = 0` is the geodesic `p ≥ r + 1`.
+The case `c_{C₄} = 1` uses Theorem 5.11, Theorem 5.10, Corollary 4.4, and
+`erdos_saks_sos`. Those four inputs are still `sorry` or an axiom. -/
 theorem remark_5_12 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : G.Connected)
     (hn : 2 ≤ Fintype.card V) (hell : ell G < 5) :
     (inducedPathOrder G : ℚ) ≥
@@ -99,6 +100,7 @@ theorem proposition_6_2 (k : ℕ) (hk : 3 ≤ k) :
       neighbourhoodIndependenceSum (thetaGraph k) = 6 * k ∧
       neighbourhoodIndependenceSum (thetaGraph k) =
         3 * Fintype.card (ThetaV k) - 6 := by
+  -- missing: the radius of `θₖ` is 3 and its induced-path order is 6
   sorry
 
 /-- The closed form `6k / (2k + 2) = 3 - 3 / (k + 1)` used in Proposition 6.2. -/

@@ -1,6 +1,6 @@
 # Axioms
 
-Phase 1 adds five axioms, all in `InducedPaths/Axioms.lean`. Each one is an external theorem the preprint cites and does not prove. Nothing proved in the preprint is an axiom. `GenK` and `Rad` are definitions of open statements; they are not axioms.
+The package has five axioms, all in `InducedPaths/Axioms.lean`. Phase 2 added none. Each one is an external theorem the preprint cites and does not prove. Nothing proved in the preprint is an axiom. `GenK` and `Rad` are definitions of open statements; they are not axioms.
 
 `sorry` is separate. A `sorry` is unfinished work inside this repository, not an external citation. The current `sorry` declarations are listed in `lean/README.md`.
 

@@ -86,7 +86,7 @@ noncomputable def trianglesAt (G : SimpleGraph V) [DecidableRel G.Adj] (v : V) :
 `C₄`-free graph Lemma 2.2 shows the difference is nonnegative and equals `2d(v) - 3t(v)`. -/
 noncomputable def deletionLoss (G : SimpleGraph V) (v : V) : ℕ :=
   neighbourhoodIndependenceSum G -
-    neighbourhoodIndependenceSum (G.induce {w | w ≠ v})
+    neighbourhoodIndependenceSum (G.induce ({v}ᶜ : Set V))
 
 /-- `D_G(U) = S(G) - S(G - U)`. -/
 noncomputable def deletionLossSet (G : SimpleGraph V) (U : Set V) [DecidablePred (· ∈ U)] : ℕ :=

@@ -15,9 +15,9 @@ certificate (`None` / pairs, 169 nodes) is not a hypothesis of Lemma 5.9.
 
 `replay` is a total function. It returns `none` if the choice list is not a
 complete legal traversal, including when a node would have to be unrestricted.
-Success therefore forces unrestricted count 0. The numeric result of each replay
-is still `sorry` in Phase 1: it is not discharged by `native_decide`, and the
-implication from a closed replay to Lemma 5.9 is a separate `sorry`.
+Success therefore forces unrestricted count 0. `four_seed_replay` evaluates the
+four lists. That replay does not prove Lemma 5.9: the embedding of the seeds and
+the comparison of mask-loss with `L(v)` are separate.
 -/
 module
 
@@ -84,22 +84,29 @@ def componentList (g : List ℕ) (verts : List ℕ) : List (List ℕ) :=
 def productMasks (groups : List (List ℕ)) : List ℕ :=
   groups.foldl (fun acc grp => acc.flatMap fun m => grp.map fun v => m ||| (1 <<< v)) [0]
 
+/-- One 6-set that can complete an induced `P₇`, together with the attachment masks. -/
+def p7Trace (g : List ℕ) (six : List ℕ) : Option (ℕ × List ℕ) :=
+  let sm := sixMask six
+  let degs := six.map (inducedDegree g sm)
+  let badDeg := degs.any fun d => decide (2 < d)
+  let e := degs.foldl (· + ·) 0 / 2
+  if badDeg || (decide (e ≠ 4) && decide (e ≠ 5)) then
+    none
+  else
+    let comps := componentList g six
+    let ends := comps.map fun c => c.filter fun v => decide (inducedDegree g sm v ≤ 1)
+    if decide (comps.length ≠ six.length - e) || ends.any List.isEmpty then
+      none
+    else
+      some (sm, productMasks ends)
+
+/-- Every 6-set trace, computed once per graph. `extensions` scans masks against this list. -/
+def p7Traces (g : List ℕ) : List (ℕ × List ℕ) :=
+  (combinations 6 (List.range g.length)).filterMap (p7Trace g)
+
 /-- `mask` meets some 6-set in a trace that completes an induced `P₇`. -/
 def hitsP7 (g : List ℕ) (mask : ℕ) : Bool :=
-  (combinations 6 (List.range g.length)).any fun six =>
-    let sm := sixMask six
-    let degs := six.map (inducedDegree g sm)
-    let badDeg := degs.any fun d => decide (2 < d)
-    let e := degs.foldl (· + ·) 0 / 2
-    if badDeg || (decide (e ≠ 4) && decide (e ≠ 5)) then
-      false
-    else
-      let comps := componentList g six
-      let ends := comps.map fun c => c.filter fun v => decide (inducedDegree g sm v ≤ 1)
-      if decide (comps.length ≠ six.length - e) || ends.any List.isEmpty then
-        false
-      else
-        (productMasks ends).contains (mask &&& sm)
+  (p7Traces g).any fun p => p.2.contains (mask &&& p.1)
 
 def createsC4 (g : List ℕ) (mask : ℕ) : Bool :=
   g.any fun row => decide (2 ≤ popcount (row &&& mask))
@@ -114,6 +121,7 @@ def withNew (g : List ℕ) (mask : ℕ) : List ℕ :=
 /-- Legal one-vertex extensions whose neighbourhood contains `required`. -/
 def extensions (g : List ℕ) (required : ℕ) : List (List ℕ) :=
   let n := g.length
+  let traces := p7Traces g
   (List.range (2 ^ n)).filterMap fun m =>
     if m = 0 then
       none
@@ -121,7 +129,7 @@ def extensions (g : List ℕ) (required : ℕ) : List (List ℕ) :=
       none
     else if createsC4 g m then
       none
-    else if hitsP7 g m then
+    else if traces.any (fun p => p.2.contains (m &&& p.1)) then
       none
     else
       some (withNew g m)
@@ -236,14 +244,13 @@ def expectedDist2 : Replay := { nodes := 46, maxOrder := 11, leaves := 21 }
 
 def expectedDist3 : Replay := { nodes := 5, maxOrder := 10, leaves := 3 }
 
-/-- Execution of the four replays. Phase 1 leaves this as `sorry` rather than
-`native_decide`: the checker is the total function `replay`, and this theorem is
-only the claim that those four lists close. -/
+/-- Execution of the four replays. Each `some` result is a complete legal closing,
+so the unrestricted count on every row is 0. -/
 theorem four_seed_replay :
     replay (seed 0) choicesDist0 = some expectedDist0 ∧
       replay (seed 1) choicesDist1 = some expectedDist1 ∧
       replay (seed 2) choicesDist2 = some expectedDist2 ∧
       replay (seed 3) choicesDist3 = some expectedDist3 := by
-  sorry
+  native_decide
 
 end InducedPaths.Certificate
