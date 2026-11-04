@@ -92,7 +92,7 @@ The PDF digest of this preprint (`paper/main.pdf`, 25 pages) is:
 1f328e89d65ea4e061bc6d854f0f575f3159794a3b7befe3962ce42f1397540d  paper/main.pdf
 ```
 
-The article names tag `presubmit-feedback-2026-11-04` and does not name a commit. That annotated tag is not created in this pull request. After the squash merge onto `main`, create it on the new main tip. After squash merge the main tip has a new hash; the tag is the name the article uses.
+The article names tag `presubmit-feedback-2026-11-04` and does not name a commit. That annotated tag is not created in this pull request. After the squash merge onto `main`, create it on the new main tip. The commit that contains `paper/main.tex`, `paper/main.pdf` and `lean/` is `96e404b7ab991bfa08397293062ea2511936e0d4`. The commit that adds this sentence only records that hash. After squash merge the main tip has a new hash; the tag is the name the article uses.
 
 ## How to verify the GEN3 certificate
 
