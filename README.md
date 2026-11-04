@@ -8,7 +8,7 @@ For a graph \(G\) on \(n\ge 2\) vertices, \(p(G)\) is the largest order of an in
 \[
 \ell(G)=\frac1n\sum_{v\in V(G)}\alpha\bigl(G[N(v)]\bigr),
 \]
-where \(S(G)\) is the sum in the numerator. Write \(P_k\) for the path on \(k\) vertices. A graph is *strong \(C_4\)-free* when it contains no 4-cycle as a subgraph. Conjecture 133 of *Written on the Wall II* (Graffiti.pc), entry 133 dated July 12, 2005, in the real-valued form called REAL-133, says that every connected graph on at least two vertices satisfies \(p(G)\ge r(G)+\ell(G)^{c_{C_4}(G)}\). That list is the primary source. A secondary record is the Formal Conjectures file at commit `5faef0c4dc3d226f8f9a9fc8f581b6221283eb6e`, the merge of pull request [#5727](https://github.com/google-deepmind/formal-conjectures/pull/5727), which removed the floor function. Formalization of any of these statements is separate from the mathematical status in the table below. Nothing in this repository is claimed to be Lean-verified. An in-progress Lean 4 and Mathlib scaffold, with `sorry` placeholders and five external axioms, is on pull request [#19](https://github.com/neardws/induced-paths-without-4-cycles/pull/19), in [`lean/`](https://github.com/neardws/induced-paths-without-4-cycles/tree/cursor/lean-phase1-scaffold-748a/lean) on branch `cursor/lean-phase1-scaffold-748a`. That scaffold is not a verification of the proofs.
+where \(S(G)\) is the sum in the numerator. Write \(P_k\) for the path on \(k\) vertices. A graph is *strong \(C_4\)-free* when it contains no 4-cycle as a subgraph. Conjecture 133 of *Written on the Wall II* (Graffiti.pc), entry 133 dated July 12, 2005, in the real-valued form called REAL-133, says that every connected graph on at least two vertices satisfies \(p(G)\ge r(G)+\ell(G)^{c_{C_4}(G)}\). That list is the primary source. A secondary record is the Formal Conjectures file at commit `5faef0c4dc3d226f8f9a9fc8f581b6221283eb6e`, the merge of pull request [#5727](https://github.com/google-deepmind/formal-conjectures/pull/5727), which removed the floor function. Formalization of any of these statements is separate from the mathematical status in the table below. Nothing in this repository is claimed to be Lean-verified. [`lean/`](lean/) on this pull request ([#19](https://github.com/neardws/induced-paths-without-4-cycles/pull/19)) is an in-progress Lean 4 and Mathlib development: **17** proofs are still `sorry`, five cited theorems are axioms, and `cd lean && lake build` typechecks the package on Lean 4.35.0 with Mathlib v4.35.0. That development is not a verification of the paper. The inventory is in [`lean/README.md`](lean/README.md).
 
 Every connected strong \(C_4\)-free graph with no induced path on seven vertices satisfies \(S\le 3n\), with equality only for the Petersen graph. Combined with the classification of the connected strong \(C_4\)-free graphs of radius 4 and induced-path order 7, this bound yields REAL-133 for every connected graph with \(\ell\le 4\), at every radius. When the graph contains at least two triangles, the argument uses the finite certificate below. The same arguments determine the maximum of \(\ell\) over connected strong \(C_4\)-free graphs with no induced path on six vertices, with a unique extremal graph for every order \(n\ge 7\); classify the connected strong \(C_4\)-free graphs of radius 4 and induced-path order 7; and determine, for every \(n\ge 10\), the maximum number of edges in a connected triangle-free strong \(C_4\)-free graph with no induced path on seven vertices, together with all extremal graphs. REAL-133 remains open for \(\ell>4\). No structural classification for radius \(r\ge 5\) is proved.
 
@@ -56,6 +56,12 @@ Section 6 records the next reduction and four constructions on that boundary. A 
 
 Continuous proving has stopped. Earlier round write-ups live in [`notes/`](notes/).
 
+## Formalization status
+
+The mathematical status in the table above is unchanged. Separately, `lean/` is a Lean 4 development of those statements. It is **not** a Lean verification of the paper: **17** proofs are still `sorry`, and the same five cited theorems are axioms listed in [`lean/AXIOMS.md`](lean/AXIOMS.md). Phases 2, 3, and 4 added no axioms.
+
+Phase 2 closed the component-count sentence of Lemma 2.1, Lemma 2.2, Lemma 2.7 (from Seinsche), the geodesic `p ≥ r + 1`, Lemmas 3.1 and 3.2, and Lemma 5.8(1). Phase 3 closed Lemma 2.3, Lemma 5.8(2), the induced-path order of the Petersen graph, and the numerical claims for `θₖ` in Proposition 6.2. Phase 4 closed Lemma 2.10, Lemma 4.3, Lemma 5.3, and Lemma 5.8(4). `four_seed_replay` is `native_decide`: the four Appendix A rows close with the recorded node counts. That replay does not prove Lemma 5.9. `cd lean && lake build` typechecks the package on Lean 4.35.0 with Mathlib v4.35.0. The inventory is in [`lean/README.md`](lean/README.md).
+
 ## Layout
 
 ```
@@ -66,6 +72,7 @@ paper/response-english-major.md
 certificates/             archival round JSON (R1–R40 and R46–R53) with SHA-256 sidecars
 certificates/gen3/        pinned checker verify_gen3.py (authors' certificate)
 referee_checks/           anonymous JGT referee's independent re-implementation
+lean/                     Lean development (not a verification; see lean/README.md)
 notes/                    historical round notes
 data/                     pointer only; the full computational supplement is not shipped
 ```

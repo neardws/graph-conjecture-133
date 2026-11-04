@@ -1,0 +1,119 @@
+# Lean formalization
+
+This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It is **not** a verification of the paper. Seventeen proofs are still `sorry`. Five external citations are axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2, 3, and 4 added no axioms. `GenK` and `Rad` stay open definitions.
+
+## Build
+
+Toolchain file `lean/lean-toolchain`:
+
+```text
+leanprover/lean4:v4.35.0
+```
+
+Versions used to typecheck this development:
+
+| Tool | Version |
+|------|---------|
+| Lean | 4.35.0, commit `eb6cafb7290e8bd5f2937522d8d804f58f02bafc` |
+| Lake | 5.0.0-src+eb6cafb |
+| Mathlib | `v4.35.0`, commit `56a005855ea17e0b0958f73ec801ae140b0a1679` |
+
+From this directory, with [elan](https://github.com/leanprover/elan) on `PATH`:
+
+```bash
+lake build
+```
+
+`lake build` elaborates every declaration and runs `four_seed_replay` by `native_decide`. `sorry` elsewhere is accepted.
+
+The package is `inducedPaths`. Modules live under `InducedPaths/`.
+
+## What the definitions are
+
+`InducedPaths/Defs.lean` follows the preprint.
+
+- `StrongC4Free` is absence of a `C₄` subgraph (`cycleGraph 4 ⊑ G`). `cC4` is `1` exactly then.
+- `IsPkFree` is absence of an induced `Pₖ`. `inducedPathOrder` is the largest such order.
+- `lambda`, `neighbourhoodIndependenceSum` (`S`), and `ell` (`ℓ = S / n`) are the neighbourhood-independence quantities.
+- `radiusNat` is `G.radius.toNat`.
+- `triangleCount`, `trianglesAt`, `deletionLoss` (`L(v) = S(G) - S(G - v)`, with `G - v` the induced subgraph on `{v}ᶜ`), cut vertices, and clique cutsets match Sections 2 and 5.
+- `GenK` and `Rad` are the open statements `GEN_K` and `RAD(r)`. They are not theorems.
+
+Concrete graphs (`Petersen`, `Γₕ`, `H₈`, the Chen–Xu list, the radius-4 extension, `θₖ`) are in `InducedPaths/Graphs.lean`.
+
+## Proved without `sorry` in the declaration
+
+Several of these still depend on a `sorry` or on an axiom; that is noted in the table.
+
+| Paper | Lean | Status |
+|-------|------|--------|
+| Lemma 2.1(1) | `commonNeighbors_subsingleton` | proved |
+| Lemma 2.1(2), degree ≤ 1 in `G[N(v)]` | `neighborhood_degree_le_one` | proved |
+| Lemma 2.1(2), `λ(v) = d(v) - t(v)` | `lambda_eq_degree_sub_trianglesAt` | proved |
+| Lemma 2.1(2), component count | `lambda_eq_ncard_components` | proved |
+| Lemma 2.1(3), `S = 2e - 3T` | `strongC4Free_S_identity` | proved |
+| Lemma 2.1 | `lemma_2_1` | proved, including the component count |
+| Lemma 2.2, `2λ - t = 2d - 3t` | `lemma_2_2_lambda` | proved |
+| Lemma 2.2, `L(v) = 2d(v) - 3t(v)` | `lemma_2_2` | proved |
+| Lemma 2.3, cut formula | `lemma_2_3` | proved; no `C₄`-free hypothesis |
+| Lemma 2.7 | `lemma_2_7` | proved from the axiom `seinsche` |
+| Lemma 2.8 | `lemma_2_8` | proved from the axiom `camby_schaudt` |
+| Lemma 2.10 | `lemma_2_10` | proved; a 2-clique cutset produces an induced `P₇` |
+| Geodesic `p ≥ r + 1` | `inducedPathOrder_ge_radius_succ` | proved |
+| Lemma 3.1 | `lemma_3_1` | proved |
+| Lemma 3.2 | `lemma_3_2` | proved from Lemma 2.7, hence from `seinsche` |
+| Remark 4.6 | `remark_4_6` | proved (arithmetic) |
+| Corollary 4.4, `S ≤ 2n` and `ℓ ≤ 2` | `corollary_4_4` | proved from `corollary_4_4_mass`, which is `sorry` |
+| Lemma 4.3 | `lemma_4_3` | proved; an off-cycle vertex of an induced path is an endpoint |
+| Lemma 5.3 | `lemma_5_3` | proved from the distance layers at a vertex that starts no induced `P₄` |
+| Lemma 5.8(1) | `lemma_5_8_share` | proved; the statement assumes `a ≠ d` |
+| Lemma 5.8(2) | `lemma_5_8_disjoint` | proved; at most one cross edge between disjoint triangles |
+| Lemma 5.8(4) | `lemma_5_8_path` | proved; two disjoint triangles at set-distance `d` give an induced path of order `d + 3` |
+| Petersen induced-path order | `petersen_inducedPathOrder` | proved; explicit induced `P₅`, and no induced `P₆` by a `Bool` search |
+| Remark 5.12 | `remark_5_12` | the case `c_{C₄} = 0` uses the proved geodesic; the case `c_{C₄} = 1` uses Theorems 5.11 and 5.10, Corollary 4.4, and `erdos_saks_sos` |
+| Proposition 6.2, closed form and limit | `theta_closed_form`, `theta_gap_tendsto` | proved |
+| Proposition 6.2, the graph `θₖ` | `proposition_6_2` | proved: strong `C₄`-free, order `2k+2`, radius 3, induced-path order 6, `S = 6k = 3n-6` |
+| Corollary 6.1 | `corollary_6_1` | proved from Theorem 5.11 (`sorry`) and `erdos_saks_sos` |
+| Corollary 6.3, `S ≤ 3n - 1` and `ℓ < 3` | `corollary_6_3` | proved from Theorem 5.10 (`sorry`) and `petersen_inducedPathOrder` |
+| Appendix A choice-list lengths | `choicesDist0_length` … `choicesDist3_length` | proved by `rfl` (`36`, `31`, `46`, `5`) |
+| Appendix A replay | `four_seed_replay` | proved by `native_decide` |
+
+`trianglesAt_eq_neighborEdges` (triangles at `v` are the edges of `G[N(v)]`) is proved for every simple graph. It is the counting step inside Lemma 2.1(3).
+
+## Still `sorry`
+
+There are **17** declarations whose proof is `sorry`. Each one has a one-line comment naming the missing step.
+
+- `lemma_3_3`: the count of vertices with `λ ≥ 3` in a `P₅`-free neighbourhood
+- `lemma_3_4`: the trace of each vertex off a dominating induced `C₆`
+- `lemma_3_5`: Lemma 3.4 when the Camby–Schaudt set is an induced `C₆`
+- `theorem_3_6`: the extremal case analysis for `P₆`-free strong `C₄`-free graphs
+- `lemma_4_1`: an off-cycle vertex of a dominating induced `C₈` drops the radius below 4
+- `theorem_4_2`: Lemma 4.1 and the classification of radius-4 extensions
+- `corollary_4_4_mass`: Theorem 4.2
+- `corollary_4_5`: the mass formula in Corollary 4.4
+- `lemma_5_2`: the edge count of each member of the Chen–Xu family
+- `lemma_5_4`: deleting degree-1 vertices down to a `K₁`, `K₂`, or Chen–Xu core
+- `theorem_5_5`: Lemmas 5.2 and 5.4; `GEN₃` and the bipartite clause stay open
+- `theorem_5_6_noniso`: isomorphism invariants separating the leaf placements
+- `theorem_5_6`: Theorem 5.5 and the extremal graphs of order at least 10
+- `theorem_5_7`: at most one triangle, then the deletion-loss bound
+- `lemma_5_9`: embed each induced pair of triangles as `seed d` (`d ≤ 3` by Lemma 5.8(4)) and show a closed mask replay yields `deletionLoss ≤ 3`
+- `theorem_5_10`: Theorems 5.6 and 5.7
+- `theorem_5_11`: the case split on `c_{C₄}` using Theorems 3.6, 4.2 and 5.10
+
+Lemma 5.9 is still open. `four_seed_replay` does not embed the four seeds or compare mask-loss with `L(v)`. Lemma 5.8(4) supplies the distance bound `d ≤ 3` for that embedding. `GenK` and `Rad` remain open definitions, not theorems.
+
+The five axioms in [`AXIOMS.md`](AXIOMS.md) are not included in that count.
+
+## Certificate
+
+`InducedPaths/Certificate.lean` copies the four distance rows of `certificates/gen3/verify_gen3.py` (not the obsolete one-triangle row). `replay` walks the same depth-first preorder, with fuel `choices.length + 1`. Traces of 6-sets are computed once per graph and then scanned against each mask.
+
+- the designated vertex must have mask-loss `< 4`;
+- a child mask must contain that vertex, must not give an old vertex two neighbours in the mask, and must not complete an induced `P₇` by the Appendix A trace test;
+- `none` means the list is not a complete legal closing, so an unrestricted node is a failure.
+
+`four_seed_replay` evaluates to `(nodes, max order, leaves) = (36, 17, 7)`, `(31, 15, 6)`, `(46, 11, 21)`, `(5, 10, 3)`. Because the checker has no unrestricted branch, those successes force unrestricted count `0`.
+
+Lemma 2.2 shows that on a strong `C₄`-free graph the simple-graph deletion loss equals `2d(v) - 3t(v)`. The checker still computes that quantity on bitmasks. Lemma 5.9 does not follow from the replay: its `sorry` is the embedding of the four seeds and the comparison of mask-loss with `L(v)`.
