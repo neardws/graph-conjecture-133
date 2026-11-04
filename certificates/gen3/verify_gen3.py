@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Verify two finite graph certificates for the GEN3 proof note. Python 3.10+.
+"""Verify the four two-triangle searches of Lemma 5.9. Python 3.10+.
 
 Graph labels are consecutive integers. An adjacency list is a tuple of integer
 bit masks. Choices in each certificate are supplied in depth-first preorder.
-An integer names one vertex, a tuple names a pair, and None means unrestricted.
-There is no cutoff on the order. Run this file without arguments.
+An integer names the chosen vertex. None would name an unrestricted node, one
+at which every vertex has deletion loss at least 4; these four searches have
+no such node. There is no cutoff on the order. Run this file without arguments.
 """
 
 from collections import Counter
@@ -128,13 +129,6 @@ def is_exceptional(graph):
 
 
 CERTIFICATES = {
-    None: [0, 1, 2, 0, 1, 2, 3, 4, 5, 6, 9, 9, 6, 9, 9, 5, 9, 9, 3, 4, 10, 11, 11, (4, 10), 4, 3, 3,
-     3, 3, 9, 3, 9, 4, 10, 10, 4, 10, 10, (4, 14), 4, 9, 11, 4, 4, 3, 10, 4, 4, 5, 5, 4, 4, 6,
-     6, None, 11, 11, 11, 11, 11, 5, 5, 4, 4, None, 11, 11, 11, 11, 11, 4, 4, 5, 5, None, 11,
-     11, 11, 11, 11, 4, 4, None, 11, 11, 11, 11, 11, 2, 5, 8, 5, 8, 3, 10, 10, 3, 10, 10,
-     (3, 14), 3, 8, 11, 3, 3, 5, 10, 3, 3, 1, 4, 7, 2, 4, 7, 3, 9, 9, 3, 9, 9, (3, 14), 3, 7,
-     10, 3, 3, 4, 9, 3, 3, 2, 5, 9, 9, 0, 1, 3, 6, 2, 3, 6, 4, 9, 9, 4, 9, 9, (4, 14), 4, 6, 10,
-     4, 4, 3, 9, 4, 4, 2, 5, 9, 9, 1, 3, 4, 6, 8, 10, 10],
     0: [0, 1, 2, 1, 3, 4, 2, 3, 4, 6, 9, 9, 6, 9, 9, 7, 7, 4, 10, 6, 6, 3, 9, 6, 6, 2, 7, 9, 9, 1,
      3, 4, 6, 8, 10, 10],
     1: [0, 3, 1, 2, 4, 5, 8, 8, 2, 1, 2, 1, 2, 1, 3, 7, 1, 2, 4, 5, 10, 10, 0, 3, 6, 1, 2, 4, 5,
@@ -198,12 +192,11 @@ def main():
     for distance, choices in CERTIFICATES.items():
         result = verify(distance, choices)
         results.append(result)
-        name = 'one triangle' if distance is None else f'triangle distance {distance}'
+        name = f'triangle distance {distance}'
         print(f'{name:22s} nodes={result[0]:3d}  maximum order={result[1]:2d}'
               f'  leaves={result[2]:2d}  unrestricted={result[3]}')
-    expected = [(169, 17), (36, 17), (31, 15), (46, 11), (5, 10)]
-    require([item[:2] for item in results] == expected, 'Unexpected tree sizes')
-    require(results[0][2:] == (52, 4), 'Unexpected single-triangle outcomes')
+    expected = [(36, 17, 7, 0), (31, 15, 6, 0), (46, 11, 21, 0), (5, 10, 3, 0)]
+    require(results == expected, 'Unexpected tree sizes')
     print('PASS. All branches and all decision entries verified.')
 
 
