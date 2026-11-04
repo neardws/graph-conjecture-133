@@ -88,7 +88,7 @@ tectonic -X compile --keep-intermediates "${SP[@]}" main.tex
 The PDF digest of this preprint is:
 
 ```text
-678eed908ee55f5c52956cf2b79eeffec9225f320775c4cf5664d15f760ee24d  paper/main.pdf
+a1df6e1495d80f3ccd5c544dfacfe1a78fe5d5ced037e2c1fdbe39b3aaba7e9d  paper/main.pdf
 ```
 
 ## How to verify the GEN3 certificate
@@ -97,7 +97,7 @@ Lemma 5.9 and Theorem 5.10 use `certificates/gen3/verify_gen3.py`. The file in t
 
 ```bash
 sha256sum -c <<'EOF'
-678eed908ee55f5c52956cf2b79eeffec9225f320775c4cf5664d15f760ee24d  paper/main.pdf
+a1df6e1495d80f3ccd5c544dfacfe1a78fe5d5ced037e2c1fdbe39b3aaba7e9d  paper/main.pdf
 f1b6718941f9cf3e6b0917cf25ab9093810b07f6d35a11fb7cc539fb546e6fd0  certificates/gen3/verify_gen3.py
 EOF
 python3 certificates/gen3/verify_gen3.py
