@@ -69,7 +69,7 @@ paper/response-english-major.md
                           draft answers to the 2026 English report, Q1–Q3
 certificates/             archival round JSON (R1–R40 and R46–R53) with SHA-256 sidecars
 certificates/gen3/        pinned checker verify_gen3.py (authors' certificate)
-referee_checks/           separate C/Python implementation for computational cross-checking
+referee_checks/           separate C/Python implementation for computational cross-checking (written by Claude; see Independent checks)
 lean/                     numbered lemmas and theorems; sorry/admit inventory 0; five axioms (lean/README.md)
 notes/                    historical round notes
 data/                     pointer only; the full computational supplement is not shipped
@@ -88,7 +88,7 @@ tectonic -X compile --keep-intermediates "${SP[@]}" main.tex
 The PDF digest of this preprint is:
 
 ```text
-585698d36320edd39e15b1d15990b67ac834dc828df676445b468c5a4f0a5fb4  paper/main.pdf
+678eed908ee55f5c52956cf2b79eeffec9225f320775c4cf5664d15f760ee24d  paper/main.pdf
 ```
 
 ## How to verify the GEN3 certificate
@@ -97,7 +97,7 @@ Lemma 5.9 and Theorem 5.10 use `certificates/gen3/verify_gen3.py`. The file in t
 
 ```bash
 sha256sum -c <<'EOF'
-585698d36320edd39e15b1d15990b67ac834dc828df676445b468c5a4f0a5fb4  paper/main.pdf
+678eed908ee55f5c52956cf2b79eeffec9225f320775c4cf5664d15f760ee24d  paper/main.pdf
 f1b6718941f9cf3e6b0917cf25ab9093810b07f6d35a11fb7cc539fb546e6fd0  certificates/gen3/verify_gen3.py
 EOF
 python3 certificates/gen3/verify_gen3.py
@@ -107,13 +107,13 @@ A successful run prints the four distance rows and ends with `PASS. All branches
 
 ## Independent checks
 
-A separate implementation is provided in [`referee_checks/`](referee_checks/) and was used for computational cross-checking.
+A separate implementation is provided in [`referee_checks/`](referee_checks/) and was used for computational cross-checking. Claude (Anthropic), an AI system, wrote it during pre-submission reviews that the authors requested. It worked from the manuscript's description of the search and did not use the authors' code.
 
 Build and run instructions, the translation from pre-R15 numbering to the current article, and the claim-to-script map are in [`referee_checks/README.md`](referee_checks/README.md).
 
 The authors' checker for Lemma 5.9 is `certificates/gen3/verify_gen3.py`. An independent C implementation (`lemma57b.c`) written for cross-verification is in `referee_checks/`, run with `DEFONLY=1` on the four seeds named in that README. Re-running the authors' checker is a replay of one certificate. The second implementation reproduces the search counts and confirms closure of all four trees, using its own vertex labelling and traversal order.
 
-Round JSON under `certificates/` is an archive of earlier referee rounds, through R53. Each `ROUND_BRANCH_R*_CERTIFICATE.sha256` sidecar checks the matching JSON file:
+Round JSON under `certificates/` is an archive of earlier internal and AI review rounds, through R53, not a journal referee report. Each `ROUND_BRANCH_R*_CERTIFICATE.sha256` sidecar checks the matching JSON file:
 
 ```bash
 cd certificates
@@ -130,7 +130,7 @@ The R53 digest is `b90cc797e755cb8cf849937c20ad1576ea551a7b0ec3b780676c3e84d81b6
 
 ## License
 
-No license file is published in this snapshot. All rights reserved by the authors unless a license is added later.
+The code and other materials in this repository are released under the MIT License. See [`LICENSE`](LICENSE).
 
 ## Citation
 

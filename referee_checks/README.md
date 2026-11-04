@@ -2,6 +2,8 @@
 
 A separate implementation is provided in this directory and was used for computational cross-checking.
 
+Claude (Anthropic), an AI system, wrote these programs during pre-submission reviews that the authors requested. It worked from the manuscript's description and did not use the authors' code. The C and Python sources are unchanged from the copies supplied with those reviews.
+
 An independent C implementation (`lemma57b.c`) written for cross-verification, together with related checkers, lives here. None of these scripts calls the authors' certificate programs. This README records the claim map and the note on numbering after the authors' revision R15.
 
 They need nauty (`geng` and `labelg`; on macOS, `brew install nauty`), a C compiler and Python 3.
