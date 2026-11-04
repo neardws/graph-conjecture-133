@@ -44,7 +44,7 @@ R15 folded the one-triangle hand proof into the article and removed the suppleme
 | Lemma 5.9 | Supplement Lemma S5.3; the report discusses it next to old Lemma 5.7 | The 118-node two-triangle search |
 | Theorem 5.10 | Theorem 5.8 | \(S\le 3n\) for every connected strong-\(C_4\)-free \(P_7\)-free graph |
 | Theorem 5.11, Remark 5.12 | Theorem 5.9, Remark 5.10 | REAL-133 for \(\ell\le 4\); floor form for \(\ell<5\) |
-| (not a hypothesis) | Lemma 5.7 | One-triangle search: 169 nodes, 52 leaves, 4 unrestricted nodes, all isomorphic to \(H_{3,2}\). Still the opening row of the authors' checker. Theorem 5.7 replaces it |
+| (not a hypothesis) | Lemma 5.7 | One-triangle search: 169 nodes, 52 leaves, 4 unrestricted nodes, all isomorphic to \(H_{3,2}\). Theorem 5.7 replaces it. `certificates/gen3/verify_gen3.py` no longer contains this row; `lemma57` still reproduces the count |
 | (removed) | Supplement examples, ROOT(\(q\)), Lemmas S5.6 and S5.7 | Not claims of the current article |
 
 ## Claim map
@@ -57,11 +57,11 @@ Author scripts live in this repository and were not written by the referee. Refe
 | Lemmas 3.3 and 3.5 | Hand proofs | `check_p7.py` (the \(P_5\)-free count at the end of that file) |
 | Theorem 4.2, Corollaries 4.4 and 4.5 | Hand proofs. `paper/scripts/c8_configurations.py` enumerates a dominating-\(C_8\) count from an earlier draft; the current article does not use that count | `check_rad4.py` (the file's header still says Theorem 4.3) |
 | Lemma 2.10, the family \(\mathfrak F\), Theorems 5.5 and 5.6 | Hand proofs from the Chen–Xu list | `extend` with the triangle-free flag, then `check_tf.py`. `check_examples.py` checks canonical forms of the extremal graphs of Theorem 5.6 |
-| Theorem 5.7 | Hand proof in the article. No script | The one-triangle search is not this theorem. `lemma57` and the opening row of `certificates/gen3/verify_gen3.py` are the retired search |
-| Lemmas 5.8 and 5.9, Theorem 5.10 | `certificates/gen3/verify_gen3.py` embeds the four decision arrays of Lemma 5.9 (36, 31, 46 and 5 entries). The same file still checks the retired 169-node row; the article does not cite that row | `lemma57b` with `DEFONLY=1` on the four seeds below. Fail-first selection reproduces the authors' four arrays. `check_p7.py` checks \(S\le 3n\) on enumerated graphs, which is Theorem 5.10 (header text: Theorem 5.8) |
+| Theorem 5.7 | Hand proof in the article. No script | The one-triangle search is not this theorem. `lemma57` is the retired search. `certificates/gen3/verify_gen3.py` no longer contains that row |
+| Lemmas 5.8 and 5.9, Theorem 5.10 | `certificates/gen3/verify_gen3.py` embeds the four decision arrays of Lemma 5.9 (36, 31, 46 and 5 entries) and rejects an unrestricted node on those rows | `lemma57b` with `DEFONLY=1` on the four seeds below. Fail-first selection reproduces the authors' four arrays. `check_p7.py` checks \(S\le 3n\) on enumerated graphs, which is Theorem 5.10 (header text: Theorem 5.8) |
 | Theorem 5.11 | Hand proof | `real133` |
 | Corollary 6.3 | Hand proof | `check_p7.py` (the block labelled Corollary 6.3) |
-| Retired one-triangle search and \(H_{3,2}\) | Opening row of `certificates/gen3/verify_gen3.py` | `lemma57`, then `labelg` on the unrestricted output. `check_named.py` recognises \(H_{3,2}\) |
+| Retired one-triangle search and \(H_{3,2}\) | Not in `certificates/gen3/verify_gen3.py`. Theorem 5.7 is the hand proof | `lemma57`, then `labelg` on the unrestricted output. `check_named.py` recognises \(H_{3,2}\) |
 | Pre-R15 supplement only | `paper/scripts/check_ep9.py` checks an adjacency list that is not in the current article | `rootq`, `check_examples.py` (example block), and the supplement blocks in `check_p7.py` |
 
 `certificates/gen3/verify_gen3.py` is the authors' certificate checker. Re-running it replays that certificate. It is not an independent verification. The independent re-implementation is `lemma57` / `lemma57b`.
