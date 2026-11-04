@@ -1115,7 +1115,7 @@ lemma triangleCount_induce_compl_add [Fintype V] [DecidableEq V] [DecidableRel G
 /-! ### Small consequences -/
 
 /-- Lemma 2.8, the case `k = 6` of Camby–Schaudt. -/
-theorem lemma_2_8 (hconn : G.Connected) (hp : IsPkFree G 6) :
+theorem lemma_2_8 [Finite V] (hconn : G.Connected) (hp : IsPkFree G 6) :
     ∃ X : Set V, (G.induce X).Connected ∧
       (∀ v, ∃ x ∈ X, v = x ∨ G.Adj v x) ∧
       (IsPkFree (G.induce X) 4 ∨ Nonempty ((G.induce X) ≃g cycleGraph 6)) :=

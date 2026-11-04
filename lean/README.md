@@ -1,6 +1,6 @@
 # Lean formalization
 
-This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It formalizes the numbered lemmas and theorems. The numbered inventory is **0** `sorry` and **0** `admit` (Phases 1–7). It is **not** a fully Lean-verified proof of the paper, and it is not a kernel verification from an empty axiom set. Five external citations remain axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2–7 added no hand-declared axioms. Finite checks use Lean's `native_decide` compiler/runtime trust mechanism, including trace witnesses, graph tables, and Petersen path/symmetry certificates. `GenK` and `Rad` remain definitions of propositions, not blanket axioms or assertions; the `GenK 3` clause is proved from the completed Section 5 bound.
+This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It formalizes the main theorems and selected supporting statements. The precise coverage is listed in this README. The numbered inventory is **0** `sorry` and **0** `admit` (Phases 1–7). It is **not** a fully Lean-verified proof of the paper, and it is not a kernel verification from an empty axiom set. Five external citations remain axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2–7 added no hand-declared axioms. Finite checks use Lean's `native_decide` compiler/runtime trust mechanism, including trace witnesses, graph tables, and Petersen path/symmetry certificates. `GenK` and `Rad` remain definitions of propositions, not blanket axioms or assertions; the `GenK 3` clause is proved from the completed Section 5 bound.
 
 ## Build
 
@@ -57,7 +57,7 @@ Concrete graphs (`Petersen`, `Γₕ`, `H₈`, the Chen–Xu list, the radius-4 e
 | Lemma 2.2, `L(v) = 2d(v) - 3t(v)` | `lemma_2_2` | proved |
 | Lemma 2.3, cut formula | `lemma_2_3` | proved; no `C₄`-free hypothesis |
 | Lemma 2.7 | `lemma_2_7` | proved from the axiom `seinsche` |
-| Lemma 2.8 | `lemma_2_8` | proved from the axiom `camby_schaudt` |
+| Lemma 2.8 | `lemma_2_8` | proved from the axiom `camby_schaudt` (requires `[Finite V]`) |
 | Lemma 2.10 | `lemma_2_10` | proved; a 2-clique cutset produces an induced `P₇` |
 | Geodesic `p ≥ r + 1` | `inducedPathOrder_ge_radius_succ` | proved |
 | Lemma 3.1 | `lemma_3_1` | proved |

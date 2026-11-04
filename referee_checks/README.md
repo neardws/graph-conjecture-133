@@ -1,12 +1,10 @@
 # Independent checks for the WOWII-133 manuscript
 
-Independent checks provided with a JGT referee report (2026); reproduced here for archival cross-verification.
+A separate implementation is provided in this directory and was used for computational cross-checking.
 
-These scripts are the anonymous referee's own re-implementation. They are not the authors' code, and this repository does not claim authorship of them. None of them calls the authors' programs. The C and Python sources are unchanged from the copy supplied with that report. This README adds attribution, the claim map, and the note on numbering after the authors' revision R15.
+An independent C implementation (`lemma57b.c`) written for cross-verification, together with related checkers, lives here. None of these scripts calls the authors' certificate programs. This README records the claim map and the note on numbering after the authors' revision R15.
 
 They need nauty (`geng` and `labelg`; on macOS, `brew install nauty`), a C compiler and Python 3.
-
-A Zenodo DOI for this directory is **pending**. Do not invent one. Software Heritage and Zenodo deposits can be attached here when a persistent identifier is minted.
 
 ## Build
 
@@ -16,7 +14,7 @@ cd referee_checks && for f in gstat extend lemma57 lemma57b real133 rootq; do cc
 
 ## What each program does
 
-The descriptions below are the referee's. Program comments use the numbering of the pre-R15 manuscript (20-page article plus 15-page supplement). The translation to the current article is the table in the next section.
+Program comments use the numbering of the pre-R15 manuscript (20-page article plus 15-page supplement). The translation to the current article is the table in the next section.
 
 | Program | Checks |
 |---|---|
@@ -30,7 +28,7 @@ The descriptions below are the referee's. Program comments use the numbering of 
 
 ## Numbering after R15
 
-R15 folded the one-triangle hand proof into the article and removed the supplement. Theorem and lemma numbers below are those of `paper/main.tex` on the current article. The pre-R15 numbers in the referee's comments are in parentheses.
+R15 folded the one-triangle hand proof into the article and removed the supplement. Theorem and lemma numbers below are those of `paper/main.tex` on the current article. The pre-R15 numbers in program comments are in parentheses.
 
 | Current article | Pre-R15 report | What it is |
 |---|---|---|
@@ -49,22 +47,22 @@ R15 folded the one-triangle hand proof into the article and removed the suppleme
 
 ## Claim map
 
-Author scripts live in this repository and were not written by the referee. Referee scripts are the files in this directory.
+Author scripts live elsewhere in this repository. The scripts in this directory are a separate implementation used for cross-checking.
 
-| Claim in the current article | Author script | Referee script |
+| Claim in the current article | Author script | Cross-check script |
 |---|---|---|
 | Theorem 3.6 | No separate checker is cited. The proof is by hand | `check_p7.py` on `geng` output passed through `gstat` (rows with induced-path order at most 5). `check_named.py` compares canonical forms of the named extremal graphs |
 | Lemmas 3.3 and 3.5 | Hand proofs | `check_p7.py` (the \(P_5\)-free count at the end of that file) |
 | Theorem 4.2, Corollaries 4.4 and 4.5 | Hand proofs. `paper/scripts/c8_configurations.py` enumerates a dominating-\(C_8\) count from an earlier draft; the current article does not use that count | `check_rad4.py` (the file's header still says Theorem 4.3) |
 | Lemma 2.10, the family \(\mathfrak F\), Theorems 5.5 and 5.6 | Hand proofs from the Chen–Xu list | `extend` with the triangle-free flag, then `check_tf.py`. `check_examples.py` checks canonical forms of the extremal graphs of Theorem 5.6 |
 | Theorem 5.7 | Hand proof in the article. No script | The one-triangle search is not this theorem. `lemma57` is the retired search. `certificates/gen3/verify_gen3.py` no longer contains that row |
-| Lemmas 5.8 and 5.9, Theorem 5.10 | `certificates/gen3/verify_gen3.py` embeds the four decision arrays of Lemma 5.9 (36, 31, 46 and 5 entries) and rejects an unrestricted node on those rows | `lemma57b` with `DEFONLY=1` on the four seeds below. Fail-first selection reproduces the authors' four arrays. `check_p7.py` checks \(S\le 3n\) on enumerated graphs, which is Theorem 5.10 (header text: Theorem 5.8) |
+| Lemmas 5.8 and 5.9, Theorem 5.10 | `certificates/gen3/verify_gen3.py` embeds the four decision arrays of Lemma 5.9 (36, 31, 46 and 5 entries) and rejects an unrestricted node on those rows | `lemma57b` with `DEFONLY=1` on the four seeds below. The second implementation reproduces the search counts and confirms closure of all four trees, using its own vertex labelling and traversal order. `check_p7.py` checks \(S\le 3n\) on enumerated graphs, which is Theorem 5.10 (header text: Theorem 5.8) |
 | Theorem 5.11 | Hand proof | `real133` |
 | Corollary 6.3 | Hand proof | `check_p7.py` (the block labelled Corollary 6.3) |
 | Retired one-triangle search and \(H_{3,2}\) | Not in `certificates/gen3/verify_gen3.py`. Theorem 5.7 is the hand proof | `lemma57`, then `labelg` on the unrestricted output. `check_named.py` recognises \(H_{3,2}\) |
 | Pre-R15 supplement only | `paper/scripts/check_ep9.py` checks an adjacency list that is not in the current article | `rootq`, `check_examples.py` (example block), and the supplement blocks in `check_p7.py` |
 
-`certificates/gen3/verify_gen3.py` is the authors' certificate checker. Re-running it replays that certificate. It is not an independent verification. The independent re-implementation is `lemma57` / `lemma57b`.
+`certificates/gen3/verify_gen3.py` is the authors' certificate checker. Re-running it replays that certificate. It is not an independent verification. The separate cross-check implementation is `lemma57` / `lemma57b`.
 
 ## Main runs
 

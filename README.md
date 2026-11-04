@@ -48,7 +48,7 @@ f(n)=3n-\min\bigl\{n-10,\ 5+\mathbf{1}_{\{n\text{ even}\}}\bigr\}
 \]
 is the maximum of \(2e\). For \(10\le n\le 14\) the extremal graphs are the isomorphism classes obtained from the Petersen graph by placing \(n-10\) leaves on a single vertex or on the two endpoints of a single edge. For \(n=15\) those classes are joined by \(F_2\) (four classes in all). For \(n=16\) they are joined by \(F'_0\) and by the two graphs obtained from the order-15 graph \(F_2\) by adding a leaf at a hub or at the midpoint of its unique 2-edge branch (seven classes in all). For odd \(n\ge 17\) the unique extremal graph is \(F_2\). For even \(n\ge 18\) there are exactly three: \(F'_0\) and the same two one-leaf extensions of the order-\((n-1)\) graph \(F_2\).
 
-**Theorems 5.7 and 5.10, and Lemma 5.9.** Theorem 5.5 is the triangle-free case of \(S\le 3n\), since then \(S=2e\), with equality only for the Petersen graph. Theorem 5.7 is the same inequality when the graph has at most one triangle; that argument is a hand proof. Lemma 5.9 is the case of at least two triangles: a finite search on four seeds visits 118 nodes, every branch ends at a leaf, and no node is unrestricted. Theorem 5.10 extends \(S\le 3n\), equality only for the Petersen graph, to every connected strong \(C_4\)-free \(P_7\)-free graph. The search in Lemma 5.9 is the certificate checked by `certificates/gen3/verify_gen3.py`. A second implementation of that search is `referee_checks/lemma57b.c`.
+**Theorems 5.7 and 5.10, and Lemma 5.9.** Theorem 5.5 is the triangle-free case of \(S\le 3n\), since then \(S=2e\), with equality only for the Petersen graph. Theorem 5.7 is the same inequality when the graph has at most one triangle; that argument is a hand proof. Lemma 5.9 is the case of at least two triangles: a finite search on four seeds visits 118 nodes, every branch ends at a leaf, and no node is unrestricted. Theorem 5.10 extends \(S\le 3n\), equality only for the Petersen graph, to every connected strong \(C_4\)-free \(P_7\)-free graph. The search in Lemma 5.9 is the certificate checked by `certificates/gen3/verify_gen3.py`. An independent C implementation of that search is `referee_checks/lemma57b.c`.
 
 **Theorem 5.11.** Every connected graph on at least two vertices with \(\ell\le 4\) satisfies REAL-133. The proof covers every radius, including \(r\ge 5\), where the Erdős–Saks–Sós bound \(p\ge 2r-1\) is already at least \(r+4\). Remark 5.12 records the floor form for every connected graph with \(\ell<5\). The real-valued statement for \(\ell>4\) stays open.
 
@@ -58,7 +58,7 @@ Continuous proving has stopped. Earlier round write-ups live in [`notes/`](notes
 
 ## Formalization status
 
-The mathematical status in the table above is unchanged. Separately, [`lean/`](lean/) formalizes the numbered lemmas and theorems. Phases 1–7 leave that numbered inventory at **0** `sorry` and **0** `admit`. Five literature axioms remain, listed in [`lean/AXIOMS.md`](lean/AXIOMS.md). Phases 2–7 added no handwritten axioms. Finite certificates, including the Appendix A replay, use `native_decide` and therefore trust the Lean compiler and runtime. This is **not** a verification of the paper from an empty axiom set, and it is not a claim that the proofs are kernel-checked with no axioms. `cd lean && lake build` typechecks the package on Lean 4.35.0 with Mathlib v4.35.0. The inventory is in [`lean/README.md`](lean/README.md).
+The mathematical status in the table above is unchanged. Separately, [`lean/`](lean/) formalizes the main theorems and selected supporting statements; the precise coverage is listed in [`lean/README.md`](lean/README.md). Phases 1–7 leave that numbered inventory at **0** `sorry` and **0** `admit`. Five literature axioms remain, listed in [`lean/AXIOMS.md`](lean/AXIOMS.md). Phases 2–7 added no handwritten axioms. Finite certificates, including the Appendix A replay, use `native_decide` and therefore trust the Lean compiler and runtime. This is **not** a verification of the paper from an empty axiom set, and it is not a claim that the proofs are kernel-checked with no axioms. `cd lean && lake build` typechecks the package on Lean 4.35.0 with Mathlib v4.35.0. The inventory is in [`lean/README.md`](lean/README.md).
 
 ## Layout
 
@@ -69,7 +69,7 @@ paper/response-english-major.md
                           draft answers to the 2026 English report, Q1–Q3
 certificates/             archival round JSON (R1–R40 and R46–R53) with SHA-256 sidecars
 certificates/gen3/        pinned checker verify_gen3.py (authors' certificate)
-referee_checks/           anonymous JGT referee's independent re-implementation
+referee_checks/           separate C/Python implementation for computational cross-checking
 lean/                     numbered lemmas and theorems; sorry/admit inventory 0; five axioms (lean/README.md)
 notes/                    historical round notes
 data/                     pointer only; the full computational supplement is not shipped
@@ -88,30 +88,30 @@ tectonic -X compile --keep-intermediates "${SP[@]}" main.tex
 The PDF digest of this preprint is:
 
 ```text
-576d3831369f6de9a9daa47166a3c1851c14f03e637a437cb8bbf6706f29a657  paper/main.pdf
+585698d36320edd39e15b1d15990b67ac834dc828df676445b468c5a4f0a5fb4  paper/main.pdf
 ```
 
 ## How to verify the GEN3 certificate
 
-Lemma 5.9 and Theorem 5.10 use `certificates/gen3/verify_gen3.py`. The file in this tree has SHA-256 `f1b6718941f9cf3e6b0917cf25ab9093810b07f6d35a11fb7cc539fb546e6fd0`. It is a Python 3.10+ program, uses only the standard library, embeds the decision certificate, and takes no arguments. It checks the four two-triangle rows and rejects an unrestricted node on those rows. The retired one-triangle search is not in this file; the referee program `referee_checks/lemma57` still reproduces that older count. From the repository root:
+Lemma 5.9 and Theorem 5.10 use `certificates/gen3/verify_gen3.py`. The file in this tree has SHA-256 `f1b6718941f9cf3e6b0917cf25ab9093810b07f6d35a11fb7cc539fb546e6fd0`. It is a Python 3.10+ program, uses only the standard library, embeds the decision certificate, and takes no arguments. It checks the four two-triangle rows and rejects an unrestricted node on those rows. The retired one-triangle search is not in this file; `referee_checks/lemma57` still reproduces that older count. From the repository root:
 
 ```bash
 sha256sum -c <<'EOF'
-576d3831369f6de9a9daa47166a3c1851c14f03e637a437cb8bbf6706f29a657  paper/main.pdf
+585698d36320edd39e15b1d15990b67ac834dc828df676445b468c5a4f0a5fb4  paper/main.pdf
 f1b6718941f9cf3e6b0917cf25ab9093810b07f6d35a11fb7cc539fb546e6fd0  certificates/gen3/verify_gen3.py
 EOF
 python3 certificates/gen3/verify_gen3.py
 ```
 
-A successful run prints the four distance rows and ends with `PASS. All branches and all decision entries verified.` That sentence means the embedded decision arrays were replayed. It is not a second implementation. Lemma 5.9 uses those four rows, which together visit 118 nodes and 37 leaves, with unrestricted count 0 on each row. Appendix A prints the 118 decisions and records this replay. The second implementation is `referee_checks/lemma57b.c`.
+A successful run prints the four distance rows and ends with `PASS. All branches and all decision entries verified.` That sentence means the embedded decision arrays were replayed. It is not a second implementation. Lemma 5.9 uses those four rows, which together visit 118 nodes and 37 leaves, with unrestricted count 0 on each row. Appendix A prints the 118 decisions and records this replay. The separate cross-check is `referee_checks/lemma57b.c`.
 
 ## Independent checks
 
-Independent checks provided with a JGT referee report (2026); reproduced here for archival cross-verification.
+A separate implementation is provided in [`referee_checks/`](referee_checks/) and was used for computational cross-checking.
 
-The directory [`referee_checks/`](referee_checks/) is the anonymous referee's re-implementation, not the authors' code. This repository does not claim authorship of those scripts. Build and run instructions, the translation from the report's pre-R15 numbers to the current article, and the claim-to-script map are in [`referee_checks/README.md`](referee_checks/README.md). A Zenodo DOI for that directory is pending.
+Build and run instructions, the translation from pre-R15 numbering to the current article, and the claim-to-script map are in [`referee_checks/README.md`](referee_checks/README.md).
 
-The authors' checker for Lemma 5.9 is `certificates/gen3/verify_gen3.py`. The referee's second implementation of the same two-triangle search is `referee_checks/lemma57b.c`, run with `DEFONLY=1` on the four seeds named in that README. Re-running the authors' checker is a replay of one certificate. The second implementation is the cross-check.
+The authors' checker for Lemma 5.9 is `certificates/gen3/verify_gen3.py`. An independent C implementation (`lemma57b.c`) written for cross-verification is in `referee_checks/`, run with `DEFONLY=1` on the four seeds named in that README. Re-running the authors' checker is a replay of one certificate. The second implementation reproduces the search counts and confirms closure of all four trees, using its own vertex labelling and traversal order.
 
 Round JSON under `certificates/` is an archive of earlier referee rounds, through R53. Each `ROUND_BRANCH_R*_CERTIFICATE.sha256` sidecar checks the matching JSON file:
 
