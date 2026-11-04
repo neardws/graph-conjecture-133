@@ -58,7 +58,7 @@ Continuous proving has stopped. Earlier round write-ups live in [`notes/`](notes
 
 ## Formalization status
 
-The mathematical status in the table above is unchanged. Separately, [`lean/`](lean/) formalizes the main theorems and selected supporting statements; the precise coverage is listed in [`lean/README.md`](lean/README.md). Phases 1–7 leave that numbered inventory at **0** `sorry` and **0** `admit`. Five literature axioms remain, listed in [`lean/AXIOMS.md`](lean/AXIOMS.md). Phases 2–7 added no handwritten axioms. Finite certificates, including the Appendix A replay, use `native_decide` and therefore trust the Lean compiler and runtime. This is **not** a verification of the paper from an empty axiom set, and it is not a claim that the proofs are kernel-checked with no axioms. `cd lean && lake build` typechecks the package on Lean 4.35.0 with Mathlib v4.35.0. The inventory is in [`lean/README.md`](lean/README.md).
+The mathematical status in the table above is unchanged. Separately, [`lean/`](lean/) formalizes the main theorems and selected supporting statements; the precise coverage is listed in [`lean/README.md`](lean/README.md). Phases 1–7 leave that numbered inventory at **0** `sorry` and **0** `admit`. Five literature axioms remain, listed in [`lean/AXIOMS.md`](lean/AXIOMS.md). Phases 2–7 added no handwritten axioms. Finite certificates, including the Appendix A replay, use `native_decide` and therefore trust the Lean compiler and runtime. The stdout of `lake env lean Phase6Audit.lean` and `lake env lean Phase7Audit.lean` is in [`lean/AXIOM_AUDIT.txt`](lean/AXIOM_AUDIT.txt). This is **not** a verification of the paper from an empty axiom set, and it is not a claim that the proofs are kernel-checked with no axioms. `cd lean && lake build` typechecks the package on Lean 4.35.0 with Mathlib v4.35.0. The inventory is in [`lean/README.md`](lean/README.md).
 
 ## Layout
 
@@ -71,6 +71,7 @@ certificates/             archival round JSON (R1–R40 and R46–R53) with SHA-
 certificates/gen3/        pinned checker verify_gen3.py (authors' certificate)
 referee_checks/           separate C/Python implementation for computational cross-checking (written by Claude; see Independent checks)
 lean/                     numbered lemmas and theorems; sorry/admit inventory 0; five axioms (lean/README.md)
+lean/AXIOM_AUDIT.txt      stdout of Phase6Audit.lean and Phase7Audit.lean
 notes/                    historical round notes
 data/                     pointer only; the full computational supplement is not shipped
 ```
@@ -85,11 +86,13 @@ SP=(-Z search-path=templates/wiley-njd -Z search-path=templates/wiley-njd/images
 tectonic -X compile --keep-intermediates "${SP[@]}" main.tex
 ```
 
-The PDF digest of this preprint is:
+The PDF digest of this preprint (`paper/main.pdf`, 25 pages) is:
 
 ```text
-a1df6e1495d80f3ccd5c544dfacfe1a78fe5d5ced037e2c1fdbe39b3aaba7e9d  paper/main.pdf
+1f328e89d65ea4e061bc6d854f0f575f3159794a3b7befe3962ce42f1397540d  paper/main.pdf
 ```
+
+The article names tag `presubmit-feedback-2026-11-04` and does not name a commit. That annotated tag is not created in this pull request. After the squash merge onto `main`, create it on the new main tip. The commit that contains `paper/main.tex`, `paper/main.pdf` and `lean/` is `96e404b7ab991bfa08397293062ea2511936e0d4`. The commit that adds this sentence only records that hash. After squash merge the main tip has a new hash; the tag is the name the article uses.
 
 ## How to verify the GEN3 certificate
 
@@ -97,7 +100,7 @@ Lemma 5.9 and Theorem 5.10 use `certificates/gen3/verify_gen3.py`. The file in t
 
 ```bash
 sha256sum -c <<'EOF'
-a1df6e1495d80f3ccd5c544dfacfe1a78fe5d5ced037e2c1fdbe39b3aaba7e9d  paper/main.pdf
+1f328e89d65ea4e061bc6d854f0f575f3159794a3b7befe3962ce42f1397540d  paper/main.pdf
 f1b6718941f9cf3e6b0917cf25ab9093810b07f6d35a11fb7cc539fb546e6fd0  certificates/gen3/verify_gen3.py
 EOF
 python3 certificates/gen3/verify_gen3.py
@@ -130,7 +133,7 @@ The R53 digest is `b90cc797e755cb8cf849937c20ad1576ea551a7b0ec3b780676c3e84d81b6
 
 ## License
 
-The code and other materials in this repository are released under the MIT License. See [`LICENSE`](LICENSE).
+The code in `certificates/`, `referee_checks/`, `lean/` and `paper/scripts/` is released under the MIT License; see [`LICENSE`](LICENSE). The Wiley template in `paper/templates/`, including its fonts and logos, keeps its own terms. The article PDF and its LaTeX source are separate from that license.
 
 ## Citation
 
