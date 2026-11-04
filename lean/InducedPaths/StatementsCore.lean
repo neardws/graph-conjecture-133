@@ -7,6 +7,16 @@ module
 public import InducedPaths.Basic
 public import InducedPaths.Certificate
 public import InducedPaths.C6Mass
+public import InducedPaths.C8Structure
+public import InducedPaths.C6RadiusStructure
+public import InducedPaths.ChordalStructure
+public import InducedPaths.C5Mass
+public import InducedPaths.ExtremalArithmetic
+public import InducedPaths.RadiusFourMass
+public import InducedPaths.RadiusFourConverse
+public import InducedPaths.SmallOrderExtremal
+public import InducedPaths.SectionThreeBound
+public import InducedPaths.C6Extremal
 public import InducedPaths.MaskGraph
 public import Mathlib.Algebra.BigOperators.Fin
 public import Mathlib.Algebra.BigOperators.Ring.Finset
@@ -54,21 +64,8 @@ theorem lemma_2_2_lambda (hG : StrongC4Free G) [Fintype V] [DecidableEq V]
 /-- Lemma 2.2. `L(v) = S(G) - S(G - v) = 2d(v) - 3t(v)`. -/
 theorem lemma_2_2 (hG : StrongC4Free G) [Fintype V] [DecidableEq V] [DecidableRel G.Adj]
     (v : V) :
-    deletionLoss G v = 2 * G.degree v - 3 * trianglesAt G v := by
-  have hS := strongC4Free_S_identity hG
-  have hC' : StrongC4Free (G.induce ({v}ᶜ : Set V)) :=
-    strongC4Free_induce (s := ({v}ᶜ : Set V)) hG
-  have hS' := strongC4Free_S_identity hC'
-  have he := edgeCount_induce_compl_add (G := G) v
-  have ht := triangleCount_induce_compl_add (G := G) v
-  have h3 := three_mul_trianglesAt_le_two_degree hG v
-  have h3' := three_mul_triangleCount_le_two_edge hC'
-  have hmain : neighbourhoodIndependenceSum G =
-      neighbourhoodIndependenceSum (G.induce ({v}ᶜ : Set V)) +
-        (2 * G.degree v - 3 * trianglesAt G v) := by
-    omega
-  rw [deletionLoss, hmain]
-  exact Nat.add_sub_cancel_left _ _
+    deletionLoss G v = 2 * G.degree v - 3 * trianglesAt G v :=
+  deletionLoss_eq_degree_sub_trianglesAt hG v
 
 /-- The executable certificate loss is actual deletion loss in its decoded
 strongly `C₄`-free simple graph. -/
@@ -1467,6 +1464,21 @@ def IsP6Extremal {V : Type*} [Fintype V] (G : SimpleGraph V) : Prop :=
   | 10 => Nonempty (G ≃g petersenGraph)
   | n => if 11 ≤ n then Nonempty (G ≃g gammaGraph (n - 7)) else False
 
+/-- The small-order equality predicate agrees with the public extremal list. -/
+lemma small_extremal_iff [Fintype V] (hlo : 2 ≤ Fintype.card V)
+    (hhi : Fintype.card V ≤ 6) : IsSmallP6Extremal G ↔ IsP6Extremal G := by
+  interval_cases hn : Fintype.card V <;> simp [IsSmallP6Extremal, IsP6Extremal, hn]
+
+/-- At order at least seven, the hexagon equality list is the public one. -/
+lemma hex_extremal_iff [Fintype V] (hn : 7 ≤ Fintype.card V) :
+    IsHexExtremal G ↔ IsP6Extremal G := by
+  by_cases h11 : 11 ≤ Fintype.card V
+  · have hn' : Fintype.card V ≠ 6 := by omega
+    unfold IsHexExtremal IsP6Extremal
+    split <;> split <;> simp_all <;> try omega
+    split <;> simp_all <;> omega
+  · interval_cases hc : Fintype.card V <;> simp [IsHexExtremal, IsP6Extremal, hc]
+
 /-- Theorem 3.6. `M(n)` is `extremalDensity`. Equality `S = 3n` holds only for Petersen. -/
 theorem theorem_3_6 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : G.Connected)
     (hC : StrongC4Free G) (hp : IsPkFree G 6) (hn : 2 ≤ Fintype.card V) :
@@ -1475,24 +1487,111 @@ theorem theorem_3_6 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : G.
       neighbourhoodIndependenceSum G ≤ 3 * Fintype.card V ∧
       (neighbourhoodIndependenceSum G = 3 * Fintype.card V ↔
         Nonempty (G ≃g petersenGraph)) := by
-  -- missing: layer mass counts, canonical extremal isomorphisms, chordal elimination, and small-order/equality classification
-  sorry
+  classical
+  have hs := section_three_mass_bound hconn hC hp hn
+  have hd : ell G ≤ extremalDensity (Fintype.card V) ∧
+      (ell G = extremalDensity (Fintype.card V) ↔ IsP6Extremal G) := by
+    by_cases hsmall : Fintype.card V ≤ 6
+    · obtain ⟨hb, he⟩ := small_order_density_classification G hconn hC hn hsmall
+      exact ⟨hb, he.trans (small_extremal_iff hn hsmall)⟩
+    · have hlarge : 7 ≤ Fintype.card V := by omega
+      by_cases h6 : cycleGraph 6 ⊴ G
+      · obtain ⟨c⟩ := h6
+        obtain ⟨hb, he⟩ := hex_extremal_density hlarge hconn hC hp c
+        exact ⟨hb, he.trans (hex_extremal_iff hlarge)⟩
+      · have hlt : ell G < extremalDensity (Fintype.card V) := by
+          by_cases h5 : cycleGraph 5 ⊴ G
+          · obtain ⟨c⟩ := h5
+            exact density_lt_extremal_of_mass_le_two_card_add_one G hlarge
+              (pentagon_mass_le hconn hC hp h6 c)
+          · exact density_lt_extremal_of_mass_le_two_card_sub_two G (by omega)
+              (chordal_branch_mass_bound hC hp h5 h6)
+        refine ⟨hlt.le, ?_⟩
+        constructor
+        · intro he
+          exact (ne_of_lt hlt he).elim
+        · intro he
+          exact ((hex_extremal_iff hlarge).mpr he).density_eq
+  exact ⟨hd.1, hd.2, hs.1, hs.2⟩
 
 /-! ### Section 4 -/
 
-/-- Lemma 4.1. An induced dominating `C₈` in radius at least 4 is the whole graph. -/
+/-- Lemma 4.1. In a `P₈`-free graph, an induced dominating `C₈` in radius
+at least 4 is the whole graph. The path-freeness hypothesis is required by the
+paper and was missing from the earlier statement. -/
 theorem lemma_4_1 [Fintype V] [DecidableEq V] (hconn : G.Connected) (hC : StrongC4Free G)
-    (c : cycleGraph 8 ↪g G) (hdom : ∀ v, ∃ i, v = c i ∨ G.Adj v (c i))
-    (hr : 4 ≤ radiusNat G) : Nonempty (G ≃g cycleGraph 8) := by
-  -- missing: an off-cycle vertex of a dominating induced `C₈` drops the radius below 4
-  sorry
+    (hp : IsPkFree G 8) (c : cycleGraph 8 ↪g G)
+    (hdom : ∀ v, ∃ i, v = c i ∨ G.Adj v (c i))
+    (hr : 4 ≤ radiusNat G) : Nonempty (G ≃g cycleGraph 8) :=
+  lemma_4_1_with_p8_free hconn hC hp c hdom hr
+
+/-- A dominating set with an internal centre of eccentricity at most two
+puts an ambient vertex at eccentricity at most three. -/
+lemma dominating_eccent_le_three [Fintype V] {X : Set V}
+    (hdom : ∀ v, ∃ x ∈ X, v = x ∨ G.Adj v x) (u : X)
+    (hu : (G.induce X).eccent u ≤ 2) : G.eccent u.val ≤ 3 := by
+  rw [eccent_le_iff] at hu ⊢
+  intro v
+  obtain ⟨x, hx, hv⟩ := hdom v
+  have hux : G.edist u.val x ≤ 2 := by
+    have hdist := hu ⟨x, hx⟩
+    obtain ⟨p, hp⟩ := exists_walk_of_edist_ne_top (ne_top_of_le_ne_top (by simp) hdist)
+    have hmap := (p.map (Embedding.induce X).toHom).edist_le
+    rw [Walk.length_map, hp] at hmap
+    exact hmap.trans hdist
+  rcases hv with rfl | hv
+  · exact hux.trans (by norm_num)
+  · have hxv : G.edist x v ≤ 1 := hv.symm.toWalk.edist_le.trans (by simp)
+    calc
+      G.edist u.val v ≤ G.edist u.val x + G.edist x v := G.edist_triangle
+      _ ≤ 2 + 1 := add_le_add hux hxv
+      _ = 3 := by norm_num
+
+/-- The forward classification in Theorem 4.2. -/
+theorem theorem_4_2_forward [Fintype V] [DecidableEq V]
+    (hconn : G.Connected) (hC : StrongC4Free G) (hr : radiusNat G = 4)
+    (hp : inducedPathOrder G = 7) :
+    Nonempty (G ≃g cycleGraph 8) ∨ IsRadiusFourExtension G := by
+  classical
+  have hp8 : IsPkFree G 8 :=
+    (isPkFree_iff_inducedPathOrder_lt G 8).2 (by omega)
+  obtain ⟨X, hXconn, hXdom, hXcase⟩ := camby_schaudt G 8 (by omega) hconn hp8
+  rcases hXcase with hXfree | he
+  swap
+  · obtain ⟨e⟩ := he
+    let c : cycleGraph 8 ↪g G := e.symm.toEmbedding.trans (Embedding.induce X)
+    have hcdom : ∀ v, ∃ i, v = c i ∨ G.Adj v (c i) := by
+      intro v
+      obtain ⟨x, hx, hv⟩ := hXdom v
+      refine ⟨e ⟨x, hx⟩, ?_⟩
+      simpa [c] using hv
+    exact Or.inl (lemma_4_1 hconn hC hp8 c hcdom (by omega))
+  · have hXfree' : IsPkFree (G.induce X) 6 := hXfree
+    rcases lemma_3_5 hXconn (strongC4Free_induce hC) hXfree' with ⟨u, hu⟩ | he6
+    · exact (hexRadius_not_eccent_le_three (by omega) u.val
+        (dominating_eccent_le_three hXdom u hu)).elim
+    · obtain ⟨e⟩ := he6
+      let c : cycleGraph 6 ↪g G := e.symm.toEmbedding.trans (Embedding.induce X)
+      have hcdom : ∀ v, ∃ i, v = c i ∨ G.Adj v (c i) := by
+        intro v
+        obtain ⟨x, hx, hv⟩ := hXdom v
+        refine ⟨e ⟨x, hx⟩, ?_⟩
+        simpa [c] using hv
+      exact Or.inr ⟨radiusFourExtension_of_dominating_hexagon hC hp8 (by omega) c hcdom⟩
 
 /-- Theorem 4.2. -/
 theorem theorem_4_2 [Fintype V] [DecidableEq V] :
     (G.Connected ∧ StrongC4Free G ∧ radiusNat G = 4 ∧ inducedPathOrder G = 7) ↔
       Nonempty (G ≃g cycleGraph 8) ∨ IsRadiusFourExtension G := by
-  -- missing: Lemma 4.1 and the classification of radius-4 extensions
-  sorry
+  constructor
+  · rintro ⟨hconn, hC, hr, hp⟩
+    exact theorem_4_2_forward hconn hC hr hp
+  · intro he
+    rcases he with he | hE
+    · obtain ⟨e⟩ := he
+      exact cycle8_iso_radius_four_properties e
+    · obtain ⟨E⟩ := hE
+      exact E.converse
 
 /-- Lemma 4.3. Off-cycle vertices of an induced path of order at least 3 are endpoints. -/
 theorem lemma_4_3 {n : ℕ} (E : RadiusFourExtension G) (f : pathGraph n ↪g G) (hn : 3 ≤ n) :
@@ -1572,8 +1671,15 @@ theorem corollary_4_4_mass [Fintype V] [DecidableEq V] [DecidableRel G.Adj]
       (∃ E : RadiusFourExtension G,
         neighbourhoodIndependenceSum G =
           2 * Fintype.card V - addedCount E - matchingCount E) := by
-  -- missing: Theorem 4.2
-  sorry
+  classical
+  rcases theorem_4_2_forward hconn hC hr hp with he | hE
+  · left
+    refine ⟨he, ?_⟩
+    obtain ⟨e⟩ := he
+    have hc : Fintype.card V = 8 := by simpa using Fintype.card_congr e.toEquiv
+    rw [neighbourhoodIndependenceSum_iso e, cycle8_mass, hc]
+  · obtain ⟨E⟩ := hE
+    exact Or.inr ⟨E, E.mass hC⟩
 
 /-- Corollary 4.4, the inequalities. They follow from the mass formula. -/
 theorem corollary_4_4 [Fintype V] [DecidableEq V] [DecidableRel G.Adj]
@@ -1602,8 +1708,20 @@ theorem corollary_4_5 [Fintype V] [DecidableEq V] [DecidableRel G.Adj]
       Nonempty (G ≃g cycleGraph 8) ∨
         ∃ E : RadiusFourExtension G, addedCount E = 0 ∧ matchingCount E = 0 ∧
           ∀ i, ∃ v ∈ E.attach i, ∀ w ∈ E.attach i, ¬ G.Adj v w := by
-  -- missing: the mass formula in Corollary 4.4
-  sorry
+  classical
+  constructor
+  · intro hS
+    rcases theorem_4_2_forward hconn hC hr hp with he | hE
+    · exact Or.inl he
+    · obtain ⟨E⟩ := hE
+      obtain ⟨hb, hm⟩ := (E.mass_eq_full_iff hC).mp hS
+      exact Or.inr ⟨E, hb, hm, E.isolated_attachment_of_matchingCount_zero hm⟩
+  · intro heq
+    rcases heq with he | ⟨E, hb, hm, _⟩
+    · obtain ⟨e⟩ := he
+      have hc : Fintype.card V = 8 := by simpa using Fintype.card_congr e.toEquiv
+      rw [neighbourhoodIndependenceSum_iso e, cycle8_mass, hc]
+    · exact (E.mass_eq_full_iff hC).mpr ⟨hb, hm⟩
 
 /-! ### Section 5 -/
 

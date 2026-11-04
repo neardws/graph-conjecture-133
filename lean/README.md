@@ -1,6 +1,6 @@
 # Lean formalization
 
-This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It is **not** a verification of the paper. Thirteen proofs are still `sorry` (17 before Phase 5). Five external citations are axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2–5 added no hand-declared axioms. Finite checks use Lean's `native_decide` trust mechanism, including the new trace-witness check. `GenK` and `Rad` stay open definitions.
+This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It is **not** a verification of the paper. Eight proofs are still `sorry` (17 before Phase 5, 13 before Phase 6). Five external citations are axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2–6 added no hand-declared axioms. Finite checks use Lean's `native_decide` trust mechanism, including the new trace-witness check. `GenK` and `Rad` stay open definitions.
 
 ## Build
 
@@ -65,8 +65,13 @@ Several of these still depend on a `sorry` or on an axiom; that is noted in the 
 | Lemma 3.3 | `lemma_3_3` | proved; inactive neighbourhood components supply disjoint private simplicial vertices |
 | Lemma 3.4 | `lemma_3_4` | proved; antipodal traces, exact mass, cardinality and radius bounds |
 | Lemma 3.5 | `lemma_3_5` | proved from Lemmas 2.7, 2.8 and 3.4; uses existing `seinsche` and `camby_schaudt` |
+| Theorem 3.6 | `theorem_3_6` | proved: sharp density envelope, complete equality list, and Petersen-only `S = 3n`; uses existing `karthick_maffray_C5` and finite native decisions |
+| Lemma 4.1 | `lemma_4_1` | proved with the paper’s necessary `P₈`-free hypothesis restored; the earlier hypothesis-free statement has a formally checked counterexample |
+| Theorem 4.2 | `theorem_4_2` | proved in both directions, including arbitrary extension attachments, radius and induced-path order |
 | Remark 4.6 | `remark_4_6` | proved (arithmetic) |
-| Corollary 4.4, `S ≤ 2n` and `ℓ ≤ 2` | `corollary_4_4` | proved from `corollary_4_4_mass`, which is `sorry` |
+| Corollary 4.4, exact mass | `corollary_4_4_mass` | proved from the forward radius-four classification and exact extension counts |
+| Corollary 4.4, `S ≤ 2n` and `ℓ ≤ 2` | `corollary_4_4` | proved from the exact mass formula |
+| Corollary 4.5 | `corollary_4_5` | proved; equality is exactly zero added-edge vertices and zero matching edges |
 | Lemma 4.3 | `lemma_4_3` | proved; an off-cycle vertex of an induced path is an endpoint |
 | Lemma 5.3 | `lemma_5_3` | proved from the distance layers at a vertex that starts no induced `P₄` |
 | Lemma 5.8(1) | `lemma_5_8_share` | proved; the statement assumes `a ≠ d` |
@@ -86,13 +91,7 @@ Several of these still depend on a `sorry` or on an axiom; that is noted in the 
 
 ## Still `sorry`
 
-There are **13** declarations whose proof is `sorry`, down from **17**. Each one has a one-line comment naming the missing step. The Section 3 chain is **not complete**: Theorem 3.6 is still open.
-
-- `theorem_3_6`: layer mass counts, canonical extremal isomorphisms, the chordal elimination argument, and equality/small-order classification
-- `lemma_4_1`: an off-cycle vertex of a dominating induced `C₈` drops the radius below 4
-- `theorem_4_2`: Lemma 4.1 and the classification of radius-4 extensions
-- `corollary_4_4_mass`: Theorem 4.2
-- `corollary_4_5`: the mass formula in Corollary 4.4
+There are **8** declarations whose proof is `sorry`, down from **17** (13 before Phase 6). Each one has a one-line comment naming the missing step. The requested Section 3 and Section 4 chains are complete; the remaining gaps are in Section 5.
 - `lemma_5_2`: the edge count of each member of the Chen–Xu family
 - `lemma_5_4`: deleting degree-1 vertices down to a `K₁`, `K₂`, or Chen–Xu core
 - `theorem_5_5`: Lemmas 5.2 and 5.4; `GEN₃` and the bipartite clause stay open
@@ -104,7 +103,9 @@ There are **13** declarations whose proof is `sorry`, down from **17**. Each one
 
 Lemma 5.9 is proved, but not by `four_seed_replay` alone. `SeedRealization` extracts an actual induced seed; `MaskGraph` identifies the executable loss with graph triangles and degree; `RealizedLoss` uses exact induced-subgraph locality; and the witnessed replay excludes an ambient graph with all losses at least four. The proof's axiom audit contains no `sorryAx` and no external citation axiom, only the standard Lean axioms and the finite trace check's native-decision trust dependency. `GenK` and `Rad` remain open definitions, not theorems.
 
-`Statements.lean` preserves the public statement import and Lemma 5.9 signature. `StatementsCore.lean` contains the prerequisite numbered declarations, avoiding a circular dependency through the certificate proof. `C6Layers` proves the first/second-layer structure; `C5Trace` proves the pentagon trace and cross-edge restrictions; `ChordalMass` proves only the local simplicial deletion estimate. These helpers do **not** complete Theorem 3.6.
+`Statements.lean` preserves the public statement import and Lemma 5.9 signature. `StatementsCore.lean` assembles the numbered declarations without circular dependencies. Section 3 uses the complete hexagon classification (`C6Classification`, `C6Named*`, `C6Extremal`), pentagon mass bounds (`C5Mass`), direct hereditary simplicial elimination (`ChordalStructure`), and exhaustive upper-triangular Boolean graph checks for orders 2–6 (`SmallOrderExtremal`, at most 32,768 codes, with proved decoding and semantic transport). Section 4 uses actual finite path witnesses and ambient lifting (`C8Structure`, `C6RadiusStructure`), a standalone converse for arbitrary extension attachments (`RadiusFourConverse`), and bijective edge/triangle counts (`RadiusFourMass`).
+
+Theorem 3.6 depends on the existing `karthick_maffray_C5` axiom, standard Lean axioms, and finite native-decision trust. Theorem 4.2 and its mass/equality corollaries depend on existing `camby_schaudt` and `seinsche` axioms plus standard/native trust. None of these completed targets depends on `sorryAx`. The chordal branch, arbitrary-extension converse, and extension mass count use only the standard Lean axioms. This does not verify the whole paper.
 
 The five axioms in [`AXIOMS.md`](AXIOMS.md) are not included in that count.
 
