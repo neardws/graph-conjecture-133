@@ -1,6 +1,6 @@
 # Lean formalization
 
-This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It is **not** a verification of the paper. Seventeen proofs are still `sorry`. Five external citations are axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2, 3, and 4 added no axioms. `GenK` and `Rad` stay open definitions.
+This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It is **not** a verification of the paper. Thirteen proofs are still `sorry` (17 before Phase 5). Five external citations are axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2–5 added no hand-declared axioms. Finite checks use Lean's `native_decide` trust mechanism, including the new trace-witness check. `GenK` and `Rad` stay open definitions.
 
 ## Build
 
@@ -62,6 +62,9 @@ Several of these still depend on a `sorry` or on an axiom; that is noted in the 
 | Geodesic `p ≥ r + 1` | `inducedPathOrder_ge_radius_succ` | proved |
 | Lemma 3.1 | `lemma_3_1` | proved |
 | Lemma 3.2 | `lemma_3_2` | proved from Lemma 2.7, hence from `seinsche` |
+| Lemma 3.3 | `lemma_3_3` | proved; inactive neighbourhood components supply disjoint private simplicial vertices |
+| Lemma 3.4 | `lemma_3_4` | proved; antipodal traces, exact mass, cardinality and radius bounds |
+| Lemma 3.5 | `lemma_3_5` | proved from Lemmas 2.7, 2.8 and 3.4; uses existing `seinsche` and `camby_schaudt` |
 | Remark 4.6 | `remark_4_6` | proved (arithmetic) |
 | Corollary 4.4, `S ≤ 2n` and `ℓ ≤ 2` | `corollary_4_4` | proved from `corollary_4_4_mass`, which is `sorry` |
 | Lemma 4.3 | `lemma_4_3` | proved; an off-cycle vertex of an induced path is an endpoint |
@@ -69,6 +72,7 @@ Several of these still depend on a `sorry` or on an axiom; that is noted in the 
 | Lemma 5.8(1) | `lemma_5_8_share` | proved; the statement assumes `a ≠ d` |
 | Lemma 5.8(2) | `lemma_5_8_disjoint` | proved; at most one cross edge between disjoint triangles |
 | Lemma 5.8(4) | `lemma_5_8_path` | proved; two disjoint triangles at set-distance `d` give an induced path of order `d + 3` |
+| Lemma 5.9 | `lemma_5_9` | proved; actual seed extraction, mask-loss identity, normalized ambient extensions and witnessed finite closure |
 | Petersen induced-path order | `petersen_inducedPathOrder` | proved; explicit induced `P₅`, and no induced `P₆` by a `Bool` search |
 | Remark 5.12 | `remark_5_12` | the case `c_{C₄} = 0` uses the proved geodesic; the case `c_{C₄} = 1` uses Theorems 5.11 and 5.10, Corollary 4.4, and `erdos_saks_sos` |
 | Proposition 6.2, closed form and limit | `theta_closed_form`, `theta_gap_tendsto` | proved |
@@ -82,12 +86,9 @@ Several of these still depend on a `sorry` or on an axiom; that is noted in the 
 
 ## Still `sorry`
 
-There are **17** declarations whose proof is `sorry`. Each one has a one-line comment naming the missing step.
+There are **13** declarations whose proof is `sorry`, down from **17**. Each one has a one-line comment naming the missing step. The Section 3 chain is **not complete**: Theorem 3.6 is still open.
 
-- `lemma_3_3`: the count of vertices with `λ ≥ 3` in a `P₅`-free neighbourhood
-- `lemma_3_4`: the trace of each vertex off a dominating induced `C₆`
-- `lemma_3_5`: Lemma 3.4 when the Camby–Schaudt set is an induced `C₆`
-- `theorem_3_6`: the extremal case analysis for `P₆`-free strong `C₄`-free graphs
+- `theorem_3_6`: layer mass counts, canonical extremal isomorphisms, the chordal elimination argument, and equality/small-order classification
 - `lemma_4_1`: an off-cycle vertex of a dominating induced `C₈` drops the radius below 4
 - `theorem_4_2`: Lemma 4.1 and the classification of radius-4 extensions
 - `corollary_4_4_mass`: Theorem 4.2
@@ -98,11 +99,12 @@ There are **17** declarations whose proof is `sorry`. Each one has a one-line co
 - `theorem_5_6_noniso`: isomorphism invariants separating the leaf placements
 - `theorem_5_6`: Theorem 5.5 and the extremal graphs of order at least 10
 - `theorem_5_7`: at most one triangle, then the deletion-loss bound
-- `lemma_5_9`: embed each induced pair of triangles as `seed d` (`d ≤ 3` by Lemma 5.8(4)) and show a closed mask replay yields `deletionLoss ≤ 3`
 - `theorem_5_10`: Theorems 5.6 and 5.7
 - `theorem_5_11`: the case split on `c_{C₄}` using Theorems 3.6, 4.2 and 5.10
 
-Lemma 5.9 is still open. `four_seed_replay` does not embed the four seeds or compare mask-loss with `L(v)`. Lemma 5.8(4) supplies the distance bound `d ≤ 3` for that embedding. `GenK` and `Rad` remain open definitions, not theorems.
+Lemma 5.9 is proved, but not by `four_seed_replay` alone. `SeedRealization` extracts an actual induced seed; `MaskGraph` identifies the executable loss with graph triangles and degree; `RealizedLoss` uses exact induced-subgraph locality; and the witnessed replay excludes an ambient graph with all losses at least four. The proof's axiom audit contains no `sorryAx` and no external citation axiom, only the standard Lean axioms and the finite trace check's native-decision trust dependency. `GenK` and `Rad` remain open definitions, not theorems.
+
+`Statements.lean` preserves the public statement import and Lemma 5.9 signature. `StatementsCore.lean` contains the prerequisite numbered declarations, avoiding a circular dependency through the certificate proof. `C6Layers` proves the first/second-layer structure; `C5Trace` proves the pentagon trace and cross-edge restrictions; `ChordalMass` proves only the local simplicial deletion estimate. These helpers do **not** complete Theorem 3.6.
 
 The five axioms in [`AXIOMS.md`](AXIOMS.md) are not included in that count.
 
@@ -116,4 +118,6 @@ The five axioms in [`AXIOMS.md`](AXIOMS.md) are not included in that count.
 
 `four_seed_replay` evaluates to `(nodes, max order, leaves) = (36, 17, 7)`, `(31, 15, 6)`, `(46, 11, 21)`, `(5, 10, 3)`. Because the checker has no unrestricted branch, those successes force unrestricted count `0`.
 
-Lemma 2.2 shows that on a strong `C₄`-free graph the simple-graph deletion loss equals `2d(v) - 3t(v)`. The checker still computes that quantity on bitmasks. Lemma 5.9 does not follow from the replay: its `sorry` is the embedding of the four seeds and the comparison of mask-loss with `L(v)`.
+`TraceWitnessCheck` performs a strengthened replay with the original choices and `extensions`: at every one of the 118 nodes it independently constructs and verifies an injective induced-`P₇` path for every rejected trace attachment. The greedy path generator is not trusted: its output must satisfy all adjacency equivalences, injectivity and trace support. Successful replay yields `WitnessClosed` for each seed. This avoids assuming unproved generic correctness of `grow` or `componentList` and does not change the certificate semantics.
+
+The ambient extension proof additionally preserves `Normalized` (all row bits below the current order), because in-range symmetry and looplessness alone do not prevent old high bits from contaminating a new vertex. The proof verifies the degree and triangle loss identity, produces a new ambient neighbour by locality, encodes its bounded neighbourhood mask, and follows a legal child. A finite witnessed closing tree makes an ambient counterexample impossible.
