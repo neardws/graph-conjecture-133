@@ -1,5 +1,7 @@
 /-
-Statements of the preprint, in dependency order. Proofs are `sorry` except where noted.
+Core statements of the preprint, in dependency order. The global Section 5
+statements are assembled in Statements after the Lemma 5.9 certificate proof,
+so their universal low-loss input introduces no import cycle.
 Paper numbers refer to `paper/main.tex` at `c6d3eb76`.
 -/
 module
@@ -17,6 +19,11 @@ public import InducedPaths.RadiusFourConverse
 public import InducedPaths.SmallOrderExtremal
 public import InducedPaths.SectionThreeBound
 public import InducedPaths.C6Extremal
+public import InducedPaths.ChenXuCounts
+public import InducedPaths.ChenXuCore
+public import InducedPaths.SectionFiveNoniso
+public import InducedPaths.OneTriangleAssembly
+public import InducedPaths.SectionFiveExtremalAssembly
 public import InducedPaths.MaskGraph
 public import Mathlib.Algebra.BigOperators.Fin
 public import Mathlib.Algebra.BigOperators.Ring.Finset
@@ -1731,8 +1738,7 @@ theorem lemma_5_2 [Fintype V] [DecidableEq V] [DecidableRel G.Adj]
     (Nonempty (G ≃g petersenGraph) ∧ 2 * edgeCount G = 3 * Fintype.card V) ∨
       (¬ Nonempty (G ≃g petersenGraph) ∧
         2 * edgeCount G ≤ 3 * Fintype.card V - 3) := by
-  -- missing: the edge count of each member of the Chen–Xu family
-  sorry
+  exact chenXu_counts h
 
 /-- An induced `P₄` cannot start at `s` under the hypothesis of Lemma 5.3. -/
 private lemma no_induced_P4_start [DecidableEq V] {s a b c : V}
@@ -2157,19 +2163,7 @@ theorem lemma_5_4 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : G.Co
         3 * Fintype.card V - 2 * edgeCount G =
           (3 * Nat.card Q - 2 * edgeCount (G.induce Q)) +
             (Fintype.card V - Nat.card Q) := by
-  -- missing: deleting degree-1 vertices down to a `K₁`, `K₂`, or Chen–Xu core
-  sorry
-
-/-- Theorem 5.5. -/
-theorem theorem_5_5 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : G.Connected)
-    (htri : G.CliqueFree 3) (hC : StrongC4Free G) (hp : IsPkFree G 7) :
-    2 * edgeCount G ≤ 3 * Fintype.card V ∧
-      (2 * edgeCount G = 3 * Fintype.card V ↔ Nonempty (G ≃g petersenGraph)) ∧
-      (inducedPathOrder G ≤ 6 → GenK 3) ∧
-      (G.IsBipartite → inducedPathOrder G ≤ 6 →
-        neighbourhoodIndependenceSum G + 1 ≤ 3 * Fintype.card V) := by
-  -- missing: Lemmas 5.2 and 5.4; `GEN₃` and the bipartite clause stay open
-  sorry
+  exact chenXu_tree_core hconn htri hC hp
 
 /-- Canonical leaf placements and the extra `F₂` / `F'₀` models of Theorem 5.6. -/
 def IsFnExtremal {V : Type*} [Fintype V] (G : SimpleGraph V) : Prop :=
@@ -2197,9 +2191,8 @@ def IsFnExtremal {V : Type*} [Fintype V] (G : SimpleGraph V) : Prop :=
   else
     False
 
-/-- Distinct canonical Petersen leaf-pairs, and `F₂` not isomorphic to a leaf extension
-of Petersen. The remaining pairwise checks among `F'₀`, `F₂`-leaves and Petersen leaves
-are part of this `sorry`. -/
+/-- Distinct canonical Petersen leaf-pairs and all displayed pairwise checks among
+`F₂`, `F'₀` and the one-leaf extensions, separated by degree invariants. -/
 theorem theorem_5_6_noniso :
     (∀ a b a' b' : ℕ,
       a + b = a' + b' → (b = 0 ∨ 1 ≤ a ∧ a ≤ b) → (b' = 0 ∨ 1 ≤ a' ∧ a' ≤ b') →
@@ -2208,8 +2201,7 @@ theorem theorem_5_6_noniso :
       (∀ t, 0 < t → ¬ Nonempty (f0pGraph t ≃g f2HubLeaf t)) ∧
       (∀ t, 0 < t → ¬ Nonempty (f0pGraph t ≃g f2MidLeaf t)) ∧
       (∀ t, 0 < t → ¬ Nonempty (f2HubLeaf t ≃g f2MidLeaf t)) := by
-  -- missing: isomorphism invariants separating the leaf placements
-  sorry
+  exact sectionFive_noniso
 
 /-- Theorem 5.6. `f(n)` is `edgeExtremal`. -/
 theorem theorem_5_6 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : G.Connected)
@@ -2217,15 +2209,15 @@ theorem theorem_5_6 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : G.
     (hn : 10 ≤ Fintype.card V) :
     2 * edgeCount G ≤ edgeExtremal (Fintype.card V) ∧
       (2 * edgeCount G = edgeExtremal (Fintype.card V) ↔ IsFnExtremal G) := by
-  -- missing: Theorem 5.5 and the extremal graphs of order at least 10
-  sorry
+  exact SectionFiveExtremal.theorem_5_6_exact G hconn htri hC hp hn
 
 /-- Theorem 5.7. At most one triangle. -/
 theorem theorem_5_7 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : G.Connected)
     (hC : StrongC4Free G) (hp : IsPkFree G 7) (htri : triangleCount G ≤ 1) :
     neighbourhoodIndependenceSum G ≤ 3 * Fintype.card V := by
-  -- missing: at most one triangle, then the deletion-loss bound
-  sorry
+  apply oneTriangle_mass_bound_of_rooted (hroot := ?_) hconn hC hp htri
+  intro W _ _ H _ s hc hC hroot
+  exact (lemma_5_3 hc hC hroot).trans (Nat.sub_le _ _)
 
 /-- Lemma 5.8(1). A cross edge between two triangles that share a vertex spans a `C₄`.
 `a ≠ d` keeps `a, c, d, u` distinct; without it the configuration can be a single triangle. -/
@@ -2756,20 +2748,5 @@ theorem petersen_inducedPathOrder : inducedPathOrder petersenGraph = 5 := by
     (isPkFree_iff_inducedPathOrder_lt petersenGraph 6).mp h6
   omega
 
-/-- Theorem 5.10. -/
-theorem theorem_5_10 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : G.Connected)
-    (hC : StrongC4Free G) (hp : IsPkFree G 7) :
-    neighbourhoodIndependenceSum G ≤ 3 * Fintype.card V ∧
-      (neighbourhoodIndependenceSum G = 3 * Fintype.card V ↔
-        Nonempty (G ≃g petersenGraph)) := by
-  -- missing: Theorems 5.6 and 5.7
-  sorry
-
-/-- Theorem 5.11, REAL-133 for `ℓ ≤ 4`. -/
-theorem theorem_5_11 [Fintype V] [DecidableEq V] (hell : ell G ≤ 4)
-    (hn : 2 ≤ Fintype.card V) (hconn : G.Connected) :
-    (inducedPathOrder G : ℚ) ≥ (radiusNat G : ℚ) + ell G ^ cC4 G := by
-  -- missing: the case split on `c_{C₄}` using Theorems 3.6, 4.2 and 5.10
-  sorry
 
 end InducedPaths

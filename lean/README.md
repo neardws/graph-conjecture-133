@@ -1,6 +1,6 @@
 # Lean formalization
 
-This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It is **not** a verification of the paper. Eight proofs are still `sorry` (17 before Phase 5, 13 before Phase 6). Five external citations are axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2–6 added no hand-declared axioms. Finite checks use Lean's `native_decide` trust mechanism, including the new trace-witness check. `GenK` and `Rad` stay open definitions.
+This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It is **not** a fully Lean-verified proof of the paper. Phase 7 eliminates the remaining eight direct `sorry` proofs (17 before Phase 5, 13 before Phase 6, 8 before Phase 7). Five external citations remain axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2–7 added no hand-declared axioms. Finite checks use Lean's `native_decide` compiler/runtime trust mechanism, including trace witnesses, graph tables, and Petersen path/symmetry certificates. `GenK` and `Rad` remain definitions of propositions, not blanket axioms or assertions; the `GenK 3` clause is proved from the completed Section 5 bound.
 
 ## Build
 
@@ -24,7 +24,7 @@ From this directory, with [elan](https://github.com/leanprover/elan) on `PATH`:
 lake build
 ```
 
-`lake build` elaborates every declaration and runs `four_seed_replay` by `native_decide`. `sorry` elsewhere is accepted.
+`lake build` elaborates every declaration and runs the native finite checks, including `four_seed_replay`. Follow it with `lake env lean Phase6Audit.lean` and `lake env lean Phase7Audit.lean` to inspect the completed targets' actual axiom dependencies.
 
 The package is `inducedPaths`. Modules live under `InducedPaths/`.
 
@@ -37,13 +37,13 @@ The package is `inducedPaths`. Modules live under `InducedPaths/`.
 - `lambda`, `neighbourhoodIndependenceSum` (`S`), and `ell` (`ℓ = S / n`) are the neighbourhood-independence quantities.
 - `radiusNat` is `G.radius.toNat`.
 - `triangleCount`, `trianglesAt`, `deletionLoss` (`L(v) = S(G) - S(G - v)`, with `G - v` the induced subgraph on `{v}ᶜ`), cut vertices, and clique cutsets match Sections 2 and 5.
-- `GenK` and `Rad` are the open statements `GEN_K` and `RAD(r)`. They are not theorems.
+- `GenK` and `Rad` define the proposition families `GEN_K` and `RAD(r)`. They are not blanket theorem declarations; specific conditional clauses are proved where stated.
 
 Concrete graphs (`Petersen`, `Γₕ`, `H₈`, the Chen–Xu list, the radius-4 extension, `θₖ`) are in `InducedPaths/Graphs.lean`.
 
 ## Proved without `sorry` in the declaration
 
-Several of these still depend on a `sorry` or on an axiom; that is noted in the table.
+Several depend on explicit citation axioms or finite native checks; none retains a proof placeholder.
 
 | Paper | Lean | Status |
 |-------|------|--------|
@@ -82,26 +82,31 @@ Several of these still depend on a `sorry` or on an axiom; that is noted in the 
 | Remark 5.12 | `remark_5_12` | the case `c_{C₄} = 0` uses the proved geodesic; the case `c_{C₄} = 1` uses Theorems 5.11 and 5.10, Corollary 4.4, and `erdos_saks_sos` |
 | Proposition 6.2, closed form and limit | `theta_closed_form`, `theta_gap_tendsto` | proved |
 | Proposition 6.2, the graph `θₖ` | `proposition_6_2` | proved: strong `C₄`-free, order `2k+2`, radius 3, induced-path order 6, `S = 6k = 3n-6` |
-| Corollary 6.1 | `corollary_6_1` | proved from Theorem 5.11 (`sorry`) and `erdos_saks_sos` |
-| Corollary 6.3, `S ≤ 3n - 1` and `ℓ < 3` | `corollary_6_3` | proved from Theorem 5.10 (`sorry`) and `petersen_inducedPathOrder` |
+| Corollary 6.1 | `corollary_6_1` | proved from the proved Theorem 5.11 and `erdos_saks_sos` |
+| Corollary 6.3, `S ≤ 3n - 1` and `ℓ < 3` | `corollary_6_3` | proved from the proved Theorem 5.10 and `petersen_inducedPathOrder` |
 | Appendix A choice-list lengths | `choicesDist0_length` … `choicesDist3_length` | proved by `rfl` (`36`, `31`, `46`, `5`) |
 | Appendix A replay | `four_seed_replay` | proved by `native_decide` |
 
 `trianglesAt_eq_neighborEdges` (triangles at `v` are the edges of `G[N(v)]`) is proved for every simple graph. It is the counting step inside Lemma 2.1(3).
 
-## Still `sorry`
+## Phase 7: Section 5 proof completion
 
-There are **8** declarations whose proof is `sorry`, down from **17** (13 before Phase 6). Each one has a one-line comment naming the missing step. The requested Section 3 and Section 4 chains are complete; the remaining gaps are in Section 5.
-- `lemma_5_2`: the edge count of each member of the Chen–Xu family
-- `lemma_5_4`: deleting degree-1 vertices down to a `K₁`, `K₂`, or Chen–Xu core
-- `theorem_5_5`: Lemmas 5.2 and 5.4; `GEN₃` and the bipartite clause stay open
-- `theorem_5_6_noniso`: isomorphism invariants separating the leaf placements
-- `theorem_5_6`: Theorem 5.5 and the extremal graphs of order at least 10
-- `theorem_5_7`: at most one triangle, then the deletion-loss bound
-- `theorem_5_10`: Theorems 5.6 and 5.7
-- `theorem_5_11`: the case split on `c_{C₄}` using Theorems 3.6, 4.2 and 5.10
+The remaining **8 → 0** direct proof placeholders are eliminated, with unchanged public theorem signatures:
 
-Lemma 5.9 is proved, but not by `four_seed_replay` alone. `SeedRealization` extracts an actual induced seed; `MaskGraph` identifies the executable loss with graph triangles and degree; `RealizedLoss` uses exact induced-subgraph locality; and the witnessed replay excludes an ambient graph with all losses at least four. The proof's axiom audit contains no `sorryAx` and no external citation axiom, only the standard Lean axioms and the finite trace check's native-decision trust dependency. `GenK` and `Rad` remain open definitions, not theorems.
+- `lemma_5_2`: exact counts for the Chen–Xu family.
+- `lemma_5_4`: literal degree-one stripping, connected terminal core classification, and exact edge/deficit identities.
+- `theorem_5_5`: triangle-free edge bound and Petersen equality, the conditional `GenK 3` clause, and strict bipartite bound.
+- `theorem_5_6_noniso`: all displayed nonisomorphism clauses via degree invariants.
+- `theorem_5_6`: extremal envelope and actual canonical isomorphism classification, including Petersen leaf fibers and both F₂ leaf sites.
+- `theorem_5_7`: at-most-one-triangle mass bound, with rooted cut-side induction and exact attachment counts.
+- `theorem_5_10`: global mass bound and Petersen equality, combining the low-loss certificate with the concrete strict unique-triangle endgame.
+- `theorem_5_11`: the `c_{C₄}` case split and radius/order analysis using the preceding bounds.
+
+The strict endgame reconstructs an actual thirteen-vertex induced extension from a hypothetical equality core, then excludes it with an induced-P₇ certificate. Numerical equality alone is not substituted for graph isomorphism. `Statements.lean` assembles Theorems 5.5, 5.10 and 5.11 after Lemma 5.9, avoiding a universal-low-loss dependency cycle; import `InducedPaths.Statements` or `InducedPaths` for the complete numbered interface. No public theorem hypothesis was changed in Phase 7.
+
+Run `lake env lean Phase7Audit.lean` to inspect all eight completed targets. None should list `sorryAx`. This does **not** remove the five external citation axioms or native-evaluator/compiler trust. In particular, Chen–Xu classification remains the declared `chen_xu_core` input; finite table, attachment, Petersen path and symmetry checks introduce generated native-decision dependencies rather than new handwritten mathematical axioms.
+
+Lemma 5.9 is proved, but not by `four_seed_replay` alone. `SeedRealization` extracts an actual induced seed; `MaskGraph` identifies the executable loss with graph triangles and degree; `RealizedLoss` uses exact induced-subgraph locality; and the witnessed replay excludes an ambient graph with all losses at least four. The proof's axiom audit contains no `sorryAx` and no external citation axiom, only the standard Lean axioms and the finite trace check's native-decision trust dependency. `GenK` and `Rad` remain proposition definitions; no general `GenK`/`Rad` family is asserted.
 
 `Statements.lean` preserves the public statement import and Lemma 5.9 signature. `StatementsCore.lean` assembles the numbered declarations without circular dependencies. Section 3 uses the complete hexagon classification (`C6Classification`, `C6Named*`, `C6Extremal`), pentagon mass bounds (`C5Mass`), direct hereditary simplicial elimination (`ChordalStructure`), and exhaustive upper-triangular Boolean graph checks for orders 2–6 (`SmallOrderExtremal`, at most 32,768 codes, with proved decoding and semantic transport). Section 4 uses actual finite path witnesses and ambient lifting (`C8Structure`, `C6RadiusStructure`), a standalone converse for arbitrary extension attachments (`RadiusFourConverse`), and bijective edge/triangle counts (`RadiusFourMass`).
 

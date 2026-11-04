@@ -21,7 +21,8 @@ variable {V : Type*} {G : SimpleGraph V}
 
 /-- Remark 5.12. The case `c_{C₄} = 0` is the geodesic `p ≥ r + 1`.
 The case `c_{C₄} = 1` uses Theorem 5.11, Theorem 5.10, Corollary 4.4, and
-`erdos_saks_sos`. Those four inputs are still `sorry` or an axiom. -/
+`erdos_saks_sos`. The numbered inputs are proved; the cited theorem remains
+an explicit external axiom. -/
 theorem remark_5_12 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : G.Connected)
     (hn : 2 ≤ Fintype.card V) (hell : ell G < 5) :
     (inducedPathOrder G : ℚ) ≥
@@ -180,8 +181,8 @@ theorem corollary_6_1 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : 
       have : ((radiusNat G - 1 : ℕ) : ℚ) = (K : ℚ) := by exact_mod_cast this
       linarith
 
-/-- Corollary 6.3, the strict inequality. The bound uses Theorem 5.10, which is still
-`sorry`. The Petersen order in the equality case is `petersen_inducedPathOrder`. -/
+/-- Corollary 6.3, the strict inequality, using the proved Theorem 5.10.
+The Petersen order in the equality case is `petersen_inducedPathOrder`. -/
 theorem corollary_6_3 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : G.Connected)
     (hC : StrongC4Free G) (hp : inducedPathOrder G = 6) :
     neighbourhoodIndependenceSum G ≤ 3 * Fintype.card V - 1 ∧ ell G < 3 := by
