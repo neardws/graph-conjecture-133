@@ -16,12 +16,15 @@ certificate (`None` / pairs, 169 nodes) is not a hypothesis of Lemma 5.9.
 `replay` is a total function. It returns `none` if the choice list is not a
 complete legal traversal, including when a node would have to be unrestricted.
 Success therefore forces unrestricted count 0. `four_seed_replay` evaluates the
-four lists. That replay does not prove Lemma 5.9: the embedding of the seeds and
-the comparison of mask-loss with `L(v)` are separate.
+four lists. That replay alone does not prove Lemma 5.9: seed embeddings,
+mask-loss semantics and trace-witnessed ambient extension closure are proved in
+separate modules and assembled in `LemmaFiveNine`.
 -/
 module
 
 public import Mathlib.Tactic.NormNum
+
+@[expose] public section
 
 namespace InducedPaths.Certificate
 

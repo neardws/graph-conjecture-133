@@ -8,7 +8,7 @@ For a graph \(G\) on \(n\ge 2\) vertices, \(p(G)\) is the largest order of an in
 \[
 \ell(G)=\frac1n\sum_{v\in V(G)}\alpha\bigl(G[N(v)]\bigr),
 \]
-where \(S(G)\) is the sum in the numerator. Write \(P_k\) for the path on \(k\) vertices. A graph is *strong \(C_4\)-free* when it contains no 4-cycle as a subgraph. Conjecture 133 of *Written on the Wall II* (Graffiti.pc), entry 133 dated July 12, 2005, in the real-valued form called REAL-133, says that every connected graph on at least two vertices satisfies \(p(G)\ge r(G)+\ell(G)^{c_{C_4}(G)}\). That list is the primary source. A secondary record is the Formal Conjectures file at commit `5faef0c4dc3d226f8f9a9fc8f581b6221283eb6e`, the merge of pull request [#5727](https://github.com/google-deepmind/formal-conjectures/pull/5727), which removed the floor function. Formalization of any of these statements is separate from the mathematical status in the table below. Nothing in this repository is claimed to be Lean-verified. [`lean/`](lean/) on this pull request ([#19](https://github.com/neardws/induced-paths-without-4-cycles/pull/19)) is an in-progress Lean 4 and Mathlib development: **17** proofs are still `sorry`, five cited theorems are axioms, and `cd lean && lake build` typechecks the package on Lean 4.35.0 with Mathlib v4.35.0. That development is not a verification of the paper. The inventory is in [`lean/README.md`](lean/README.md).
+where \(S(G)\) is the sum in the numerator. Write \(P_k\) for the path on \(k\) vertices. A graph is *strong \(C_4\)-free* when it contains no 4-cycle as a subgraph. Conjecture 133 of *Written on the Wall II* (Graffiti.pc), entry 133 dated July 12, 2005, in the real-valued form called REAL-133, says that every connected graph on at least two vertices satisfies \(p(G)\ge r(G)+\ell(G)^{c_{C_4}(G)}\). That list is the primary source. A secondary record is the Formal Conjectures file at commit `5faef0c4dc3d226f8f9a9fc8f581b6221283eb6e`, the merge of pull request [#5727](https://github.com/google-deepmind/formal-conjectures/pull/5727), which removed the floor function. Formalization of any of these statements is separate from the mathematical status in the table below. Nothing in this repository is claimed to be Lean-verified from an empty axiom set. [`lean/`](lean/) is a Lean 4 and Mathlib development of the numbered lemmas and theorems: the numbered inventory has **0** `sorry` and **0** `admit`, five literature axioms remain in [`lean/AXIOMS.md`](lean/AXIOMS.md), and finite certificates use `native_decide`, which trusts the Lean compiler and runtime. `cd lean && lake build` typechecks the package on Lean 4.35.0 with Mathlib v4.35.0. The inventory is in [`lean/README.md`](lean/README.md).
 
 Every connected strong \(C_4\)-free graph with no induced path on seven vertices satisfies \(S\le 3n\), with equality only for the Petersen graph. Combined with the classification of the connected strong \(C_4\)-free graphs of radius 4 and induced-path order 7, this bound yields REAL-133 for every connected graph with \(\ell\le 4\), at every radius. When the graph contains at least two triangles, the argument uses the finite certificate below. The same arguments determine the maximum of \(\ell\) over connected strong \(C_4\)-free graphs with no induced path on six vertices, with a unique extremal graph for every order \(n\ge 7\); classify the connected strong \(C_4\)-free graphs of radius 4 and induced-path order 7; and determine, for every \(n\ge 10\), the maximum number of edges in a connected triangle-free strong \(C_4\)-free graph with no induced path on seven vertices, together with all extremal graphs. REAL-133 remains open for \(\ell>4\). No structural classification for radius \(r\ge 5\) is proved.
 
@@ -58,9 +58,7 @@ Continuous proving has stopped. Earlier round write-ups live in [`notes/`](notes
 
 ## Formalization status
 
-The mathematical status in the table above is unchanged. Separately, `lean/` is a Lean 4 development of those statements. It is **not** a Lean verification of the paper: **17** proofs are still `sorry`, and the same five cited theorems are axioms listed in [`lean/AXIOMS.md`](lean/AXIOMS.md). Phases 2, 3, and 4 added no axioms.
-
-Phase 2 closed the component-count sentence of Lemma 2.1, Lemma 2.2, Lemma 2.7 (from Seinsche), the geodesic `p ≥ r + 1`, Lemmas 3.1 and 3.2, and Lemma 5.8(1). Phase 3 closed Lemma 2.3, Lemma 5.8(2), the induced-path order of the Petersen graph, and the numerical claims for `θₖ` in Proposition 6.2. Phase 4 closed Lemma 2.10, Lemma 4.3, Lemma 5.3, and Lemma 5.8(4). `four_seed_replay` is `native_decide`: the four Appendix A rows close with the recorded node counts. That replay does not prove Lemma 5.9. `cd lean && lake build` typechecks the package on Lean 4.35.0 with Mathlib v4.35.0. The inventory is in [`lean/README.md`](lean/README.md).
+The mathematical status in the table above is unchanged. Separately, [`lean/`](lean/) formalizes the numbered lemmas and theorems. Phases 1–7 leave that numbered inventory at **0** `sorry` and **0** `admit`. Five literature axioms remain, listed in [`lean/AXIOMS.md`](lean/AXIOMS.md). Phases 2–7 added no handwritten axioms. Finite certificates, including the Appendix A replay, use `native_decide` and therefore trust the Lean compiler and runtime. This is **not** a verification of the paper from an empty axiom set, and it is not a claim that the proofs are kernel-checked with no axioms. `cd lean && lake build` typechecks the package on Lean 4.35.0 with Mathlib v4.35.0. The inventory is in [`lean/README.md`](lean/README.md).
 
 ## Layout
 
@@ -72,7 +70,7 @@ paper/response-english-major.md
 certificates/             archival round JSON (R1–R40 and R46–R53) with SHA-256 sidecars
 certificates/gen3/        pinned checker verify_gen3.py (authors' certificate)
 referee_checks/           anonymous JGT referee's independent re-implementation
-lean/                     Lean development (not a verification; see lean/README.md)
+lean/                     numbered lemmas and theorems; sorry/admit inventory 0; five axioms (lean/README.md)
 notes/                    historical round notes
 data/                     pointer only; the full computational supplement is not shipped
 ```
@@ -90,7 +88,7 @@ tectonic -X compile --keep-intermediates "${SP[@]}" main.tex
 The PDF digest of this preprint is:
 
 ```text
-c85eaed38d70075203cfab03988a3eb9235a281e435fd9883c5fc665b02d79d8  paper/main.pdf
+576d3831369f6de9a9daa47166a3c1851c14f03e637a437cb8bbf6706f29a657  paper/main.pdf
 ```
 
 ## How to verify the GEN3 certificate
@@ -99,7 +97,7 @@ Lemma 5.9 and Theorem 5.10 use `certificates/gen3/verify_gen3.py`. The file in t
 
 ```bash
 sha256sum -c <<'EOF'
-c85eaed38d70075203cfab03988a3eb9235a281e435fd9883c5fc665b02d79d8  paper/main.pdf
+576d3831369f6de9a9daa47166a3c1851c14f03e637a437cb8bbf6706f29a657  paper/main.pdf
 f1b6718941f9cf3e6b0917cf25ab9093810b07f6d35a11fb7cc539fb546e6fd0  certificates/gen3/verify_gen3.py
 EOF
 python3 certificates/gen3/verify_gen3.py
