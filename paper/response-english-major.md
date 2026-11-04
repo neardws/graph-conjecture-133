@@ -1,6 +1,6 @@
 # Response to the English major-revision report
 
-Draft answers to the three questions in Section 6 of the 2026 JGT referee report. Numbering is that of the article after R15. This note does not add theorems.
+Draft answers to three English major-revision questions about Section 6. Numbering is that of the article after R15. This note does not add theorems.
 
 ## Q1. A computer-free proof of the triangle case?
 
@@ -14,16 +14,15 @@ It is not derived here. Karthick and Maffray describe square-free \((P_6,C_4)\)-
 
 ## Q3. Should \(S\le f(n)\) hold for the whole class?
 
-The expected statement is recorded as an open conjecture in the Discussion. For every \(n\ge 10\), the maximum of \(S\) over connected strong-\(C_4\)-free \(P_7\)-free graphs of order \(n\) equals \(f(n)\) from Theorem 5.6, and every graph that attains it is one of the extremal graphs of that theorem, hence triangle-free. An independent enumeration, recorded in the 2026 referee report and implemented in `referee_checks/`, agrees for \(10\le n\le 20\). That computation is not a proof. The article does not claim one.
+The expected statement is recorded as an open conjecture in the Discussion. For every \(n\ge 10\), the maximum of \(S\) over connected strong-\(C_4\)-free \(P_7\)-free graphs of order \(n\) equals \(f(n)\) from Theorem 5.6, and every graph that attains it is one of the extremal graphs of that theorem, hence triangle-free. The article does not claim a proof of the conjecture.
 
 ## Notes on two minor points
 
 **The core \(K_1\).** It is the whole graph only when \(n=1\). It is also the core of every \(P_7\)-free tree, of any order: the strip deletion removes leaves until one vertex remains. The article states both facts. The sentence “\(K_1\) occurs only when \(n=1\)” is not the whole story.
 
-**Equality on at most 13 vertices.** The article records equality for \(K_2\), \(K_3\), \(C_5\), the Petersen graph and \(C_6\). The 2026 referee report records that these five are the only equality cases among connected strong-\(C_4\)-free graphs on at most 13 vertices. The article cites that enumeration and does not prove it. The program `real133.c` reports minimum slack. It does not print a classified list of every equality graph.
+**Equality on at most 13 vertices.** The article records equality for \(K_2\), \(K_3\), \(C_5\), the Petersen graph and \(C_6\). It does not claim these are the only equality cases on at most 13 vertices, and it does not characterise equality cases in general. The program `real133.c` reports minimum slack. It does not print a classified list of every equality graph.
 
 ## Left open on purpose
 
-- A Zenodo DOI for `referee_checks/` is pending. None is invented here.
 - The Discussion conjecture is not proved.
 - Formalization, including any Lean development, is a separate project. It is not claimed as a verification of these proofs. Re-running `certificates/gen3/verify_gen3.py` replays the authors’ certificate. The second implementation is `referee_checks/lemma57b.c`.

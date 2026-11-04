@@ -5,6 +5,7 @@ Every axiom in the package is declared in this file. See `lean/AXIOMS.md`.
 module
 
 public import InducedPaths.Graphs
+public import Mathlib.Data.Finite.Defs
 
 open Classical
 open scoped SimpleGraph
@@ -42,12 +43,13 @@ axiom erdos_saks_sos {V : Type*} [Fintype V] [DecidableEq V]
     2 * radiusNat G ≤ inducedPathOrder G + 1
 
 /-- Theorem 2.5. Camby–Schaudt, the implication (i)⇒(ii) of their Theorem 5 applied at `H = G`.
-A connected `Pₖ`-free graph, `k ≥ 4`, has a connected dominating set `X` such that `G[X]` is
-`P_{k-2}`-free or `G[X] ≅ Cₖ`.
+A connected finite `Pₖ`-free graph, `k ≥ 4`, has a connected dominating set `X` such that `G[X]`
+is `P_{k-2}`-free or `G[X] ≅ Cₖ`. The finiteness hypothesis matches the paper's finite-graph
+setting; the statement fails for some infinite graphs.
 
 Source: E. Camby and O. Schaudt, *A new characterization of Pk-free graphs*,
 Algorithmica 75 (2016), Theorem 5. -/
-axiom camby_schaudt {V : Type*} (G : SimpleGraph V) (k : ℕ)
+axiom camby_schaudt {V : Type*} [Finite V] (G : SimpleGraph V) (k : ℕ)
     (hk : 4 ≤ k) (hconn : G.Connected) (hp : IsPkFree G k) :
     ∃ X : Set V, (G.induce X).Connected ∧
       (∀ v, ∃ x ∈ X, v = x ∨ G.Adj v x) ∧
@@ -66,8 +68,8 @@ axiom seinsche {V : Type*} [Fintype V] (G : SimpleGraph V)
 The cycle is induced. `C₄` and `C₆` in the hypothesis are induced cycles, as in their statement.
 Indices are read in `Fin 5`.
 
-Source: T. Karthick and F. Maffray, *Coloring (gem, co-gem)-free unit disk graphs*,
-the emptiness list is their Theorem 3.2(d); the preprint cites that part only. -/
+Source: T. Karthick and F. Maffray, *Square-free graphs with no six-vertex induced path*,
+SIAM J. Discrete Math. 33 (2019); the emptiness list is their Theorem 3.2(d). -/
 axiom karthick_maffray_C5 {V : Type*} (G : SimpleGraph V)
     (hp : IsPkFree G 6) (hc4 : ¬ cycleGraph 4 ⊴ G) (hc6 : ¬ cycleGraph 6 ⊴ G)
     (c : cycleGraph 5 ↪g G) :
