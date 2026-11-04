@@ -45,6 +45,9 @@ def petersenGraph : SimpleGraph PetersenVertex where
     have : s.1.card = 2 := s.2
     omega⟩
 
+instance : DecidableRel petersenGraph.Adj := fun s t =>
+  decidable_of_iff (Disjoint s.1 t.1) Iff.rfl
+
 /-- The pair `{0,1}`, used as the deleted vertex of `P - v` and as a leaf hub. -/
 def petersenHub : PetersenVertex :=
   ⟨{0, 1}, by decide⟩

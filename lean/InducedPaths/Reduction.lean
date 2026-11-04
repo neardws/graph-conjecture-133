@@ -5,6 +5,7 @@ Section 6, Remark 5.12, and the arithmetic consequences that do not need a new i
 module
 
 public import InducedPaths.Statements
+public import InducedPaths.Theta
 public import Mathlib.Analysis.SpecificLimits.Basic
 public import Mathlib.Tactic.FieldSimp
 public import Mathlib.Tactic.Ring
@@ -99,9 +100,8 @@ theorem proposition_6_2 (k : ℕ) (hk : 3 ≤ k) :
       inducedPathOrder (thetaGraph k) = 6 ∧
       neighbourhoodIndependenceSum (thetaGraph k) = 6 * k ∧
       neighbourhoodIndependenceSum (thetaGraph k) =
-        3 * Fintype.card (ThetaV k) - 6 := by
-  -- missing: the radius of `θₖ` is 3 and its induced-path order is 6
-  sorry
+        3 * Fintype.card (ThetaV k) - 6 :=
+  theta_proposition k hk
 
 /-- The closed form `6k / (2k + 2) = 3 - 3 / (k + 1)` used in Proposition 6.2. -/
 theorem theta_closed_form (k : ℕ) (hk : 0 < k) :
@@ -180,8 +180,8 @@ theorem corollary_6_1 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : 
       have : ((radiusNat G - 1 : ℕ) : ℚ) = (K : ℚ) := by exact_mod_cast this
       linarith
 
-/-- Corollary 6.3, the strict inequality. The supremum statement is the constructions
-in `proposition_6_2` and `f2Graph`, whose induced-path orders are not yet computed. -/
+/-- Corollary 6.3, the strict inequality. The bound uses Theorem 5.10, which is still
+`sorry`. The Petersen order in the equality case is `petersen_inducedPathOrder`. -/
 theorem corollary_6_3 [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hconn : G.Connected)
     (hC : StrongC4Free G) (hp : inducedPathOrder G = 6) :
     neighbourhoodIndependenceSum G ≤ 3 * Fintype.card V - 1 ∧ ell G < 3 := by

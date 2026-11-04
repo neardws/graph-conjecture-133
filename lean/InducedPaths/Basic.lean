@@ -8,6 +8,9 @@ public import InducedPaths.Axioms
 public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Finite
 public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Subgraph
+public import Mathlib.Combinatorics.SimpleGraph.Sum
+public import Mathlib.Basic.Finite.Sum
+public import Mathlib.Logic.Equiv.Set
 public import Mathlib.Combinatorics.SimpleGraph.DeleteEdges
 public import Mathlib.Combinatorics.SimpleGraph.Paths
 public import Mathlib.Combinatorics.SimpleGraph.Walk.Chord
@@ -1117,6 +1120,150 @@ theorem lemma_2_8 (hconn : G.Connected) (hp : IsPkFree G 6) :
       (∀ v, ∃ x ∈ X, v = x ∨ G.Adj v x) ∧
       (IsPkFree (G.induce X) 4 ∨ Nonempty ((G.induce X) ≃g cycleGraph 6)) :=
   camby_schaudt G 6 (by omega) hconn hp
+
+/-! ### Independence number under isomorphisms and disjoint unions -/
+
+lemma indepNum_iso {W : Type*} {H : SimpleGraph W} (e : G ≃g H) : G.indepNum = H.indepNum := by
+  have hset : {n | ∃ s : Finset V, G.IsNIndepSet n s} =
+      {n | ∃ t : Finset W, H.IsNIndepSet n t} := by
+    ext n
+    constructor
+    · rintro ⟨s, hs⟩
+      refine ⟨s.map e.toEquiv.toEmbedding, ?_, ?_⟩
+      · rw [isIndepSet_iff, coe_map]
+        intro x hx y hy hxy
+        rw [Set.mem_image] at hx hy
+        obtain ⟨x, hx, rfl⟩ := hx
+        obtain ⟨y, hy, rfl⟩ := hy
+        intro hadj
+        exact hs.isIndepSet hx hy (fun h => hxy (congrArg e h)) ((e.map_rel_iff).1 hadj)
+      · rw [card_map, hs.card_eq]
+    · rintro ⟨t, ht⟩
+      refine ⟨t.map e.symm.toEquiv.toEmbedding, ?_, ?_⟩
+      · rw [isIndepSet_iff, coe_map]
+        intro x hx y hy hxy
+        rw [Set.mem_image] at hx hy
+        obtain ⟨x, hx, rfl⟩ := hx
+        obtain ⟨y, hy, rfl⟩ := hy
+        intro hadj
+        exact ht.isIndepSet hx hy (fun h => hxy (congrArg e.symm h))
+          ((e.symm.map_rel_iff).1 hadj)
+      · rw [card_map, ht.card_eq]
+  simp [indepNum, hset]
+
+lemma alphaIn_congr {s t : Set V} (h : s = t) : alphaIn G s = alphaIn G t := by
+  subst h
+  rfl
+
+/-- Neighbours of `w` inside an induced subgraph are `N(w) ∩ s`. -/
+lemma lambda_eq_alphaIn_neighbor_inter {s : Set V} {w : V} (hw : w ∈ s) :
+    lambda (G.induce s) ⟨w, hw⟩ = alphaIn G (G.neighborSet w ∩ s) := by
+  let e : (G.induce s).neighborSet ⟨w, hw⟩ ≃ {x : V // x ∈ G.neighborSet w ∩ s} :=
+    { toFun := fun x => ⟨x.1.1, by
+        refine ⟨?_, x.1.2⟩
+        simpa [neighborSet_induce, mem_neighborSet] using x.2⟩
+      invFun := fun x => ⟨⟨x.1, x.2.2⟩, by
+        simpa [neighborSet_induce, mem_neighborSet] using x.2.1⟩
+      left_inv := fun _ => Subtype.ext (Subtype.ext rfl)
+      right_inv := fun _ => Subtype.ext rfl }
+  let φ : ((G.induce s).induce ((G.induce s).neighborSet ⟨w, hw⟩)) ≃g
+      G.induce (G.neighborSet w ∩ s) :=
+    { toEquiv := e
+      map_rel_iff' := by
+        intro a b
+        simp [e] }
+  simpa [lambda, alphaIn] using indepNum_iso φ
+
+lemma lambda_induce_eq {s : Set V} {w : V} (hw : w ∈ s) (hN : G.neighborSet w ⊆ s) :
+    lambda (G.induce s) ⟨w, hw⟩ = lambda G w := by
+  rw [lambda_eq_alphaIn_neighbor_inter hw, lambda]
+  exact alphaIn_congr (Set.inter_eq_left.mpr hN)
+
+lemma indepNum_sum {W : Type*} [Finite V] [Finite W] (G : SimpleGraph V) (H : SimpleGraph W) :
+    (G ⊕g H).indepNum = G.indepNum + H.indepNum := by
+  apply le_antisymm
+  · obtain ⟨s, hs⟩ := exists_isNIndepSet_indepNum (G := G ⊕g H)
+    have hL : G.IsIndepSet s.toLeft := by
+      rw [isIndepSet_iff]
+      intro a ha b hb hne hadj
+      have ha' : Sum.inl a ∈ (s : Set (V ⊕ W)) := by simpa [mem_toLeft] using ha
+      have hb' : Sum.inl b ∈ (s : Set (V ⊕ W)) := by simpa [mem_toLeft] using hb
+      exact hs.isIndepSet ha' hb' (by simpa using hne) (by simpa [sum_adj] using hadj)
+    have hR : H.IsIndepSet s.toRight := by
+      rw [isIndepSet_iff]
+      intro a ha b hb hne hadj
+      have ha' : Sum.inr a ∈ (s : Set (V ⊕ W)) := by simpa [mem_toRight] using ha
+      have hb' : Sum.inr b ∈ (s : Set (V ⊕ W)) := by simpa [mem_toRight] using hb
+      exact hs.isIndepSet ha' hb' (by simpa using hne) (by simpa [sum_adj] using hadj)
+    have hcard := card_toLeft_add_card_toRight (u := s)
+    have hLs := hL.card_le_indepNum
+    have hRs := hR.card_le_indepNum
+    rw [← hs.card_eq, ← hcard]
+    exact add_le_add hLs hRs
+  · obtain ⟨s, hs⟩ := exists_isNIndepSet_indepNum (G := G)
+    obtain ⟨t, ht⟩ := exists_isNIndepSet_indepNum (G := H)
+    let u := s.disjSum t
+    have hu : (G ⊕g H).IsIndepSet u := by
+      rw [isIndepSet_iff]
+      intro a ha b hb hne hadj
+      cases a with
+      | inl a =>
+        cases b with
+        | inl b =>
+          have ha' : a ∈ s := by simpa [u, inl_mem_disjSum] using ha
+          have hb' : b ∈ s := by simpa [u, inl_mem_disjSum] using hb
+          exact hs.isIndepSet ha' hb' (by simpa using hne) (by simpa [sum_adj] using hadj)
+        | inr _ =>
+          simp [sum_adj] at hadj
+      | inr a =>
+        cases b with
+        | inl _ =>
+          simp [sum_adj] at hadj
+        | inr b =>
+          have ha' : a ∈ t := by simpa [u, inr_mem_disjSum] using ha
+          have hb' : b ∈ t := by simpa [u, inr_mem_disjSum] using hb
+          exact ht.isIndepSet ha' hb' (by simpa using hne) (by simpa [sum_adj] using hadj)
+    have hcard : u.card = G.indepNum + H.indepNum := by
+      simp [u, card_disjSum, hs.card_eq, ht.card_eq]
+    have hle : u.card ≤ (G ⊕g H).indepNum := hu.card_le_indepNum
+    rwa [hcard] at hle
+
+/-- No edges between `s` and `t` make `α` additive. -/
+lemma alphaIn_union_no_cross {s t : Set V} (hdisj : Disjoint s t)
+    (hno : ∀ ⦃a b : V⦄, a ∈ s → b ∈ t → ¬ G.Adj a b) [Finite s] [Finite t] :
+    alphaIn G (s ∪ t) = alphaIn G s + alphaIn G t := by
+  haveI : DecidablePred (· ∈ s) := fun _ => Classical.propDecidable _
+  let e : {x // x ∈ s ∪ t} ≃ ({x // x ∈ s} ⊕ {x // x ∈ t}) := Equiv.Set.union hdisj
+  have hadj : ∀ x y,
+      (G.induce s ⊕g G.induce t).Adj (e x) (e y) ↔ (G.induce (s ∪ t)).Adj x y := by
+    intro x y
+    by_cases hx : (x : V) ∈ s <;> by_cases hy : (y : V) ∈ s
+    · rw [Equiv.Set.union_apply_left hdisj hx, Equiv.Set.union_apply_left hdisj hy]
+      simp [sum_adj]
+    · have hyt : (y : V) ∈ t :=
+        ((Set.mem_union (y : V) s t).mp y.2).resolve_left hy
+      rw [Equiv.Set.union_apply_left hdisj hx, Equiv.Set.union_apply_right hdisj hyt, sum_adj]
+      change False ↔ (G.induce (s ∪ t)).Adj x y
+      rw [induce_adj]
+      exact iff_of_false (fun h => h) (hno hx hyt)
+    · have hxt : (x : V) ∈ t :=
+        ((Set.mem_union (x : V) s t).mp x.2).resolve_left hx
+      rw [Equiv.Set.union_apply_right hdisj hxt, Equiv.Set.union_apply_left hdisj hy, sum_adj]
+      change False ↔ (G.induce (s ∪ t)).Adj x y
+      rw [induce_adj]
+      exact iff_of_false (fun h => h) (fun h => hno hy hxt h.symm)
+    · have hxt : (x : V) ∈ t :=
+        ((Set.mem_union (x : V) s t).mp x.2).resolve_left hx
+      have hyt : (y : V) ∈ t :=
+        ((Set.mem_union (y : V) s t).mp y.2).resolve_left hy
+      rw [Equiv.Set.union_apply_right hdisj hxt, Equiv.Set.union_apply_right hdisj hyt]
+      simp [sum_adj]
+  let φ : G.induce (s ∪ t) ≃g G.induce s ⊕g G.induce t :=
+    { toEquiv := e
+      map_rel_iff' := by
+        intro a b
+        exact hadj a b }
+  rw [alphaIn, alphaIn, alphaIn, indepNum_iso φ, indepNum_sum]
 
 /-- Remark 4.6. The inequality is arithmetic once `r = 4`, `p ≥ 8` and `ℓ ≤ 4`. -/
 theorem remark_4_6 [Fintype V] [DecidableEq V]

@@ -1,6 +1,6 @@
 # Lean formalization
 
-This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It is **not** a verification of the paper. Twenty-five proofs are still `sorry`. Five external citations are axioms; see [`AXIOMS.md`](AXIOMS.md). Phase 2 added no axioms. `GenK` and `Rad` stay open definitions.
+This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It is **not** a verification of the paper. Twenty-one proofs are still `sorry`. Five external citations are axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2 and 3 added no axioms. `GenK` and `Rad` stay open definitions.
 
 ## Build
 
@@ -55,6 +55,7 @@ Several of these still depend on a `sorry` or on an axiom; that is noted in the 
 | Lemma 2.1 | `lemma_2_1` | proved, including the component count |
 | Lemma 2.2, `2λ - t = 2d - 3t` | `lemma_2_2_lambda` | proved |
 | Lemma 2.2, `L(v) = 2d(v) - 3t(v)` | `lemma_2_2` | proved |
+| Lemma 2.3, cut formula | `lemma_2_3` | proved; no `C₄`-free hypothesis |
 | Lemma 2.7 | `lemma_2_7` | proved from the axiom `seinsche` |
 | Lemma 2.8 | `lemma_2_8` | proved from the axiom `camby_schaudt` |
 | Geodesic `p ≥ r + 1` | `inducedPathOrder_ge_radius_succ` | proved |
@@ -63,10 +64,13 @@ Several of these still depend on a `sorry` or on an axiom; that is noted in the 
 | Remark 4.6 | `remark_4_6` | proved (arithmetic) |
 | Corollary 4.4, `S ≤ 2n` and `ℓ ≤ 2` | `corollary_4_4` | proved from `corollary_4_4_mass`, which is `sorry` |
 | Lemma 5.8(1) | `lemma_5_8_share` | proved; the statement assumes `a ≠ d` |
+| Lemma 5.8(2) | `lemma_5_8_disjoint` | proved; at most one cross edge between disjoint triangles |
+| Petersen induced-path order | `petersen_inducedPathOrder` | proved; explicit induced `P₅`, and no induced `P₆` by a `Bool` search |
 | Remark 5.12 | `remark_5_12` | the case `c_{C₄} = 0` uses the proved geodesic; the case `c_{C₄} = 1` uses Theorems 5.11 and 5.10, Corollary 4.4, and `erdos_saks_sos` |
 | Proposition 6.2, closed form and limit | `theta_closed_form`, `theta_gap_tendsto` | proved |
+| Proposition 6.2, the graph `θₖ` | `proposition_6_2` | proved: strong `C₄`-free, order `2k+2`, radius 3, induced-path order 6, `S = 6k = 3n-6` |
 | Corollary 6.1 | `corollary_6_1` | proved from Theorem 5.11 (`sorry`) and `erdos_saks_sos` |
-| Corollary 6.3, `S ≤ 3n - 1` and `ℓ < 3` | `corollary_6_3` | proved from Theorem 5.10 and `petersen_inducedPathOrder`, both `sorry` |
+| Corollary 6.3, `S ≤ 3n - 1` and `ℓ < 3` | `corollary_6_3` | proved from Theorem 5.10 (`sorry`) and `petersen_inducedPathOrder` |
 | Appendix A choice-list lengths | `choicesDist0_length` … `choicesDist3_length` | proved by `rfl` (`36`, `31`, `46`, `5`) |
 | Appendix A replay | `four_seed_replay` | proved by `native_decide` |
 
@@ -74,14 +78,15 @@ Several of these still depend on a `sorry` or on an axiom; that is noted in the 
 
 ## Still `sorry`
 
-There are **25** declarations whose proof is `sorry`. Each one has a one-line comment naming the missing step.
+There are **21** declarations whose proof is `sorry`. Each one has a one-line comment naming the missing step.
 
-- `lemma_2_3`, `lemma_2_10`
+- `lemma_2_10`
 - `lemma_3_3`, `lemma_3_4`, `lemma_3_5`, `theorem_3_6`
 - `lemma_4_1`, `theorem_4_2`, `lemma_4_3`, `corollary_4_4_mass`, `corollary_4_5`
 - `lemma_5_2`, `lemma_5_3`, `lemma_5_4`, `theorem_5_5`, `theorem_5_6_noniso`, `theorem_5_6`, `theorem_5_7`
-- `lemma_5_8_disjoint`, `lemma_5_8_path`, `lemma_5_9`, `petersen_inducedPathOrder`, `theorem_5_10`, `theorem_5_11`
-- `proposition_6_2`
+- `lemma_5_8_path`, `lemma_5_9`, `theorem_5_10`, `theorem_5_11`
+
+`lemma_5_8_path` is not Lemma 5.8(4). Its hypotheses omit both triangles and a geodesic between their vertex sets, and the stated bound is false for `K₂`. The missing step is those two triangles and a shortest path. Lemma 5.9 is still open: a closed replay of the four seeds does not embed them or compare mask-loss with `L(v)`.
 
 The five axioms in [`AXIOMS.md`](AXIOMS.md) are not included in that count.
 
