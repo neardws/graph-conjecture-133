@@ -1309,14 +1309,14 @@ Joining path of length three & $8$ & $5$ & $10$ & $3$ & $0$\\
 \end{center}
 
 \section*{Data availability}
-The source of this article is \url{https://github.com/neardws/induced-paths-without-4-cycles}. The authors' certificate for Lemma~\ref{lem:twotri} is \texttt{certificates/gen3/verify\_gen3.py}. A re-implementation provided with a JGT referee report (2026), and reproduced for archival cross-verification, is the directory \texttt{referee\_checks/}. A persistent DOI for that directory is pending. The map from claims of this article to scripts is in \texttt{referee\_checks/README.md}.
+The source of this article is \url{https://github.com/neardws/induced-paths-without-4-cycles}. The authors' certificate for Lemma~\ref{lem:twotri} is \texttt{certificates/gen3/verify\_gen3.py}. A re-implementation provided with a JGT referee report (2026), and reproduced for archival cross-verification, is the directory \texttt{referee\_checks/}. A persistent DOI for that directory is pending. The map from claims of this article to scripts is in \texttt{referee\_checks/README.md}. The directory \texttt{lean/} formalizes the numbered lemmas and theorems of this article. Its numbered inventory has no remaining \texttt{sorry} or \texttt{admit}. Five literature axioms remain, recorded in \texttt{lean/AXIOMS.md}. That development is not a verification of this article from an empty axiom set.
 
 \section*{Formalization note}
-An in-progress Lean~4 and Mathlib scaffold of statements and partial proofs is the directory \texttt{lean/} on the branch \texttt{cursor/lean-phase1-scaffold-748a} (pull request~19). The files are at
+The directory \texttt{lean/} is a Lean~4 and Mathlib formalization of the numbered lemmas and theorems of this article. The files are at
 \begin{quote}
-\url{https://github.com/neardws/induced-paths-without-4-cycles/tree/cursor/lean-phase1-scaffold-748a/lean}.
+\url{https://github.com/neardws/induced-paths-without-4-cycles/tree/main/lean}.
 \end{quote}
-That scaffold contains \texttt{sorry} placeholders and five external axioms, recorded in \texttt{lean/AXIOMS.md}. It is not a verification of the proofs in this article.
+The numbered inventory has no remaining \texttt{sorry} or \texttt{admit}. Five literature axioms remain, recorded in \texttt{lean/AXIOMS.md}. Finite certificates in that development are closed by \texttt{native\_decide}, which trusts the Lean compiler and its runtime. This is not a verification of the article from an empty axiom set.
 
 \section*{Acknowledgments}
 Xingchen Wang established the early foundations of this work. Xincao Xu led the later research direction and the organization of the results. During the 2026 revision the authors used GPT-6 Astra and GPT-6 Pro to assist with calculations and with drafting arguments, and Grok Bot to assist with drafting and revising the manuscript. These tools were not a verification of the proofs. The authors reviewed and revised all of the resulting text. They remain fully responsible for the accuracy and integrity of the work.

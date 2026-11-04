@@ -1,6 +1,6 @@
 # Lean formalization
 
-This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It is **not** a fully Lean-verified proof of the paper. Phase 7 eliminates the remaining eight direct `sorry` proofs (17 before Phase 5, 13 before Phase 6, 8 before Phase 7). Five external citations remain axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2–7 added no hand-declared axioms. Finite checks use Lean's `native_decide` compiler/runtime trust mechanism, including trace witnesses, graph tables, and Petersen path/symmetry certificates. `GenK` and `Rad` remain definitions of propositions, not blanket axioms or assertions; the `GenK 3` clause is proved from the completed Section 5 bound.
+This directory is a Lean 4 + Mathlib development of the sealed preprint at commit `c6d3eb76a0201c3df429f174e2970b588ee702b7`. It formalizes the numbered lemmas and theorems. The numbered inventory is **0** `sorry` and **0** `admit` (Phases 1–7). It is **not** a fully Lean-verified proof of the paper, and it is not a kernel verification from an empty axiom set. Five external citations remain axioms; see [`AXIOMS.md`](AXIOMS.md). Phases 2–7 added no hand-declared axioms. Finite checks use Lean's `native_decide` compiler/runtime trust mechanism, including trace witnesses, graph tables, and Petersen path/symmetry certificates. `GenK` and `Rad` remain definitions of propositions, not blanket axioms or assertions; the `GenK 3` clause is proved from the completed Section 5 bound.
 
 ## Build
 
@@ -41,9 +41,9 @@ The package is `inducedPaths`. Modules live under `InducedPaths/`.
 
 Concrete graphs (`Petersen`, `Γₕ`, `H₈`, the Chen–Xu list, the radius-4 extension, `θₖ`) are in `InducedPaths/Graphs.lean`.
 
-## Proved without `sorry` in the declaration
+## Numbered inventory
 
-Several depend on explicit citation axioms or finite native checks; none retains a proof placeholder.
+**0** `sorry` and **0** `admit`. Several declarations depend on the five citation axioms or on finite `native_decide` checks. None retains a proof placeholder. This count is not a claim that the paper is verified from an empty axiom set.
 
 | Paper | Lean | Status |
 |-------|------|--------|
