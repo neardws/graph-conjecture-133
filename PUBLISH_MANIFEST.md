@@ -1,9 +1,11 @@
 # PUBLISH_MANIFEST
 
+> **Historical.** This manifest records the repository on 1 November 2026, under its earlier name `graph-conjecture-133`. It does not describe the tagged version that the article cites; see `README.md`.
+
 Public snapshot of `https://github.com/neardws/graph-conjecture-133` as of 2026-11-01 (Asia/Shanghai).
 Continuous proving is stopped. Last sealed round is R53. There is no R54 certificate.
 This manifest does not claim that REAL-133 or the six universal production gates are proved.
-The article `paper/main.tex` was revised against the external referee report of 1 November 2026. Certificate hashes below are not proofs in that article.
+The article `paper/main.tex` was revised against a report of 1 November 2026 written by Claude (Anthropic) at the authors' request, in the same class as the round certificates and the Skywalker feedback packages. That report is not a journal referee report. Certificate hashes below are not proofs in that article.
 
 Total payload files (excluding this manifest): 155
 
