@@ -89,7 +89,7 @@ tectonic -X compile --keep-intermediates "${SP[@]}" main.tex
 The PDF digest of this preprint (`paper/main.pdf`, 25 pages) is:
 
 ```text
-5639f56935ccada9914eead8c0cb811201127c19428b1a3e0a2943dbacb366e2  paper/main.pdf
+95ab0418b8e6f8ac1bb56f1e57f352c22307f8aea8baa3589faa60432d4ab91c  paper/main.pdf
 ```
 
 The article cites the annotated tag **v1.0**. That tag is on the commit that contains this README, and `git rev-parse 'v1.0^{commit}'` prints the commit.
@@ -100,7 +100,7 @@ Lemma 5.9 and Theorem 5.10 use `certificates/gen3/verify_gen3.py`. The file in t
 
 ```bash
 sha256sum -c <<'EOF'
-5639f56935ccada9914eead8c0cb811201127c19428b1a3e0a2943dbacb366e2  paper/main.pdf
+95ab0418b8e6f8ac1bb56f1e57f352c22307f8aea8baa3589faa60432d4ab91c  paper/main.pdf
 f1b6718941f9cf3e6b0917cf25ab9093810b07f6d35a11fb7cc539fb546e6fd0  certificates/gen3/verify_gen3.py
 EOF
 python3 certificates/gen3/verify_gen3.py
